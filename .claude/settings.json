@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(git config user.name)",
+      "PowerShell(git config user.email)",
+      "PowerShell($name = git config user.name 2>$null; $email = git config user.email 2>$null; \"name=[$name]\"; \"email=[$email]\")",
+      "PowerShell($name = git config --global user.name 2>$null; $email = git config --global user.email 2>$null; \"global-name=[$name]\"; \"global-email=[$email]\")",
+      "PowerShell(git init)",
+      "PowerShell(git branch -M main)",
+      "PowerShell(git config user.name \"Renato Silva de Assis\")",
+      "PowerShell(git config user.email \"renato086@gmail.com\")",
+      "PowerShell(git add .)"
+    ]
+  }
+}
