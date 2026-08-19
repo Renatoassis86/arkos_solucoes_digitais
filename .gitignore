@@ -3,6 +3,13 @@
 # ==========================================================
 
 # ----------------------------------------------------------
+# Third-party reference material (copyrighted, not ARKOS IP)
+# ----------------------------------------------------------
+# Standards/reference documents kept locally for consultation only —
+# not redistributed via the repo. Cite them in docs, don't version them.
+6 - IEEE_2024_SWEBOK_4.pdf
+
+# ----------------------------------------------------------
 # Secrets & environment
 # ----------------------------------------------------------
 .env
