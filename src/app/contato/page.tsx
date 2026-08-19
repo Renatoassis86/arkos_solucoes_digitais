@@ -44,20 +44,20 @@ export default function ContatoPage() {
   };
 
   return (
-    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", overflowX: "hidden" }}>
       <Navbar />
 
-      <main style={{ flex: 1, maxWidth: "1200px", margin: "0 auto", padding: "64px 24px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: "64px", alignItems: "flex-start" }}>
+      <main style={{ flex: 1, maxWidth: "1200px", margin: "0 auto", padding: "48px 20px", width: "100%" }}>
+        <div className="contato-container-grid">
           {/* Coluna de Contexto */}
           <div>
-            <span style={{ fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--sinal)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+            <span style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--sinal)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
               Fale Conosco e Atendimento
             </span>
-            <h1 style={{ fontFamily: "var(--font-display)", fontSize: "40px", color: "var(--text-primary)", marginTop: "12px", letterSpacing: "-0.02em" }}>
+            <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(26px, 4.5vw, 38px)", color: "var(--text-primary)", marginTop: "10px", letterSpacing: "-0.02em", lineHeight: 1.2 }}>
               Vamos entender o seu desafio digital.
             </h1>
-            <p style={{ fontSize: "15px", color: "var(--text-secondary)", lineHeight: 1.6, marginTop: "16px", marginBottom: "32px" }}>
+            <p style={{ fontSize: "15px", color: "var(--text-secondary)", lineHeight: 1.6, marginTop: "14px", marginBottom: "28px" }}>
               Preencha o formulário com os detalhes do seu projeto. Nossa equipe analisará as informações e retornará rapidamente com a melhor orientação.
             </p>
 
@@ -65,22 +65,25 @@ export default function ContatoPage() {
               background: "var(--grafite)",
               border: "1px solid var(--border)",
               borderRadius: "8px",
-              padding: "24px",
+              padding: "20px",
               display: "flex",
               flexDirection: "column",
-              gap: "16px"
+              gap: "14px"
             }}>
-              <div style={{ fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--text-primary)", textTransform: "uppercase" }}>
+              <div style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase" }}>
                 Garantias do Atendimento:
               </div>
-              <div style={{ fontSize: "13px", color: "var(--text-secondary)", display: "flex", alignItems: "center", gap: "8px" }}>
-                <span style={{ color: "var(--sinal)" }}>✓</span> Retorno rápido e direto no seu WhatsApp ou e-mail
+              <div style={{ fontSize: "13px", color: "var(--text-secondary)", display: "flex", alignItems: "flex-start", gap: "8px" }}>
+                <span style={{ color: "var(--sinal)", flexShrink: 0 }}>✓</span>
+                <span>Retorno rápido e direto no seu WhatsApp ou e-mail</span>
               </div>
-              <div style={{ fontSize: "13px", color: "var(--text-secondary)", display: "flex", alignItems: "center", gap: "8px" }}>
-                <span style={{ color: "var(--sinal)" }}>✓</span> Proposta clara com escopo, valores e prazos
+              <div style={{ fontSize: "13px", color: "var(--text-secondary)", display: "flex", alignItems: "flex-start", gap: "8px" }}>
+                <span style={{ color: "var(--sinal)", flexShrink: 0 }}>✓</span>
+                <span>Proposta clara com escopo, valores e prazos</span>
               </div>
-              <div style={{ fontSize: "13px", color: "var(--text-secondary)", display: "flex", alignItems: "center", gap: "8px" }}>
-                <span style={{ color: "var(--sinal)" }}>✓</span> Atendimento personalizado para pequenas e grandes empresas
+              <div style={{ fontSize: "13px", color: "var(--text-secondary)", display: "flex", alignItems: "flex-start", gap: "8px" }}>
+                <span style={{ color: "var(--sinal)", flexShrink: 0 }}>✓</span>
+                <span>Atendimento personalizado para pequenas e grandes empresas</span>
               </div>
             </div>
           </div>
@@ -90,10 +93,10 @@ export default function ContatoPage() {
             background: "var(--grafite)",
             border: "1px solid var(--border)",
             borderRadius: "8px",
-            padding: "40px"
+            padding: "clamp(20px, 4vw, 36px)"
           }}>
             {submitted ? (
-              <div style={{ textAlign: "center", padding: "48px 16px" }}>
+              <div style={{ textAlign: "center", padding: "32px 12px" }}>
                 <div style={{
                   width: "48px",
                   height: "48px",
@@ -105,158 +108,104 @@ export default function ContatoPage() {
                   justifyContent: "center",
                   fontSize: "24px",
                   fontWeight: "bold",
-                  margin: "0 auto 20px"
+                  margin: "0 auto 16px"
                 }}>
                   ✓
                 </div>
-                <h2 style={{ fontFamily: "var(--font-display)", fontSize: "28px", color: "var(--text-primary)", marginBottom: "12px" }}>
+                <h2 style={{ fontFamily: "var(--font-display)", fontSize: "24px", color: "var(--text-primary)", marginBottom: "10px" }}>
                   Mensagem Recebida com Sucesso!
                 </h2>
-                <p style={{ color: "var(--text-secondary)", fontSize: "15px", lineHeight: 1.6, maxWidth: "420px", margin: "0 auto" }}>
+                <p style={{ color: "var(--text-secondary)", fontSize: "14px", lineHeight: 1.6, maxWidth: "420px", margin: "0 auto" }}>
                   Obrigado, <strong>{formData.nome}</strong>. Nossa equipe entrará em contato pelo e-mail <strong>{formData.email}</strong> ou WhatsApp.
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+              <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                 <div>
-                  <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "8px" }}>
-                    Seu Nome *
+                  <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
+                    Seu Nome Completo *
                   </label>
                   <input
                     type="text"
                     required
                     value={formData.nome}
                     onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
-                    placeholder="Nome completo"
-                    style={{
-                      width: "100%",
-                      padding: "12px 16px",
-                      background: "var(--obsidiana)",
-                      border: "1px solid var(--border)",
-                      borderRadius: "4px",
-                      color: "var(--text-primary)",
-                      fontSize: "14px",
-                      outline: "none"
-                    }}
+                    placeholder="Ex: Amanda Ferreira"
+                    style={{ width: "100%", padding: "12px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                   />
                 </div>
 
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+                <div className="contato-input-row">
                   <div>
-                    <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "8px" }}>
+                    <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
                       Nome da Empresa
                     </label>
                     <input
                       type="text"
                       value={formData.empresa}
                       onChange={(e) => setFormData({ ...formData, empresa: e.target.value })}
-                      placeholder="Empresa ou Marca"
-                      style={{
-                        width: "100%",
-                        padding: "12px 16px",
-                        background: "var(--obsidiana)",
-                        border: "1px solid var(--border)",
-                        borderRadius: "4px",
-                        color: "var(--text-primary)",
-                        fontSize: "14px",
-                        outline: "none"
-                      }}
+                      placeholder="Ex: Inovação Consultoria"
+                      style={{ width: "100%", padding: "12px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                     />
                   </div>
                   <div>
-                    <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "8px" }}>
-                      WhatsApp com DDD *
+                    <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
+                      Telefone ou WhatsApp *
                     </label>
                     <input
-                      type="text"
+                      type="tel"
                       required
                       value={formData.telefone}
                       onChange={(e) => setFormData({ ...formData, telefone: e.target.value })}
-                      placeholder="(31) 99999-9999"
-                      style={{
-                        width: "100%",
-                        padding: "12px 16px",
-                        background: "var(--obsidiana)",
-                        border: "1px solid var(--border)",
-                        borderRadius: "4px",
-                        color: "var(--text-primary)",
-                        fontSize: "14px",
-                        outline: "none"
-                      }}
+                      placeholder="(83) 98888-7777"
+                      style={{ width: "100%", padding: "12px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "8px" }}>
-                    E-mail de Contato *
+                  <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
+                    E-mail Profissional *
                   </label>
                   <input
                     type="email"
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="seuemail@empresa.com"
-                    style={{
-                      width: "100%",
-                      padding: "12px 16px",
-                      background: "var(--obsidiana)",
-                      border: "1px solid var(--border)",
-                      borderRadius: "4px",
-                      color: "var(--text-primary)",
-                      fontSize: "14px",
-                      outline: "none"
-                    }}
+                    placeholder="amanda@empresa.com.br"
+                    style={{ width: "100%", padding: "12px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                   />
                 </div>
 
                 <div>
-                  <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "8px" }}>
-                    Solução ou Tipo de Site Desejado
+                  <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
+                    Serviço de Maior Interesse
                   </label>
                   <select
                     value={formData.servico_interesse}
                     onChange={(e) => setFormData({ ...formData, servico_interesse: e.target.value })}
-                    style={{
-                      width: "100%",
-                      padding: "12px 16px",
-                      background: "var(--obsidiana)",
-                      border: "1px solid var(--border)",
-                      borderRadius: "4px",
-                      color: "var(--text-primary)",
-                      fontSize: "14px",
-                      outline: "none"
-                    }}
+                    style={{ width: "100%", padding: "12px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                   >
                     <option value="Landing Page Express / Página Única">Landing Page Express / Página Única (a partir de R$ 600)</option>
                     <option value="Site Institucional Completo">Site Institucional Completo</option>
-                    <option value="Loja Virtual ou Catálogo Digital">Loja Virtual ou Catálogo Digital</option>
-                    <option value="Portal de Clientes ou Sistema Web">Portal de Clientes ou Sistema Web</option>
-                    <option value="Automação e Integrações">Automação de Processos e Integrações</option>
-                    <option value="Consultoria e Otimização">Consultoria Técnica e Otimização</option>
+                    <option value="Portal / Plataforma Sob Medida">Portal / Plataforma Sob Medida</option>
+                    <option value="Otimização de Conversão e Velocidade">Otimização de Conversão e Velocidade</option>
+                    <option value="Integração de Sistemas e Banco de Dados">Integração de Sistemas e Banco de Dados</option>
+                    <option value="Outro Desafio Digital">Outro Desafio Digital</option>
                   </select>
                 </div>
 
                 <div>
-                  <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "8px" }}>
-                    Resumo da sua Necessidade
+                  <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
+                    Como Podemos Ajudar? *
                   </label>
                   <textarea
                     rows={4}
+                    required
                     value={formData.mensagem}
                     onChange={(e) => setFormData({ ...formData, mensagem: e.target.value })}
-                    placeholder="Conte brevemente sobre o seu projeto ou objetivos..."
-                    style={{
-                      width: "100%",
-                      padding: "12px 16px",
-                      background: "var(--obsidiana)",
-                      border: "1px solid var(--border)",
-                      borderRadius: "4px",
-                      color: "var(--text-primary)",
-                      fontSize: "14px",
-                      outline: "none",
-                      resize: "vertical"
-                    }}
+                    placeholder="Conte um pouco sobre o que você deseja criar, objetivo do site e prazo ideal..."
+                    style={{ width: "100%", padding: "12px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px", resize: "vertical" }}
                   />
                 </div>
 
@@ -267,18 +216,18 @@ export default function ContatoPage() {
                     background: "var(--sinal)",
                     color: "var(--obsidiana)",
                     fontFamily: "var(--font-mono)",
-                    fontSize: "13px",
+                    fontSize: "12px",
                     fontWeight: 600,
-                    padding: "14px 28px",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.06em",
+                    padding: "14px",
                     borderRadius: "4px",
                     border: "none",
-                    cursor: "pointer",
-                    textTransform: "uppercase",
-                    letterSpacing: "0.05em",
+                    cursor: loading ? "wait" : "pointer",
                     marginTop: "8px"
                   }}
                 >
-                  {loading ? "Enviando..." : "Enviar Mensagem →"}
+                  {loading ? "Enviando Informações..." : "Enviar Mensagem e Solicitar Contato →"}
                 </button>
               </form>
             )}
@@ -287,6 +236,7 @@ export default function ContatoPage() {
       </main>
 
       <Footer />
+
     </div>
   );
 }

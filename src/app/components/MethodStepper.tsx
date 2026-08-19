@@ -7,17 +7,11 @@ export default function MethodStepper() {
   const [active, setActive] = useState(0);
 
   return (
-    <div style={{ width: "100%" }}>
-      {/* Grade Simétrica de 10 Fases: 5 colunas x 2 linhas */}
-      <div style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(5, 1fr)",
-        gap: "10px",
-        marginBottom: "24px"
-      }}>
+    <div style={{ width: "100%", overflowX: "hidden" }}>
+      {/* Grade de 10 Fases com Media Queries para Mobile */}
+      <div className="method-stepper-grid">
         {METHOD.map((m, i) => {
           const isActive = active === i;
-          // Extrai o número e o título de forma limpa (ex: "1. Entendimento" -> "01" e "Entendimento")
           const parts = m.step.split(". ");
           const num = String(i + 1).padStart(2, "0");
           const title = parts.length > 1 ? parts[1] : m.step;
@@ -31,15 +25,16 @@ export default function MethodStepper() {
                 background: isActive ? "var(--ardosia)" : "var(--grafite)",
                 border: isActive ? "1px solid var(--sinal)" : "1px solid var(--border)",
                 borderRadius: "6px",
-                padding: "16px 12px",
+                padding: "14px 10px",
                 textAlign: "left",
                 cursor: "pointer",
                 transition: "all 0.2s ease",
                 position: "relative",
-                minHeight: "84px",
+                minHeight: "76px",
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "space-between"
+                justifyContent: "space-between",
+                width: "100%"
               }}
             >
               <div style={{
@@ -53,7 +48,7 @@ export default function MethodStepper() {
               </div>
 
               <div style={{
-                fontSize: "13px",
+                fontSize: "12px",
                 fontWeight: 600,
                 color: isActive ? "var(--text-primary)" : "var(--text-secondary)",
                 lineHeight: 1.3
@@ -65,8 +60,8 @@ export default function MethodStepper() {
                 <div style={{
                   position: "absolute",
                   bottom: 0,
-                  left: "12px",
-                  right: "12px",
+                  left: "10px",
+                  right: "10px",
                   height: "2px",
                   background: "var(--sinal)",
                   borderRadius: "2px"
@@ -78,38 +73,30 @@ export default function MethodStepper() {
       </div>
 
       {/* Painel de Destaque da Fase Ativa */}
-      <div style={{
-        background: "var(--grafite)",
-        border: "1px solid var(--border)",
-        borderRadius: "8px",
-        padding: "24px 28px",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        gap: "24px"
-      }}>
+      <div className="method-active-card">
         <div style={{ flex: 1 }}>
           <div style={{
             display: "inline-block",
             fontFamily: "var(--font-mono)",
-            fontSize: "11px",
+            fontSize: "10px",
             color: "var(--sinal)",
             textTransform: "uppercase",
             letterSpacing: "0.08em",
             marginBottom: "6px"
           }}>
-            Fase Ativa {String(active + 1).padStart(2, "0")} de 10
+            Fase {String(active + 1).padStart(2, "0")} de 10
           </div>
           <h3 style={{
             fontFamily: "var(--font-display)",
-            fontSize: "20px",
+            fontSize: "18px",
             color: "var(--text-primary)",
-            marginBottom: "8px"
+            marginBottom: "8px",
+            lineHeight: 1.3
           }}>
             {METHOD[active].step}
           </h3>
           <p style={{
-            fontSize: "15px",
+            fontSize: "14px",
             color: "var(--text-secondary)",
             lineHeight: 1.6,
             margin: 0
@@ -119,7 +106,7 @@ export default function MethodStepper() {
         </div>
 
         {/* Navegação entre passos */}
-        <div style={{ display: "flex", gap: "8px", flexShrink: 0 }}>
+        <div className="method-nav-buttons">
           <button
             type="button"
             disabled={active === 0}
@@ -128,11 +115,13 @@ export default function MethodStepper() {
               background: "var(--ardosia)",
               border: "1px solid var(--border)",
               color: active === 0 ? "var(--border)" : "var(--text-primary)",
-              padding: "8px 14px",
+              padding: "10px 14px",
               borderRadius: "4px",
               fontFamily: "var(--font-mono)",
               fontSize: "12px",
-              cursor: active === 0 ? "not-allowed" : "pointer"
+              cursor: active === 0 ? "not-allowed" : "pointer",
+              flex: 1,
+              textAlign: "center"
             }}
           >
             ← Anterior
@@ -145,18 +134,21 @@ export default function MethodStepper() {
               background: active === METHOD.length - 1 ? "var(--ardosia)" : "var(--sinal)",
               border: "1px solid var(--border)",
               color: active === METHOD.length - 1 ? "var(--border)" : "var(--obsidiana)",
-              padding: "8px 14px",
+              padding: "10px 14px",
               borderRadius: "4px",
               fontFamily: "var(--font-mono)",
               fontSize: "12px",
               fontWeight: 600,
-              cursor: active === METHOD.length - 1 ? "not-allowed" : "pointer"
+              cursor: active === METHOD.length - 1 ? "not-allowed" : "pointer",
+              flex: 1,
+              textAlign: "center"
             }}
           >
             Próxima Fase →
           </button>
         </div>
       </div>
+
     </div>
   );
 }

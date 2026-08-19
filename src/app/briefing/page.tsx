@@ -54,6 +54,10 @@ export default function BriefingPage() {
     }
   };
 
+  const removeFile = (index: number) => {
+    setFileNames((prev) => prev.filter((_, i) => i !== index));
+  };
+
   const toggleRecurso = (id: string) => {
     const list = formData.recursos_desejados;
     if (list.includes(id)) {
@@ -84,13 +88,21 @@ export default function BriefingPage() {
     }
   };
 
+  const stepsList = [
+    { step: 1, label: "1. Sua Empresa" },
+    { step: 2, label: "2. Seu Cliente" },
+    { step: 3, label: "3. O Site" },
+    { step: 4, label: "4. Visual e Anexos" },
+    { step: 5, label: "5. Prazo e Investimento" }
+  ];
+
   return (
-    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", overflowX: "hidden" }}>
       <Navbar />
 
-      <main style={{ flex: 1, maxWidth: "860px", margin: "0 auto", padding: "56px 20px" }}>
+      <main style={{ flex: 1, maxWidth: "860px", margin: "0 auto", padding: "40px 18px", width: "100%" }}>
         {/* Cabeçalho do Briefing */}
-        <div style={{ marginBottom: "36px", textAlign: "center" }}>
+        <div style={{ marginBottom: "28px", textAlign: "center" }}>
           <div style={{
             display: "inline-block",
             fontFamily: "var(--font-mono)",
@@ -102,51 +114,40 @@ export default function BriefingPage() {
           }}>
             Diagnóstico Inicial de Projeto
           </div>
-          <h1 style={{ fontFamily: "var(--font-display)", fontSize: "36px", color: "var(--text-primary)", letterSpacing: "-0.02em" }}>
+          <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(24px, 5vw, 36px)", color: "var(--text-primary)", letterSpacing: "-0.02em", lineHeight: 1.2 }}>
             Briefing para Criação de Site e Soluções Digitais
           </h1>
-          <p style={{ fontSize: "15px", color: "var(--text-secondary)", maxWidth: "620px", margin: "10px auto 0", lineHeight: 1.6 }}>
+          <p style={{ fontSize: "14px", color: "var(--text-secondary)", maxWidth: "620px", margin: "10px auto 0", lineHeight: 1.6 }}>
             Preencha este questionário passo a passo para entendermos sua empresa, seus clientes e o que o seu site precisa ter. Com essas informações, montaremos a melhor proposta técnica e comercial.
           </p>
         </div>
 
-        {/* Barra de Etapas */}
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(5, 1fr)",
-          gap: "6px",
-          marginBottom: "32px",
-          background: "var(--grafite)",
-          padding: "8px",
-          borderRadius: "6px",
-          border: "1px solid var(--border)"
-        }}>
-          {[
-            { step: 1, label: "1. Sua Empresa" },
-            { step: 2, label: "2. Seu Cliente" },
-            { step: 3, label: "3. O Site" },
-            { step: 4, label: "4. Visual e Arquivos" },
-            { step: 5, label: "5. Prazo e Orçamento" }
-          ].map((s) => (
-            <button
-              key={s.step}
-              type="button"
-              onClick={() => setCurrentStep(s.step)}
-              style={{
-                background: currentStep === s.step ? "var(--ardosia)" : "transparent",
-                border: currentStep === s.step ? "1px solid var(--sinal)" : "1px solid transparent",
-                color: currentStep === s.step ? "var(--text-primary)" : "var(--text-secondary)",
-                padding: "8px 4px",
-                borderRadius: "4px",
-                fontFamily: "var(--font-mono)",
-                fontSize: "11px",
-                cursor: "pointer",
-                textAlign: "center"
-              }}
-            >
-              {s.label}
-            </button>
-          ))}
+        {/* Barra de Etapas com Scroll Horizontal Suave no Mobile */}
+        <div className="briefing-step-container">
+          <div className="briefing-step-bar">
+            {stepsList.map((s) => (
+              <button
+                key={s.step}
+                type="button"
+                onClick={() => setCurrentStep(s.step)}
+                style={{
+                  background: currentStep === s.step ? "var(--ardosia)" : "transparent",
+                  border: currentStep === s.step ? "1px solid var(--sinal)" : "1px solid transparent",
+                  color: currentStep === s.step ? "var(--text-primary)" : "var(--text-secondary)",
+                  padding: "8px 12px",
+                  borderRadius: "4px",
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "11px",
+                  cursor: "pointer",
+                  textAlign: "center",
+                  whiteSpace: "nowrap",
+                  flexShrink: 0
+                }}
+              >
+                {s.label}
+              </button>
+            ))}
+          </div>
         </div>
 
         {submitted ? (
@@ -154,7 +155,7 @@ export default function BriefingPage() {
             background: "var(--grafite)",
             border: "1px solid var(--border)",
             borderRadius: "8px",
-            padding: "48px 24px",
+            padding: "40px 20px",
             textAlign: "center"
           }}>
             <div style={{
@@ -172,10 +173,10 @@ export default function BriefingPage() {
             }}>
               ✓
             </div>
-            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "28px", color: "var(--text-primary)", marginBottom: "12px" }}>
+            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "26px", color: "var(--text-primary)", marginBottom: "10px" }}>
               Briefing Recebido com Sucesso!
             </h2>
-            <p style={{ color: "var(--text-secondary)", fontSize: "15px", maxWidth: "480px", margin: "0 auto 24px", lineHeight: 1.6 }}>
+            <p style={{ color: "var(--text-secondary)", fontSize: "14px", maxWidth: "480px", margin: "0 auto 24px", lineHeight: 1.6 }}>
               Muito obrigado pelas informações. Nossa equipe irá analisar suas respostas e entrará em contato pelo WhatsApp e e-mail com a proposta detalhada.
             </p>
             <a href="/" style={{
@@ -197,13 +198,13 @@ export default function BriefingPage() {
             background: "var(--grafite)",
             border: "1px solid var(--border)",
             borderRadius: "8px",
-            padding: "36px"
+            padding: "clamp(18px, 4vw, 36px)"
           }}>
             {/* ETAPA 1: SUA EMPRESA */}
             {currentStep === 1 && (
-              <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
                 <div style={{ borderBottom: "1px solid var(--border)", paddingBottom: "12px" }}>
-                  <h3 style={{ fontSize: "18px", color: "var(--text-primary)", fontWeight: 600 }}>
+                  <h3 style={{ fontSize: "17px", color: "var(--text-primary)", fontWeight: 600 }}>
                     Etapa 1 de 5: Sobre Você e Sua Empresa
                   </h3>
                   <p style={{ fontSize: "13px", color: "var(--text-secondary)", marginTop: "4px" }}>
@@ -211,7 +212,7 @@ export default function BriefingPage() {
                   </p>
                 </div>
 
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+                <div className="briefing-grid-2">
                   <div>
                     <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
                       Seu Nome Completo *
@@ -222,7 +223,7 @@ export default function BriefingPage() {
                       value={formData.nome_solicitante}
                       onChange={(e) => setFormData({ ...formData, nome_solicitante: e.target.value })}
                       placeholder="Ex: Carlos Silva"
-                      style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                      style={{ width: "100%", padding: "12px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                     />
                   </div>
                   <div>
@@ -235,12 +236,12 @@ export default function BriefingPage() {
                       value={formData.cargo_solicitante}
                       onChange={(e) => setFormData({ ...formData, cargo_solicitante: e.target.value })}
                       placeholder="Ex: Sócio, Diretor, Gerente"
-                      style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                      style={{ width: "100%", padding: "12px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                     />
                   </div>
                 </div>
 
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+                <div className="briefing-grid-2">
                   <div>
                     <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
                       Nome da Empresa *
@@ -251,7 +252,7 @@ export default function BriefingPage() {
                       value={formData.empresa_nome}
                       onChange={(e) => setFormData({ ...formData, empresa_nome: e.target.value })}
                       placeholder="Nome da sua marca ou empresa"
-                      style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                      style={{ width: "100%", padding: "12px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                     />
                   </div>
                   <div>
@@ -263,13 +264,13 @@ export default function BriefingPage() {
                       required
                       value={formData.ramo_atuacao}
                       onChange={(e) => setFormData({ ...formData, ramo_atuacao: e.target.value })}
-                      placeholder="Ex: Clínica Odontológica, Advocacia, Consultoria, Loja de Roupas"
-                      style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                      placeholder="Ex: Clínica, Advocacia, Consultoria"
+                      style={{ width: "100%", padding: "12px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                     />
                   </div>
                 </div>
 
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+                <div className="briefing-grid-2">
                   <div>
                     <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
                       E-mail de Contato *
@@ -280,7 +281,7 @@ export default function BriefingPage() {
                       value={formData.email_contato}
                       onChange={(e) => setFormData({ ...formData, email_contato: e.target.value })}
                       placeholder="seuemail@empresa.com"
-                      style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                      style={{ width: "100%", padding: "12px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                     />
                   </div>
                   <div>
@@ -293,12 +294,12 @@ export default function BriefingPage() {
                       value={formData.telefone_whatsapp}
                       onChange={(e) => setFormData({ ...formData, telefone_whatsapp: e.target.value })}
                       placeholder="(31) 99999-9999"
-                      style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                      style={{ width: "100%", padding: "12px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                     />
                   </div>
                 </div>
 
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+                <div className="briefing-grid-2">
                   <div>
                     <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
                       Cidade e Estado *
@@ -308,8 +309,8 @@ export default function BriefingPage() {
                       required
                       value={formData.cidade_estado}
                       onChange={(e) => setFormData({ ...formData, cidade_estado: e.target.value })}
-                      placeholder="Ex: Belo Horizonte, MG"
-                      style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                      placeholder="Ex: João Pessoa, PB"
+                      style={{ width: "100%", padding: "12px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                     />
                   </div>
                   <div>
@@ -321,7 +322,7 @@ export default function BriefingPage() {
                       value={formData.website_atual}
                       onChange={(e) => setFormData({ ...formData, website_atual: e.target.value })}
                       placeholder="www.minhaempresa.com.br"
-                      style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                      style={{ width: "100%", padding: "12px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                     />
                   </div>
                 </div>
@@ -330,7 +331,7 @@ export default function BriefingPage() {
                   <button
                     type="button"
                     onClick={() => setCurrentStep(2)}
-                    style={{ background: "var(--sinal)", color: "var(--obsidiana)", fontFamily: "var(--font-mono)", fontSize: "12px", fontWeight: 600, padding: "12px 24px", borderRadius: "4px", border: "none", cursor: "pointer", textTransform: "uppercase" }}
+                    className="briefing-btn-primary"
                   >
                     Avançar para Etapa 2: Seu Cliente →
                   </button>
@@ -340,9 +341,9 @@ export default function BriefingPage() {
 
             {/* ETAPA 2: MODELO DE NEGÓCIO E PERSONA */}
             {currentStep === 2 && (
-              <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
                 <div style={{ borderBottom: "1px solid var(--border)", paddingBottom: "12px" }}>
-                  <h3 style={{ fontSize: "18px", color: "var(--text-primary)", fontWeight: 600 }}>
+                  <h3 style={{ fontSize: "17px", color: "var(--text-primary)", fontWeight: 600 }}>
                     Etapa 2 de 5: Seu Modelo de Negócio e Cliente Ideal (Persona)
                   </h3>
                   <p style={{ fontSize: "13px", color: "var(--text-secondary)", marginTop: "4px" }}>
@@ -360,7 +361,7 @@ export default function BriefingPage() {
                     value={formData.o_que_sua_empresa_faz}
                     onChange={(e) => setFormData({ ...formData, o_que_sua_empresa_faz: e.target.value })}
                     placeholder="Explique com suas próprias palavras: o que você vende ou presta de serviço..."
-                    style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                    style={{ width: "100%", padding: "12px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                   />
                 </div>
 
@@ -371,7 +372,7 @@ export default function BriefingPage() {
                   <select
                     value={formData.como_sua_empresa_ganha_dinheiro}
                     onChange={(e) => setFormData({ ...formData, como_sua_empresa_ganha_dinheiro: e.target.value })}
-                    style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                    style={{ width: "100%", padding: "12px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                   >
                     <option value="servico_sob_consulta">Prestação de serviços com orçamento sob consulta</option>
                     <option value="venda_produtos">Venda direta de produtos (físicos ou digitais)</option>
@@ -390,36 +391,36 @@ export default function BriefingPage() {
                     required
                     value={formData.quem_e_seu_cliente_ideal}
                     onChange={(e) => setFormData({ ...formData, quem_e_seu_cliente_ideal: e.target.value })}
-                    placeholder="Descreva quem costuma comprar de você: são outras empresas (B2B) ou pessoas físicas (B2C)? Qual a idade, profissão ou necessidade deles?"
-                    style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                    placeholder="Descreva quem costuma comprar de você: empresas (B2B) ou pessoas físicas (B2C)? Idade, profissão..."
+                    style={{ width: "100%", padding: "12px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                   />
                 </div>
 
                 <div>
                   <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
-                    Qual é o principal problema ou dor que seu cliente quer resolver ao te procurar?
+                    Qual é o principal problema ou dor que seu cliente quer resolver?
                   </label>
                   <input
                     type="text"
                     value={formData.principal_dor_do_seu_cliente}
                     onChange={(e) => setFormData({ ...formData, principal_dor_do_seu_cliente: e.target.value })}
-                    placeholder="Ex: Precisa de atendimento rápido, não encontra confiança em outros fornecedores, quer economizar tempo..."
-                    style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                    placeholder="Ex: Precisa de atendimento rápido, não encontra confiança em outros fornecedores..."
+                    style={{ width: "100%", padding: "12px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                   />
                 </div>
 
-                <div style={{ display: "flex", justifyContent: "space-between", marginTop: "12px" }}>
+                <div className="briefing-actions">
                   <button
                     type="button"
                     onClick={() => setCurrentStep(1)}
-                    style={{ background: "transparent", color: "var(--text-secondary)", border: "1px solid var(--border)", fontFamily: "var(--font-mono)", fontSize: "12px", padding: "10px 18px", borderRadius: "4px", cursor: "pointer" }}
+                    className="briefing-btn-back"
                   >
                     ← Voltar
                   </button>
                   <button
                     type="button"
                     onClick={() => setCurrentStep(3)}
-                    style={{ background: "var(--sinal)", color: "var(--obsidiana)", fontFamily: "var(--font-mono)", fontSize: "12px", fontWeight: 600, padding: "12px 24px", borderRadius: "4px", border: "none", cursor: "pointer", textTransform: "uppercase" }}
+                    className="briefing-btn-primary"
                   >
                     Avançar para Etapa 3: O Site →
                   </button>
@@ -429,9 +430,9 @@ export default function BriefingPage() {
 
             {/* ETAPA 3: O SITE E SEUS RECURSOS */}
             {currentStep === 3 && (
-              <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
                 <div style={{ borderBottom: "1px solid var(--border)", paddingBottom: "12px" }}>
-                  <h3 style={{ fontSize: "18px", color: "var(--text-primary)", fontWeight: 600 }}>
+                  <h3 style={{ fontSize: "17px", color: "var(--text-primary)", fontWeight: 600 }}>
                     Etapa 3 de 5: O que o Site Precisa Ter
                   </h3>
                   <p style={{ fontSize: "13px", color: "var(--text-secondary)", marginTop: "4px" }}>
@@ -439,7 +440,7 @@ export default function BriefingPage() {
                   </p>
                 </div>
 
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+                <div className="briefing-grid-2">
                   <div>
                     <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
                       Formato Desejado do Site *
@@ -447,9 +448,9 @@ export default function BriefingPage() {
                     <select
                       value={formData.formato_do_site}
                       onChange={(e) => setFormData({ ...formData, formato_do_site: e.target.value })}
-                      style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                      style={{ width: "100%", padding: "12px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                     >
-                      <option value="landing_page_unica">Landing Page de Página Única (Foco em conversão rápida)</option>
+                      <option value="landing_page_unica">Landing Page de Página Única (Foco em conversão)</option>
                       <option value="site_institucional_completo">Site Institucional Completo (Início, Sobre, Serviços, Contato)</option>
                       <option value="loja_virtual">Loja Virtual ou Catálogo de Produtos</option>
                       <option value="portal_ou_sistema">Portal de Clientes, Área de Membros ou Sistema Sob Medida</option>
@@ -462,7 +463,7 @@ export default function BriefingPage() {
                     <select
                       value={formData.numero_estimado_paginas}
                       onChange={(e) => setFormData({ ...formData, numero_estimado_paginas: e.target.value })}
-                      style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                      style={{ width: "100%", padding: "12px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                     >
                       <option value="1_pagina">1 página única (Landing Page direta)</option>
                       <option value="2_a_5_paginas">2 a 5 páginas (Padrão Institucional)</option>
@@ -479,7 +480,7 @@ export default function BriefingPage() {
                   <select
                     value={formData.acao_principal_desejada}
                     onChange={(e) => setFormData({ ...formData, acao_principal_desejada: e.target.value })}
-                    style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                    style={{ width: "100%", padding: "12px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                   >
                     <option value="chamar_no_whatsapp">Clicar para chamar diretamente no WhatsApp</option>
                     <option value="preencher_formulario">Preencher formulário para pedir orçamento</option>
@@ -491,18 +492,18 @@ export default function BriefingPage() {
 
                 <div>
                   <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "8px" }}>
-                    Recursos que você quer no site (Marque o que for importante para você)
+                    Recursos que você quer no site (Marque o que desejar)
                   </label>
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
+                  <div className="briefing-checkbox-grid">
                     {[
                       { id: "botao_whatsapp", label: "Botão flutuante de WhatsApp" },
-                      { id: "formulario_contato", label: "Formulário de contato com envio por e-mail" },
-                      { id: "galeria_fotos", label: "Galeria de fotos de trabalhos ou produtos" },
-                      { id: "depoimentos_clientes", label: "Depoimentos e avaliações de clientes" },
-                      { id: "agendamento_online", label: "Agendamento online integrado com calendário" },
-                      { id: "pagamento_online", label: "Pagamento por Pix ou Cartão no site" },
+                      { id: "formulario_contato", label: "Formulário com envio por e-mail" },
+                      { id: "galeria_fotos", label: "Galeria de fotos de trabalhos" },
+                      { id: "depoimentos_clientes", label: "Depoimentos de clientes" },
+                      { id: "agendamento_online", label: "Agendamento online integrado" },
+                      { id: "pagamento_online", label: "Pagamento por Pix ou Cartão" },
                       { id: "blog_noticias", label: "Área de Blog e Notícias" },
-                      { id: "calculadora_simulador", label: "Simulador de preços ou calculadora" }
+                      { id: "calculadora_simulador", label: "Simulador ou calculadora" }
                     ].map((item) => (
                       <label
                         key={item.id}
@@ -513,7 +514,7 @@ export default function BriefingPage() {
                           fontSize: "13px",
                           color: "var(--text-secondary)",
                           background: "var(--obsidiana)",
-                          padding: "8px 12px",
+                          padding: "10px 12px",
                           borderRadius: "4px",
                           border: "1px solid var(--border)",
                           cursor: "pointer"
@@ -524,26 +525,26 @@ export default function BriefingPage() {
                           checked={formData.recursos_desejados.includes(item.id)}
                           onChange={() => toggleRecurso(item.id)}
                         />
-                        {item.label}
+                        <span>{item.label}</span>
                       </label>
                     ))}
                   </div>
                 </div>
 
-                <div style={{ display: "flex", justifyContent: "space-between", marginTop: "12px" }}>
+                <div className="briefing-actions">
                   <button
                     type="button"
                     onClick={() => setCurrentStep(2)}
-                    style={{ background: "transparent", color: "var(--text-secondary)", border: "1px solid var(--border)", fontFamily: "var(--font-mono)", fontSize: "12px", padding: "10px 18px", borderRadius: "4px", cursor: "pointer" }}
+                    className="briefing-btn-back"
                   >
                     ← Voltar
                   </button>
                   <button
                     type="button"
                     onClick={() => setCurrentStep(4)}
-                    style={{ background: "var(--sinal)", color: "var(--obsidiana)", fontFamily: "var(--font-mono)", fontSize: "12px", fontWeight: 600, padding: "12px 24px", borderRadius: "4px", border: "none", cursor: "pointer", textTransform: "uppercase" }}
+                    className="briefing-btn-primary"
                   >
-                    Avançar para Etapa 4: Visual e Arquivos →
+                    Avançar para Etapa 4: Visual e Anexos →
                   </button>
                 </div>
               </div>
@@ -551,9 +552,9 @@ export default function BriefingPage() {
 
             {/* ETAPA 4: VISUAL E ARQUIVOS */}
             {currentStep === 4 && (
-              <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
                 <div style={{ borderBottom: "1px solid var(--border)", paddingBottom: "12px" }}>
-                  <h3 style={{ fontSize: "18px", color: "var(--text-primary)", fontWeight: 600 }}>
+                  <h3 style={{ fontSize: "17px", color: "var(--text-primary)", fontWeight: 600 }}>
                     Etapa 4 de 5: Identidade Visual, Referências e Anexos
                   </h3>
                   <p style={{ fontSize: "13px", color: "var(--text-secondary)", marginTop: "4px" }}>
@@ -561,7 +562,7 @@ export default function BriefingPage() {
                   </p>
                 </div>
 
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+                <div className="briefing-grid-2">
                   <div>
                     <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
                       Você já possui Logomarca ou Brandbook?
@@ -569,25 +570,25 @@ export default function BriefingPage() {
                     <select
                       value={formData.ja_possui_logomarca_ou_brandbook}
                       onChange={(e) => setFormData({ ...formData, ja_possui_logomarca_ou_brandbook: e.target.value })}
-                      style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                      style={{ width: "100%", padding: "12px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                     >
-                      <option value="sim_tenho_tudo">Sim, tenho logomarca e manual de marca completo</option>
+                      <option value="sim_tenho_tudo">Sim, tenho logo e manual completo</option>
                       <option value="tenho_apenas_logo">Tenho apenas a logomarca</option>
-                      <option value="nao_preciso_criar">Não tenho, precisarei criar também</option>
+                      <option value="nao_preciso_criar">Não tenho, precisarei criar</option>
                     </select>
                   </div>
                   <div>
                     <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
-                      Qual estilo visual mais combina com você?
+                      Qual estilo visual mais combina?
                     </label>
                     <select
                       value={formData.estilo_visual_preferido}
                       onChange={(e) => setFormData({ ...formData, estilo_visual_preferido: e.target.value })}
-                      style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                      style={{ width: "100%", padding: "12px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                     >
                       <option value="escuro_moderno">Fundo escuro moderno e sofisticado</option>
                       <option value="claro_minimalista">Fundo claro, limpo e elegante</option>
-                      <option value="corporativo_tradicional">Corporativo tradicional e sério</option>
+                      <option value="corporativo_tradicional">Corporativo tradicional e sóbrio</option>
                       <option value="colorido_vibrante">Colorido e dinâmico</option>
                     </select>
                   </div>
@@ -595,48 +596,47 @@ export default function BriefingPage() {
 
                 <div>
                   <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
-                    Cole aqui links de sites de concorrentes ou referências visuais que você admira
+                    Cole aqui links de sites de referências que você admira
                   </label>
                   <textarea
                     rows={2}
                     value={formData.links_de_sites_que_voce_gosta}
                     onChange={(e) => setFormData({ ...formData, links_de_sites_que_voce_gosta: e.target.value })}
                     placeholder="Ex: www.exemplo1.com.br, www.exemplo2.com.br..."
-                    style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                    style={{ width: "100%", padding: "12px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                   />
                 </div>
 
-                {/* Área Avançada de Múltiplos Anexos e Uploads */}
+                {/* Área de Múltiplos Anexos */}
                 <div style={{
                   background: "var(--obsidiana)",
                   border: "1px dashed var(--border)",
                   borderRadius: "8px",
-                  padding: "24px",
+                  padding: "20px",
                   display: "flex",
                   flexDirection: "column",
-                  gap: "16px"
+                  gap: "14px"
                 }}>
                   <div style={{ textAlign: "center" }}>
                     <div style={{ fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--text-primary)", fontWeight: 600, marginBottom: "4px" }}>
-                      Anexar Arquivos do Projeto (Logomarca, Brandbook, Prints ou Documentos)
+                      Anexar Arquivos do Projeto (Logos, Documentos, Imagens)
                     </div>
                     <p style={{ fontSize: "12px", color: "var(--text-secondary)", margin: 0 }}>
-                      Formatos aceitos: PDF, PNG, JPG, DOCX, XLSX, ZIP. Você pode adicionar quantos arquivos quiser.
+                      Formatos aceitos: PDF, PNG, JPG, DOCX, XLSX, ZIP. Adicione quantos quiser.
                     </p>
                   </div>
 
-                  {/* Botões de Ação de Upload */}
-                  <div style={{ display: "flex", justifyContent: "center", gap: "12px", flexWrap: "wrap" }}>
+                  <div style={{ display: "flex", justifyContent: "center", gap: "10px", flexWrap: "wrap" }}>
                     <label style={{
                       display: "inline-flex",
                       alignItems: "center",
                       gap: "8px",
                       background: "var(--sinal)",
                       color: "var(--obsidiana)",
-                      padding: "10px 18px",
+                      padding: "10px 16px",
                       borderRadius: "4px",
                       fontFamily: "var(--font-mono)",
-                      fontSize: "12px",
+                      fontSize: "11px",
                       fontWeight: 600,
                       cursor: "pointer",
                       textTransform: "uppercase"
@@ -649,104 +649,44 @@ export default function BriefingPage() {
                         style={{ display: "none" }}
                       />
                     </label>
-
-                    <label style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: "8px",
-                      background: "var(--ardosia)",
-                      border: "1px solid var(--border)",
-                      color: "var(--text-primary)",
-                      padding: "10px 16px",
-                      borderRadius: "4px",
-                      fontFamily: "var(--font-mono)",
-                      fontSize: "12px",
-                      cursor: "pointer"
-                    }}>
-                      <span>+ Anexar Prints e Imagens</span>
-                      <input
-                        type="file"
-                        multiple
-                        accept="image/*"
-                        onChange={handleFileChange}
-                        style={{ display: "none" }}
-                      />
-                    </label>
                   </div>
 
-                  {/* Lista de Arquivos Anexados com Botão de Remoção */}
                   {fileNames.length > 0 && (
                     <div style={{
                       background: "var(--grafite)",
                       border: "1px solid var(--border)",
                       borderRadius: "6px",
-                      padding: "14px 16px",
-                      marginTop: "8px"
+                      padding: "12px"
                     }}>
-                      <div style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                        marginBottom: "10px",
-                        borderBottom: "1px solid var(--border)",
-                        paddingBottom: "6px"
-                      }}>
-                        <span style={{ fontSize: "11px", fontFamily: "var(--font-mono)", color: "var(--sinal)", textTransform: "uppercase" }}>
-                          {fileNames.length} Arquivo(s) Anexado(s):
-                        </span>
-                        <button
-                          type="button"
-                          onClick={() => setFileNames([])}
-                          style={{
-                            background: "transparent",
-                            border: "none",
-                            color: "var(--text-secondary)",
-                            fontSize: "11px",
-                            fontFamily: "var(--font-mono)",
-                            cursor: "pointer"
-                          }}
-                        >
-                          Limpar Todos
-                        </button>
+                      <div style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--sinal)", marginBottom: "8px" }}>
+                        Arquivos Selecionados ({fileNames.length}):
                       </div>
-
-                      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
-                        {fileNames.map((name, i) => (
-                          <div
-                            key={i}
-                            style={{
-                              display: "flex",
-                              alignItems: "center",
-                              justifyContent: "space-between",
-                              background: "var(--obsidiana)",
-                              border: "1px solid var(--border)",
-                              borderRadius: "4px",
-                              padding: "8px 12px",
-                              fontSize: "12px"
-                            }}
-                          >
-                            <span style={{
-                              color: "var(--text-primary)",
-                              overflow: "hidden",
-                              textOverflow: "ellipsis",
-                              whiteSpace: "nowrap",
-                              marginRight: "8px"
-                            }}>
-                              📄 {name}
+                      <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                        {fileNames.map((fn, idx) => (
+                          <div key={idx} style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                            fontSize: "12px",
+                            color: "var(--text-primary)",
+                            background: "var(--obsidiana)",
+                            padding: "6px 10px",
+                            borderRadius: "4px"
+                          }}>
+                            <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", maxWidth: "80%" }}>
+                              📁 {fn}
                             </span>
                             <button
                               type="button"
-                              onClick={() => setFileNames(fileNames.filter((_, idx) => idx !== i))}
+                              onClick={() => removeFile(idx)}
                               style={{
                                 background: "transparent",
                                 border: "none",
-                                color: "#EF4444",
+                                color: "#ff6b6b",
                                 cursor: "pointer",
-                                fontSize: "14px",
-                                fontWeight: "bold",
-                                padding: "0 4px"
+                                fontSize: "13px",
+                                fontWeight: "bold"
                               }}
-                              title="Remover arquivo"
                             >
                               ✕
                             </button>
@@ -757,20 +697,20 @@ export default function BriefingPage() {
                   )}
                 </div>
 
-                <div style={{ display: "flex", justifyContent: "space-between", marginTop: "12px" }}>
+                <div className="briefing-actions">
                   <button
                     type="button"
                     onClick={() => setCurrentStep(3)}
-                    style={{ background: "transparent", color: "var(--text-secondary)", border: "1px solid var(--border)", fontFamily: "var(--font-mono)", fontSize: "12px", padding: "10px 18px", borderRadius: "4px", cursor: "pointer" }}
+                    className="briefing-btn-back"
                   >
                     ← Voltar
                   </button>
                   <button
                     type="button"
                     onClick={() => setCurrentStep(5)}
-                    style={{ background: "var(--sinal)", color: "var(--obsidiana)", fontFamily: "var(--font-mono)", fontSize: "12px", fontWeight: 600, padding: "12px 24px", borderRadius: "4px", border: "none", cursor: "pointer", textTransform: "uppercase" }}
+                    className="briefing-btn-primary"
                   >
-                    Avançar para Etapa 5: Prazo e Orçamento →
+                    Avançar para Etapa 5: Prazo e Investimento →
                   </button>
                 </div>
               </div>
@@ -778,89 +718,77 @@ export default function BriefingPage() {
 
             {/* ETAPA 5: PRAZO E ORÇAMENTO */}
             {currentStep === 5 && (
-              <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
                 <div style={{ borderBottom: "1px solid var(--border)", paddingBottom: "12px" }}>
-                  <h3 style={{ fontSize: "18px", color: "var(--text-primary)", fontWeight: 600 }}>
-                    Etapa 5 de 5: Prazo Desejado e Faixa de Investimento
+                  <h3 style={{ fontSize: "17px", color: "var(--text-primary)", fontWeight: 600 }}>
+                    Etapa 5 de 5: Prazo e Faixa de Investimento
                   </h3>
                   <p style={{ fontSize: "13px", color: "var(--text-secondary)", marginTop: "4px" }}>
-                    Atendemos desde landing pages ágeis até plataformas completas sob medida.
+                    Atuamos desde pequenas landing pages até plataformas completas.
                   </p>
                 </div>
 
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+                <div className="briefing-grid-2">
                   <div>
                     <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
-                      Qual é o seu prazo ideal de entrega?
+                      Qual o seu prazo ideal para o site estar no ar? *
                     </label>
                     <select
                       value={formData.prazo_desejado}
                       onChange={(e) => setFormData({ ...formData, prazo_desejado: e.target.value })}
-                      style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                      style={{ width: "100%", padding: "12px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                     >
-                      <option value="urgente_15_dias">Urgente (em até 15 dias)</option>
-                      <option value="normal_30_dias">Normal (em até 30 dias)</option>
-                      <option value="45_a_60_dias">45 a 60 dias (Projetos maiores)</option>
-                      <option value="flexivel">Flexível / Sem pressa imediata</option>
+                      <option value="urgente_7_dias">Urgente (em até 7 a 10 dias úteis)</option>
+                      <option value="rapido_15_dias">Rápido (em até 15 dias úteis)</option>
+                      <option value="normal_30_dias">Prazo Padrão (20 a 30 dias)</option>
+                      <option value="sem_pressa">Sem pressa / Em fase de planejamento</option>
                     </select>
                   </div>
                   <div>
                     <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
-                      Faixa de Investimento Prevista *
+                      Qual faixa de investimento você planeja? *
                     </label>
                     <select
                       value={formData.faixa_investimento}
                       onChange={(e) => setFormData({ ...formData, faixa_investimento: e.target.value })}
-                      style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                      style={{ width: "100%", padding: "12px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                     >
-                      <option value="a_partir_600">R$ 600 a R$ 1.500 (Landing Page Express / Página Única)</option>
+                      <option value="600_a_1500">R$ 600 a R$ 1.500 (Landing Page Express)</option>
                       <option value="1500_a_3000">R$ 1.500 a R$ 3.000 (Site Institucional Padrão)</option>
-                      <option value="3000_a_6000">R$ 3.000 a R$ 6.000 (Site Avançado ou Loja Virtual)</option>
-                      <option value="6000_a_15000">R$ 6.000 a R$ 15.000 (Plataforma Completa com Integrações)</option>
-                      <option value="acima_15000">Acima de R$ 15.000 (Sistema Sob Medida / Enterprise)</option>
+                      <option value="3000_a_6000">R$ 3.000 a R$ 6.000 (Site Institucional Avançado)</option>
+                      <option value="6000_a_15000">R$ 6.000 a R$ 15.000 (Plataforma Sob Medida)</option>
+                      <option value="acima_15000">Acima de R$ 15.000 (Ecossistema Digital Completo)</option>
                     </select>
                   </div>
                 </div>
 
-                <div style={{
-                  background: "var(--ardosia)",
-                  border: "1px solid var(--border)",
-                  borderRadius: "6px",
-                  padding: "16px",
-                  fontSize: "13px",
-                  color: "var(--text-secondary)",
-                  lineHeight: 1.5
-                }}>
-                  <strong style={{ color: "var(--text-primary)" }}>Como calculamos o valor exato:</strong> O orçamento final considera as horas técnicas dedicadas, número de páginas, banco de dados, integrações necessárias e velocidade de entrega.
-                </div>
-
                 <div>
                   <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
-                    Observações Finais ou Informações Importantes
+                    Observações Adicionais ou Dúvidas
                   </label>
                   <textarea
                     rows={3}
                     value={formData.observacoes_finais}
                     onChange={(e) => setFormData({ ...formData, observacoes_finais: e.target.value })}
-                    placeholder="Algum outro detalhe que queira nos contar sobre o seu projeto..."
-                    style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                    placeholder="Algo mais que considera importante sabermos antes de montar a proposta?"
+                    style={{ width: "100%", padding: "12px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                   />
                 </div>
 
-                <div style={{ display: "flex", justifyContent: "space-between", marginTop: "12px" }}>
+                <div className="briefing-actions">
                   <button
                     type="button"
                     onClick={() => setCurrentStep(4)}
-                    style={{ background: "transparent", color: "var(--text-secondary)", border: "1px solid var(--border)", fontFamily: "var(--font-mono)", fontSize: "12px", padding: "10px 18px", borderRadius: "4px", cursor: "pointer" }}
+                    className="briefing-btn-back"
                   >
                     ← Voltar
                   </button>
                   <button
                     type="submit"
                     disabled={loading}
-                    style={{ background: "var(--sinal)", color: "var(--obsidiana)", fontFamily: "var(--font-mono)", fontSize: "13px", fontWeight: 600, padding: "12px 28px", borderRadius: "4px", border: "none", cursor: "pointer", textTransform: "uppercase", letterSpacing: "0.05em" }}
+                    className="briefing-btn-submit"
                   >
-                    {loading ? "Enviando Briefing..." : "Finalizar e Enviar Briefing →"}
+                    {loading ? "Enviando Briefing..." : "Finalizar e Enviar Briefing Completo →"}
                   </button>
                 </div>
               </div>
@@ -870,6 +798,7 @@ export default function BriefingPage() {
       </main>
 
       <Footer />
+
     </div>
   );
 }

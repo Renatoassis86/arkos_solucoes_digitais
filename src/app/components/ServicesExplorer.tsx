@@ -17,9 +17,17 @@ export default function ServicesExplorer() {
       : SERVICES.filter((s) => s.categories.includes(active));
 
   return (
-    <div>
-      <div className={styles.explorerControls}>
-        <div className={styles.filterBar} role="tablist" aria-label="Filtrar soluções por frente">
+    <div style={{ width: "100%", overflowX: "hidden" }}>
+      <div className={styles.explorerControls} style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        gap: "14px",
+        flexWrap: "wrap",
+        marginBottom: "24px"
+      }}>
+        {/* Filtros em Pílulas */}
+        <div className="filter-pill-container" role="tablist" aria-label="Filtrar soluções por frente">
           {FILTERS.map((f) => (
             <button
               key={f.id}
@@ -27,17 +35,26 @@ export default function ServicesExplorer() {
               aria-selected={active === f.id}
               className={`${styles.filterTab} ${active === f.id ? styles.filterTabActive : ""}`}
               onClick={() => setActive(f.id)}
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: "11px",
+                padding: "8px 14px",
+                whiteSpace: "nowrap"
+              }}
             >
               {f.label}
             </button>
           ))}
         </div>
+
+        {/* Alternador de Visualização Grade / Lista */}
         <div className={styles.viewToggle} role="tablist" aria-label="Alternar visualização">
           <button
             role="tab"
             aria-selected={view === "grid"}
             className={`${styles.viewButton} ${view === "grid" ? styles.viewButtonActive : ""}`}
             onClick={() => setView("grid")}
+            style={{ padding: "6px 10px", fontSize: "11px" }}
           >
             Grade
           </button>
@@ -46,34 +63,16 @@ export default function ServicesExplorer() {
             aria-selected={view === "list"}
             className={`${styles.viewButton} ${view === "list" ? styles.viewButtonActive : ""}`}
             onClick={() => setView("list")}
+            style={{ padding: "6px 10px", fontSize: "11px" }}
           >
             Lista
           </button>
         </div>
       </div>
 
-      {/* Grade com Layout Dinâmico e Perfeitamente Simétrico */}
+      {/* Grade com Layout Dinâmico e Responsivo */}
       <div
-        style={
-          view === "grid"
-            ? {
-                display: "grid",
-                gridTemplateColumns:
-                  visible.length === 1
-                    ? "1fr"
-                    : visible.length === 2
-                    ? "1fr 1fr"
-                    : "repeat(3, 1fr)",
-                gap: "16px",
-                width: "100%"
-              }
-            : {
-                display: "flex",
-                flexDirection: "column",
-                gap: "12px",
-                width: "100%"
-              }
-        }
+        className={view === "grid" ? "services-responsive-grid" : "services-responsive-list"}
       >
         {visible.map((service, index) => {
           const isOpen = open === service.name;
@@ -84,10 +83,10 @@ export default function ServicesExplorer() {
                 background: "var(--grafite)",
                 border: "1px solid var(--border)",
                 borderRadius: "8px",
-                padding: "24px",
+                padding: "20px",
                 display: "flex",
                 flexDirection: view === "grid" ? "column" : "row",
-                gap: view === "grid" ? "14px" : "20px",
+                gap: view === "grid" ? "12px" : "16px",
                 transition: "all 0.2s ease"
               }}
             >
@@ -98,19 +97,19 @@ export default function ServicesExplorer() {
               }}>
                 <span style={{
                   fontFamily: "var(--font-mono)",
-                  fontSize: "12px",
+                  fontSize: "11px",
                   fontWeight: 600,
                   color: "var(--sinal)"
                 }}>
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <div style={{ display: "flex", gap: "6px" }}>
+                <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
                   {service.categories.map((c) => (
                     <span
                       key={c}
                       style={{
                         fontFamily: "var(--font-mono)",
-                        fontSize: "10px",
+                        fontSize: "9px",
                         color: "var(--text-secondary)",
                         background: "var(--ardosia)",
                         padding: "2px 6px",
@@ -126,17 +125,18 @@ export default function ServicesExplorer() {
               <div style={{ flex: 1 }}>
                 <h3 style={{
                   fontFamily: "var(--font-display)",
-                  fontSize: "18px",
+                  fontSize: "17px",
                   color: "var(--text-primary)",
-                  marginBottom: "8px"
+                  marginBottom: "8px",
+                  lineHeight: 1.3
                 }}>
                   {service.name}
                 </h3>
                 <p style={{
-                  fontSize: "14px",
+                  fontSize: "13px",
                   color: "var(--text-secondary)",
                   lineHeight: 1.55,
-                  marginBottom: "14px"
+                  marginBottom: "12px"
                 }}>
                   {service.desc}
                 </p>
@@ -147,7 +147,7 @@ export default function ServicesExplorer() {
                   style={{
                     background: "transparent",
                     border: "none",
-                    padding: 0,
+                    padding: "4px 0",
                     fontFamily: "var(--font-mono)",
                     fontSize: "11px",
                     color: "var(--sinal)",
@@ -164,19 +164,19 @@ export default function ServicesExplorer() {
 
                 {isOpen && (
                   <ul style={{
-                    marginTop: "12px",
-                    paddingTop: "12px",
+                    marginTop: "10px",
+                    paddingTop: "10px",
                     borderTop: "1px solid var(--border)",
                     listStyle: "none",
                     display: "flex",
                     flexDirection: "column",
                     gap: "6px",
-                    fontSize: "13px",
+                    fontSize: "12px",
                     color: "var(--text-secondary)"
                   }}>
                     {service.items.map((item) => (
                       <li key={item} style={{ display: "flex", alignItems: "flex-start", gap: "6px" }}>
-                        <span style={{ color: "var(--sinal)" }}>•</span>
+                        <span style={{ color: "var(--sinal)", flexShrink: 0 }}>•</span>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -187,6 +187,7 @@ export default function ServicesExplorer() {
           );
         })}
       </div>
+
     </div>
   );
 }
