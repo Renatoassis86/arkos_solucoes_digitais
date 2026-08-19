@@ -3,22 +3,44 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { supabase } from "@/lib/supabase";
 
 export default function ContatoPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     nome: "",
     empresa: "",
     email: "",
     telefone: "",
-    objetivo: "Novo Site Institucional / E-Commerce",
-    orcamento: "R$ 15k a R$ 30k",
+    servico_interesse: "Landing Page Express / Página Única",
     mensagem: ""
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+
+    try {
+      if (process.env.NEXT_PUBLIC_SUPABASE_URL) {
+        await supabase.from("contatos").insert([
+          {
+            nome: formData.nome,
+            empresa: formData.empresa,
+            email: formData.email,
+            telefone: formData.telefone,
+            servico_interesse: formData.servico_interesse,
+            mensagem: formData.mensagem,
+            origem_url: "/contato"
+          }
+        ]);
+      }
+    } catch (err) {
+      console.warn("Contato salvo:", err);
+    } finally {
+      setLoading(false);
+      setSubmitted(true);
+    }
   };
 
   return (
@@ -30,13 +52,13 @@ export default function ContatoPage() {
           {/* Coluna de Contexto */}
           <div>
             <span style={{ fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--sinal)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-              Briefing Técnico & Avaliação
+              Fale Conosco e Atendimento
             </span>
             <h1 style={{ fontFamily: "var(--font-display)", fontSize: "40px", color: "var(--text-primary)", marginTop: "12px", letterSpacing: "-0.02em" }}>
               Vamos entender o seu desafio digital.
             </h1>
             <p style={{ fontSize: "15px", color: "var(--text-secondary)", lineHeight: 1.6, marginTop: "16px", marginBottom: "32px" }}>
-              Preencha o formulário com os detalhes do seu projeto. Nossa equipe de engenharia e produto analisará as informações e retornará em até 24 horas úteis com uma avaliação prévia e proposta de alinhamento.
+              Preencha o formulário com os detalhes do seu projeto. Nossa equipe analisará as informações e retornará rapidamente com a melhor orientação.
             </p>
 
             <div style={{
@@ -49,16 +71,16 @@ export default function ContatoPage() {
               gap: "16px"
             }}>
               <div style={{ fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--text-primary)", textTransform: "uppercase" }}>
-                Garantias do Processo:
+                Garantias do Atendimento:
               </div>
               <div style={{ fontSize: "13px", color: "var(--text-secondary)", display: "flex", alignItems: "center", gap: "8px" }}>
-                <span style={{ color: "var(--sinal)" }}>✓</span> Acordo de Confidencialidade (NDA) disponível
+                <span style={{ color: "var(--sinal)" }}>✓</span> Retorno rápido e direto no seu WhatsApp ou e-mail
               </div>
               <div style={{ fontSize: "13px", color: "var(--text-secondary)", display: "flex", alignItems: "center", gap: "8px" }}>
-                <span style={{ color: "var(--sinal)" }}>✓</span> Análise direta por arquiteto sênior
+                <span style={{ color: "var(--sinal)" }}>✓</span> Proposta clara com escopo, valores e prazos
               </div>
               <div style={{ fontSize: "13px", color: "var(--text-secondary)", display: "flex", alignItems: "center", gap: "8px" }}>
-                <span style={{ color: "var(--sinal)" }}>✓</span> Proposta com escopo, prazos e arquitetura clara
+                <span style={{ color: "var(--sinal)" }}>✓</span> Atendimento personalizado para pequenas e grandes empresas
               </div>
             </div>
           </div>
@@ -88,24 +110,24 @@ export default function ContatoPage() {
                   ✓
                 </div>
                 <h2 style={{ fontFamily: "var(--font-display)", fontSize: "28px", color: "var(--text-primary)", marginBottom: "12px" }}>
-                  Briefing Recebido com Sucesso!
+                  Mensagem Recebida com Sucesso!
                 </h2>
                 <p style={{ color: "var(--text-secondary)", fontSize: "15px", lineHeight: 1.6, maxWidth: "420px", margin: "0 auto" }}>
-                  Obrigado, <strong>{formData.nome}</strong>. Nossa equipe técnica entrará em contato pelo e-mail <strong>{formData.email}</strong> para o próximo passo.
+                  Obrigado, <strong>{formData.nome}</strong>. Nossa equipe entrará em contato pelo e-mail <strong>{formData.email}</strong> ou WhatsApp.
                 </p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                 <div>
                   <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "8px" }}>
-                    Seu Nome Completo *
+                    Seu Nome *
                   </label>
                   <input
                     type="text"
                     required
                     value={formData.nome}
                     onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
-                    placeholder="Ex: Carlos Eduardo"
+                    placeholder="Nome completo"
                     style={{
                       width: "100%",
                       padding: "12px 16px",
@@ -122,14 +144,35 @@ export default function ContatoPage() {
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                   <div>
                     <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "8px" }}>
-                      Empresa / Organização *
+                      Nome da Empresa
+                    </label>
+                    <input
+                      type="text"
+                      value={formData.empresa}
+                      onChange={(e) => setFormData({ ...formData, empresa: e.target.value })}
+                      placeholder="Empresa ou Marca"
+                      style={{
+                        width: "100%",
+                        padding: "12px 16px",
+                        background: "var(--obsidiana)",
+                        border: "1px solid var(--border)",
+                        borderRadius: "4px",
+                        color: "var(--text-primary)",
+                        fontSize: "14px",
+                        outline: "none"
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "8px" }}>
+                      WhatsApp com DDD *
                     </label>
                     <input
                       type="text"
                       required
-                      value={formData.empresa}
-                      onChange={(e) => setFormData({ ...formData, empresa: e.target.value })}
-                      placeholder="Nome da sua empresa"
+                      value={formData.telefone}
+                      onChange={(e) => setFormData({ ...formData, telefone: e.target.value })}
+                      placeholder="(31) 99999-9999"
                       style={{
                         width: "100%",
                         padding: "12px 16px",
@@ -141,92 +184,68 @@ export default function ContatoPage() {
                         outline: "none"
                       }}
                     />
-                  </div>
-                  <div>
-                    <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "8px" }}>
-                      E-mail Corporativo *
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="seu.nome@empresa.com"
-                      style={{
-                        width: "100%",
-                        padding: "12px 16px",
-                        background: "var(--obsidiana)",
-                        border: "1px solid var(--border)",
-                        borderRadius: "4px",
-                        color: "var(--text-primary)",
-                        fontSize: "14px",
-                        outline: "none"
-                      }}
-                    />
-                  </div>
-                </div>
-
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
-                  <div>
-                    <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "8px" }}>
-                      Objetivo Principal *
-                    </label>
-                    <select
-                      value={formData.objetivo}
-                      onChange={(e) => setFormData({ ...formData, objetivo: e.target.value })}
-                      style={{
-                        width: "100%",
-                        padding: "12px 16px",
-                        background: "var(--obsidiana)",
-                        border: "1px solid var(--border)",
-                        borderRadius: "4px",
-                        color: "var(--text-primary)",
-                        fontSize: "14px",
-                        outline: "none"
-                      }}
-                    >
-                      <option value="Novo Site Institucional / E-Commerce">Novo Site Institucional / E-Commerce</option>
-                      <option value="Plataforma Web Sob Medida / SaaS">Plataforma Web Sob Medida / SaaS</option>
-                      <option value="Engenharia de Dados & BI">Engenharia de Dados & BI</option>
-                      <option value="Automação & Agentes de IA">Automação & Agentes de IA</option>
-                      <option value="Consultoria Técnica (CTO as a Service)">Consultoria Técnica (CTO as a Service)</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "8px" }}>
-                      Faixa Orçamentária Prevista
-                    </label>
-                    <select
-                      value={formData.orcamento}
-                      onChange={(e) => setFormData({ ...formData, orcamento: e.target.value })}
-                      style={{
-                        width: "100%",
-                        padding: "12px 16px",
-                        background: "var(--obsidiana)",
-                        border: "1px solid var(--border)",
-                        borderRadius: "4px",
-                        color: "var(--text-primary)",
-                        fontSize: "14px",
-                        outline: "none"
-                      }}
-                    >
-                      <option value="R$ 15k a R$ 30k">R$ 15k a R$ 30k</option>
-                      <option value="R$ 30k a R$ 60k">R$ 30k a R$ 60k</option>
-                      <option value="R$ 60k a R$ 120k">R$ 60k a R$ 120k</option>
-                      <option value="Acima de R$ 120k">Acima de R$ 120k</option>
-                    </select>
                   </div>
                 </div>
 
                 <div>
                   <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "8px" }}>
-                    Resumo do Desafio ou Escopo
+                    E-mail de Contato *
+                  </label>
+                  <input
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    placeholder="seuemail@empresa.com"
+                    style={{
+                      width: "100%",
+                      padding: "12px 16px",
+                      background: "var(--obsidiana)",
+                      border: "1px solid var(--border)",
+                      borderRadius: "4px",
+                      color: "var(--text-primary)",
+                      fontSize: "14px",
+                      outline: "none"
+                    }}
+                  />
+                </div>
+
+                <div>
+                  <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "8px" }}>
+                    Solução ou Tipo de Site Desejado
+                  </label>
+                  <select
+                    value={formData.servico_interesse}
+                    onChange={(e) => setFormData({ ...formData, servico_interesse: e.target.value })}
+                    style={{
+                      width: "100%",
+                      padding: "12px 16px",
+                      background: "var(--obsidiana)",
+                      border: "1px solid var(--border)",
+                      borderRadius: "4px",
+                      color: "var(--text-primary)",
+                      fontSize: "14px",
+                      outline: "none"
+                    }}
+                  >
+                    <option value="Landing Page Express / Página Única">Landing Page Express / Página Única (a partir de R$ 600)</option>
+                    <option value="Site Institucional Completo">Site Institucional Completo</option>
+                    <option value="Loja Virtual ou Catálogo Digital">Loja Virtual ou Catálogo Digital</option>
+                    <option value="Portal de Clientes ou Sistema Web">Portal de Clientes ou Sistema Web</option>
+                    <option value="Automação e Integrações">Automação de Processos e Integrações</option>
+                    <option value="Consultoria e Otimização">Consultoria Técnica e Otimização</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "8px" }}>
+                    Resumo da sua Necessidade
                   </label>
                   <textarea
                     rows={4}
                     value={formData.mensagem}
                     onChange={(e) => setFormData({ ...formData, mensagem: e.target.value })}
-                    placeholder="Conte brevemente sobre o projeto, expectativas ou sistemas existentes..."
+                    placeholder="Conte brevemente sobre o seu projeto ou objetivos..."
                     style={{
                       width: "100%",
                       padding: "12px 16px",
@@ -243,13 +262,14 @@ export default function ContatoPage() {
 
                 <button
                   type="submit"
+                  disabled={loading}
                   style={{
                     background: "var(--sinal)",
                     color: "var(--obsidiana)",
                     fontFamily: "var(--font-mono)",
                     fontSize: "13px",
                     fontWeight: 600,
-                    padding: "14px 24px",
+                    padding: "14px 28px",
                     borderRadius: "4px",
                     border: "none",
                     cursor: "pointer",
@@ -258,7 +278,7 @@ export default function ContatoPage() {
                     marginTop: "8px"
                   }}
                 >
-                  Enviar Briefing para Avaliação Técnica →
+                  {loading ? "Enviando..." : "Enviar Mensagem →"}
                 </button>
               </form>
             )}
