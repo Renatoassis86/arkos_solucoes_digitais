@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 05_ecommerce_retail
+- **Empresa:** chubbies
+- **URL exata:** https://www.chubbiesshorts.com
+- **Data/Hora da Captura:** 2026-08-19 16:09:54 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

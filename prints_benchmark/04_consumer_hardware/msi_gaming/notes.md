@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 04_consumer_hardware
+- **Empresa:** msi_gaming
+- **URL exata:** https://www.msi.com
+- **Data/Hora da Captura:** 2026-08-19 16:02:19 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

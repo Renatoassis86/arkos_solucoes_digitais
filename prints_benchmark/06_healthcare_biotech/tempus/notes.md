@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 06_healthcare_biotech
+- **Empresa:** tempus
+- **URL exata:** https://www.tempus.com
+- **Data/Hora da Captura:** 2026-08-19 16:21:59 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

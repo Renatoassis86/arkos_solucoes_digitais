@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 07_industrial_energy
+- **Empresa:** danfoss
+- **URL exata:** https://www.danfoss.com
+- **Data/Hora da Captura:** 2026-08-19 16:36:00 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

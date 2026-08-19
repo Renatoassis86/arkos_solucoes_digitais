@@ -1,0 +1,4 @@
+- **URL exata da Home:** https://www.bolha.com.br/
+- **URL exata de Trabalho:** https://www.bolha.com.br/
+- **Data/Hora da captura:** 2026-08-19 13:21:41 (UTC)
+- **Destaque Visual:** Estética de estúdio de tecnologia e inovação interativa, com layout contemporâneo, suporte a experiências imersivas e paleta escura contrastante.

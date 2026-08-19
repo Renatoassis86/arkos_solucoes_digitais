@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 02_b2b_saas_devtools
+- **Empresa:** typeform
+- **URL exata:** https://www.typeform.com
+- **Data/Hora da Captura:** 2026-08-19 15:23:02 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

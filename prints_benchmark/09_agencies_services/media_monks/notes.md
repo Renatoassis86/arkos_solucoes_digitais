@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 09_agencies_services
+- **Empresa:** media_monks
+- **URL exata:** https://www.monks.com
+- **Data/Hora da Captura:** 2026-08-19 16:59:10 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

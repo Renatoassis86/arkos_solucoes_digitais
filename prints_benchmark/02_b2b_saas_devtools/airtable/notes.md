@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 02_b2b_saas_devtools
+- **Empresa:** airtable
+- **URL exata:** https://www.airtable.com
+- **Data/Hora da Captura:** 2026-08-19 15:30:14 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

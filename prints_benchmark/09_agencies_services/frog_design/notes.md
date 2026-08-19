@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 09_agencies_services
+- **Empresa:** frog_design
+- **URL exata:** https://www.frogdesign.com
+- **Data/Hora da Captura:** 2026-08-19 17:04:19 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

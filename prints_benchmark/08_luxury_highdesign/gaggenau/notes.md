@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 08_luxury_highdesign
+- **Empresa:** gaggenau
+- **URL exata:** https://www.gaggenau.com
+- **Data/Hora da Captura:** 2026-08-19 16:51:53 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

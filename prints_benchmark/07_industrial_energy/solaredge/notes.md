@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 07_industrial_energy
+- **Empresa:** solaredge
+- **URL exata:** https://www.solaredge.com
+- **Data/Hora da Captura:** 2026-08-19 16:38:05 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

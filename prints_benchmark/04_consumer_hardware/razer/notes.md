@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 04_consumer_hardware
+- **Empresa:** razer
+- **URL exata:** https://www.razer.com
+- **Data/Hora da Captura:** 2026-08-19 15:59:54 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

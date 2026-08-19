@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 01_bigtech_enterprise
+- **Empresa:** twilio
+- **URL exata:** https://www.twilio.com
+- **Data/Hora da Captura:** 2026-08-19 15:14:22 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

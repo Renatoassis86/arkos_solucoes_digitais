@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 09_agencies_services
+- **Empresa:** sa_design
+- **URL exata:** https://sa-design.co
+- **Data/Hora da Captura:** 2026-08-19 16:59:03 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

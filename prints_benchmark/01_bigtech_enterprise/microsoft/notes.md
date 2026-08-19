@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 01_bigtech_enterprise
+- **Empresa:** microsoft
+- **URL exata:** https://www.microsoft.com
+- **Data/Hora da Captura:** 2026-08-19 15:12:06 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

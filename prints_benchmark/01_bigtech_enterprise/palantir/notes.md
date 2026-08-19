@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 01_bigtech_enterprise
+- **Empresa:** palantir
+- **URL exata:** https://www.palantir.com
+- **Data/Hora da Captura:** 2026-08-19 15:13:12 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

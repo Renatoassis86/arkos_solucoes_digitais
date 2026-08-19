@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 09_agencies_services
+- **Empresa:** ideo
+- **URL exata:** https://www.ideo.com
+- **Data/Hora da Captura:** 2026-08-19 17:02:13 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

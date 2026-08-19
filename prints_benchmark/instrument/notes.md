@@ -1,0 +1,4 @@
+- **URL exata da Home:** https://www.instrument.com/
+- **URL exata de Trabalho:** https://www.instrument.com/work/
+- **Data/Hora da captura:** 2026-08-19 13:14:32 (UTC)
+- **Destaque Visual:** Layout editorial limpo com fundo claro, tipografia arrojada e marcante em caixas altas e excelente composição com vídeo em destaque.

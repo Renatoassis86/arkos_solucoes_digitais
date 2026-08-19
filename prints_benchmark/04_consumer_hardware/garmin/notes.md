@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 04_consumer_hardware
+- **Empresa:** garmin
+- **URL exata:** https://www.garmin.com
+- **Data/Hora da Captura:** 2026-08-19 15:54:29 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

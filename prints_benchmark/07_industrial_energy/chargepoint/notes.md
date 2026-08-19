@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 07_industrial_energy
+- **Empresa:** chargepoint
+- **URL exata:** https://www.chargepoint.com
+- **Data/Hora da Captura:** 2026-08-19 16:38:09 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

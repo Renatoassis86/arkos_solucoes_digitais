@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 05_ecommerce_retail
+- **Empresa:** lululemon
+- **URL exata:** https://shop.lululemon.com
+- **Data/Hora da Captura:** 2026-08-19 16:07:46 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

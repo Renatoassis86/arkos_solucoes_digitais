@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 04_consumer_hardware
+- **Empresa:** tesla
+- **URL exata:** https://www.tesla.com
+- **Data/Hora da Captura:** 2026-08-19 15:49:25 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

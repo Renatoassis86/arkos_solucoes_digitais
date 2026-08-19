@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 08_luxury_highdesign
+- **Empresa:** audo_copenhagen
+- **URL exata:** https://audocph.com
+- **Data/Hora da Captura:** 2026-08-19 16:48:38 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

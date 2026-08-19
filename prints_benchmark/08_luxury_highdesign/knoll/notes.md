@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 08_luxury_highdesign
+- **Empresa:** knoll
+- **URL exata:** https://www.knoll.com
+- **Data/Hora da Captura:** 2026-08-19 16:45:46 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

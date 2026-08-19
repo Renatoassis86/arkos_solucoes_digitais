@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 08_luxury_highdesign
+- **Empresa:** maserati
+- **URL exata:** https://www.maserati.com
+- **Data/Hora da Captura:** 2026-08-19 16:53:23 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

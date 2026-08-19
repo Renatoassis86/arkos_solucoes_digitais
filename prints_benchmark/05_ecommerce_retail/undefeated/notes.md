@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 05_ecommerce_retail
+- **Empresa:** undefeated
+- **URL exata:** https://undefeated.com
+- **Data/Hora da Captura:** 2026-08-19 16:18:42 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

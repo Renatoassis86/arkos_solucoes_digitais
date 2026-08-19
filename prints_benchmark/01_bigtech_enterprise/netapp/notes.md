@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 01_bigtech_enterprise
+- **Empresa:** netapp
+- **URL exata:** https://www.netapp.com
+- **Data/Hora da Captura:** 2026-08-19 15:15:54 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

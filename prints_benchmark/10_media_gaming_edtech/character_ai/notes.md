@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 10_media_gaming_edtech
+- **Empresa:** character_ai
+- **URL exata:** https://character.ai
+- **Data/Hora da Captura:** 2026-08-19 17:26:01 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

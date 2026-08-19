@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 04_consumer_hardware
+- **Empresa:** framework
+- **URL exata:** https://frame.work
+- **Data/Hora da Captura:** 2026-08-19 15:51:17 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

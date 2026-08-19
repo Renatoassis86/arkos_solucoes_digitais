@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 02_b2b_saas_devtools
+- **Empresa:** qdrant
+- **URL exata:** https://qdrant.tech
+- **Data/Hora da Captura:** 2026-08-19 15:34:54 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

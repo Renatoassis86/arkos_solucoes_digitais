@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 02_b2b_saas_devtools
+- **Empresa:** resend
+- **URL exata:** https://resend.com
+- **Data/Hora da Captura:** 2026-08-19 15:20:24 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

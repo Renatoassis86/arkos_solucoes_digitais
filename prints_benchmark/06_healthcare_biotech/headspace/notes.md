@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 06_healthcare_biotech
+- **Empresa:** headspace
+- **URL exata:** https://www.headspace.com
+- **Data/Hora da Captura:** 2026-08-19 16:23:35 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

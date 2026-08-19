@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 09_agencies_services
+- **Empresa:** ogilvy
+- **URL exata:** https://www.ogilvy.com
+- **Data/Hora da Captura:** 2026-08-19 17:02:26 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

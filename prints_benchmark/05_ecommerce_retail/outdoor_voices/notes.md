@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 05_ecommerce_retail
+- **Empresa:** outdoor_voices
+- **URL exata:** https://www.outdoorvoices.com
+- **Data/Hora da Captura:** 2026-08-19 16:11:43 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

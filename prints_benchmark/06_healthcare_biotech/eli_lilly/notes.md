@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 06_healthcare_biotech
+- **Empresa:** eli_lilly
+- **URL exata:** https://www.lilly.com
+- **Data/Hora da Captura:** 2026-08-19 16:29:47 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,0 +1,4 @@
+- **URL exata da Home:** https://dogstudio.co/
+- **URL exata de Trabalho:** https://dogstudio.co/cases/
+- **Data/Hora da captura:** 2026-08-19 13:20:53 (UTC)
+- **Destaque Visual:** Experiência imersiva com arte 3D em WebGL, atmosfera escura com contraste vibrante e tipografia estilizada de forte personalidade.

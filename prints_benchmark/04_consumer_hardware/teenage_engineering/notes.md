@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 04_consumer_hardware
+- **Empresa:** teenage_engineering
+- **URL exata:** https://teenage.engineering
+- **Data/Hora da Captura:** 2026-08-19 15:49:42 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

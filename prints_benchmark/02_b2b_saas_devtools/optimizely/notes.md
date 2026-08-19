@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 02_b2b_saas_devtools
+- **Empresa:** optimizely
+- **URL exata:** https://www.optimizely.com
+- **Data/Hora da Captura:** 2026-08-19 15:32:40 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 05_ecommerce_retail
+- **Empresa:** yeti
+- **URL exata:** https://www.yeti.com
+- **Data/Hora da Captura:** 2026-08-19 16:15:41 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

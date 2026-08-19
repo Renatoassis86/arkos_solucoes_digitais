@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 07_industrial_energy
+- **Empresa:** air_liquide
+- **URL exata:** https://www.airliquide.com
+- **Data/Hora da Captura:** 2026-08-19 16:40:23 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

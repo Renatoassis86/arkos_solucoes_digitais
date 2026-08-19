@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 10_media_gaming_edtech
+- **Empresa:** spotify
+- **URL exata:** https://www.spotify.com
+- **Data/Hora da Captura:** 2026-08-19 17:12:42 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

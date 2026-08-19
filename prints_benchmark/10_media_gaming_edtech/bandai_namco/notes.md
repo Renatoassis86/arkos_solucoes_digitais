@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 10_media_gaming_edtech
+- **Empresa:** bandai_namco
+- **URL exata:** https://www.bandainamcoent.com
+- **Data/Hora da Captura:** 2026-08-19 17:21:44 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

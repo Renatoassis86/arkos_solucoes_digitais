@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 06_healthcare_biotech
+- **Empresa:** ro
+- **URL exata:** https://ro.co
+- **Data/Hora da Captura:** 2026-08-19 16:21:11 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

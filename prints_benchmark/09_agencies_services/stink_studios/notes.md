@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 09_agencies_services
+- **Empresa:** stink_studios
+- **URL exata:** https://stinkstudios.com
+- **Data/Hora da Captura:** 2026-08-19 17:05:12 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

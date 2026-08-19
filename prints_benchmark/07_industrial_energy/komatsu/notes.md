@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 07_industrial_energy
+- **Empresa:** komatsu
+- **URL exata:** https://www.komatsu.jp/en
+- **Data/Hora da Captura:** 2026-08-19 16:35:14 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

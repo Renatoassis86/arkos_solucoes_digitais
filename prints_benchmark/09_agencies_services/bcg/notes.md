@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 09_agencies_services
+- **Empresa:** bcg
+- **URL exata:** https://www.bcg.com
+- **Data/Hora da Captura:** 2026-08-19 17:10:03 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

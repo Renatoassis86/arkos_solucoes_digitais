@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 08_luxury_highdesign
+- **Empresa:** artemide
+- **URL exata:** https://www.artemide.com
+- **Data/Hora da Captura:** 2026-08-19 16:47:04 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

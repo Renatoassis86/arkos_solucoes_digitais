@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 08_luxury_highdesign
+- **Empresa:** poliform
+- **URL exata:** https://www.poliform.it
+- **Data/Hora da Captura:** 2026-08-19 16:50:59 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

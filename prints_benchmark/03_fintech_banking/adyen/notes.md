@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 03_fintech_banking
+- **Empresa:** adyen
+- **URL exata:** https://www.adyen.com
+- **Data/Hora da Captura:** 2026-08-19 15:39:04 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

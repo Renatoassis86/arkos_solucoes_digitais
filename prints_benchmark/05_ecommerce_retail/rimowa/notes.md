@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 05_ecommerce_retail
+- **Empresa:** rimowa
+- **URL exata:** https://www.rimowa.com
+- **Data/Hora da Captura:** 2026-08-19 16:05:53 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

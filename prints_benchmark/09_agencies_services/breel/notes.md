@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 09_agencies_services
+- **Empresa:** breel
+- **URL exata:** https://www.b-reel.com
+- **Data/Hora da Captura:** 2026-08-19 17:05:31 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

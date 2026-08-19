@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 01_bigtech_enterprise
+- **Empresa:** salesforce
+- **URL exata:** https://www.salesforce.com
+- **Data/Hora da Captura:** 2026-08-19 15:12:17 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

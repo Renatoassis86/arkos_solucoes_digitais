@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 01_bigtech_enterprise
+- **Empresa:** snowflake
+- **URL exata:** https://www.snowflake.com
+- **Data/Hora da Captura:** 2026-08-19 15:12:52 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

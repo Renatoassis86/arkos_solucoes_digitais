@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 08_luxury_highdesign
+- **Empresa:** molteni_c
+- **URL exata:** https://www.molteni.it
+- **Data/Hora da Captura:** 2026-08-19 16:51:16 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

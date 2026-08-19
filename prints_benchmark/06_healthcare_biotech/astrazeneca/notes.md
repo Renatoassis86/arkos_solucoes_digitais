@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 06_healthcare_biotech
+- **Empresa:** astrazeneca
+- **URL exata:** https://www.astrazeneca.com
+- **Data/Hora da Captura:** 2026-08-19 16:29:11 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

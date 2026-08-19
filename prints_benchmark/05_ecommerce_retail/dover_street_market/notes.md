@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 05_ecommerce_retail
+- **Empresa:** dover_street_market
+- **URL exata:** https://doverstreetmarket.com
+- **Data/Hora da Captura:** 2026-08-19 16:18:37 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

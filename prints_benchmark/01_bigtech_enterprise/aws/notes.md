@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 01_bigtech_enterprise
+- **Empresa:** aws
+- **URL exata:** https://aws.amazon.com
+- **Data/Hora da Captura:** 2026-08-19 15:13:22 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

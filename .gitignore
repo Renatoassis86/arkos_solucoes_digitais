@@ -1,143 +1,41 @@
-# ==========================================================
-# ARKOS Workspace — .gitignore
-# ==========================================================
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# ----------------------------------------------------------
-# Third-party reference material (copyrighted, not ARKOS IP)
-# ----------------------------------------------------------
-# Standards/reference documents kept locally for consultation only —
-# not redistributed via the repo. Cite them in docs, don't version them.
-6 - IEEE_2024_SWEBOK_4.pdf
-prints_benchmark/
-*.pdf
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
 
-# ----------------------------------------------------------
-# Secrets & environment
-# ----------------------------------------------------------
-.env
-.env.*
-!.env.example
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
 *.pem
-*.key
-*.p12
-*.pfx
-*.crt
-*.cer
-*.der
-*.jks
-*.keystore
-id_rsa
-id_rsa.pub
-id_ed25519
-id_ed25519.pub
-*credentials*.json
-*secret*.json
-.npmrc
-.pypirc
 
-# ----------------------------------------------------------
-# Python
-# ----------------------------------------------------------
-__pycache__/
-*.py[cod]
-*.pyo
-.venv/
-venv/
-env/
-.pytest_cache/
-.mypy_cache/
-.ruff_cache/
-.tox/
-.coverage
-.coverage.*
-htmlcov/
-*.egg-info/
-pip-wheel-metadata/
-
-# ----------------------------------------------------------
-# Node / TypeScript / JavaScript
-# ----------------------------------------------------------
-node_modules/
+# debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
-.pnpm-store/
-.yarn/
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
 *.tsbuildinfo
-
-# ----------------------------------------------------------
-# Builds & caches
-# ----------------------------------------------------------
-dist/
-build/
-out/
-.cache/
-.next/
-.nuxt/
-.turbo/
-.parcel-cache/
-coverage/
-
-# ----------------------------------------------------------
-# Playwright / testes
-# ----------------------------------------------------------
-test-results/
-playwright-report/
-blob-report/
-.playwright/
-
-# Screenshots/artefatos temporários de teste — não se aplica a
-# capturas permanentes do futuro ARKOS Benchmark Intelligence,
-# que viverão fora deste padrão (ex.: intelligence/**) e deverão
-# ser versionadas ou armazenadas deliberadamente quando esse
-# módulo for implementado.
-tmp/
-temp/
-*.tmp
-
-# ----------------------------------------------------------
-# IDEs
-# ----------------------------------------------------------
-.vscode/
-.idea/
-*.sublime-workspace
-*.sublime-project
-
-# NOTA: .claude/ NÃO é ignorado — a Skill arkos-digital-intelligence
-# e demais assets do Claude Code fazem parte do conhecimento
-# operacional versionável do projeto.
-
-# ----------------------------------------------------------
-# Sistema operacional
-# ----------------------------------------------------------
-# Windows
-Thumbs.db
-ehthumbs.db
-Desktop.ini
-$RECYCLE.BIN/
-*.lnk
-
-# macOS
-.DS_Store
-.AppleDouble
-.LSOverride
-._*
-
-# ----------------------------------------------------------
-# Logs
-# ----------------------------------------------------------
-*.log
-logs/
-
-# ----------------------------------------------------------
-# Bancos locais (política provisória)
-# ----------------------------------------------------------
-# Ignorado por padrão enquanto não há arquitetura definida para
-# o ARKOS Benchmark Intelligence. Revisar esta política quando o
-# módulo de dados/benchmark for desenhado — bases que precisem
-# ser versionadas ou arquivadas deliberadamente deverão ser
-# excecionadas explicitamente (padrão `!caminho`) neste arquivo.
-*.sqlite
-*.sqlite3
-*.db
+next-env.d.ts

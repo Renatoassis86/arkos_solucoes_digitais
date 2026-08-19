@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 06_healthcare_biotech
+- **Empresa:** flatiron_health
+- **URL exata:** https://flatiron.com
+- **Data/Hora da Captura:** 2026-08-19 16:20:42 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

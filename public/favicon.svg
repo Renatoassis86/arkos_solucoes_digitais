@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <rect width="256" height="256" rx="64" fill="#0A0C0F"/>
+  <!-- Perna esquerda -->
+  <line x1="128" y1="36" x2="48" y2="216" stroke="#F4F2ED" stroke-width="18" stroke-linecap="round"/>
+  <!-- Perna direita -->
+  <line x1="128" y1="36" x2="208" y2="216" stroke="#F4F2ED" stroke-width="18" stroke-linecap="round"/>
+  <!-- Barra de Sinal -->
+  <line x1="72" y1="152" x2="184" y2="152" stroke="#C8F542" stroke-width="16" stroke-linecap="round"/>
+  <!-- Ápice -->
+  <circle cx="128" cy="36" r="12" fill="#C8F542"/>
+</svg>

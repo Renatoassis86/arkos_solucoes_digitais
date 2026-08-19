@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 02_b2b_saas_devtools
+- **Empresa:** coda
+- **URL exata:** https://coda.io
+- **Data/Hora da Captura:** 2026-08-19 15:30:24 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

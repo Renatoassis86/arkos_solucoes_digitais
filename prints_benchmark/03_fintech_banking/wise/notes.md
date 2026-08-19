@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 03_fintech_banking
+- **Empresa:** wise
+- **URL exata:** https://wise.com
+- **Data/Hora da Captura:** 2026-08-19 15:36:00 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

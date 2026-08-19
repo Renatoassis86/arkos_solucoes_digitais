@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 09_agencies_services
+- **Empresa:** ustwo
+- **URL exata:** https://ustwo.com
+- **Data/Hora da Captura:** 2026-08-19 17:04:13 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 07_industrial_energy
+- **Empresa:** emerson
+- **URL exata:** https://www.emerson.com
+- **Data/Hora da Captura:** 2026-08-19 16:33:51 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

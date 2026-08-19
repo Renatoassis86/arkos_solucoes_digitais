@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 10_media_gaming_edtech
+- **Empresa:** steam
+- **URL exata:** https://store.steampowered.com
+- **Data/Hora da Captura:** 2026-08-19 17:18:28 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

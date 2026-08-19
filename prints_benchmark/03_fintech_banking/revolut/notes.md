@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 03_fintech_banking
+- **Empresa:** revolut
+- **URL exata:** https://www.revolut.com
+- **Data/Hora da Captura:** 2026-08-19 15:35:44 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

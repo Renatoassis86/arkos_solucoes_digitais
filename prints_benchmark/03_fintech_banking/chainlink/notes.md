@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 03_fintech_banking
+- **Empresa:** chainlink
+- **URL exata:** https://chain.link
+- **Data/Hora da Captura:** 2026-08-19 15:42:35 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

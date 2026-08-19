@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 03_fintech_banking
+- **Empresa:** square
+- **URL exata:** https://squareup.com
+- **Data/Hora da Captura:** 2026-08-19 15:38:09 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

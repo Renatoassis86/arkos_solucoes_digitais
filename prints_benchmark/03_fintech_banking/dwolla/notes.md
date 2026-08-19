@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 03_fintech_banking
+- **Empresa:** dwolla
+- **URL exata:** https://www.dwolla.com
+- **Data/Hora da Captura:** 2026-08-19 15:45:51 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

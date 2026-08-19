@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 06_healthcare_biotech
+- **Empresa:** biontech
+- **URL exata:** https://biontech.de
+- **Data/Hora da Captura:** 2026-08-19 16:22:04 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

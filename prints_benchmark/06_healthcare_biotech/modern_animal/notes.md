@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 06_healthcare_biotech
+- **Empresa:** modern_animal
+- **URL exata:** https://www.modernanimal.com
+- **Data/Hora da Captura:** 2026-08-19 16:27:50 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

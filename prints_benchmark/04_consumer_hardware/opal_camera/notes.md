@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 04_consumer_hardware
+- **Empresa:** opal_camera
+- **URL exata:** https://opalcamera.com
+- **Data/Hora da Captura:** 2026-08-19 15:58:28 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

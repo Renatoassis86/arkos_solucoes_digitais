@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 08_luxury_highdesign
+- **Empresa:** saint_laurent
+- **URL exata:** https://www.ysl.com
+- **Data/Hora da Captura:** 2026-08-19 16:54:35 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

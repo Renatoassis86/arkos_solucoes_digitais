@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 02_b2b_saas_devtools
+- **Empresa:** retool
+- **URL exata:** https://retool.com
+- **Data/Hora da Captura:** 2026-08-19 15:22:00 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

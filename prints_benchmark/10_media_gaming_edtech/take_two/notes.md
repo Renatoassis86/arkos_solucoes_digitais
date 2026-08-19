@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 10_media_gaming_edtech
+- **Empresa:** take_two
+- **URL exata:** https://www.take2games.com
+- **Data/Hora da Captura:** 2026-08-19 17:19:47 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

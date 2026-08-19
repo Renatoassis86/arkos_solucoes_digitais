@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 05_ecommerce_retail
+- **Empresa:** bodega
+- **URL exata:** https://bdgastore.com
+- **Data/Hora da Captura:** 2026-08-19 16:18:06 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados
