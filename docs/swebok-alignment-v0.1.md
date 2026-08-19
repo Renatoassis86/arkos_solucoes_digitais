@@ -2,7 +2,7 @@
 
 ```
 Status: Readiness Assessment
-Fonte: IEEE Guide to the Software Engineering Body of Knowledge v4.0 (2024) — C:\ARKOS\6 - IEEE_2024_SWEBOK_4.pdf
+Fonte: IEEE Guide to the Software Engineering Body of Knowledge v4.0 (2024) — C:\arkos_solucoes_digitais\6 - IEEE_2024_SWEBOK_4.pdf
 Método: leitura direta do sumário/estrutura do documento (413 páginas, 18 capítulos/Knowledge Areas + 3 apêndices) — DOCUMENTADO, não inferido de memória.
 ```
 

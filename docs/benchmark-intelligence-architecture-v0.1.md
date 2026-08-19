@@ -253,7 +253,7 @@ Comparações antes de recomendação (vendor-agnostic, conforme `CLAUDE.md` se�
 ### Banco de dados
 | Opção | Prós | Contras |
 |---|---|---|
-| **SQLite** *(recomendado para MVP)* | zero-ops, arquivo único, backup trivial, adequado a local-first em `C:\ARKOS` | sem concorrência real, sem full-text/vector nativo avançado |
+| **SQLite** *(recomendado para MVP)* | zero-ops, arquivo único, backup trivial, adequado a local-first em `C:\arkos_solucoes_digitais` | sem concorrência real, sem full-text/vector nativo avançado |
 | **PostgreSQL** *(recomendado para escala)* | concorrência, JSON/JSONB, full-text (tsvector), extensão `pgvector` para embeddings futuros — caminho natural de migração | requer operação de servidor |
 
 ### Files / screenshots
@@ -279,7 +279,7 @@ Camada de abstração fina (interface única para "classify/extract/summarize") 
 | Colaboração/acesso remoto | nenhum | nativo | parcial |
 | Escalabilidade | limitada | alta | alta, com custo controlado |
 
-**Recomendação:** **local-first para o MVP** (`C:\ARKOS`, SQLite, filesystem) — sem custo, controle total, validação rápida da tese. **Hybrid para Phase 2+** (captura local ou agendada + storage/DB em nuvem) quando houver necessidade real de colaboração/escala comprovada pelo MVP. Cloud-first pleno é prematuro antes de validar o pipeline.
+**Recomendação:** **local-first para o MVP** (`C:\arkos_solucoes_digitais`, SQLite, filesystem) — sem custo, controle total, validação rápida da tese. **Hybrid para Phase 2+** (captura local ou agendada + storage/DB em nuvem) quando houver necessidade real de colaboração/escala comprovada pelo MVP. Cloud-first pleno é prematuro antes de validar o pipeline.
 
 Mesmo local-first exige política de backup explícita: dados estruturados/config/knowledge versionados em Git (texto, baixo volume); screenshots/binários grandes **não** devem entrar no Git (conforme `.gitignore` já criado) — precisam de rotina de backup/export periódico separada (ex.: cópia para storage externo), a ser definida na Phase 1.
 
@@ -322,7 +322,7 @@ erDiagram
 ## 16. File Architecture *(proposta — não criar ainda)*
 
 ```
-C:\ARKOS\intelligence\
+C:\arkos_solucoes_digitais\intelligence\
 ├── registry\              # cadastro canônico de empresas/setores — YAML, versionado em git
 │   └── companies\<sector>\<company-slug>.yaml
 ├── captures\               # artefatos brutos de captura — NÃO versionado em git (binário/volume)

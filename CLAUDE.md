@@ -73,7 +73,7 @@ Qualquer crawler/pesquisa deve respeitar robots.txt, termos de uso, limites de r
 Arquitetura de referência (**não criar antecipadamente** — só quando houver uso concreto):
 
 ```
-C:\ARKOS
+C:\arkos_solucoes_digitais
 ├── .claude
 ├── company
 ├── clients

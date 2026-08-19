@@ -607,7 +607,7 @@ erDiagram
 ## 25. File Architecture *(proposta — não criar ainda)*
 
 ```
-C:\ARKOS\intelligence\
+C:\arkos_solucoes_digitais\intelligence\
 ├── registry\              # cadastro canônico de empresas/setores — YAML, versionado em git
 ├── captures\               # artefatos brutos — NÃO versionado em git
 │   └── <company-slug>\<property-slug>\<yyyy-mm-dd>\
