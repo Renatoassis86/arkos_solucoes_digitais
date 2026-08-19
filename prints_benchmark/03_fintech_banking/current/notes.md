@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 03_fintech_banking
-- **Empresa:** current
-- **URL exata:** https://current.com
-- **Data/Hora da Captura:** 2026-08-19 15:49:15 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

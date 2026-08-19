@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 10_media_gaming_edtech
-- **Empresa:** ubisoft
-- **URL exata:** https://www.ubisoft.com
-- **Data/Hora da Captura:** 2026-08-19 17:18:11 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

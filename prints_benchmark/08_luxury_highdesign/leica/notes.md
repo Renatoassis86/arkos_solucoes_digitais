@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 08_luxury_highdesign
-- **Empresa:** leica
-- **URL exata:** https://leica-camera.com
-- **Data/Hora da Captura:** 2026-08-19 16:43:13 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 09_agencies_services
-- **Empresa:** rezo_zero
-- **URL exata:** https://rezo-zero.com
-- **Data/Hora da Captura:** 2026-08-19 16:56:47 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

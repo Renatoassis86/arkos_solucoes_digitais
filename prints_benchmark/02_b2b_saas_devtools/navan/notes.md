@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 02_b2b_saas_devtools
-- **Empresa:** navan
-- **URL exata:** https://navan.com
-- **Data/Hora da Captura:** 2026-08-19 15:30:37 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

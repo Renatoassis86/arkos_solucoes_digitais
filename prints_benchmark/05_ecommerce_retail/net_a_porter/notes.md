@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 05_ecommerce_retail
-- **Empresa:** net_a_porter
-- **URL exata:** https://www.net-a-porter.com
-- **Data/Hora da Captura:** 2026-08-19 16:19:14 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

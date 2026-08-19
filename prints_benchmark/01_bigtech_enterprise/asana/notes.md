@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 01_bigtech_enterprise
-- **Empresa:** asana
-- **URL exata:** https://asana.com
-- **Data/Hora da Captura:** 2026-08-19 15:14:25 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

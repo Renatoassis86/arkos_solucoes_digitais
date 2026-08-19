@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 04_consumer_hardware
-- **Empresa:** steamVR
-- **URL exata:** https://store.steampowered.com/vr/
-- **Data/Hora da Captura:** 2026-08-19 14:31:54 (UTC)
-- **Status:** Desktop (OK), Mobile (OK)

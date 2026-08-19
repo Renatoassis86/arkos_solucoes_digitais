@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 02_b2b_saas_devtools
-- **Empresa:** raycast
-- **URL exata:** https://www.raycast.com
-- **Data/Hora da Captura:** 2026-08-19 15:19:14 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,4 +1,0 @@
-- **URL exata da Home:** https://work.co/
-- **URL exata de Trabalho:** https://work.co/clients/
-- **Data/Hora da captura:** 2026-08-19 13:18:13 (UTC)
-- **Destaque Visual:** Design ultra-direto e funcional de alto contraste, tipografia forte e objetiva e apresentação de trabalhos orientada a produtos digitais e métricas reais.

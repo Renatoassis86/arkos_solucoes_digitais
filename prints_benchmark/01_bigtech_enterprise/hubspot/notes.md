@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 01_bigtech_enterprise
-- **Empresa:** hubspot
-- **URL exata:** https://www.hubspot.com
-- **Data/Hora da Captura:** 2026-08-19 15:15:27 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

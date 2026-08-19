@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 05_ecommerce_retail
-- **Empresa:** solo_stove
-- **URL exata:** https://www.solostove.com
-- **Data/Hora da Captura:** 2026-08-19 16:15:43 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

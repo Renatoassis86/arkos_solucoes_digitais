@@ -1,4 +1,0 @@
-- **URL exata da Home:** https://programatorio.com/en
-- **URL exata de Trabalho:** https://programatorio.com/en/projects
-- **Data/Hora da captura:** 2026-08-19 13:16:49 (UTC)
-- **Destaque Visual:** Estética contemporânea com tema escuro, layout de alta densidade visual, tipografia moderna bem estruturada e excelente vitrine de projetos em grade.

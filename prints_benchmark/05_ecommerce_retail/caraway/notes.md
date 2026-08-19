@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 05_ecommerce_retail
-- **Empresa:** caraway
-- **URL exata:** https://www.carawayhome.com
-- **Data/Hora da Captura:** 2026-08-19 16:13:53 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

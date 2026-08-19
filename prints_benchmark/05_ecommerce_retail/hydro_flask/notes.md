@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 05_ecommerce_retail
-- **Empresa:** hydro_flask
-- **URL exata:** https://www.hydroflask.com
-- **Data/Hora da Captura:** 2026-08-19 16:15:47 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 07_industrial_energy
-- **Empresa:** nextera_energy
-- **URL exata:** https://www.nexteraenergy.com
-- **Data/Hora da Captura:** 2026-08-19 16:37:08 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

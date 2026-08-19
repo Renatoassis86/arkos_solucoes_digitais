@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 08_luxury_highdesign
-- **Empresa:** muuto
-- **URL exata:** https://www.muuto.com
-- **Data/Hora da Captura:** 2026-08-19 16:47:14 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

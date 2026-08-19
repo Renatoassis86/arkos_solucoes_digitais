@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 09_agencies_services
-- **Empresa:** area17
-- **URL exata:** https://www.area17.com
-- **Data/Hora da Captura:** 2026-08-19 17:05:16 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 02_b2b_saas_devtools
-- **Empresa:** miro
-- **URL exata:** https://miro.com
-- **Data/Hora da Captura:** 2026-08-19 15:18:14 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

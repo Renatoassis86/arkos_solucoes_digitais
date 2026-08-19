@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 02_b2b_saas_devtools
-- **Empresa:** remote
-- **URL exata:** https://remote.com
-- **Data/Hora da Captura:** 2026-08-19 15:28:45 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

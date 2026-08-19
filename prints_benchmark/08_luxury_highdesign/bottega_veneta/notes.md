@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 08_luxury_highdesign
-- **Empresa:** bottega_veneta
-- **URL exata:** https://www.bottegaveneta.com
-- **Data/Hora da Captura:** 2026-08-19 16:42:42 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 08_luxury_highdesign
-- **Empresa:** flexform
-- **URL exata:** https://www.flexform.it
-- **Data/Hora da Captura:** 2026-08-19 16:49:37 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

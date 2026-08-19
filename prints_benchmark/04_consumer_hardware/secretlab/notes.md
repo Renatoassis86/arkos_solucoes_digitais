@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 04_consumer_hardware
-- **Empresa:** secretlab
-- **URL exata:** https://secretlab.co
-- **Data/Hora da Captura:** 2026-08-19 16:02:47 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

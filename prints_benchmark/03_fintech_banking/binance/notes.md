@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 03_fintech_banking
-- **Empresa:** binance
-- **URL exata:** https://www.binance.com/en
-- **Data/Hora da Captura:** 2026-08-19 15:41:47 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

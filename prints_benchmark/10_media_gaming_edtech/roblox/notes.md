@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 10_media_gaming_edtech
-- **Empresa:** roblox
-- **URL exata:** https://www.roblox.com
-- **Data/Hora da Captura:** 2026-08-19 17:16:35 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

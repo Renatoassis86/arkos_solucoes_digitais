@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 06_healthcare_biotech
-- **Empresa:** merck
-- **URL exata:** https://www.merck.com
-- **Data/Hora da Captura:** 2026-08-19 16:29:06 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

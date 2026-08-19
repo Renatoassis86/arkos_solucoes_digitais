@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 03_fintech_banking
-- **Empresa:** increase
-- **URL exata:** https://increase.com
-- **Data/Hora da Captura:** 2026-08-19 15:46:32 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

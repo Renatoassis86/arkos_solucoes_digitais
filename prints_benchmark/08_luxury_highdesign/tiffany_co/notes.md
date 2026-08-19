@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 08_luxury_highdesign
-- **Empresa:** tiffany_co
-- **URL exata:** https://www.tiffany.com
-- **Data/Hora da Captura:** 2026-08-19 16:44:05 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

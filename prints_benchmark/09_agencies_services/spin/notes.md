@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 09_agencies_services
-- **Empresa:** spin
-- **URL exata:** https://spin.co.uk
-- **Data/Hora da Captura:** 2026-08-19 17:08:28 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

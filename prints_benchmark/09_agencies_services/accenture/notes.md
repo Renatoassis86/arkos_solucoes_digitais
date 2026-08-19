@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 09_agencies_services
-- **Empresa:** accenture
-- **URL exata:** https://www.accenture.com
-- **Data/Hora da Captura:** 2026-08-19 17:02:07 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

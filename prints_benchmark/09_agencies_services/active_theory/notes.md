@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 09_agencies_services
-- **Empresa:** active_theory
-- **URL exata:** https://activetheory.net
-- **Data/Hora da Captura:** 2026-08-19 16:57:45 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

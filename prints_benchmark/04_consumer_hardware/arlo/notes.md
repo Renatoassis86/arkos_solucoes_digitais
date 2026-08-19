@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 04_consumer_hardware
-- **Empresa:** arlo
-- **URL exata:** https://www.arlo.com
-- **Data/Hora da Captura:** 2026-08-19 15:57:26 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

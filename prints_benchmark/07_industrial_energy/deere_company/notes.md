@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 07_industrial_energy
-- **Empresa:** deere_company
-- **URL exata:** https://www.deere.com
-- **Data/Hora da Captura:** 2026-08-19 16:34:33 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

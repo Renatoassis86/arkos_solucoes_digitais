@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 08_luxury_highdesign
-- **Empresa:** rolex
-- **URL exata:** https://www.rolex.com
-- **Data/Hora da Captura:** 2026-08-19 16:44:38 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

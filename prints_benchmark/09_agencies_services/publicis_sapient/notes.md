@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 09_agencies_services
-- **Empresa:** publicis_sapient
-- **URL exata:** https://www.publicissapient.com
-- **Data/Hora da Captura:** 2026-08-19 17:04:22 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

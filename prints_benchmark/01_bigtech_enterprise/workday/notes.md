@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 01_bigtech_enterprise
-- **Empresa:** workday
-- **URL exata:** https://www.workday.com
-- **Data/Hora da Captura:** 2026-08-19 15:13:41 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

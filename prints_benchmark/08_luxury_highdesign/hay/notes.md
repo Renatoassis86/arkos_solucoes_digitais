@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 08_luxury_highdesign
-- **Empresa:** hay
-- **URL exata:** https://hay.dk
-- **Data/Hora da Captura:** 2026-08-19 16:48:38 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

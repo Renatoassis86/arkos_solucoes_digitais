@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 01_bigtech_enterprise
-- **Empresa:** github
-- **URL exata:** https://github.com
-- **Data/Hora da Captura:** 2026-08-19 15:15:08 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 09_agencies_services
-- **Empresa:** oliver_wyman
-- **URL exata:** https://www.oliverwyman.com
-- **Data/Hora da Captura:** 2026-08-19 17:11:23 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

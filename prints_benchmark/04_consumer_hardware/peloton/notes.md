@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 04_consumer_hardware
-- **Empresa:** peloton
-- **URL exata:** https://www.onepeloton.com
-- **Data/Hora da Captura:** 2026-08-19 15:53:43 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

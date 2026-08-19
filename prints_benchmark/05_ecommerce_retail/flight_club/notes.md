@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 05_ecommerce_retail
-- **Empresa:** flight_club
-- **URL exata:** https://www.flightclub.com
-- **Data/Hora da Captura:** 2026-08-19 16:19:17 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

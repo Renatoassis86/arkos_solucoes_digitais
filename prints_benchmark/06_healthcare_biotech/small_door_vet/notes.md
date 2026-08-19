@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 06_healthcare_biotech
-- **Empresa:** small_door_vet
-- **URL exata:** https://www.smalldoorvet.com
-- **Data/Hora da Captura:** 2026-08-19 16:28:31 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

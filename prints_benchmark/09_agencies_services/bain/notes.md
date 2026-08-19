@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 09_agencies_services
-- **Empresa:** bain
-- **URL exata:** https://www.bain.com
-- **Data/Hora da Captura:** 2026-08-19 17:08:51 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

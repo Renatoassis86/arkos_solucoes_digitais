@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 07_industrial_energy
-- **Empresa:** 3m
-- **URL exata:** https://www.3m.com
-- **Data/Hora da Captura:** 2026-08-19 16:42:20 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

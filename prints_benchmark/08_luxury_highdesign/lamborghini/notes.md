@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 08_luxury_highdesign
-- **Empresa:** lamborghini
-- **URL exata:** https://www.lamborghini.com
-- **Data/Hora da Captura:** 2026-08-19 16:53:20 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

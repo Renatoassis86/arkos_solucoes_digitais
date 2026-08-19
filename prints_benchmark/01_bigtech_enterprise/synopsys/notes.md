@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 01_bigtech_enterprise
-- **Empresa:** synopsys
-- **URL exata:** https://www.synopsys.com
-- **Data/Hora da Captura:** 2026-08-19 15:15:45 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 07_industrial_energy
-- **Empresa:** boeing
-- **URL exata:** https://www.boeing.com
-- **Data/Hora da Captura:** 2026-08-19 16:31:24 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

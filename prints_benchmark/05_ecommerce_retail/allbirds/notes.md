@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 05_ecommerce_retail
-- **Empresa:** allbirds
-- **URL exata:** https://www.allbirds.com
-- **Data/Hora da Captura:** 2026-08-19 16:04:55 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

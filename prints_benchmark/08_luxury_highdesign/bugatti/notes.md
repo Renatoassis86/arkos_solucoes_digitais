@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 08_luxury_highdesign
-- **Empresa:** bugatti
-- **URL exata:** https://www.bugatti.com
-- **Data/Hora da Captura:** 2026-08-19 16:53:12 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

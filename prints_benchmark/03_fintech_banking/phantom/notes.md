@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 03_fintech_banking
-- **Empresa:** phantom
-- **URL exata:** https://phantom.app
-- **Data/Hora da Captura:** 2026-08-19 15:39:52 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 06_healthcare_biotech
-- **Empresa:** levels_health
-- **URL exata:** https://www.levelshealth.com
-- **Data/Hora da Captura:** 2026-08-19 16:23:45 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

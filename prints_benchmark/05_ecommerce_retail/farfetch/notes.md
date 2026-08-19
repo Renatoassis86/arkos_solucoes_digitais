@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 05_ecommerce_retail
-- **Empresa:** farfetch
-- **URL exata:** https://www.farfetch.com
-- **Data/Hora da Captura:** 2026-08-19 16:19:52 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

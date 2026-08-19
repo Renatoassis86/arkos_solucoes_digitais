@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 03_fintech_banking
-- **Empresa:** kabbage
-- **URL exata:** https://www.kabbage.com
-- **Data/Hora da Captura:** 2026-08-19 15:47:39 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

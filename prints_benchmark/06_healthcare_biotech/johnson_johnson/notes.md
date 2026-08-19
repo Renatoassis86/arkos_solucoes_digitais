@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 06_healthcare_biotech
-- **Empresa:** johnson_johnson
-- **URL exata:** https://www.jnj.com
-- **Data/Hora da Captura:** 2026-08-19 16:29:11 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

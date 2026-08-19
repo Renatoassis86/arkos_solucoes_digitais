@@ -1,4 +1,0 @@
-- **URL exata da Home:** https://www.sa-design.co/
-- **URL exata de Trabalho:** https://www.sa-design.co/portfolio
-- **Data/Hora da captura:** 2026-08-19 13:17:47 (UTC)
-- **Destaque Visual:** Visual limpo e elegante com paleta em tons neutros, hierarquia tipográfica impecável e apresentação de mockups e projetos de branding em alta definição.

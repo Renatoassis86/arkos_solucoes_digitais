@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 07_industrial_energy
-- **Empresa:** carrier
-- **URL exata:** https://www.carrier.com
-- **Data/Hora da Captura:** 2026-08-19 16:35:09 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

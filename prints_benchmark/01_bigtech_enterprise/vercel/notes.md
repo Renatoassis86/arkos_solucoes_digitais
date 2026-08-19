@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 01_bigtech_enterprise
-- **Empresa:** vercel
-- **URL exata:** https://vercel.com
-- **Data/Hora da Captura:** 2026-08-19 15:12:20 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

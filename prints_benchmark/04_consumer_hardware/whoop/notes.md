@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 04_consumer_hardware
-- **Empresa:** whoop
-- **URL exata:** https://www.whoop.com
-- **Data/Hora da Captura:** 2026-08-19 15:53:31 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

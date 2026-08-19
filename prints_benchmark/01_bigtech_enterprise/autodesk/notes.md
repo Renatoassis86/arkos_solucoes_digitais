@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 01_bigtech_enterprise
-- **Empresa:** autodesk
-- **URL exata:** https://www.autodesk.com
-- **Data/Hora da Captura:** 2026-08-19 15:15:36 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 08_luxury_highdesign
-- **Empresa:** cartier
-- **URL exata:** https://www.cartier.com
-- **Data/Hora da Captura:** 2026-08-19 16:44:38 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

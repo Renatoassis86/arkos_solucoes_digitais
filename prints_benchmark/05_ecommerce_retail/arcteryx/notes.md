@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 05_ecommerce_retail
-- **Empresa:** arcteryx
-- **URL exata:** https://arcteryx.com
-- **Data/Hora da Captura:** 2026-08-19 16:17:10 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

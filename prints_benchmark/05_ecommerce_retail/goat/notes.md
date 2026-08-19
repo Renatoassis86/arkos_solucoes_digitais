@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 05_ecommerce_retail
-- **Empresa:** goat
-- **URL exata:** https://www.goat.com
-- **Data/Hora da Captura:** 2026-08-19 16:19:27 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

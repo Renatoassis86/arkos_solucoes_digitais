@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 06_healthcare_biotech
-- **Empresa:** noom
-- **URL exata:** https://www.noom.com
-- **Data/Hora da Captura:** 2026-08-19 16:23:25 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

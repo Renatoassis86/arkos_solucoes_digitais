@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 01_bigtech_enterprise
-- **Empresa:** stripe
-- **URL exata:** https://stripe.com
-- **Data/Hora da Captura:** 2026-08-19 15:12:08 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

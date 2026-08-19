@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 08_luxury_highdesign
-- **Empresa:** ferm_living
-- **URL exata:** https://fermliving.com
-- **Data/Hora da Captura:** 2026-08-19 16:48:43 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

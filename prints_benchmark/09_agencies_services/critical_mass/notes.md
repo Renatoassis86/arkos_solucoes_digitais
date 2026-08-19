@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 09_agencies_services
-- **Empresa:** critical_mass
-- **URL exata:** https://www.criticalmass.com
-- **Data/Hora da Captura:** 2026-08-19 17:04:20 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

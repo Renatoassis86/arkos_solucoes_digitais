@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 07_industrial_energy
-- **Empresa:** evgo
-- **URL exata:** https://www.evgo.com
-- **Data/Hora da Captura:** 2026-08-19 16:39:08 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

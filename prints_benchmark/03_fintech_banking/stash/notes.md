@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 03_fintech_banking
-- **Empresa:** stash
-- **URL exata:** https://www.stash.com
-- **Data/Hora da Captura:** 2026-08-19 15:49:05 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

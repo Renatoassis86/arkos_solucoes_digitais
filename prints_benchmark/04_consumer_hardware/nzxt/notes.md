@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 04_consumer_hardware
-- **Empresa:** nzxt
-- **URL exata:** https://nzxt.com
-- **Data/Hora da Captura:** 2026-08-19 16:03:02 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

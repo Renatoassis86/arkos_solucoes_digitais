@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 07_industrial_energy
-- **Empresa:** lockheed_martin
-- **URL exata:** https://www.lockheedmartin.com
-- **Data/Hora da Captura:** 2026-08-19 16:33:48 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

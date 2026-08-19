@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 04_consumer_hardware
-- **Empresa:** oura
-- **URL exata:** https://ouraring.com
-- **Data/Hora da Captura:** 2026-08-19 15:50:36 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

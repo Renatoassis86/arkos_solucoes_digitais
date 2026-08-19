@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 06_healthcare_biotech
-- **Empresa:** k_health
-- **URL exata:** https://khealth.com
-- **Data/Hora da Captura:** 2026-08-19 16:22:38 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

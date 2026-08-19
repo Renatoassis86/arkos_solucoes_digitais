@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 04_consumer_hardware
-- **Empresa:** ring
-- **URL exata:** https://ring.com
-- **Data/Hora da Captura:** 2026-08-19 15:56:46 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

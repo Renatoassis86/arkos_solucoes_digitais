@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 06_healthcare_biotech
-- **Empresa:** teladoc
-- **URL exata:** https://www.teladochealth.com
-- **Data/Hora da Captura:** 2026-08-19 16:22:44 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 07_industrial_energy
-- **Empresa:** fluor
-- **URL exata:** https://www.fluor.com
-- **Data/Hora da Captura:** 2026-08-19 16:41:02 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 03_fintech_banking
-- **Empresa:** circle
-- **URL exata:** https://www.circle.com
-- **Data/Hora da Captura:** 2026-08-19 15:41:12 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

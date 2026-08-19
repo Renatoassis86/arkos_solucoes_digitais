@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 09_agencies_services
-- **Empresa:** ey
-- **URL exata:** https://www.ey.com
-- **Data/Hora da Captura:** 2026-08-19 17:10:06 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

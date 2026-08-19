@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 03_fintech_banking
-- **Empresa:** infura
-- **URL exata:** https://www.infura.io
-- **Data/Hora da Captura:** 2026-08-19 15:41:46 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

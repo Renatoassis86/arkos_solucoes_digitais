@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 08_luxury_highdesign
-- **Empresa:** aesop
-- **URL exata:** https://www.aesop.com
-- **Data/Hora da Captura:** 2026-08-19 16:43:47 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

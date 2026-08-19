@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 08_luxury_highdesign
-- **Empresa:** pagani
-- **URL exata:** https://www.pagani.com
-- **Data/Hora da Captura:** 2026-08-19 16:53:05 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

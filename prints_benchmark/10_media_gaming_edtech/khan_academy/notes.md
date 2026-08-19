@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 10_media_gaming_edtech
-- **Empresa:** khan_academy
-- **URL exata:** https://www.khanacademy.org
-- **Data/Hora da Captura:** 2026-08-19 17:27:25 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

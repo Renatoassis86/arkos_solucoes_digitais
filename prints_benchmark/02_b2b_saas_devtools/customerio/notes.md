@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 02_b2b_saas_devtools
-- **Empresa:** customerio
-- **URL exata:** https://customer.io
-- **Data/Hora da Captura:** 2026-08-19 15:24:09 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

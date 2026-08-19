@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 10_media_gaming_edtech
-- **Empresa:** godot
-- **URL exata:** https://godotengine.org
-- **Data/Hora da Captura:** 2026-08-19 17:29:46 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

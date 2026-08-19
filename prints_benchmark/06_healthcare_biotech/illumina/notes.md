@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 06_healthcare_biotech
-- **Empresa:** illumina
-- **URL exata:** https://www.illumina.com
-- **Data/Hora da Captura:** 2026-08-19 16:26:32 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

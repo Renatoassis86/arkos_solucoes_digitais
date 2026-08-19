@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 09_agencies_services
-- **Empresa:** instrument
-- **URL exata:** https://www.instrument.com
-- **Data/Hora da Captura:** 2026-08-19 16:55:22 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

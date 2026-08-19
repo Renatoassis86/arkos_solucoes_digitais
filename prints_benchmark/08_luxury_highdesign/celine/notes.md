@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 08_luxury_highdesign
-- **Empresa:** celine
-- **URL exata:** https://www.celine.com
-- **Data/Hora da Captura:** 2026-08-19 16:54:35 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

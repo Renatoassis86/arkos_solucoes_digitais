@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 05_ecommerce_retail
-- **Empresa:** made_in_cookware
-- **URL exata:** https://madeincookware.com
-- **Data/Hora da Captura:** 2026-08-19 16:13:38 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 08_luxury_highdesign
-- **Empresa:** ferrari
-- **URL exata:** https://www.ferrari.com
-- **Data/Hora da Captura:** 2026-08-19 16:52:27 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

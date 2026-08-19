@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 01_bigtech_enterprise
-- **Empresa:** atlassian
-- **URL exata:** https://www.atlassian.com
-- **Data/Hora da Captura:** 2026-08-19 15:14:05 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

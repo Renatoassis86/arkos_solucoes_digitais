@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 08_luxury_highdesign
-- **Empresa:** fritz_hansen
-- **URL exata:** https://fritzhansen.com
-- **Data/Hora da Captura:** 2026-08-19 16:48:50 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados
