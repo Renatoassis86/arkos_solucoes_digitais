@@ -21,9 +21,19 @@ export const SERVICES: {
     items: [
       "Landing pages diretas e objetivas",
       "Sites institucionais para empresas e clínicas",
-      "Lojas virtuais e catálogos de produtos",
       "Otimização de velocidade e presença no Google",
       "Adaptação perfeita para celulares e computadores",
+    ],
+  },
+  {
+    name: "Lojas Virtuais e Catálogos de Produtos",
+    categories: ["experiencia"],
+    desc: "Desenvolvemos catálogos digitais e lojas online para apresentar seus produtos com clareza e facilitar as vendas.",
+    items: [
+      "Lojas virtuais com pagamento via Pix e cartão",
+      "Catálogos digitais para pedidos via WhatsApp",
+      "Gestão simples de estoque e pedidos",
+      "Cálculo automático de frete e entregas",
     ],
   },
   {
@@ -46,7 +56,17 @@ export const SERVICES: {
       "Portais de acesso para clientes e parceiros",
       "Área de membros e login seguro de usuários",
       "Sistemas de agendamento e fluxo de atendimento",
-      "Integrações entre diferentes sistemas",
+    ],
+  },
+  {
+    name: "Portais de Clientes e Área de Membros",
+    categories: ["sistemas"],
+    desc: "Ambientes fechados e seguros para seus clientes acessarem documentos, cursos, faturas ou serviços exclusivos.",
+    items: [
+      "Login seguro por e-mail ou WhatsApp",
+      "Download e envio de arquivos e relatórios",
+      "Painel exclusivo por perfil de usuário",
+      "Histórico de solicitações e atendimentos",
     ],
   },
   {
@@ -61,7 +81,7 @@ export const SERVICES: {
     ],
   },
   {
-    name: "Automação de Processos",
+    name: "Automação de Processos e Atendimento",
     categories: ["automacao"],
     desc: "Automatizamos tarefas repetitivas para economizar tempo da sua equipe e acelerar o atendimento ao cliente.",
     items: [
@@ -69,6 +89,17 @@ export const SERVICES: {
       "Organização automática de cadastros e pedidos",
       "Notificações automáticas por WhatsApp e e-mail",
       "Integração de planilhas com sistemas de gestão",
+    ],
+  },
+  {
+    name: "Integração de Sistemas e Planilhas",
+    categories: ["automacao"],
+    desc: "Conectamos suas planilhas, sistemas de gestão e meios de pagamento para eliminar digitação manual de dados.",
+    items: [
+      "Sincronização entre planilhas e banco de dados",
+      "Emissão automática de alertas e notificações",
+      "Conexão com plataformas de terceiros",
+      "Backup automático de dados importantes",
     ],
   },
   {
@@ -80,6 +111,17 @@ export const SERVICES: {
       "Orientação na escolha de plataformas e hospedagem",
       "Melhorias de velocidade, segurança e estabilidade",
       "Acompanhamento e suporte técnico contínuo",
+    ],
+  },
+  {
+    name: "Diagnóstico e Otimização de Sites",
+    categories: ["consultoria"],
+    desc: "Analisamos sites que estão lentos ou que não geram vendas para identificar e corrigir os pontos de melhoria.",
+    items: [
+      "Auditoria completa de velocidade no celular",
+      "Correção de links quebrados e falhas técnicas",
+      "Ajustes de textos para aumentar a conversão",
+      "Revisão de segurança e certificados digitais",
     ],
   },
 ];
@@ -121,7 +163,7 @@ export const METHOD: { step: string; desc: string }[] = [
     desc: "Criamos a estrutura das telas, organizamos os textos e definimos as cores e imagens ideais.",
   },
   {
-    step: "5. Estruturação Técnica",
+    step: "5. Estrutura Técnica",
     desc: "Definimos os botões, integrações de WhatsApp, formulários e banco de dados necessários.",
   },
   {

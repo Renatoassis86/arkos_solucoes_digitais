@@ -52,38 +52,133 @@ export default function ServicesExplorer() {
         </div>
       </div>
 
-      <div className={view === "grid" ? styles.servicesGrid : styles.servicesList}>
+      {/* Grade com Layout Dinâmico e Perfeitamente Simétrico */}
+      <div
+        style={
+          view === "grid"
+            ? {
+                display: "grid",
+                gridTemplateColumns:
+                  visible.length === 1
+                    ? "1fr"
+                    : visible.length === 2
+                    ? "1fr 1fr"
+                    : "repeat(3, 1fr)",
+                gap: "16px",
+                width: "100%"
+              }
+            : {
+                display: "flex",
+                flexDirection: "column",
+                gap: "12px",
+                width: "100%"
+              }
+        }
+      >
         {visible.map((service, index) => {
           const isOpen = open === service.name;
           return (
             <div
-              className={view === "grid" ? styles.serviceCard : styles.serviceRow}
               key={service.name}
+              style={{
+                background: "var(--grafite)",
+                border: "1px solid var(--border)",
+                borderRadius: "8px",
+                padding: "24px",
+                display: "flex",
+                flexDirection: view === "grid" ? "column" : "row",
+                gap: view === "grid" ? "14px" : "20px",
+                transition: "all 0.2s ease"
+              }}
             >
-              <span className={styles.serviceIndex}>
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <div className={styles.serviceBody}>
-                <h3 className={styles.serviceName}>{service.name}</h3>
-                <div className={styles.tagRow}>
+              <div style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center"
+              }}>
+                <span style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "12px",
+                  fontWeight: 600,
+                  color: "var(--sinal)"
+                }}>
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div style={{ display: "flex", gap: "6px" }}>
                   {service.categories.map((c) => (
-                    <span className={styles.tag} key={c}>
+                    <span
+                      key={c}
+                      style={{
+                        fontFamily: "var(--font-mono)",
+                        fontSize: "10px",
+                        color: "var(--text-secondary)",
+                        background: "var(--ardosia)",
+                        padding: "2px 6px",
+                        borderRadius: "3px"
+                      }}
+                    >
                       #{c}
                     </span>
                   ))}
                 </div>
-                <p className={styles.serviceDesc}>{service.desc}</p>
+              </div>
+
+              <div style={{ flex: 1 }}>
+                <h3 style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "18px",
+                  color: "var(--text-primary)",
+                  marginBottom: "8px"
+                }}>
+                  {service.name}
+                </h3>
+                <p style={{
+                  fontSize: "14px",
+                  color: "var(--text-secondary)",
+                  lineHeight: 1.55,
+                  marginBottom: "14px"
+                }}>
+                  {service.desc}
+                </p>
+
                 <button
-                  className={styles.accordionToggle}
-                  aria-expanded={isOpen}
+                  type="button"
                   onClick={() => setOpen(isOpen ? null : service.name)}
+                  style={{
+                    background: "transparent",
+                    border: "none",
+                    padding: 0,
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "11px",
+                    color: "var(--sinal)",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.06em",
+                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "4px"
+                  }}
                 >
-                  {isOpen ? "Ver menos" : "Ver capacidades"}
+                  {isOpen ? "▲ Ver Menos" : "▼ Ver Detalhes"}
                 </button>
+
                 {isOpen && (
-                  <ul className={styles.accordionList}>
+                  <ul style={{
+                    marginTop: "12px",
+                    paddingTop: "12px",
+                    borderTop: "1px solid var(--border)",
+                    listStyle: "none",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "6px",
+                    fontSize: "13px",
+                    color: "var(--text-secondary)"
+                  }}>
                     {service.items.map((item) => (
-                      <li key={item}>{item}</li>
+                      <li key={item} style={{ display: "flex", alignItems: "flex-start", gap: "6px" }}>
+                        <span style={{ color: "var(--sinal)" }}>•</span>
+                        <span>{item}</span>
+                      </li>
                     ))}
                   </ul>
                 )}
