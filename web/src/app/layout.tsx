@@ -20,9 +20,14 @@ const dmSerifDisplay = DM_Serif_Display({
 });
 
 export const metadata: Metadata = {
-  title: "ARKOS — Estratégia Digital, Produtos, Engenharia e Dados",
+  title: "ARKOS — Soluções Digitais, Sites e Plataformas",
   description:
     "A ARKOS desenvolve sites rápidos, plataformas sob medida e inteligência de dados orientadas a conversão real.",
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
