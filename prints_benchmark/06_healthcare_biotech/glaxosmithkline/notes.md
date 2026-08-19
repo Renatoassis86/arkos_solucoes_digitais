@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 06_healthcare_biotech
-- **Empresa:** glaxosmithkline
-- **URL exata:** https://www.gsk.com
-- **Data/Hora da Captura:** 2026-08-19 16:29:51 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

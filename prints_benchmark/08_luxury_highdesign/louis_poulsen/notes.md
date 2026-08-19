@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 08_luxury_highdesign
-- **Empresa:** louis_poulsen
-- **URL exata:** https://www.louispoulsen.com
-- **Data/Hora da Captura:** 2026-08-19 16:47:18 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

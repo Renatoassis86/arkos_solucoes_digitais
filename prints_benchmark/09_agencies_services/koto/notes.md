@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 09_agencies_services
-- **Empresa:** koto
-- **URL exata:** https://koto.studio
-- **Data/Hora da Captura:** 2026-08-19 17:06:29 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 03_fintech_banking
-- **Empresa:** mercury
-- **URL exata:** https://mercury.com
-- **Data/Hora da Captura:** 2026-08-19 15:37:03 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

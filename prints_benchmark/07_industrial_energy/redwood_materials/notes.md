@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 07_industrial_energy
-- **Empresa:** redwood_materials
-- **URL exata:** https://www.redwoodmaterials.com
-- **Data/Hora da Captura:** 2026-08-19 16:38:55 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 09_agencies_services
-- **Empresa:** bolha
-- **URL exata:** https://bolha.com.br
-- **Data/Hora da Captura:** 2026-08-19 16:57:59 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

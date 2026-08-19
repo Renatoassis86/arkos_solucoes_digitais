@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 08_luxury_highdesign
-- **Empresa:** dior
-- **URL exata:** https://www.dior.com
-- **Data/Hora da Captura:** 2026-08-19 16:54:22 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

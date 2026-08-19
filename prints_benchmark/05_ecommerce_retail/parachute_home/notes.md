@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 05_ecommerce_retail
-- **Empresa:** parachute_home
-- **URL exata:** https://www.parachutehome.com
-- **Data/Hora da Captura:** 2026-08-19 16:15:07 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

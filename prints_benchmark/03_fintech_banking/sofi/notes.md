@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 03_fintech_banking
-- **Empresa:** sofi
-- **URL exata:** https://www.sofi.com
-- **Data/Hora da Captura:** 2026-08-19 15:47:17 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

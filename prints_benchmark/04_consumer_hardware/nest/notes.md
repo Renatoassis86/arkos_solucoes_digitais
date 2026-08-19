@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 04_consumer_hardware
-- **Empresa:** nest
-- **URL exata:** https://store.google.com/category/connected_home
-- **Data/Hora da Captura:** 2026-08-19 14:25:50 (UTC)
-- **Status:** Desktop (OK), Mobile (OK)

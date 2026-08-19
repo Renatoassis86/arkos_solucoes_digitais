@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 05_ecommerce_retail
-- **Empresa:** casper
-- **URL exata:** https://casper.com
-- **Data/Hora da Captura:** 2026-08-19 16:07:44 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

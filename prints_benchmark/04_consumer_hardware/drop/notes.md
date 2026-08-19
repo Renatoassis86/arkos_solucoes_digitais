@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 04_consumer_hardware
-- **Empresa:** drop
-- **URL exata:** https://drop.com
-- **Data/Hora da Captura:** 2026-08-19 16:03:20 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

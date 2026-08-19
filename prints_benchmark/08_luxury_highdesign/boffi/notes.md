@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 08_luxury_highdesign
-- **Empresa:** boffi
-- **URL exata:** https://www.boffi.com
-- **Data/Hora da Captura:** 2026-08-19 16:51:16 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

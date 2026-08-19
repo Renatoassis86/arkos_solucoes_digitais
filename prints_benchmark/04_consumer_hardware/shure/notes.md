@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 04_consumer_hardware
-- **Empresa:** shure
-- **URL exata:** https://www.shure.com
-- **Data/Hora da Captura:** 2026-08-19 15:58:39 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

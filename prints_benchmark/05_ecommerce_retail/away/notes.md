@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 05_ecommerce_retail
-- **Empresa:** away
-- **URL exata:** https://www.awaytravel.com
-- **Data/Hora da Captura:** 2026-08-19 16:06:49 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

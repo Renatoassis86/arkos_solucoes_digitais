@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 03_fintech_banking
-- **Empresa:** uniswap
-- **URL exata:** https://uniswap.org
-- **Data/Hora da Captura:** 2026-08-19 15:40:11 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

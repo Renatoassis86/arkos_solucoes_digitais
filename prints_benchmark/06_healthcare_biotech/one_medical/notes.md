@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 06_healthcare_biotech
-- **Empresa:** one_medical
-- **URL exata:** https://www.onemedical.com
-- **Data/Hora da Captura:** 2026-08-19 16:21:31 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

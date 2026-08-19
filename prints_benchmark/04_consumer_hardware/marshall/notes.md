@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 04_consumer_hardware
-- **Empresa:** marshall
-- **URL exata:** https://www.marshallheadphones.com
-- **Data/Hora da Captura:** 2026-08-19 15:57:39 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

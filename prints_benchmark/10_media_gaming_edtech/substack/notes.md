@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 10_media_gaming_edtech
-- **Empresa:** substack
-- **URL exata:** https://substack.com
-- **Data/Hora da Captura:** 2026-08-19 17:17:12 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

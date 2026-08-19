@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 04_consumer_hardware
-- **Empresa:** elgato
-- **URL exata:** https://www.elgato.com
-- **Data/Hora da Captura:** 2026-08-19 15:59:49 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

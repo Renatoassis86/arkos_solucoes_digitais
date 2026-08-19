@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 08_luxury_highdesign
-- **Empresa:** cassina
-- **URL exata:** https://www.cassina.com
-- **Data/Hora da Captura:** 2026-08-19 16:45:56 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 01_bigtech_enterprise
-- **Empresa:** figma
-- **URL exata:** https://www.figma.com
-- **Data/Hora da Captura:** 2026-08-19 15:12:22 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

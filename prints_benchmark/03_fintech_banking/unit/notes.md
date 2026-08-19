@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 03_fintech_banking
-- **Empresa:** unit
-- **URL exata:** https://www.unit.co
-- **Data/Hora da Captura:** 2026-08-19 15:46:58 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

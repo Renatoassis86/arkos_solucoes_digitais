@@ -1,4 +1,0 @@
-- **URL exata da Home:** https://cuberto.com/
-- **URL exata de Trabalho:** https://cuberto.com/projects
-- **Data/Hora da captura:** 2026-08-19 13:19:06 (UTC)
-- **Destaque Visual:** Design de experiência referência mundial com animações ultra-suaves, uso de curvas/squircles elegantes, tema dark refinado e microrreações em todos os elementos.

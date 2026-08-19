@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 05_ecommerce_retail
-- **Empresa:** warby_parker
-- **URL exata:** https://www.warbyparker.com
-- **Data/Hora da Captura:** 2026-08-19 16:06:41 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

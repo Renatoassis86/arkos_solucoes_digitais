@@ -1,4 +1,0 @@
-- **URL exata da Home:** https://www.hugeinc.com/
-- **URL exata de Trabalho:** https://www.hugeinc.com/
-- **Data/Hora da captura:** 2026-08-19 13:15:59 (UTC)
-- **Destaque Visual:** Estética institucional minimalista de alto impacto visual com paleta monocromática contrastante, tipografia grotesca de grande escala e foco em dados e narrativas de marca.

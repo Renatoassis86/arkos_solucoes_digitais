@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 05_ecommerce_retail
-- **Empresa:** fjallraven
-- **URL exata:** https://www.fjallraven.com
-- **Data/Hora da Captura:** 2026-08-19 16:16:35 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

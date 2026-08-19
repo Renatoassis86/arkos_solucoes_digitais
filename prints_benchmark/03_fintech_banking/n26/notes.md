@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 03_fintech_banking
-- **Empresa:** n26
-- **URL exata:** https://n26.com
-- **Data/Hora da Captura:** 2026-08-19 15:39:48 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

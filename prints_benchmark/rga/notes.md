@@ -1,4 +1,0 @@
-- **URL exata da Home:** https://rga.com
-- **URL exata de Trabalho:** https://rga.com/work
-- **Data/Hora da captura:** 2026-08-19 13:22:58 (UTC)
-- **Destaque Visual:** Agência global de inovação com design modular minimalista, tipografia arrojada sem serifa, fundo escuro e foco em transformação de negócios e ecossistemas de marca.

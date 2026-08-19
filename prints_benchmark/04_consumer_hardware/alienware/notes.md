@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 04_consumer_hardware
-- **Empresa:** alienware
-- **URL exata:** https://www.dell.com/en-us/gaming/alienware
-- **Data/Hora da Captura:** 2026-08-19 16:01:53 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

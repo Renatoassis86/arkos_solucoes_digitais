@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 09_agencies_services
-- **Empresa:** code_and_theory
-- **URL exata:** https://www.codeandtheory.com
-- **Data/Hora da Captura:** 2026-08-19 16:58:45 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

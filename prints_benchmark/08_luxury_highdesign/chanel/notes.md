@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 08_luxury_highdesign
-- **Empresa:** chanel
-- **URL exata:** https://www.chanel.com
-- **Data/Hora da Captura:** 2026-08-19 16:53:43 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

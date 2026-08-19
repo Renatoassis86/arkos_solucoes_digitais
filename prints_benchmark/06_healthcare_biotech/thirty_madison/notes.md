@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 06_healthcare_biotech
-- **Empresa:** thirty_madison
-- **URL exata:** https://thirtymadison.com
-- **Data/Hora da Captura:** 2026-08-19 16:24:01 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 08_luxury_highdesign
-- **Empresa:** polestar
-- **URL exata:** https://www.polestar.com
-- **Data/Hora da Captura:** 2026-08-19 16:44:23 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,4 +1,0 @@
-- **URL exata da Home:** https://www.rezo-zero.com/
-- **URL exata de Trabalho:** https://www.rezo-zero.com/projects
-- **Data/Hora da captura:** 2026-08-19 13:19:46 (UTC)
-- **Destaque Visual:** Estética digital europeia refinada com fundo escuro, navegação minimalista, transições suaves e tipografia elegante para portfólios de prestígio.

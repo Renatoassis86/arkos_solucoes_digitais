@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 06_healthcare_biotech
-- **Empresa:** recursion
-- **URL exata:** https://www.recursion.com
-- **Data/Hora da Captura:** 2026-08-19 16:26:23 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

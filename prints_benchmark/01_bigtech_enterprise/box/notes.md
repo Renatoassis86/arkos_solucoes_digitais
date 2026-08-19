@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 01_bigtech_enterprise
-- **Empresa:** box
-- **URL exata:** https://www.box.com
-- **Data/Hora da Captura:** 2026-08-19 15:14:43 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 03_fintech_banking
-- **Empresa:** opensea
-- **URL exata:** https://opensea.io
-- **Data/Hora da Captura:** 2026-08-19 15:41:54 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

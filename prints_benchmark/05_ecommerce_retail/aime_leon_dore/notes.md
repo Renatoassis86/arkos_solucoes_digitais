@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 05_ecommerce_retail
-- **Empresa:** aime_leon_dore
-- **URL exata:** https://www.aimeleondore.com
-- **Data/Hora da Captura:** 2026-08-19 16:17:42 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

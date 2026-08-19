@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 05_ecommerce_retail
-- **Empresa:** alo_yoga
-- **URL exata:** https://www.aloyoga.com
-- **Data/Hora da Captura:** 2026-08-19 16:08:47 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

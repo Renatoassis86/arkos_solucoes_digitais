@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 02_b2b_saas_devtools
-- **Empresa:** ramp
-- **URL exata:** https://ramp.com
-- **Data/Hora da Captura:** 2026-08-19 15:17:19 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

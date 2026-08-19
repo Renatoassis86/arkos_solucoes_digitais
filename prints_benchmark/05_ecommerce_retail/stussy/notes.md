@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 05_ecommerce_retail
-- **Empresa:** stussy
-- **URL exata:** https://www.stussy.com
-- **Data/Hora da Captura:** 2026-08-19 16:17:08 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 10_media_gaming_edtech
-- **Empresa:** unity
-- **URL exata:** https://unity.com
-- **Data/Hora da Captura:** 2026-08-19 17:15:59 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

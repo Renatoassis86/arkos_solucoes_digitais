@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 10_media_gaming_edtech
-- **Empresa:** codecademy
-- **URL exata:** https://www.codecademy.com
-- **Data/Hora da Captura:** 2026-08-19 17:28:14 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

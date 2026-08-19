@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 03_fintech_banking
-- **Empresa:** carta
-- **URL exata:** https://carta.com
-- **Data/Hora da Captura:** 2026-08-19 15:44:26 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

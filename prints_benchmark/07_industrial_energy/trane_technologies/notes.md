@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 07_industrial_energy
-- **Empresa:** trane_technologies
-- **URL exata:** https://www.tranetechnologies.com
-- **Data/Hora da Captura:** 2026-08-19 16:35:15 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

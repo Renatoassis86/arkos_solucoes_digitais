@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 07_industrial_energy
-- **Empresa:** caterpillar
-- **URL exata:** https://www.caterpillar.com
-- **Data/Hora da Captura:** 2026-08-19 16:31:37 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

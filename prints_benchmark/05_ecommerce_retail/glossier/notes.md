@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 05_ecommerce_retail
-- **Empresa:** glossier
-- **URL exata:** https://www.glossier.com
-- **Data/Hora da Captura:** 2026-08-19 16:05:39 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

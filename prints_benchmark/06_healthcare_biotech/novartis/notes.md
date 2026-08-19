@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 06_healthcare_biotech
-- **Empresa:** novartis
-- **URL exata:** https://www.novartis.com
-- **Data/Hora da Captura:** 2026-08-19 16:28:21 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

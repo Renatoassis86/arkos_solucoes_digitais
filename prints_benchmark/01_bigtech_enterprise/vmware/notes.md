@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 01_bigtech_enterprise
-- **Empresa:** vmware
-- **URL exata:** https://www.vmware.com
-- **Data/Hora da Captura:** 2026-08-19 15:13:37 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

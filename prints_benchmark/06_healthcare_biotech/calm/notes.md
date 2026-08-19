@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 06_healthcare_biotech
-- **Empresa:** calm
-- **URL exata:** https://www.calm.com
-- **Data/Hora da Captura:** 2026-08-19 16:23:32 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 04_consumer_hardware
-- **Empresa:** nothing
-- **URL exata:** https://nothing.tech
-- **Data/Hora da Captura:** 2026-08-19 15:49:47 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 03_fintech_banking
-- **Empresa:** checkoutcom
-- **URL exata:** https://www.checkout.com
-- **Data/Hora da Captura:** 2026-08-19 15:45:51 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

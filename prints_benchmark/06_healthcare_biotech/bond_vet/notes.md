@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 06_healthcare_biotech
-- **Empresa:** bond_vet
-- **URL exata:** https://bondvet.com
-- **Data/Hora da Captura:** 2026-08-19 16:28:25 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 10_media_gaming_edtech
-- **Empresa:** runwayml
-- **URL exata:** https://runwayml.com
-- **Data/Hora da Captura:** 2026-08-19 17:24:10 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

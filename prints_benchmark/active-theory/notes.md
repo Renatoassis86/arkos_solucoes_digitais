@@ -1,4 +1,0 @@
-- **URL exata da Home:** https://activetheory.net/
-- **URL exata de Trabalho:** https://activetheory.net/projects
-- **Data/Hora da captura:** 2026-08-19 13:18:45 (UTC)
-- **Destaque Visual:** Experiência 3D e WebGL altamente imersiva e interativa com tema escuro futurista, micro-animações dinâmicas e transições cinematográficas.

@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 07_industrial_energy
-- **Empresa:** general_dynamics
-- **URL exata:** https://www.gd.com
-- **Data/Hora da Captura:** 2026-08-19 16:34:24 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

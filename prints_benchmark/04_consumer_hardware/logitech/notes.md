@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 04_consumer_hardware
-- **Empresa:** logitech
-- **URL exata:** https://www.logitech.com
-- **Data/Hora da Captura:** 2026-08-19 15:51:39 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

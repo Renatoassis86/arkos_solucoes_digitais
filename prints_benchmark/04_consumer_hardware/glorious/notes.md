@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 04_consumer_hardware
-- **Empresa:** glorious
-- **URL exata:** https://www.gloriousgaming.com
-- **Data/Hora da Captura:** 2026-08-19 16:03:50 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

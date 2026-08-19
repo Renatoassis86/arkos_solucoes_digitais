@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 06_healthcare_biotech
-- **Empresa:** pfizer
-- **URL exata:** https://www.pfizer.com
-- **Data/Hora da Captura:** 2026-08-19 16:21:15 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

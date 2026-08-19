@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 02_b2b_saas_devtools
-- **Empresa:** secureframe
-- **URL exata:** https://secureframe.com
-- **Data/Hora da Captura:** 2026-08-19 15:26:58 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 09_agencies_services
-- **Empresa:** huge
-- **URL exata:** https://hugeinc.com
-- **Data/Hora da Captura:** 2026-08-19 16:55:56 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

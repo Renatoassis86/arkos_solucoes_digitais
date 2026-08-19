@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 07_industrial_energy
-- **Empresa:** northvolt
-- **URL exata:** https://northvolt.com
-- **Data/Hora da Captura:** 2026-08-19 16:39:46 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 06_healthcare_biotech
-- **Empresa:** calibrate
-- **URL exata:** https://www.joincalibrate.com
-- **Data/Hora da Captura:** 2026-08-19 16:20:41 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

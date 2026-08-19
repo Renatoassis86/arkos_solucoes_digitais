@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 04_consumer_hardware
-- **Empresa:** sennheiser
-- **URL exata:** https://www.sennheiser-hearing.com
-- **Data/Hora da Captura:** 2026-08-19 15:58:42 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

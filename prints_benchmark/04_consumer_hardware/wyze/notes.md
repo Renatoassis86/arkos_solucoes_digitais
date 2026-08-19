@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 04_consumer_hardware
-- **Empresa:** wyze
-- **URL exata:** https://www.wyze.com
-- **Data/Hora da Captura:** 2026-08-19 15:56:42 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

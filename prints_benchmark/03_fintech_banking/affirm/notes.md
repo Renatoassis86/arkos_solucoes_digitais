@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 03_fintech_banking
-- **Empresa:** affirm
-- **URL exata:** https://www.affirm.com
-- **Data/Hora da Captura:** 2026-08-19 15:43:30 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

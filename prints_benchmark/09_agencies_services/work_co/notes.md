@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 09_agencies_services
-- **Empresa:** work_co
-- **URL exata:** https://work.co
-- **Data/Hora da Captura:** 2026-08-19 16:55:20 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 07_industrial_energy
-- **Empresa:** dupont
-- **URL exata:** https://www.dupont.com
-- **Data/Hora da Captura:** 2026-08-19 16:42:17 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

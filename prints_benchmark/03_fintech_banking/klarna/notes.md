@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 03_fintech_banking
-- **Empresa:** klarna
-- **URL exata:** https://www.klarna.com
-- **Data/Hora da Captura:** 2026-08-19 15:38:50 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

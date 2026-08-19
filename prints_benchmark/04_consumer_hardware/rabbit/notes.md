@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 04_consumer_hardware
-- **Empresa:** rabbit
-- **URL exata:** https://www.rabbit.tech
-- **Data/Hora da Captura:** 2026-08-19 15:53:34 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

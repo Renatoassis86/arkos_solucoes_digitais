@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 05_ecommerce_retail
-- **Empresa:** stanley
-- **URL exata:** https://www.stanley1913.com
-- **Data/Hora da Captura:** 2026-08-19 16:16:17 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 03_fintech_banking
-- **Empresa:** marcus
-- **URL exata:** https://www.marcus.com
-- **Data/Hora da Captura:** 2026-08-19 15:48:36 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

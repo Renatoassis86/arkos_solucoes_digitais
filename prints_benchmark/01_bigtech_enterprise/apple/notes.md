@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 01_bigtech_enterprise
-- **Empresa:** apple
-- **URL exata:** https://www.apple.com
-- **Data/Hora da Captura:** 2026-08-19 15:12:01 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

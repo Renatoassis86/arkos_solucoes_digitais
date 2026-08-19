@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 02_b2b_saas_devtools
-- **Empresa:** supabase
-- **URL exata:** https://supabase.com
-- **Data/Hora da Captura:** 2026-08-19 15:17:13 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

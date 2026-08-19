@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 03_fintech_banking
-- **Empresa:** gemini
-- **URL exata:** https://www.gemini.com
-- **Data/Hora da Captura:** 2026-08-19 15:41:03 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

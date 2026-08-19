@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 04_consumer_hardware
-- **Empresa:** asus_rog
-- **URL exata:** https://rog.asus.com
-- **Data/Hora da Captura:** 2026-08-19 16:01:43 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

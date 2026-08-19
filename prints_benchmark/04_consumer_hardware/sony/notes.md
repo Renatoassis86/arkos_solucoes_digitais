@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 04_consumer_hardware
-- **Empresa:** sony
-- **URL exata:** https://www.sony.com
-- **Data/Hora da Captura:** 2026-08-19 15:54:43 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

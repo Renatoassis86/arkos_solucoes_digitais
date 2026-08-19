@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 06_healthcare_biotech
-- **Empresa:** roche
-- **URL exata:** https://www.roche.com
-- **Data/Hora da Captura:** 2026-08-19 16:28:34 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

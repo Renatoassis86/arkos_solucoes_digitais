@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 04_consumer_hardware
-- **Empresa:** insta360
-- **URL exata:** https://www.insta360.com
-- **Data/Hora da Captura:** 2026-08-19 15:57:32 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

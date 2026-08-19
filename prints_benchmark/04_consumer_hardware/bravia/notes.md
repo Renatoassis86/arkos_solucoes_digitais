@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 04_consumer_hardware
-- **Empresa:** bravia
-- **URL exata:** https://electronics.sony.com/tv-video/tvs/c/all-tvs
-- **Data/Hora da Captura:** 2026-08-19 14:31:34 (UTC)
-- **Status:** Desktop (OK), Mobile (OK)

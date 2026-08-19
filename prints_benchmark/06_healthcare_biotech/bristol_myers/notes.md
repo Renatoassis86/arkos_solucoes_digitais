@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 06_healthcare_biotech
-- **Empresa:** bristol_myers
-- **URL exata:** https://www.bms.com
-- **Data/Hora da Captura:** 2026-08-19 16:30:09 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

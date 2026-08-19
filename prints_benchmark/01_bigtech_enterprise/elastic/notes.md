@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 01_bigtech_enterprise
-- **Empresa:** elastic
-- **URL exata:** https://www.elastic.co
-- **Data/Hora da Captura:** 2026-08-19 15:14:01 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

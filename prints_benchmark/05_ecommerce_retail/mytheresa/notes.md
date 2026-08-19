@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 05_ecommerce_retail
-- **Empresa:** mytheresa
-- **URL exata:** https://www.mytheresa.com
-- **Data/Hora da Captura:** 2026-08-19 16:20:05 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

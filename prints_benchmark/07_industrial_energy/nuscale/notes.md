@@ -1,5 +1,0 @@
-- **Categoria / Vertical:** 07_industrial_energy
-- **Empresa:** nuscale
-- **URL exata:** https://www.nuscalepower.com
-- **Data/Hora da Captura:** 2026-08-19 16:39:52 (UTC)
-- **Status:** Conteúdo Real NLP Extraído & Prints Gerados
