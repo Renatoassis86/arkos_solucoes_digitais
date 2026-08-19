@@ -606,50 +606,153 @@ export default function BriefingPage() {
                   />
                 </div>
 
-                {/* Área de Anexo de Arquivos */}
+                {/* Área Avançada de Múltiplos Anexos e Uploads */}
                 <div style={{
                   background: "var(--obsidiana)",
                   border: "1px dashed var(--border)",
-                  borderRadius: "6px",
-                  padding: "20px",
-                  textAlign: "center"
+                  borderRadius: "8px",
+                  padding: "24px",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "16px"
                 }}>
-                  <div style={{ fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--text-primary)", marginBottom: "6px" }}>
-                    Anexar Arquivos (Logomarca, Brandbook, Imagens, Prints ou Documentos)
+                  <div style={{ textAlign: "center" }}>
+                    <div style={{ fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--text-primary)", fontWeight: 600, marginBottom: "4px" }}>
+                      Anexar Arquivos do Projeto (Logomarca, Brandbook, Prints ou Documentos)
+                    </div>
+                    <p style={{ fontSize: "12px", color: "var(--text-secondary)", margin: 0 }}>
+                      Formatos aceitos: PDF, PNG, JPG, DOCX, XLSX, ZIP. Você pode adicionar quantos arquivos quiser.
+                    </p>
                   </div>
-                  <p style={{ fontSize: "12px", color: "var(--text-secondary)", marginBottom: "12px" }}>
-                    Formatos aceitos: PDF, PNG, JPG, DOCX, ZIP (até 25 MB por arquivo)
-                  </p>
-                  <label style={{
-                    display: "inline-block",
-                    background: "var(--ardosia)",
-                    border: "1px solid var(--border)",
-                    color: "var(--text-primary)",
-                    padding: "8px 16px",
-                    borderRadius: "4px",
-                    fontFamily: "var(--font-mono)",
-                    fontSize: "11px",
-                    cursor: "pointer"
-                  }}>
-                    Selecionar Arquivos do Seu Computador
-                    <input
-                      type="file"
-                      multiple
-                      onChange={handleFileChange}
-                      style={{ display: "none" }}
-                    />
-                  </label>
 
+                  {/* Botões de Ação de Upload */}
+                  <div style={{ display: "flex", justifyContent: "center", gap: "12px", flexWrap: "wrap" }}>
+                    <label style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "8px",
+                      background: "var(--sinal)",
+                      color: "var(--obsidiana)",
+                      padding: "10px 18px",
+                      borderRadius: "4px",
+                      fontFamily: "var(--font-mono)",
+                      fontSize: "12px",
+                      fontWeight: 600,
+                      cursor: "pointer",
+                      textTransform: "uppercase"
+                    }}>
+                      <span>+ Adicionar Arquivos</span>
+                      <input
+                        type="file"
+                        multiple
+                        onChange={handleFileChange}
+                        style={{ display: "none" }}
+                      />
+                    </label>
+
+                    <label style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "8px",
+                      background: "var(--ardosia)",
+                      border: "1px solid var(--border)",
+                      color: "var(--text-primary)",
+                      padding: "10px 16px",
+                      borderRadius: "4px",
+                      fontFamily: "var(--font-mono)",
+                      fontSize: "12px",
+                      cursor: "pointer"
+                    }}>
+                      <span>+ Anexar Prints e Imagens</span>
+                      <input
+                        type="file"
+                        multiple
+                        accept="image/*"
+                        onChange={handleFileChange}
+                        style={{ display: "none" }}
+                      />
+                    </label>
+                  </div>
+
+                  {/* Lista de Arquivos Anexados com Botão de Remoção */}
                   {fileNames.length > 0 && (
-                    <div style={{ marginTop: "12px", textAlign: "left" }}>
-                      <div style={{ fontSize: "11px", fontFamily: "var(--font-mono)", color: "var(--sinal)", marginBottom: "4px" }}>
-                        Arquivos Selecionados:
+                    <div style={{
+                      background: "var(--grafite)",
+                      border: "1px solid var(--border)",
+                      borderRadius: "6px",
+                      padding: "14px 16px",
+                      marginTop: "8px"
+                    }}>
+                      <div style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        marginBottom: "10px",
+                        borderBottom: "1px solid var(--border)",
+                        paddingBottom: "6px"
+                      }}>
+                        <span style={{ fontSize: "11px", fontFamily: "var(--font-mono)", color: "var(--sinal)", textTransform: "uppercase" }}>
+                          {fileNames.length} Arquivo(s) Anexado(s):
+                        </span>
+                        <button
+                          type="button"
+                          onClick={() => setFileNames([])}
+                          style={{
+                            background: "transparent",
+                            border: "none",
+                            color: "var(--text-secondary)",
+                            fontSize: "11px",
+                            fontFamily: "var(--font-mono)",
+                            cursor: "pointer"
+                          }}
+                        >
+                          Limpar Todos
+                        </button>
                       </div>
-                      <ul style={{ listStyle: "none", fontSize: "12px", color: "var(--text-secondary)" }}>
+
+                      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
                         {fileNames.map((name, i) => (
-                          <li key={i}>• {name}</li>
+                          <div
+                            key={i}
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "space-between",
+                              background: "var(--obsidiana)",
+                              border: "1px solid var(--border)",
+                              borderRadius: "4px",
+                              padding: "8px 12px",
+                              fontSize: "12px"
+                            }}
+                          >
+                            <span style={{
+                              color: "var(--text-primary)",
+                              overflow: "hidden",
+                              textOverflow: "ellipsis",
+                              whiteSpace: "nowrap",
+                              marginRight: "8px"
+                            }}>
+                              📄 {name}
+                            </span>
+                            <button
+                              type="button"
+                              onClick={() => setFileNames(fileNames.filter((_, idx) => idx !== i))}
+                              style={{
+                                background: "transparent",
+                                border: "none",
+                                color: "#EF4444",
+                                cursor: "pointer",
+                                fontSize: "14px",
+                                fontWeight: "bold",
+                                padding: "0 4px"
+                              }}
+                              title="Remover arquivo"
+                            >
+                              ✕
+                            </button>
+                          </div>
                         ))}
-                      </ul>
+                      </div>
                     </div>
                   )}
                 </div>
