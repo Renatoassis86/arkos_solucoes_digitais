@@ -9,57 +9,57 @@ export default function BriefingPage() {
   const [currentStep, setCurrentStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [fileNames, setFileNames] = useState<string[]>([]);
 
   const [formData, setFormData] = useState({
-    // Módulo 1: Identificação & Modelo de Negócio
+    // ETAPA 1: SOBRE VOCÊ E SUA EMPRESA
     nome_solicitante: "",
     cargo_solicitante: "",
     empresa_nome: "",
-    empresa_segmento: "b2b_saas",
-    email_corporativo: "",
+    ramo_atuacao: "",
+    email_contato: "",
     telefone_whatsapp: "",
+    cidade_estado: "",
     website_atual: "",
-    tamanho_empresa: "11-50",
-    modelo_receita: "assinatura_saas",
 
-    // Módulo 2: Requisitos & Escopo
-    tipo_projeto: "site_institucional",
-    objetivo_primario: "",
-    publico_alvo: "",
-    funcionalidades_chave: [] as string[],
-    sistemas_legados: "",
+    // ETAPA 2: MODELO DE NEGÓCIO E CLIENTE IDEAL (PERSONA)
+    o_que_sua_empresa_faz: "",
+    como_sua_empresa_ganha_dinheiro: "servico_sob_consulta",
+    quem_e_seu_cliente_ideal: "",
+    principal_dor_do_seu_cliente: "",
+    por_que_o_cliente_escolhe_voce: "",
 
-    // Módulo 3: Arquitetura & Stack
-    integracoes_necessarias: [] as string[],
-    preferencia_stack: "nextjs_react",
-    requisitos_seguranca: [] as string[],
-    infraestrutura_hospedagem: "vercel",
+    // ETAPA 3: O QUE O SITE PRECISA TER
+    formato_do_site: "landing_page_unica",
+    numero_estimado_paginas: "1_pagina",
+    acao_principal_desejada: "chamar_no_whatsapp",
+    recursos_desejados: [] as string[],
+    outros_sistemas_para_integrar: "",
 
-    // Módulo 4: Design & Estética
-    posicionamento_estetico: "tech_dark_mode",
-    possui_brandbook: false,
-    referencias_visuais: "",
-    idiomas_necessarios: ["pt-BR"],
+    // ETAPA 4: VISUAL E ARQUIVOS
+    ja_possui_logomarca_ou_brandbook: "tenho_apenas_logo",
+    estilo_visual_preferido: "escuro_moderno",
+    links_de_sites_que_voce_gosta: "",
 
-    // Módulo 5: Governança, Prazos & Orçamento
-    prazo_desejado: "60_dias",
-    faixa_investimento: "30k_60k",
-    kpis_principais: [] as string[],
-    observacoes_adicionais: ""
+    // ETAPA 5: PRAZO E ORÇAMENTO
+    prazo_desejado: "normal_30_dias",
+    faixa_investimento: "1500_a_3000",
+    observacoes_finais: ""
   });
 
-  const toggleArrayItem = (field: keyof typeof formData, item: string) => {
-    const currentList = (formData[field] as string[]) || [];
-    if (currentList.includes(item)) {
-      setFormData({
-        ...formData,
-        [field]: currentList.filter((i) => i !== item)
-      });
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      const filesArray = Array.from(e.target.files).map((f) => f.name);
+      setFileNames((prev) => [...prev, ...filesArray]);
+    }
+  };
+
+  const toggleRecurso = (id: string) => {
+    const list = formData.recursos_desejados;
+    if (list.includes(id)) {
+      setFormData({ ...formData, recursos_desejados: list.filter((item) => item !== id) });
     } else {
-      setFormData({
-        ...formData,
-        [field]: [...currentList, item]
-      });
+      setFormData({ ...formData, recursos_desejados: [...list, id] });
     }
   };
 
@@ -72,12 +72,12 @@ export default function BriefingPage() {
         await supabase.from("briefings").insert([
           {
             ...formData,
-            referencias_visuais: [formData.referencias_visuais]
+            arquivos_anexos: fileNames
           }
         ]);
       }
     } catch (err) {
-      console.warn("Envio simulado com sucesso (Supabase URL pendente de configuração em produção)");
+      console.warn("Envio simulado com sucesso");
     } finally {
       setLoading(false);
       setSubmitted(true);
@@ -88,36 +88,45 @@ export default function BriefingPage() {
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
       <Navbar />
 
-      <main style={{ flex: 1, maxWidth: "900px", margin: "0 auto", padding: "64px 24px" }}>
-        {/* Header do Briefing */}
-        <div style={{ marginBottom: "40px", textAlign: "center" }}>
-          <span style={{ fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--sinal)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-            Engenharia de Requisitos & Diagnóstico
-          </span>
-          <h1 style={{ fontFamily: "var(--font-display)", fontSize: "38px", color: "var(--text-primary)", marginTop: "8px", letterSpacing: "-0.02em" }}>
-            Briefing Modular do Método ARKOS
+      <main style={{ flex: 1, maxWidth: "860px", margin: "0 auto", padding: "56px 20px" }}>
+        {/* Cabeçalho do Briefing */}
+        <div style={{ marginBottom: "36px", textAlign: "center" }}>
+          <div style={{
+            display: "inline-block",
+            fontFamily: "var(--font-mono)",
+            fontSize: "11px",
+            color: "var(--sinal)",
+            textTransform: "uppercase",
+            letterSpacing: "0.06em",
+            marginBottom: "8px"
+          }}>
+            Diagnóstico Inicial de Projeto
+          </div>
+          <h1 style={{ fontFamily: "var(--font-display)", fontSize: "36px", color: "var(--text-primary)", letterSpacing: "-0.02em" }}>
+            Briefing para Criação de Site e Soluções Digitais
           </h1>
-          <p style={{ fontSize: "15px", color: "var(--text-secondary)", maxWidth: "620px", margin: "12px auto 0", lineHeight: 1.6 }}>
-            Estruturado nas fases do nosso método de entrega para mapear organização, requisitos de software, design e métricas de negócio antes do desenvolvimento.
+          <p style={{ fontSize: "15px", color: "var(--text-secondary)", maxWidth: "620px", margin: "10px auto 0", lineHeight: 1.6 }}>
+            Preencha este questionário passo a passo para entendermos sua empresa, seus clientes e o que o seu site precisa ter. Com essas informações, montaremos a melhor proposta técnica e comercial.
           </p>
         </div>
 
-        {/* Stepper Visual das Fases do Método */}
+        {/* Barra de Etapas */}
         <div style={{
           display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          gap: "8px",
-          marginBottom: "40px",
+          gridTemplateColumns: "repeat(5, 1fr)",
+          gap: "6px",
+          marginBottom: "32px",
           background: "var(--grafite)",
           padding: "8px",
-          borderRadius: "8px",
+          borderRadius: "6px",
           border: "1px solid var(--border)"
         }}>
           {[
-            { step: 1, label: "01-02. Discover & Research" },
-            { step: 2, label: "03-04. Strategize & Design" },
-            { step: 3, label: "05-06. Architect & Build" },
-            { step: 4, label: "07-10. Launch & Scale" }
+            { step: 1, label: "1. Sua Empresa" },
+            { step: 2, label: "2. Seu Cliente" },
+            { step: 3, label: "3. O Site" },
+            { step: 4, label: "4. Visual e Arquivos" },
+            { step: 5, label: "5. Prazo e Orçamento" }
           ].map((s) => (
             <button
               key={s.step}
@@ -127,7 +136,7 @@ export default function BriefingPage() {
                 background: currentStep === s.step ? "var(--ardosia)" : "transparent",
                 border: currentStep === s.step ? "1px solid var(--sinal)" : "1px solid transparent",
                 color: currentStep === s.step ? "var(--text-primary)" : "var(--text-secondary)",
-                padding: "10px 8px",
+                padding: "8px 4px",
                 borderRadius: "4px",
                 fontFamily: "var(--font-mono)",
                 fontSize: "11px",
@@ -145,42 +154,42 @@ export default function BriefingPage() {
             background: "var(--grafite)",
             border: "1px solid var(--border)",
             borderRadius: "8px",
-            padding: "56px 24px",
+            padding: "48px 24px",
             textAlign: "center"
           }}>
             <div style={{
-              width: "56px",
-              height: "56px",
+              width: "52px",
+              height: "52px",
               borderRadius: "50%",
               background: "var(--sinal)",
               color: "var(--obsidiana)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              fontSize: "28px",
+              fontSize: "24px",
               fontWeight: "bold",
-              margin: "0 auto 20px"
+              margin: "0 auto 16px"
             }}>
               ✓
             </div>
-            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "30px", color: "var(--text-primary)", marginBottom: "12px" }}>
-              Briefing Estruturado com Sucesso!
+            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "28px", color: "var(--text-primary)", marginBottom: "12px" }}>
+              Briefing Recebido com Sucesso!
             </h2>
-            <p style={{ color: "var(--text-secondary)", fontSize: "15px", maxWidth: "520px", margin: "0 auto 24px", lineHeight: 1.6 }}>
-              Os dados foram registrados no banco de requisitos da ARKOS. Nossa equipe técnica analisará o escopo e retornará em até 24 horas úteis com o documento de arquitetura e proposta comercial.
+            <p style={{ color: "var(--text-secondary)", fontSize: "15px", maxWidth: "480px", margin: "0 auto 24px", lineHeight: 1.6 }}>
+              Muito obrigado pelas informações. Nossa equipe irá analisar suas respostas e entrará em contato pelo WhatsApp e e-mail com a proposta detalhada.
             </p>
             <a href="/" style={{
               display: "inline-block",
               background: "var(--sinal)",
               color: "var(--obsidiana)",
               fontFamily: "var(--font-mono)",
-              fontSize: "13px",
+              fontSize: "12px",
               fontWeight: 600,
               padding: "12px 24px",
               borderRadius: "4px",
               textTransform: "uppercase"
             }}>
-              Voltar à Página Principal
+              Voltar ao Início
             </a>
           </div>
         ) : (
@@ -188,45 +197,45 @@ export default function BriefingPage() {
             background: "var(--grafite)",
             border: "1px solid var(--border)",
             borderRadius: "8px",
-            padding: "40px"
+            padding: "36px"
           }}>
-            {/* ETAPA 1: DISCOVER & RESEARCH */}
+            {/* ETAPA 1: SUA EMPRESA */}
             {currentStep === 1 && (
-              <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-                <div style={{ borderBottom: "1px solid var(--border)", paddingBottom: "16px" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+                <div style={{ borderBottom: "1px solid var(--border)", paddingBottom: "12px" }}>
                   <h3 style={{ fontSize: "18px", color: "var(--text-primary)", fontWeight: 600 }}>
-                    Módulo 1: Identificação da Organização & Contexto
+                    Etapa 1 de 5: Sobre Você e Sua Empresa
                   </h3>
                   <p style={{ fontSize: "13px", color: "var(--text-secondary)", marginTop: "4px" }}>
-                    Fase Discover: Compreender a estrutura da sua empresa e o modelo de negócio atual.
+                    Informações básicas para podermos entrar em contato e entender o seu negócio.
                   </p>
                 </div>
 
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                   <div>
                     <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
-                      Seu Nome *
+                      Seu Nome Completo *
                     </label>
                     <input
                       type="text"
                       required
                       value={formData.nome_solicitante}
                       onChange={(e) => setFormData({ ...formData, nome_solicitante: e.target.value })}
-                      placeholder="Nome completo"
-                      style={{ width: "100%", padding: "10px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                      placeholder="Ex: Carlos Silva"
+                      style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                     />
                   </div>
                   <div>
                     <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
-                      Cargo / Função *
+                      Seu Cargo ou Função na Empresa *
                     </label>
                     <input
                       type="text"
                       required
                       value={formData.cargo_solicitante}
                       onChange={(e) => setFormData({ ...formData, cargo_solicitante: e.target.value })}
-                      placeholder="Ex: Diretor de Tecnologia / Head de Produto"
-                      style={{ width: "100%", padding: "10px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                      placeholder="Ex: Sócio, Diretor, Gerente"
+                      style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                     />
                   </div>
                 </div>
@@ -241,146 +250,169 @@ export default function BriefingPage() {
                       required
                       value={formData.empresa_nome}
                       onChange={(e) => setFormData({ ...formData, empresa_nome: e.target.value })}
-                      placeholder="Razão Social ou Fantasia"
-                      style={{ width: "100%", padding: "10px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                      placeholder="Nome da sua marca ou empresa"
+                      style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                     />
                   </div>
                   <div>
                     <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
-                      Segmento de Atuação *
+                      Ramo de Atuação da Empresa *
                     </label>
-                    <select
-                      value={formData.empresa_segmento}
-                      onChange={(e) => setFormData({ ...formData, empresa_segmento: e.target.value })}
-                      style={{ width: "100%", padding: "10px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
-                    >
-                      <option value="b2b_saas">B2B SaaS / Tecnologia</option>
-                      <option value="fintech">Fintech / Serviços Financeiros</option>
-                      <option value="ecommerce">E-Commerce & Varejo D2C</option>
-                      <option value="saude">Saúde, Clínicas & Biotech</option>
-                      <option value="industria">Indústria & Energia</option>
-                      <option value="luxo">Luxo, Arquitetura & Moda</option>
-                      <option value="outro">Outro Segmento</option>
-                    </select>
+                    <input
+                      type="text"
+                      required
+                      value={formData.ramo_atuacao}
+                      onChange={(e) => setFormData({ ...formData, ramo_atuacao: e.target.value })}
+                      placeholder="Ex: Clínica Odontológica, Advocacia, Consultoria, Loja de Roupas"
+                      style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                    />
                   </div>
                 </div>
 
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                   <div>
                     <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
-                      E-mail Corporativo *
+                      E-mail de Contato *
                     </label>
                     <input
                       type="email"
                       required
-                      value={formData.email_corporativo}
-                      onChange={(e) => setFormData({ ...formData, email_corporativo: e.target.value })}
-                      placeholder="seu.nome@empresa.com"
-                      style={{ width: "100%", padding: "10px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                      value={formData.email_contato}
+                      onChange={(e) => setFormData({ ...formData, email_contato: e.target.value })}
+                      placeholder="seuemail@empresa.com"
+                      style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                     />
                   </div>
                   <div>
                     <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
-                      WhatsApp / Telefone *
+                      WhatsApp com DDD *
                     </label>
                     <input
                       type="text"
                       required
                       value={formData.telefone_whatsapp}
                       onChange={(e) => setFormData({ ...formData, telefone_whatsapp: e.target.value })}
-                      placeholder="(XX) 9XXXX-XXXX"
-                      style={{ width: "100%", padding: "10px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                      placeholder="(31) 99999-9999"
+                      style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                     />
                   </div>
-                </div>
-
-                <div style={{ textAlign: "right", marginTop: "16px" }}>
-                  <button
-                    type="button"
-                    onClick={() => setCurrentStep(2)}
-                    style={{ background: "var(--sinal)", color: "var(--obsidiana)", fontFamily: "var(--font-mono)", fontSize: "12px", fontWeight: 600, padding: "12px 24px", borderRadius: "4px", border: "none", cursor: "pointer", textTransform: "uppercase" }}
-                  >
-                    Próxima Etapa: Strategize & Design →
-                  </button>
-                </div>
-              </div>
-            )}
-
-            {/* ETAPA 2: STRATEGIZE & DESIGN */}
-            {currentStep === 2 && (
-              <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-                <div style={{ borderBottom: "1px solid var(--border)", paddingBottom: "16px" }}>
-                  <h3 style={{ fontSize: "18px", color: "var(--text-primary)", fontWeight: 600 }}>
-                    Módulo 2: Estratégia de Produto & Identidade Visual
-                  </h3>
-                  <p style={{ fontSize: "13px", color: "var(--text-secondary)", marginTop: "4px" }}>
-                    Fases Strategize & Design: Definir proposta de valor, estética e arquitetura de informação.
-                  </p>
-                </div>
-
-                <div>
-                  <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
-                    Qual é o objetivo principal do novo produto/site? *
-                  </label>
-                  <textarea
-                    rows={3}
-                    required
-                    value={formData.objetivo_primario}
-                    onChange={(e) => setFormData({ ...formData, objetivo_primario: e.target.value })}
-                    placeholder="Ex: Aumentar a conversão de leads qualificados B2B e posicionar a empresa como autoridade técnica no setor..."
-                    style={{ width: "100%", padding: "10px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
-                  />
                 </div>
 
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                   <div>
                     <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
-                      Direção Estética Desejada
+                      Cidade e Estado *
                     </label>
-                    <select
-                      value={formData.posicionamento_estetico}
-                      onChange={(e) => setFormData({ ...formData, posicionamento_estetico: e.target.value })}
-                      style={{ width: "100%", padding: "10px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
-                    >
-                      <option value="tech_dark_mode">Tech Dark Mode (Obsidiana / Alta Precisão)</option>
-                      <option value="minimalista_editorial">Minimalista Editorial (Off-White / Tipografia Fina)</option>
-                      <option value="corporativo_clean">Corporativo Clean (Azul / Neutro)</option>
-                      <option value="vibrante_moderno">Vibrante / Alto Contraste</option>
-                    </select>
+                    <input
+                      type="text"
+                      required
+                      value={formData.cidade_estado}
+                      onChange={(e) => setFormData({ ...formData, cidade_estado: e.target.value })}
+                      placeholder="Ex: Belo Horizonte, MG"
+                      style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                    />
                   </div>
                   <div>
                     <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
-                      Sua empresa já possui Brandbook / Design System?
+                      Site Atual (se já possuir)
                     </label>
-                    <select
-                      value={formData.possui_brandbook ? "sim" : "nao"}
-                      onChange={(e) => setFormData({ ...formData, possui_brandbook: e.target.value === "sim" })}
-                      style={{ width: "100%", padding: "10px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
-                    >
-                      <option value="nao">Não, precisaremos construir/definir</option>
-                      <option value="sim">Sim, temos manual de marca consolidado</option>
-                    </select>
+                    <input
+                      type="text"
+                      value={formData.website_atual}
+                      onChange={(e) => setFormData({ ...formData, website_atual: e.target.value })}
+                      placeholder="www.minhaempresa.com.br"
+                      style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                    />
                   </div>
+                </div>
+
+                <div style={{ textAlign: "right", marginTop: "12px" }}>
+                  <button
+                    type="button"
+                    onClick={() => setCurrentStep(2)}
+                    style={{ background: "var(--sinal)", color: "var(--obsidiana)", fontFamily: "var(--font-mono)", fontSize: "12px", fontWeight: 600, padding: "12px 24px", borderRadius: "4px", border: "none", cursor: "pointer", textTransform: "uppercase" }}
+                  >
+                    Avançar para Etapa 2: Seu Cliente →
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* ETAPA 2: MODELO DE NEGÓCIO E PERSONA */}
+            {currentStep === 2 && (
+              <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+                <div style={{ borderBottom: "1px solid var(--border)", paddingBottom: "12px" }}>
+                  <h3 style={{ fontSize: "18px", color: "var(--text-primary)", fontWeight: 600 }}>
+                    Etapa 2 de 5: Seu Modelo de Negócio e Cliente Ideal (Persona)
+                  </h3>
+                  <p style={{ fontSize: "13px", color: "var(--text-secondary)", marginTop: "4px" }}>
+                    Para criar um site que realmente venda, precisamos entender o que você entrega e quem compra de você.
+                  </p>
                 </div>
 
                 <div>
                   <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
-                    Sites ou plataformas de referência que admiram (URLs)
+                    O que a sua empresa faz e qual é o seu principal produto ou serviço? *
                   </label>
-                  <input
-                    type="text"
-                    value={formData.referencias_visuais}
-                    onChange={(e) => setFormData({ ...formData, referencias_visuais: e.target.value })}
-                    placeholder="Ex: linear.app, stripe.com, vercel.com..."
-                    style={{ width: "100%", padding: "10px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                  <textarea
+                    rows={3}
+                    required
+                    value={formData.o_que_sua_empresa_faz}
+                    onChange={(e) => setFormData({ ...formData, o_que_sua_empresa_faz: e.target.value })}
+                    placeholder="Explique com suas próprias palavras: o que você vende ou presta de serviço..."
+                    style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                   />
                 </div>
 
-                <div style={{ display: "flex", justifyContent: "space-between", marginTop: "16px" }}>
+                <div>
+                  <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
+                    Como a sua empresa ganha dinheiro hoje? *
+                  </label>
+                  <select
+                    value={formData.como_sua_empresa_ganha_dinheiro}
+                    onChange={(e) => setFormData({ ...formData, como_sua_empresa_ganha_dinheiro: e.target.value })}
+                    style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                  >
+                    <option value="servico_sob_consulta">Prestação de serviços com orçamento sob consulta</option>
+                    <option value="venda_produtos">Venda direta de produtos (físicos ou digitais)</option>
+                    <option value="mensalidade_assinatura">Mensalidade, contratos fixos ou assinaturas</option>
+                    <option value="agendamento_consultas">Agendamento de consultas ou atendimentos individuais</option>
+                    <option value="outro">Outro modelo</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
+                    Quem é o seu cliente ideal (Persona)? *
+                  </label>
+                  <textarea
+                    rows={3}
+                    required
+                    value={formData.quem_e_seu_cliente_ideal}
+                    onChange={(e) => setFormData({ ...formData, quem_e_seu_cliente_ideal: e.target.value })}
+                    placeholder="Descreva quem costuma comprar de você: são outras empresas (B2B) ou pessoas físicas (B2C)? Qual a idade, profissão ou necessidade deles?"
+                    style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                  />
+                </div>
+
+                <div>
+                  <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
+                    Qual é o principal problema ou dor que seu cliente quer resolver ao te procurar?
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.principal_dor_do_seu_cliente}
+                    onChange={(e) => setFormData({ ...formData, principal_dor_do_seu_cliente: e.target.value })}
+                    placeholder="Ex: Precisa de atendimento rápido, não encontra confiança em outros fornecedores, quer economizar tempo..."
+                    style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                  />
+                </div>
+
+                <div style={{ display: "flex", justifyContent: "space-between", marginTop: "12px" }}>
                   <button
                     type="button"
                     onClick={() => setCurrentStep(1)}
-                    style={{ background: "transparent", color: "var(--text-secondary)", border: "1px solid var(--border)", fontFamily: "var(--font-mono)", fontSize: "12px", padding: "12px 20px", borderRadius: "4px", cursor: "pointer" }}
+                    style={{ background: "transparent", color: "var(--text-secondary)", border: "1px solid var(--border)", fontFamily: "var(--font-mono)", fontSize: "12px", padding: "10px 18px", borderRadius: "4px", cursor: "pointer" }}
                   >
                     ← Voltar
                   </button>
@@ -389,38 +421,88 @@ export default function BriefingPage() {
                     onClick={() => setCurrentStep(3)}
                     style={{ background: "var(--sinal)", color: "var(--obsidiana)", fontFamily: "var(--font-mono)", fontSize: "12px", fontWeight: 600, padding: "12px 24px", borderRadius: "4px", border: "none", cursor: "pointer", textTransform: "uppercase" }}
                   >
-                    Próxima Etapa: Architect & Build →
+                    Avançar para Etapa 3: O Site →
                   </button>
                 </div>
               </div>
             )}
 
-            {/* ETAPA 3: ARCHITECT & BUILD */}
+            {/* ETAPA 3: O SITE E SEUS RECURSOS */}
             {currentStep === 3 && (
-              <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-                <div style={{ borderBottom: "1px solid var(--border)", paddingBottom: "16px" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+                <div style={{ borderBottom: "1px solid var(--border)", paddingBottom: "12px" }}>
                   <h3 style={{ fontSize: "18px", color: "var(--text-primary)", fontWeight: 600 }}>
-                    Módulo 3: Arquitetura de Software & Requisitos Técnicos
+                    Etapa 3 de 5: O que o Site Precisa Ter
                   </h3>
                   <p style={{ fontSize: "13px", color: "var(--text-secondary)", marginTop: "4px" }}>
-                    Fases Architect & Build: Mapeamento de integrações, banco de dados e requisitos funcionais.
+                    Defina o tamanho do site, os botões e as funções necessárias.
                   </p>
                 </div>
 
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+                  <div>
+                    <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
+                      Formato Desejado do Site *
+                    </label>
+                    <select
+                      value={formData.formato_do_site}
+                      onChange={(e) => setFormData({ ...formData, formato_do_site: e.target.value })}
+                      style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                    >
+                      <option value="landing_page_unica">Landing Page de Página Única (Foco em conversão rápida)</option>
+                      <option value="site_institucional_completo">Site Institucional Completo (Início, Sobre, Serviços, Contato)</option>
+                      <option value="loja_virtual">Loja Virtual ou Catálogo de Produtos</option>
+                      <option value="portal_ou_sistema">Portal de Clientes, Área de Membros ou Sistema Sob Medida</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
+                      Número Estimado de Páginas
+                    </label>
+                    <select
+                      value={formData.numero_estimado_paginas}
+                      onChange={(e) => setFormData({ ...formData, numero_estimado_paginas: e.target.value })}
+                      style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                    >
+                      <option value="1_pagina">1 página única (Landing Page direta)</option>
+                      <option value="2_a_5_paginas">2 a 5 páginas (Padrão Institucional)</option>
+                      <option value="6_a_10_paginas">6 a 10 páginas (Site mais encorpado)</option>
+                      <option value="mais_de_10_paginas">Mais de 10 páginas / Portal amplo</option>
+                    </select>
+                  </div>
+                </div>
+
                 <div>
-                  <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "10px" }}>
-                    Funcionalidades de Software Necessárias (Marque todas as aplicáveis)
+                  <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
+                    Qual a principal ação que o visitante deve tomar no site? *
                   </label>
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px" }}>
+                  <select
+                    value={formData.acao_principal_desejada}
+                    onChange={(e) => setFormData({ ...formData, acao_principal_desejada: e.target.value })}
+                    style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                  >
+                    <option value="chamar_no_whatsapp">Clicar para chamar diretamente no WhatsApp</option>
+                    <option value="preencher_formulario">Preencher formulário para pedir orçamento</option>
+                    <option value="agendar_horario">Agendar um horário ou reunião online</option>
+                    <option value="comprar_direto">Fazer o pagamento ou compra na hora</option>
+                    <option value="ligar_telefone">Ligar para o telefone da empresa</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "8px" }}>
+                    Recursos que você quer no site (Marque o que for importante para você)
+                  </label>
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
                     {[
-                      { id: "auth_usuarios", label: "Autenticação & Login de Usuários" },
-                      { id: "checkout_pagamento", label: "Gateway de Pagamento / Assinaturas" },
-                      { id: "painel_admin", label: "Painel Administrativo / Dashboard" },
-                      { id: "agendamento_crm", label: "Agendamento Online & Integração CRM" },
-                      { id: "blog_cms", label: "Sistema de Conteúdo (CMS / Blog)" },
-                      { id: "multilingue", label: "Suporte Multilíngue (i18n)" },
-                      { id: "api_rest", label: "Construção de APIs REST / GraphQL" },
-                      { id: "automacao_ia", label: "Agente de IA / RAG de Documentos" }
+                      { id: "botao_whatsapp", label: "Botão flutuante de WhatsApp" },
+                      { id: "formulario_contato", label: "Formulário de contato com envio por e-mail" },
+                      { id: "galeria_fotos", label: "Galeria de fotos de trabalhos ou produtos" },
+                      { id: "depoimentos_clientes", label: "Depoimentos e avaliações de clientes" },
+                      { id: "agendamento_online", label: "Agendamento online integrado com calendário" },
+                      { id: "pagamento_online", label: "Pagamento por Pix ou Cartão no site" },
+                      { id: "blog_noticias", label: "Área de Blog e Notícias" },
+                      { id: "calculadora_simulador", label: "Simulador de preços ou calculadora" }
                     ].map((item) => (
                       <label
                         key={item.id}
@@ -431,7 +513,7 @@ export default function BriefingPage() {
                           fontSize: "13px",
                           color: "var(--text-secondary)",
                           background: "var(--obsidiana)",
-                          padding: "10px",
+                          padding: "8px 12px",
                           borderRadius: "4px",
                           border: "1px solid var(--border)",
                           cursor: "pointer"
@@ -439,8 +521,8 @@ export default function BriefingPage() {
                       >
                         <input
                           type="checkbox"
-                          checked={formData.funcionalidades_chave.includes(item.id)}
-                          onChange={() => toggleArrayItem("funcionalidades_chave", item.id)}
+                          checked={formData.recursos_desejados.includes(item.id)}
+                          onChange={() => toggleRecurso(item.id)}
                         />
                         {item.label}
                       </label>
@@ -448,24 +530,11 @@ export default function BriefingPage() {
                   </div>
                 </div>
 
-                <div>
-                  <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
-                    Sistemas Existentes ou Legados que Devem ser Integrados
-                  </label>
-                  <input
-                    type="text"
-                    value={formData.sistemas_legados}
-                    onChange={(e) => setFormData({ ...formData, sistemas_legados: e.target.value })}
-                    placeholder="Ex: Hubspot, RD Station, SAP, Totvs, Supabase, PostgreSQL..."
-                    style={{ width: "100%", padding: "10px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
-                  />
-                </div>
-
-                <div style={{ display: "flex", justifyContent: "space-between", marginTop: "16px" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", marginTop: "12px" }}>
                   <button
                     type="button"
                     onClick={() => setCurrentStep(2)}
-                    style={{ background: "transparent", color: "var(--text-secondary)", border: "1px solid var(--border)", fontFamily: "var(--font-mono)", fontSize: "12px", padding: "12px 20px", borderRadius: "4px", cursor: "pointer" }}
+                    style={{ background: "transparent", color: "var(--text-secondary)", border: "1px solid var(--border)", fontFamily: "var(--font-mono)", fontSize: "12px", padding: "10px 18px", borderRadius: "4px", cursor: "pointer" }}
                   >
                     ← Voltar
                   </button>
@@ -474,38 +543,162 @@ export default function BriefingPage() {
                     onClick={() => setCurrentStep(4)}
                     style={{ background: "var(--sinal)", color: "var(--obsidiana)", fontFamily: "var(--font-mono)", fontSize: "12px", fontWeight: 600, padding: "12px 24px", borderRadius: "4px", border: "none", cursor: "pointer", textTransform: "uppercase" }}
                   >
-                    Próxima Etapa: Launch & Scale →
+                    Avançar para Etapa 4: Visual e Arquivos →
                   </button>
                 </div>
               </div>
             )}
 
-            {/* ETAPA 4: LAUNCH, MEASURE & SCALE */}
+            {/* ETAPA 4: VISUAL E ARQUIVOS */}
             {currentStep === 4 && (
-              <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-                <div style={{ borderBottom: "1px solid var(--border)", paddingBottom: "16px" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+                <div style={{ borderBottom: "1px solid var(--border)", paddingBottom: "12px" }}>
                   <h3 style={{ fontSize: "18px", color: "var(--text-primary)", fontWeight: 600 }}>
-                    Módulo 4: Governança, Prazos & Orçamento
+                    Etapa 4 de 5: Identidade Visual, Referências e Anexos
                   </h3>
                   <p style={{ fontSize: "13px", color: "var(--text-secondary)", marginTop: "4px" }}>
-                    Fases Launch, Measure & Scale: Expectativas de cronograma, investimento e métricas de sucesso.
+                    Envie sua logomarca, manual de marca (Brandbook) ou prints de sites que você gosta.
                   </p>
                 </div>
 
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                   <div>
                     <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
-                      Prazo Estimado de Lançamento
+                      Você já possui Logomarca ou Brandbook?
+                    </label>
+                    <select
+                      value={formData.ja_possui_logomarca_ou_brandbook}
+                      onChange={(e) => setFormData({ ...formData, ja_possui_logomarca_ou_brandbook: e.target.value })}
+                      style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                    >
+                      <option value="sim_tenho_tudo">Sim, tenho logomarca e manual de marca completo</option>
+                      <option value="tenho_apenas_logo">Tenho apenas a logomarca</option>
+                      <option value="nao_preciso_criar">Não tenho, precisarei criar também</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
+                      Qual estilo visual mais combina com você?
+                    </label>
+                    <select
+                      value={formData.estilo_visual_preferido}
+                      onChange={(e) => setFormData({ ...formData, estilo_visual_preferido: e.target.value })}
+                      style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                    >
+                      <option value="escuro_moderno">Fundo escuro moderno e sofisticado</option>
+                      <option value="claro_minimalista">Fundo claro, limpo e elegante</option>
+                      <option value="corporativo_tradicional">Corporativo tradicional e sério</option>
+                      <option value="colorido_vibrante">Colorido e dinâmico</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
+                    Cole aqui links de sites de concorrentes ou referências visuais que você admira
+                  </label>
+                  <textarea
+                    rows={2}
+                    value={formData.links_de_sites_que_voce_gosta}
+                    onChange={(e) => setFormData({ ...formData, links_de_sites_que_voce_gosta: e.target.value })}
+                    placeholder="Ex: www.exemplo1.com.br, www.exemplo2.com.br..."
+                    style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                  />
+                </div>
+
+                {/* Área de Anexo de Arquivos */}
+                <div style={{
+                  background: "var(--obsidiana)",
+                  border: "1px dashed var(--border)",
+                  borderRadius: "6px",
+                  padding: "20px",
+                  textAlign: "center"
+                }}>
+                  <div style={{ fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--text-primary)", marginBottom: "6px" }}>
+                    Anexar Arquivos (Logomarca, Brandbook, Imagens, Prints ou Documentos)
+                  </div>
+                  <p style={{ fontSize: "12px", color: "var(--text-secondary)", marginBottom: "12px" }}>
+                    Formatos aceitos: PDF, PNG, JPG, DOCX, ZIP (até 25 MB por arquivo)
+                  </p>
+                  <label style={{
+                    display: "inline-block",
+                    background: "var(--ardosia)",
+                    border: "1px solid var(--border)",
+                    color: "var(--text-primary)",
+                    padding: "8px 16px",
+                    borderRadius: "4px",
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "11px",
+                    cursor: "pointer"
+                  }}>
+                    Selecionar Arquivos do Seu Computador
+                    <input
+                      type="file"
+                      multiple
+                      onChange={handleFileChange}
+                      style={{ display: "none" }}
+                    />
+                  </label>
+
+                  {fileNames.length > 0 && (
+                    <div style={{ marginTop: "12px", textAlign: "left" }}>
+                      <div style={{ fontSize: "11px", fontFamily: "var(--font-mono)", color: "var(--sinal)", marginBottom: "4px" }}>
+                        Arquivos Selecionados:
+                      </div>
+                      <ul style={{ listStyle: "none", fontSize: "12px", color: "var(--text-secondary)" }}>
+                        {fileNames.map((name, i) => (
+                          <li key={i}>• {name}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+
+                <div style={{ display: "flex", justifyContent: "space-between", marginTop: "12px" }}>
+                  <button
+                    type="button"
+                    onClick={() => setCurrentStep(3)}
+                    style={{ background: "transparent", color: "var(--text-secondary)", border: "1px solid var(--border)", fontFamily: "var(--font-mono)", fontSize: "12px", padding: "10px 18px", borderRadius: "4px", cursor: "pointer" }}
+                  >
+                    ← Voltar
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setCurrentStep(5)}
+                    style={{ background: "var(--sinal)", color: "var(--obsidiana)", fontFamily: "var(--font-mono)", fontSize: "12px", fontWeight: 600, padding: "12px 24px", borderRadius: "4px", border: "none", cursor: "pointer", textTransform: "uppercase" }}
+                  >
+                    Avançar para Etapa 5: Prazo e Orçamento →
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* ETAPA 5: PRAZO E ORÇAMENTO */}
+            {currentStep === 5 && (
+              <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+                <div style={{ borderBottom: "1px solid var(--border)", paddingBottom: "12px" }}>
+                  <h3 style={{ fontSize: "18px", color: "var(--text-primary)", fontWeight: 600 }}>
+                    Etapa 5 de 5: Prazo Desejado e Faixa de Investimento
+                  </h3>
+                  <p style={{ fontSize: "13px", color: "var(--text-secondary)", marginTop: "4px" }}>
+                    Atendemos desde landing pages ágeis até plataformas completas sob medida.
+                  </p>
+                </div>
+
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+                  <div>
+                    <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
+                      Qual é o seu prazo ideal de entrega?
                     </label>
                     <select
                       value={formData.prazo_desejado}
                       onChange={(e) => setFormData({ ...formData, prazo_desejado: e.target.value })}
-                      style={{ width: "100%", padding: "10px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                      style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                     >
-                      <option value="30_dias">Até 30 dias (Sprint Acelerada)</option>
-                      <option value="60_dias">45 a 60 dias (Padrão Completo)</option>
-                      <option value="90_dias">60 a 90 dias (Plataforma Complexa)</option>
-                      <option value="flexivel">Flexível / Conforme Roadmap</option>
+                      <option value="urgente_15_dias">Urgente (em até 15 dias)</option>
+                      <option value="normal_30_dias">Normal (em até 30 dias)</option>
+                      <option value="45_a_60_dias">45 a 60 dias (Projetos maiores)</option>
+                      <option value="flexivel">Flexível / Sem pressa imediata</option>
                     </select>
                   </div>
                   <div>
@@ -515,43 +708,56 @@ export default function BriefingPage() {
                     <select
                       value={formData.faixa_investimento}
                       onChange={(e) => setFormData({ ...formData, faixa_investimento: e.target.value })}
-                      style={{ width: "100%", padding: "10px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                      style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                     >
-                      <option value="15k_30k">R$ 15.000 a R$ 30.000</option>
-                      <option value="30k_60k">R$ 30.000 a R$ 60.000</option>
-                      <option value="60k_120k">R$ 60.000 a R$ 120.000</option>
-                      <option value="acima_120k">Acima de R$ 120.000 (Enterprise)</option>
+                      <option value="a_partir_600">R$ 600 a R$ 1.500 (Landing Page Express / Página Única)</option>
+                      <option value="1500_a_3000">R$ 1.500 a R$ 3.000 (Site Institucional Padrão)</option>
+                      <option value="3000_a_6000">R$ 3.000 a R$ 6.000 (Site Avançado ou Loja Virtual)</option>
+                      <option value="6000_a_15000">R$ 6.000 a R$ 15.000 (Plataforma Completa com Integrações)</option>
+                      <option value="acima_15000">Acima de R$ 15.000 (Sistema Sob Medida / Enterprise)</option>
                     </select>
                   </div>
                 </div>
 
+                <div style={{
+                  background: "var(--ardosia)",
+                  border: "1px solid var(--border)",
+                  borderRadius: "6px",
+                  padding: "16px",
+                  fontSize: "13px",
+                  color: "var(--text-secondary)",
+                  lineHeight: 1.5
+                }}>
+                  <strong style={{ color: "var(--text-primary)" }}>Como calculamos o valor exato:</strong> O orçamento final considera as horas técnicas dedicadas, número de páginas, banco de dados, integrações necessárias e velocidade de entrega.
+                </div>
+
                 <div>
                   <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "6px" }}>
-                    Observações Adicionais ou Restrições Específicas
+                    Observações Finais ou Informações Importantes
                   </label>
                   <textarea
-                    rows={4}
-                    value={formData.observacoes_adicionais}
-                    onChange={(e) => setFormData({ ...formData, observacoes_adicionais: e.target.value })}
-                    placeholder="Inclua qualquer detalhe relevante sobre tomada de decisão, equipe interna ou prazos críticos..."
-                    style={{ width: "100%", padding: "10px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                    rows={3}
+                    value={formData.observacoes_finais}
+                    onChange={(e) => setFormData({ ...formData, observacoes_finais: e.target.value })}
+                    placeholder="Algum outro detalhe que queira nos contar sobre o seu projeto..."
+                    style={{ width: "100%", padding: "10px 12px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                   />
                 </div>
 
-                <div style={{ display: "flex", justifyContent: "space-between", marginTop: "16px" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", marginTop: "12px" }}>
                   <button
                     type="button"
-                    onClick={() => setCurrentStep(3)}
-                    style={{ background: "transparent", color: "var(--text-secondary)", border: "1px solid var(--border)", fontFamily: "var(--font-mono)", fontSize: "12px", padding: "12px 20px", borderRadius: "4px", cursor: "pointer" }}
+                    onClick={() => setCurrentStep(4)}
+                    style={{ background: "transparent", color: "var(--text-secondary)", border: "1px solid var(--border)", fontFamily: "var(--font-mono)", fontSize: "12px", padding: "10px 18px", borderRadius: "4px", cursor: "pointer" }}
                   >
                     ← Voltar
                   </button>
                   <button
                     type="submit"
                     disabled={loading}
-                    style={{ background: "var(--sinal)", color: "var(--obsidiana)", fontFamily: "var(--font-mono)", fontSize: "13px", fontWeight: 600, padding: "14px 28px", borderRadius: "4px", border: "none", cursor: "pointer", textTransform: "uppercase", letterSpacing: "0.05em" }}
+                    style={{ background: "var(--sinal)", color: "var(--obsidiana)", fontFamily: "var(--font-mono)", fontSize: "13px", fontWeight: 600, padding: "12px 28px", borderRadius: "4px", border: "none", cursor: "pointer", textTransform: "uppercase", letterSpacing: "0.05em" }}
                   >
-                    {loading ? "Registrando Briefing..." : "Finalizar & Enviar Briefing do Método →"}
+                    {loading ? "Enviando Briefing..." : "Finalizar e Enviar Briefing →"}
                   </button>
                 </div>
               </div>

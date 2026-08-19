@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 import { PRINCIPLES } from "../data";
 
 export const metadata = {
-  title: "Sobre & Princípios — ARKOS Soluções Digitais",
+  title: "Sobre e Princípios — ARKOS Soluções Digitais",
   description: "Conheça o estúdio ARKOS: engenharia de software sob medida, design de experiência autêntico e governança contínua de tecnologia."
 };
 

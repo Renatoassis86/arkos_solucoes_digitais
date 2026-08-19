@@ -84,7 +84,7 @@ export default function Navbar() {
             transition: "color 0.2s",
             fontWeight: 500
           }}>
-            Sobre & Princípios
+            Sobre e Princípios
           </Link>
           <Link href="/briefing" style={{
             fontSize: "13px",

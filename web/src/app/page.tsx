@@ -16,7 +16,7 @@ export default function Home() {
         <section style={{
           maxWidth: "1200px",
           margin: "0 auto",
-          padding: "80px 24px 64px",
+          padding: "72px 24px 56px",
           display: "grid",
           gridTemplateColumns: "1.1fr 0.9fr",
           gap: "48px",
@@ -31,34 +31,34 @@ export default function Home() {
               border: "1px solid var(--border)",
               padding: "6px 12px",
               borderRadius: "4px",
-              marginBottom: "24px"
+              marginBottom: "20px"
             }}>
               <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "var(--sinal)" }}></span>
               <span style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", letterSpacing: "0.06em", textTransform: "uppercase" }}>
-                Engenharia de Software & Experiência Digital
+                Criação de Sites e Soluções Digitais
               </span>
             </div>
 
             <h1 style={{
               fontFamily: "var(--font-display)",
-              fontSize: "44px",
-              lineHeight: 1.15,
+              fontSize: "42px",
+              lineHeight: 1.18,
               fontWeight: 600,
               color: "var(--text-primary)",
               letterSpacing: "-0.02em",
               marginBottom: "20px"
             }}>
-              Desenhamos e construímos produtos digitais orientados a dados, clareza técnica e conversão real.
+              Criamos sites rápidos, modernos e funcionais para atrair clientes e impulsionar o seu negócio.
             </h1>
 
             <p style={{
-              fontSize: "17px",
+              fontSize: "16px",
               lineHeight: 1.6,
               color: "var(--text-secondary)",
-              marginBottom: "32px",
+              marginBottom: "28px",
               maxWidth: "540px"
             }}>
-              Substituímos o achismo estético por rigor de engenharia. Criamos sites de alta performance, plataformas sob medida e inteligência de dados desenhadas para acelerar a operação do seu negócio.
+              Desenvolvemos desde landing pages para captação de clientes até sites institucionais completos e plataformas sob medida. Unimos design profissional e velocidade para gerar resultados reais.
             </p>
 
             <div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
@@ -66,27 +66,25 @@ export default function Home() {
                 background: "var(--sinal)",
                 color: "var(--obsidiana)",
                 fontFamily: "var(--font-mono)",
-                fontSize: "13px",
+                fontSize: "12px",
                 fontWeight: 600,
-                padding: "14px 24px",
+                padding: "12px 22px",
                 borderRadius: "4px",
                 textTransform: "uppercase",
-                letterSpacing: "0.05em",
-                transition: "opacity 0.2s"
+                letterSpacing: "0.05em"
               }}>
                 Ver Nossas Soluções
               </Link>
-              <Link href="/metodo" style={{
+              <Link href="/briefing" style={{
                 color: "var(--text-primary)",
                 border: "1px solid var(--border)",
                 background: "var(--grafite)",
                 fontFamily: "var(--font-mono)",
-                fontSize: "13px",
-                padding: "14px 20px",
-                borderRadius: "4px",
-                transition: "border-color 0.2s"
+                fontSize: "12px",
+                padding: "12px 20px",
+                borderRadius: "4px"
               }}>
-                Entenda Nosso Método →
+                Preencher Briefing do Projeto →
               </Link>
             </div>
           </div>
@@ -97,7 +95,7 @@ export default function Home() {
             borderRadius: "8px",
             overflow: "hidden",
             border: "1px solid var(--border)",
-            boxShadow: "0 24px 64px rgba(0,0,0,0.5)"
+            boxShadow: "0 20px 50px rgba(0,0,0,0.5)"
           }}>
             <Image
               src="/assets/hero_workspace.jpg"
@@ -115,24 +113,24 @@ export default function Home() {
           borderTop: "1px solid var(--border)",
           borderBottom: "1px solid var(--border)",
           background: "var(--grafite)",
-          padding: "48px 24px"
+          padding: "40px 24px"
         }}>
           <div style={{
             maxWidth: "1200px",
             margin: "0 auto",
             display: "grid",
             gridTemplateColumns: "repeat(4, 1fr)",
-            gap: "32px"
+            gap: "28px"
           }}>
             {PRINCIPLES.map((p, idx) => (
               <div key={idx} style={{ paddingRight: "16px", borderRight: idx < 3 ? "1px solid var(--border)" : "none" }}>
-                <div style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--sinal)", marginBottom: "8px" }}>
-                  0{idx + 1}. PRINCÍPIO
+                <div style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--sinal)", marginBottom: "6px" }}>
+                  0{idx + 1}. COMPROMISSO
                 </div>
-                <h3 style={{ fontSize: "16px", fontWeight: 600, color: "var(--text-primary)", marginBottom: "8px" }}>
+                <h3 style={{ fontSize: "15px", fontWeight: 600, color: "var(--text-primary)", marginBottom: "6px" }}>
                   {p.name}
                 </h3>
-                <p style={{ fontSize: "13px", color: "var(--text-secondary)", lineHeight: 1.6 }}>
+                <p style={{ fontSize: "13px", color: "var(--text-secondary)", lineHeight: 1.5 }}>
                   {p.desc}
                 </p>
               </div>
@@ -144,49 +142,49 @@ export default function Home() {
         <section style={{
           maxWidth: "1200px",
           margin: "0 auto",
-          padding: "96px 24px 64px"
+          padding: "80px 24px 56px"
         }}>
-          <div style={{ marginBottom: "40px" }}>
+          <div style={{ marginBottom: "32px" }}>
             <span style={{ fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--sinal)", letterSpacing: "0.08em", textTransform: "uppercase" }}>
-              Capacidades Modulares
+              Nossos Serviços
             </span>
-            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "36px", color: "var(--text-primary)", marginTop: "8px", letterSpacing: "-0.02em" }}>
-              Soluções desenhadas para a sua operação.
+            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "34px", color: "var(--text-primary)", marginTop: "6px", letterSpacing: "-0.02em" }}>
+              Soluções desenhadas para a sua necessidade
             </h2>
           </div>
 
           <ServicesExplorer />
         </section>
 
-        {/* DOBRA 4: PLATAFORMAS & DADOS COM IMAGEM ANALÍTICA */}
+        {/* DOBRA 4: PLATAFORMAS E DADOS */}
         <section style={{
           maxWidth: "1200px",
-          margin: "64px auto",
-          padding: "48px 24px",
+          margin: "48px auto",
+          padding: "40px 24px",
           background: "var(--grafite)",
           borderRadius: "8px",
           border: "1px solid var(--border)",
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
-          gap: "48px",
+          gap: "40px",
           alignItems: "center"
         }}>
           <div>
-            <div style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--sinal)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "12px" }}>
-              Decisão Factual
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--sinal)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "8px" }}>
+              Acompanhamento de Resultados
             </div>
-            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "32px", color: "var(--text-primary)", lineHeight: 1.2, marginBottom: "16px" }}>
-              Infraestrutura de dados para dar visibilidade total ao seu negócio.
+            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "28px", color: "var(--text-primary)", lineHeight: 1.25, marginBottom: "14px" }}>
+              Tenha clareza sobre os acessos e contatos gerados pelo seu site
             </h2>
-            <p style={{ fontSize: "15px", color: "var(--text-secondary)", lineHeight: 1.6, marginBottom: "24px" }}>
-              Não entregamos apenas telas bonitas; estruturamos pipelines que medem cada interação, taxa de conversão e comportamento de usuário. Sua empresa ganha clareza factual para tomar decisões estratégicas com segurança.
+            <p style={{ fontSize: "14px", color: "var(--text-secondary)", lineHeight: 1.6, marginBottom: "20px" }}>
+              Configuramos métricas transparentes para você saber exatamente quantas pessoas visitaram sua página, quantos cliques o botão do WhatsApp recebeu e quais produtos despertaram maior interesse.
             </p>
-            <div style={{ display: "flex", gap: "24px", fontFamily: "var(--font-mono)", fontSize: "13px", color: "var(--text-primary)" }}>
+            <div style={{ display: "flex", gap: "20px", fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--text-primary)" }}>
               <div>
-                <span style={{ color: "var(--sinal)", fontWeight: 600 }}>•</span> Telemetria desde o dia 1
+                <span style={{ color: "var(--sinal)", fontWeight: 600 }}>•</span> Relatórios simples de entender
               </div>
               <div>
-                <span style={{ color: "var(--sinal)", fontWeight: 600 }}>•</span> Painéis sem ruído
+                <span style={{ color: "var(--sinal)", fontWeight: 600 }}>•</span> Contagem real de conversões
               </div>
             </div>
           </div>
@@ -194,7 +192,7 @@ export default function Home() {
           <div style={{ borderRadius: "6px", overflow: "hidden", border: "1px solid var(--border)" }}>
             <Image
               src="/assets/data_dashboard.jpg"
-              alt="Painel analítico real de conversão e métricas de engenharia"
+              alt="Painel analítico real de conversão e visitas"
               width={600}
               height={360}
               style={{ width: "100%", height: "auto", display: "block", objectFit: "cover" }}
@@ -206,40 +204,40 @@ export default function Home() {
         <section style={{
           maxWidth: "1200px",
           margin: "0 auto",
-          padding: "64px 24px"
+          padding: "56px 24px"
         }}>
-          <div style={{ marginBottom: "40px" }}>
+          <div style={{ marginBottom: "32px" }}>
             <span style={{ fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--sinal)", letterSpacing: "0.08em", textTransform: "uppercase" }}>
-              Processo de Ponta a Ponta
+              Passo a Passo
             </span>
-            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "36px", color: "var(--text-primary)", marginTop: "8px", letterSpacing: "-0.02em" }}>
-              O Método ARKOS de Entrega
+            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "34px", color: "var(--text-primary)", marginTop: "6px", letterSpacing: "-0.02em" }}>
+              Como trabalhamos do início ao fim
             </h2>
-            <p style={{ fontSize: "15px", color: "var(--text-secondary)", marginTop: "8px" }}>
-              10 fases estruturadas para transformar problemas de negócio em software e interfaces de alto impacto.
+            <p style={{ fontSize: "14px", color: "var(--text-secondary)", marginTop: "6px" }}>
+              10 fases organizadas para garantir que seu projeto seja entregue com qualidade, no prazo e sem surpresas.
             </p>
           </div>
 
           <MethodStepper />
         </section>
 
-        {/* DOBRA 6: ADVISORY & CONSULTORIA TÉCNICA */}
+        {/* DOBRA 6: CONSULTORIA E APOIO */}
         <section style={{
           maxWidth: "1200px",
-          margin: "64px auto 0",
-          padding: "48px 24px",
+          margin: "48px auto 0",
+          padding: "40px 24px",
           background: "var(--grafite)",
           borderRadius: "8px",
           border: "1px solid var(--border)",
           display: "grid",
           gridTemplateColumns: "1fr 1.1fr",
-          gap: "48px",
+          gap: "40px",
           alignItems: "center"
         }}>
           <div style={{ borderRadius: "6px", overflow: "hidden", border: "1px solid var(--border)" }}>
             <Image
               src="/assets/advisory_alignment.jpg"
-              alt="Revisão de arquitetura técnica e produto em estúdio de design"
+              alt="Reunião de alinhamento técnico e projeto"
               width={600}
               height={360}
               style={{ width: "100%", height: "auto", display: "block", objectFit: "cover" }}
@@ -247,16 +245,16 @@ export default function Home() {
           </div>
 
           <div>
-            <div style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--sinal)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "12px" }}>
-              Technology Advisory
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--sinal)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "8px" }}>
+              Apoio Técnico
             </div>
-            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "30px", color: "var(--text-primary)", lineHeight: 1.2, marginBottom: "16px" }}>
-              Parceria técnica contínua para apoiar a liderança da sua empresa.
+            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "28px", color: "var(--text-primary)", lineHeight: 1.25, marginBottom: "14px" }}>
+              Parceria contínua para ajudar sua empresa a crescer no digital
             </h2>
-            <p style={{ fontSize: "15px", color: "var(--text-secondary)", lineHeight: 1.6, marginBottom: "24px" }}>
-              Apoiamos sua equipe na priorização de escopo, na escolha de arquiteturas adequadas e na garantia de que cada linha de código entregue gere valor real de negócio.
+            <p style={{ fontSize: "14px", color: "var(--text-secondary)", lineHeight: 1.6, marginBottom: "20px" }}>
+              Apoiamos sua equipe na definição das melhores ferramentas, na manutenção das páginas e na garantia de que cada investimento traga retorno para o seu negócio.
             </p>
-            <Link href="/contato" style={{
+            <Link href="/briefing" style={{
               display: "inline-block",
               background: "var(--sinal)",
               color: "var(--obsidiana)",
@@ -267,7 +265,7 @@ export default function Home() {
               borderRadius: "4px",
               textTransform: "uppercase"
             }}>
-              Agendar Conversa Técnica →
+              Iniciar Diagnóstico do Seu Projeto →
             </Link>
           </div>
         </section>

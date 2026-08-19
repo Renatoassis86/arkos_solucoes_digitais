@@ -5,8 +5,8 @@ import Footer from "../components/Footer";
 import { SERVICES } from "../data";
 
 export const metadata = {
-  title: "Soluções Digitais & Engenharia — ARKOS",
-  description: "Portfólio completo de capacidades modulares da ARKOS: Digital Experience, Growth Technology, Software & Platforms, Data & Intelligence, AI & Automation e Technology Advisory."
+  title: "Soluções Digitais e Engenharia — ARKOS",
+  description: "Portfólio completo de soluções da ARKOS: Experiência Digital, Tecnologia para Vendas, Sistemas e Plataformas, Organização de Dados e Automação de Processos."
 };
 
 export default function SolucoesPage() {
@@ -82,7 +82,7 @@ export default function SolucoesPage() {
 
                 <div style={{ borderTop: "1px solid var(--border)", paddingTop: "16px" }}>
                   <div style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "10px" }}>
-                    Entregáveis & Capacidades:
+                    Entregáveis e Detalhes:
                   </div>
                   <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "8px" }}>
                     {srv.items.map((item, itIdx) => (

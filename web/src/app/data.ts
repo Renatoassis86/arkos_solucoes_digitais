@@ -1,22 +1,13 @@
-// Conteúdo real, sem invenção — sub-capacidades vêm de
-// .claude/skills/arkos-digital-intelligence/references/service-portfolio.md
-// e as descrições de método vêm do SKILL.md. Nada aqui é case de cliente:
-// a ARKOS ainda não tem case publicável, então nenhum é fabricado.
-
-export type Category = "experience" | "platforms" | "ai" | "advisory";
+export type Category = "experiencia" | "sistemas" | "automacao" | "consultoria";
 
 export const FILTERS: { id: Category | "all"; label: string }[] = [
-  { id: "all", label: "Todas" },
-  { id: "experience", label: "Experience & Growth" },
-  { id: "platforms", label: "Platforms & Data" },
-  { id: "ai", label: "AI & Automation" },
-  { id: "advisory", label: "Advisory" },
+  { id: "all", label: "Todas as Soluções" },
+  { id: "experiencia", label: "Sites e Páginas" },
+  { id: "sistemas", label: "Sistemas e Plataformas" },
+  { id: "automacao", label: "Automação e Dados" },
+  { id: "consultoria", label: "Consultoria e Apoio" },
 ];
 
-// Multi-tag por serviço (padrão observado no Instrument: um projeto pode
-// carregar #brand e #product ao mesmo tempo) — cada tag secundária abaixo
-// reflete sobreposição real de capacidade, descrita no próprio
-// service-portfolio.md, não uma categoria forçada só para imitar o padrão.
 export const SERVICES: {
   name: string;
   categories: Category[];
@@ -24,137 +15,133 @@ export const SERVICES: {
   items: string[];
 }[] = [
   {
-    name: "Digital Experience",
-    categories: ["experience"],
-    desc: "Reduz a distância entre visitante e decisão — desenhado para conversão, não só para existir.",
+    name: "Sites e Páginas de Alta Conversão",
+    categories: ["experiencia"],
+    desc: "Estruturamos páginas rápidas e funcionais que facilitam a decisão do seu cliente e geram novos contatos comerciais.",
     items: [
-      "Sites institucionais e landing ecosystems",
-      "Portais e e-commerce",
-      "Experiências multilíngue",
-      "Plataformas de conteúdo e design systems",
-      "Acessibilidade, SEO e CRO",
+      "Landing pages diretas e objetivas",
+      "Sites institucionais para empresas e clínicas",
+      "Lojas virtuais e catálogos de produtos",
+      "Otimização de velocidade e presença no Google",
+      "Adaptação perfeita para celulares e computadores",
     ],
   },
   {
-    name: "Growth Technology",
-    categories: ["experience", "platforms"],
-    desc: "Transforma tráfego em pipeline — atribuição real em vez de acesso vaidoso.",
+    name: "Tecnologia para Vendas e Captação",
+    categories: ["experiencia", "sistemas"],
+    desc: "Integramos formulários, botões de WhatsApp e ferramentas de atendimento para organizar a entrada de novos clientes.",
     items: [
-      "SEO técnico e sistemas de conteúdo",
-      "Automação de marketing",
-      "Integrações CRM/receita",
-      "Atribuição e experimentação",
-      "Arquitetura MarTech",
+      "Integração direta com WhatsApp e e-mail",
+      "Formulários inteligentes de solicitação de orçamento",
+      "Conexão com ferramentas de atendimento e vendas",
+      "Medição precisa de cliques e contatos gerados",
     ],
   },
   {
-    name: "Software & Platforms",
-    categories: ["platforms"],
-    desc: "Substitui planilha e retrabalho por sistema — sob medida para o processo que sua operação já tem.",
+    name: "Sistemas e Plataformas Sob Medida",
+    categories: ["sistemas"],
+    desc: "Desenvolvemos portais, painéis administrativos e sistemas web personalizados para organizar a rotina da sua operação.",
     items: [
-      "Aplicações web sob medida e SaaS",
-      "Portais de cliente/parceiro",
-      "Intranets/extranets e dashboards",
-      "Sistemas de workflow",
-      "APIs, integrações e modernização",
+      "Painéis administrativos e telas de controle",
+      "Portais de acesso para clientes e parceiros",
+      "Área de membros e login seguro de usuários",
+      "Sistemas de agendamento e fluxo de atendimento",
+      "Integrações entre diferentes sistemas",
     ],
   },
   {
-    name: "Data & Intelligence",
-    categories: ["platforms", "advisory"],
-    desc: "Troca achismo por evidência — dados organizados e prontos para orientar a próxima decisão.",
+    name: "Organização de Dados e Relatórios",
+    categories: ["sistemas", "automacao"],
+    desc: "Estruturamos relatórios claros para você acompanhar vendas, acessos e resultados com clareza factual.",
     items: [
-      "Engenharia de dados, warehouse/lake",
-      "BI e analytics de produto",
-      "Analytics de marketing/vendas",
-      "Experimentação e forecasting",
-      "Scoring e decision-support",
+      "Painéis visuais de acompanhamento de resultados",
+      "Relatórios de vendas e visitas no site",
+      "Organização e integração de bases de dados",
+      "Acompanhamento dos principais indicadores do negócio",
     ],
   },
   {
-    name: "AI & Automation",
-    categories: ["ai", "platforms"],
-    desc: "Tira trabalho repetitivo do caminho — IA aplicada onde resolve, não onde é moda.",
+    name: "Automação de Processos",
+    categories: ["automacao"],
+    desc: "Automatizamos tarefas repetitivas para economizar tempo da sua equipe e acelerar o atendimento ao cliente.",
     items: [
-      "Agentes de IA e copilots",
-      "RAG e sistemas de conhecimento",
-      "Document intelligence",
-      "Automação de workflow",
-      "Classificação, extração e recomendação",
+      "Respostas e triagem automática de atendimentos",
+      "Organização automática de cadastros e pedidos",
+      "Notificações automáticas por WhatsApp e e-mail",
+      "Integração de planilhas com sistemas de gestão",
     ],
   },
   {
-    name: "Technology Advisory",
-    categories: ["advisory"],
-    desc: "Reduz risco técnico antes que vire prejuízo — governança contínua, não bombeiro.",
+    name: "Consultoria e Apoio Técnico",
+    categories: ["consultoria"],
+    desc: "Orientamos a escolha das melhores soluções e ferramentas para o momento e orçamento da sua empresa.",
     items: [
-      "CTO as a Service",
-      "Arquitetura e due diligence técnica",
-      "Cloud/DevOps e segurança",
-      "Observabilidade e FinOps",
-      "Governança de engenharia",
+      "Diagnóstico técnico de sites existentes",
+      "Orientação na escolha de plataformas e hospedagem",
+      "Melhorias de velocidade, segurança e estabilidade",
+      "Acompanhamento e suporte técnico contínuo",
     ],
   },
 ];
 
 export const PRINCIPLES = [
   {
-    name: "Craft com função",
-    desc: "Rigor visual e engenharia andam juntos. Nada aqui é decoração sem propósito técnico por trás.",
+    name: "Design com Função",
+    desc: "Cada elemento visual tem um propósito claro de comunicação ou facilidade de uso para o cliente.",
   },
   {
-    name: "Escassez deliberada",
-    desc: "Um sistema de cor restrito, com acento usado onde importa — não em bloco, não por hábito.",
+    name: "Clareza Visual",
+    desc: "Telas limpas, sem excessos ou poluição, destacando o que realmente importa para a decisão.",
   },
   {
-    name: "Dados desde o design",
-    desc: "Plano de medição definido antes do lançamento. Métrica é parte do projeto, não um relatório depois.",
+    name: "Foco em Resultados",
+    desc: "Projetos desenhados para gerar contatos, vendas e eficiência no dia a dia da sua empresa.",
   },
   {
-    name: "Legível por humano e por máquina",
-    desc: "Experiência de alto nível sem abrir mão de SEO técnico, performance e acessibilidade.",
+    name: "Facilidade de Leitura",
+    desc: "Textos diretos e navegação simples para que qualquer pessoa consiga usar com rapidez.",
   },
 ];
 
 export const METHOD: { step: string; desc: string }[] = [
   {
-    step: "Discover",
-    desc: "Entender organização, usuários, dores, objetivos, restrições, sistemas atuais e evidência disponível.",
+    step: "1. Entendimento",
+    desc: "Conversamos para entender sua empresa, seus clientes, seus desafios e o que você precisa alcançar.",
   },
   {
-    step: "Research",
-    desc: "Investigar mercado, concorrência, análogos, benchmarks, tecnologia e melhores práticas atuais.",
+    step: "2. Pesquisa",
+    desc: "Analisamos seu mercado, seus concorrentes e as melhores referências visuais do seu setor.",
   },
   {
-    step: "Strategize",
-    desc: "Definir oportunidade, posicionamento, proposta de valor, modelo de negócio, KPIs e prioridades.",
+    step: "3. Estratégia",
+    desc: "Definimos o objetivo principal da página, a mensagem central e a melhor forma de apresentar sua oferta.",
   },
   {
-    step: "Design",
-    desc: "Definir jornadas, arquitetura de informação, UX, sistema de UI, modelo de conteúdo e lógica de conversão.",
+    step: "4. Desenho e Visual",
+    desc: "Criamos a estrutura das telas, organizamos os textos e definimos as cores e imagens ideais.",
   },
   {
-    step: "Architect",
-    desc: "Definir requisitos funcionais/não-funcionais, modelo de dados, integrações, segurança e stack.",
+    step: "5. Estruturação Técnica",
+    desc: "Definimos os botões, integrações de WhatsApp, formulários e banco de dados necessários.",
   },
   {
-    step: "Build",
-    desc: "Planejar implementação, backlog, ambientes, padrões de código e incrementos de entrega.",
+    step: "6. Construção",
+    desc: "Desenvolvemos o site com código limpo, rápido e totalmente adaptado para celulares e computadores.",
   },
   {
-    step: "Validate",
-    desc: "Testar usabilidade, acessibilidade, funcionalidade, segurança, performance e aceite de negócio.",
+    step: "7. Testes e Validação",
+    desc: "Testamos todos os botões, formulários, velocidade e visual junto com você antes da publicação.",
   },
   {
-    step: "Launch",
-    desc: "Publicar, migrar, instrumentar analytics, documentar e treinar times envolvidos.",
+    step: "8. Publicação",
+    desc: "Colocamos o site no ar no seu domínio próprio com conexão segura e e-mails configurados.",
   },
   {
-    step: "Measure",
-    desc: "Acompanhar KPIs de negócio, produto, marketing, confiabilidade e financeiros.",
+    step: "9. Acompanhamento",
+    desc: "Monitoramos o funcionamento, os acessos recebidos e a chegada dos primeiros contatos.",
   },
   {
-    step: "Scale",
-    desc: "Otimizar, automatizar, expandir e gerir o ciclo de vida do produto.",
+    step: "10. Evolução",
+    desc: "Apoiamos você em melhorias contínuas, novos recursos e expansão conforme sua empresa cresce.",
   },
 ];

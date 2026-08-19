@@ -12,11 +12,11 @@ export default function Footer() {
         maxWidth: "1200px",
         margin: "0 auto",
         display: "grid",
-        gridTemplateColumns: "2fr 1fr 1fr 1.2fr",
-        gap: "48px",
+        gridTemplateColumns: "1.8fr 1fr 1.2fr 1.4fr",
+        gap: "40px",
         marginBottom: "48px"
       }}>
-        {/* Coluna Institucional com Logo Vetorial Oficial */}
+        {/* Coluna 1: Institucional com Logo Oficial */}
         <div>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "14px" }}>
             <svg width="24" height="26" viewBox="0 0 200 220" fill="none">
@@ -35,93 +35,163 @@ export default function Footer() {
           <div style={{ fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--text-primary)", marginBottom: "12px" }}>
             Data · Intelligence · Decision
           </div>
-          <p style={{ color: "var(--text-secondary)", fontSize: "14px", lineHeight: 1.6, maxWidth: "340px", marginBottom: "16px" }}>
-            A infraestrutura de inteligência e soluções digitais. Engenharia de software, plataformas sob medida e inteligência de dados orientadas a conversão real.
+          <p style={{ color: "var(--text-secondary)", fontSize: "13px", lineHeight: 1.6, maxWidth: "300px", marginBottom: "16px" }}>
+            A infraestrutura de inteligência e soluções digitais. Criação de sites de alta conversão, plataformas web sob medida e tecnologia orientada a resultados.
           </p>
-          <div style={{ fontSize: "12px", fontFamily: "var(--font-mono)", color: "var(--text-secondary)" }}>
-            Belo Horizonte, MG • Brasil
-          </div>
         </div>
 
-        {/* Coluna Soluções */}
+        {/* Coluna 2: Soluções */}
         <div>
-          <h4 style={{ fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--text-primary)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "16px" }}>
+          <h4 style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--sinal)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "16px", borderBottom: "2px solid var(--sinal)", paddingBottom: "4px", display: "inline-block" }}>
             Soluções
           </h4>
           <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "10px", fontSize: "13px", color: "var(--text-secondary)" }}>
-            <li><Link href="/solucoes#experience">Digital Experience</Link></li>
-            <li><Link href="/solucoes#growth">Growth Technology</Link></li>
-            <li><Link href="/solucoes#platforms">Software & Platforms</Link></li>
-            <li><Link href="/solucoes#data">Data & Intelligence</Link></li>
-            <li><Link href="/solucoes#ai">AI & Automation</Link></li>
-            <li><Link href="/solucoes#advisory">Technology Advisory</Link></li>
+            <li><Link href="/solucoes">Sites e Páginas</Link></li>
+            <li><Link href="/solucoes">Tecnologia para Vendas</Link></li>
+            <li><Link href="/solucoes">Sistemas e Plataformas</Link></li>
+            <li><Link href="/solucoes">Organização de Dados</Link></li>
+            <li><Link href="/solucoes">Automação de Processos</Link></li>
+            <li><Link href="/solucoes">Consultoria e Apoio</Link></li>
           </ul>
         </div>
 
-        {/* Coluna Estrutura & Método */}
+        {/* Coluna 3: Fale Conosco Real */}
         <div>
-          <h4 style={{ fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--text-primary)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "16px" }}>
-            Estrutura
+          <h4 style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--sinal)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "16px", borderBottom: "2px solid var(--sinal)", paddingBottom: "4px", display: "inline-block" }}>
+            Fale Conosco
           </h4>
-          <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "10px", fontSize: "13px", color: "var(--text-secondary)" }}>
-            <li><Link href="/metodo">O Método em 10 Fases</Link></li>
-            <li><Link href="/sobre">Sobre a ARKOS</Link></li>
-            <li><Link href="/sobre#principles">Princípios Operacionais</Link></li>
-            <li><Link href="/briefing">Briefing Modular do Método</Link></li>
-          </ul>
-        </div>
-
-        {/* Coluna Canais de Contato Reais */}
-        <div>
-          <h4 style={{ fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--text-primary)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "16px" }}>
-            Canais de Contato
-          </h4>
-          <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "12px", fontSize: "13px", color: "var(--text-secondary)", marginBottom: "20px" }}>
-            <li style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <span style={{ color: "var(--sinal)", fontFamily: "var(--font-mono)" }}>✉</span>
-              <a href="mailto:contato@arkosintelligence.com" style={{ color: "var(--text-primary)", textDecoration: "underline", textUnderlineOffset: "4px" }}>
-                contato@arkosintelligence.com
+          <div style={{ display: "flex", flexDirection: "column", gap: "10px", fontSize: "13px", color: "var(--text-primary)" }}>
+            <a href="mailto:renato@arkosintelligence.com" style={{ color: "var(--text-primary)", textDecoration: "none" }}>
+              renato@arkosintelligence.com
+            </a>
+            <div style={{ fontFamily: "var(--font-mono)", color: "var(--text-secondary)" }}>
+              +55 (83) 98195-7737
+            </div>
+            <div style={{ marginTop: "6px", display: "flex", alignItems: "center", gap: "8px" }}>
+              <span style={{ width: "3px", height: "16px", background: "var(--sinal)", display: "inline-block" }}></span>
+              <a href="https://wa.me/5583981957737" target="_blank" rel="noopener noreferrer" style={{ color: "var(--sinal)", fontWeight: 600, fontSize: "13px", textDecoration: "none" }}>
+                Falar com Consultor
               </a>
-            </li>
-            <li style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <span style={{ color: "var(--sinal)", fontFamily: "var(--font-mono)" }}>🌐</span>
-              <span>arkosintelligence.com</span>
-            </li>
-            <li style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <span style={{ color: "var(--sinal)", fontFamily: "var(--font-mono)" }}>↗</span>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style={{ color: "var(--text-secondary)" }}>LinkedIn</a>
-              <span>•</span>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" style={{ color: "var(--text-secondary)" }}>Instagram</a>
-            </li>
-          </ul>
+            </div>
+          </div>
+        </div>
 
-          <Link href="/briefing" style={{
-            display: "inline-block",
-            fontSize: "12px",
-            fontFamily: "var(--font-mono)",
-            fontWeight: 600,
-            color: "var(--obsidiana)",
-            background: "var(--sinal)",
-            padding: "10px 16px",
-            borderRadius: "4px",
-            textTransform: "uppercase"
-          }}>
-            Preencher Briefing do Projeto →
-          </Link>
+        {/* Coluna 4: Localização Oficial Real */}
+        <div>
+          <h4 style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--sinal)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "16px", borderBottom: "2px solid var(--sinal)", paddingBottom: "4px", display: "inline-block" }}>
+            Localização
+          </h4>
+          <div style={{ fontSize: "13px", color: "var(--text-secondary)", lineHeight: 1.6 }}>
+            <div>Avenida João Machado, 849, Sala 801</div>
+            <div>Centro, João Pessoa - PB</div>
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--text-primary)", marginTop: "4px" }}>CEP: 58013-522</div>
+          </div>
+
+          <div style={{ marginTop: "16px" }}>
+            <Link href="/briefing" style={{
+              display: "inline-block",
+              fontSize: "11px",
+              fontFamily: "var(--font-mono)",
+              fontWeight: 600,
+              color: "var(--obsidiana)",
+              background: "var(--sinal)",
+              padding: "8px 14px",
+              borderRadius: "4px",
+              textTransform: "uppercase"
+            }}>
+              Preencher Briefing →
+            </Link>
+          </div>
         </div>
       </div>
 
-      {/* Linha Final Limpa */}
+      {/* Faixa de Redes Sociais e Copyright Oficial */}
       <div style={{
         maxWidth: "1200px",
         margin: "0 auto",
         paddingTop: "24px",
         borderTop: "1px solid var(--border)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
         fontSize: "12px",
+        color: "var(--text-secondary)"
+      }}>
+        <div>
+          <span>Encontre a </span>
+          <strong style={{ color: "var(--sinal)" }}>Arkos Intelligence</strong>
+          <span> nas redes sociais</span>
+        </div>
+
+        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" style={{
+            width: "32px",
+            height: "32px",
+            borderRadius: "6px",
+            border: "1px solid rgba(200, 245, 66, 0.3)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            color: "var(--sinal)",
+            fontSize: "12px",
+            textDecoration: "none"
+          }}>
+            IG
+          </a>
+          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" style={{
+            width: "32px",
+            height: "32px",
+            borderRadius: "6px",
+            border: "1px solid rgba(200, 245, 66, 0.3)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            color: "var(--sinal)",
+            fontSize: "12px",
+            textDecoration: "none"
+          }}>
+            YT
+          </a>
+          <a href="mailto:renato@arkosintelligence.com" style={{
+            width: "32px",
+            height: "32px",
+            borderRadius: "6px",
+            border: "1px solid rgba(200, 245, 66, 0.3)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            color: "var(--sinal)",
+            fontSize: "12px",
+            textDecoration: "none"
+          }}>
+            ✉
+          </a>
+          <a href="https://wa.me/5583981957737" target="_blank" rel="noopener noreferrer" style={{
+            width: "32px",
+            height: "32px",
+            borderRadius: "6px",
+            border: "1px solid rgba(200, 245, 66, 0.3)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            color: "var(--sinal)",
+            fontSize: "12px",
+            textDecoration: "none"
+          }}>
+            ✆
+          </a>
+        </div>
+      </div>
+
+      <div style={{
+        maxWidth: "1200px",
+        margin: "12px auto 0",
+        textAlign: "center",
+        fontSize: "11px",
         fontFamily: "var(--font-mono)",
         color: "var(--text-secondary)"
       }}>
-        © {new Date().getFullYear()} ARKOS Soluções Digitais & Intelligence. Todos os direitos reservados.
+        © {new Date().getFullYear()} ARKOS Soluções Digitais e Intelligence. Todos os direitos reservados.
       </div>
     </footer>
   );
