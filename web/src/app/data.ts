@@ -124,6 +124,17 @@ export const SERVICES: {
       "Revisão de segurança e certificados digitais",
     ],
   },
+  {
+    name: "Acompanhamento e Suporte Contínuo",
+    categories: ["consultoria"],
+    desc: "Suporte técnico mensal e atualizações preventivas para manter seu site sempre rápido, seguro e atualizado.",
+    items: [
+      "Atualizações de segurança e backups periódicos",
+      "Suporte rápido para alterações de conteúdos",
+      "Monitoramento de estabilidade e disponibilidade",
+      "Relatórios mensais de desempenho e melhorias",
+    ],
+  },
 ];
 
 export const PRINCIPLES = [
