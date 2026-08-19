@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 07_industrial_energy
+- **Empresa:** atlas_copco
+- **URL exata:** https://www.atlascopcogroup.com
+- **Data/Hora da Captura:** 2026-08-19 16:37:12 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

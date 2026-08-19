@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 07_industrial_energy
+- **Empresa:** general_electric
+- **URL exata:** https://www.ge.com
+- **Data/Hora da Captura:** 2026-08-19 16:31:15 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

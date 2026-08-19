@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 09_agencies_services
+- **Empresa:** character
+- **URL exata:** https://character.co
+- **Data/Hora da Captura:** 2026-08-19 17:06:32 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

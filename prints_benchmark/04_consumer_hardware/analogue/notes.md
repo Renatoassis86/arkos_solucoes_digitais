@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 04_consumer_hardware
+- **Empresa:** analogue
+- **URL exata:** https://www.analogue.co
+- **Data/Hora da Captura:** 2026-08-19 15:55:07 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

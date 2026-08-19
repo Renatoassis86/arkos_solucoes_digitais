@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 09_agencies_services
+- **Empresa:** collins
+- **URL exata:** https://www.wearecollins.com
+- **Data/Hora da Captura:** 2026-08-19 17:06:25 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

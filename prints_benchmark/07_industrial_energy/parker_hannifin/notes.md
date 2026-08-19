@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 07_industrial_energy
+- **Empresa:** parker_hannifin
+- **URL exata:** https://www.parker.com
+- **Data/Hora da Captura:** 2026-08-19 16:35:32 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

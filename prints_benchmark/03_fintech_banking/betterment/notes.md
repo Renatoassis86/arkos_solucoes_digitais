@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 03_fintech_banking
+- **Empresa:** betterment
+- **URL exata:** https://www.betterment.com
+- **Data/Hora da Captura:** 2026-08-19 15:48:56 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

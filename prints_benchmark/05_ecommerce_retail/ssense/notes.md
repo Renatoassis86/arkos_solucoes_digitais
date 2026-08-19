@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 05_ecommerce_retail
+- **Empresa:** ssense
+- **URL exata:** https://www.ssense.com
+- **Data/Hora da Captura:** 2026-08-19 16:05:57 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

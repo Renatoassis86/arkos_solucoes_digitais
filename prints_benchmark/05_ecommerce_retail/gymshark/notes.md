@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 05_ecommerce_retail
+- **Empresa:** gymshark
+- **URL exata:** https://www.gymshark.com
+- **Data/Hora da Captura:** 2026-08-19 16:05:09 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 02_b2b_saas_devtools
+- **Empresa:** sentry
+- **URL exata:** https://sentry.io
+- **Data/Hora da Captura:** 2026-08-19 15:25:37 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

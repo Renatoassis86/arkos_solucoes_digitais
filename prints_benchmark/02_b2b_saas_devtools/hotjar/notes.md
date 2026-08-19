@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 02_b2b_saas_devtools
+- **Empresa:** hotjar
+- **URL exata:** https://www.hotjar.com
+- **Data/Hora da Captura:** 2026-08-19 15:33:04 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

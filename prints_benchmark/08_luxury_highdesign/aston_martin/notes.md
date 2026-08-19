@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 08_luxury_highdesign
+- **Empresa:** aston_martin
+- **URL exata:** https://www.astonmartin.com
+- **Data/Hora da Captura:** 2026-08-19 16:51:56 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

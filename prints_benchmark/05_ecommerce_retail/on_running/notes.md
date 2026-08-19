@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 05_ecommerce_retail
+- **Empresa:** on_running
+- **URL exata:** https://www.on.com
+- **Data/Hora da Captura:** 2026-08-19 16:08:20 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

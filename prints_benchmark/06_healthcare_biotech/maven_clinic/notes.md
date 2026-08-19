@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 06_healthcare_biotech
+- **Empresa:** maven_clinic
+- **URL exata:** https://www.mavenclinic.com
+- **Data/Hora da Captura:** 2026-08-19 16:20:53 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

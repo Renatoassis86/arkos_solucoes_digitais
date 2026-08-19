@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 07_industrial_energy
+- **Empresa:** eaton
+- **URL exata:** https://www.eaton.com
+- **Data/Hora da Captura:** 2026-08-19 16:35:23 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 03_fintech_banking
+- **Empresa:** afterpay
+- **URL exata:** https://www.afterpay.com/en-US
+- **Data/Hora da Captura:** 2026-08-19 15:42:29 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

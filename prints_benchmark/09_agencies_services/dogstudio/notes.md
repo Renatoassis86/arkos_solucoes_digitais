@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 09_agencies_services
+- **Empresa:** dogstudio
+- **URL exata:** https://dogstudio.co
+- **Data/Hora da Captura:** 2026-08-19 16:57:54 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

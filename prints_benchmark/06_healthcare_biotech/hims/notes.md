@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 06_healthcare_biotech
+- **Empresa:** hims
+- **URL exata:** https://www.hims.com
+- **Data/Hora da Captura:** 2026-08-19 16:20:24 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

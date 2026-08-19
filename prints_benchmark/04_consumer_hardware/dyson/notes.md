@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 04_consumer_hardware
+- **Empresa:** dyson
+- **URL exata:** https://www.dyson.com
+- **Data/Hora da Captura:** 2026-08-19 15:50:20 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

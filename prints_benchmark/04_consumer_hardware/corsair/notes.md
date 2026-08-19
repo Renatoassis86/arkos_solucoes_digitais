@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 04_consumer_hardware
+- **Empresa:** corsair
+- **URL exata:** https://www.corsair.com
+- **Data/Hora da Captura:** 2026-08-19 15:59:45 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

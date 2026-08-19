@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 07_industrial_energy
+- **Empresa:** basf
+- **URL exata:** https://www.basf.com
+- **Data/Hora da Captura:** 2026-08-19 16:42:06 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

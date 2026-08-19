@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 01_bigtech_enterprise
+- **Empresa:** akamai
+- **URL exata:** https://www.akamai.com
+- **Data/Hora da Captura:** 2026-08-19 15:14:54 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

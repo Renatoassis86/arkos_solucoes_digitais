@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 06_healthcare_biotech
+- **Empresa:** intuitive_surgical
+- **URL exata:** https://www.intuitive.com
+- **Data/Hora da Captura:** 2026-08-19 16:22:00 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 01_bigtech_enterprise
+- **Empresa:** datadog
+- **URL exata:** https://www.datadoghq.com
+- **Data/Hora da Captura:** 2026-08-19 15:12:36 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

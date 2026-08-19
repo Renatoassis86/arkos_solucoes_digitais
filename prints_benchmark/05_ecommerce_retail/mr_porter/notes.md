@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 05_ecommerce_retail
+- **Empresa:** mr_porter
+- **URL exata:** https://www.mrporter.com
+- **Data/Hora da Captura:** 2026-08-19 16:20:02 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 07_industrial_energy
+- **Empresa:** bechtel
+- **URL exata:** https://www.bechtel.com
+- **Data/Hora da Captura:** 2026-08-19 16:39:59 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

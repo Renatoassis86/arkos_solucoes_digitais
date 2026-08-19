@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 03_fintech_banking
+- **Empresa:** persona
+- **URL exata:** https://withpersona.com
+- **Data/Hora da Captura:** 2026-08-19 15:45:43 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

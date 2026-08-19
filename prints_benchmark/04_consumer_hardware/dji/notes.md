@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 04_consumer_hardware
+- **Empresa:** dji
+- **URL exata:** https://www.dji.com
+- **Data/Hora da Captura:** 2026-08-19 15:50:38 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 02_b2b_saas_devtools
+- **Empresa:** split
+- **URL exata:** https://www.split.io
+- **Data/Hora da Captura:** 2026-08-19 15:26:28 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

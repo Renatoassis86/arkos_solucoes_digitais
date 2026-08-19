@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 03_fintech_banking
+- **Empresa:** ledger
+- **URL exata:** https://www.ledger.com
+- **Data/Hora da Captura:** 2026-08-19 15:41:09 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 07_industrial_energy
+- **Empresa:** siemens
+- **URL exata:** https://www.siemens.com
+- **Data/Hora da Captura:** 2026-08-19 16:31:22 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

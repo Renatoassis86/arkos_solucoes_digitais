@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 04_consumer_hardware
+- **Empresa:** steamdeck
+- **URL exata:** https://www.steamdeck.com
+- **Data/Hora da Captura:** 2026-08-19 16:00:21 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

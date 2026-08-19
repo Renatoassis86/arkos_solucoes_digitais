@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 01_bigtech_enterprise
+- **Empresa:** paloaltonetworks
+- **URL exata:** https://www.paloaltonetworks.com
+- **Data/Hora da Captura:** 2026-08-19 15:16:53 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

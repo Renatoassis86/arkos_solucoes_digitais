@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 04_consumer_hardware
+- **Empresa:** lg_electronics
+- **URL exata:** https://www.lg.com
+- **Data/Hora da Captura:** 2026-08-19 16:01:19 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

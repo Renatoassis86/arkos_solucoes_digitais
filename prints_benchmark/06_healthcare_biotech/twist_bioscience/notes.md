@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 06_healthcare_biotech
+- **Empresa:** twist_bioscience
+- **URL exata:** https://www.twistbioscience.com
+- **Data/Hora da Captura:** 2026-08-19 16:27:22 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

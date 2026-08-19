@@ -1,0 +1,4 @@
+- **URL exata da Home:** https://www.basicagency.com/
+- **URL exata de Trabalho:** https://www.basicagency.com/services
+- **Data/Hora da captura:** 2026-08-19 13:20:22 (UTC)
+- **Destaque Visual:** Design de marca e experiência digital arrojada, fotografia e vídeo em estilo editorial com grande densidade de layout e tipografia marcante.

@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 09_agencies_services
+- **Empresa:** mckinsey
+- **URL exata:** https://www.mckinsey.com
+- **Data/Hora da Captura:** 2026-08-19 16:59:19 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

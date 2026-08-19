@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 01_bigtech_enterprise
+- **Empresa:** purestorage
+- **URL exata:** https://www.purestorage.com
+- **Data/Hora da Captura:** 2026-08-19 15:15:59 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

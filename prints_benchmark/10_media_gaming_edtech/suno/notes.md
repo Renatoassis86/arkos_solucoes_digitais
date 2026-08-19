@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 10_media_gaming_edtech
+- **Empresa:** suno
+- **URL exata:** https://suno.com
+- **Data/Hora da Captura:** 2026-08-19 17:25:59 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

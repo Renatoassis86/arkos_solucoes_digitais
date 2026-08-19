@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 10_media_gaming_edtech
+- **Empresa:** twitch
+- **URL exata:** https://www.twitch.tv
+- **Data/Hora da Captura:** 2026-08-19 17:15:45 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

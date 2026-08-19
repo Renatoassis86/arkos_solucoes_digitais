@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 05_ecommerce_retail
+- **Empresa:** salomon
+- **URL exata:** https://www.salomon.com
+- **Data/Hora da Captura:** 2026-08-19 16:16:54 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

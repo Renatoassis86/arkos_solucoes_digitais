@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 08_luxury_highdesign
+- **Empresa:** bulthaup
+- **URL exata:** https://bulthaup.com
+- **Data/Hora da Captura:** 2026-08-19 16:51:18 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

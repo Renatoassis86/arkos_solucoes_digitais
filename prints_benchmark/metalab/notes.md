@@ -1,0 +1,4 @@
+- **URL exata da Home:** https://www.metalab.com/
+- **URL exata de Trabalho:** https://www.metalab.com/work
+- **Data/Hora da captura:** 2026-08-19 13:14:05 (UTC)
+- **Destaque Visual:** Paleta de cores escura e sofisticada com foco em tipografia limpa, cartões de produto minimalistas com imagens de alta definição e navegação fluida.

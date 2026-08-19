@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 05_ecommerce_retail
+- **Empresa:** palace_skateboards
+- **URL exata:** https://www.palaceskateboards.com
+- **Data/Hora da Captura:** 2026-08-19 16:17:42 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

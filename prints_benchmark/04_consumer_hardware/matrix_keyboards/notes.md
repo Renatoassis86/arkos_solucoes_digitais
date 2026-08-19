@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 04_consumer_hardware
+- **Empresa:** matrix_keyboards
+- **URL exata:** https://matrixkeyboards.com
+- **Data/Hora da Captura:** 2026-08-19 16:02:34 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

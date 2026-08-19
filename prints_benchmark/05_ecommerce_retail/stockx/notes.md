@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 05_ecommerce_retail
+- **Empresa:** stockx
+- **URL exata:** https://stockx.com
+- **Data/Hora da Captura:** 2026-08-19 16:19:02 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

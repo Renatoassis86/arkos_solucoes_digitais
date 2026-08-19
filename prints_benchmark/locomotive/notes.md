@@ -1,0 +1,4 @@
+- **URL exata da Home:** https://locomotive.ca/en
+- **URL exata de Trabalho:** https://locomotive.ca/en/work
+- **Data/Hora da captura:** 2026-08-19 13:15:10 (UTC)
+- **Destaque Visual:** Design brutalista/experimental com fundo escuro, animações WebGL envolventes, tipografia expressiva e navegação por scroll altamente interativo.

@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 06_healthcare_biotech
+- **Empresa:** curology
+- **URL exata:** https://curology.com
+- **Data/Hora da Captura:** 2026-08-19 16:24:54 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

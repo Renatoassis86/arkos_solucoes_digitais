@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 03_fintech_banking
+- **Empresa:** robinhood
+- **URL exata:** https://robinhood.com
+- **Data/Hora da Captura:** 2026-08-19 15:35:41 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 05_ecommerce_retail
+- **Empresa:** kith
+- **URL exata:** https://kith.com
+- **Data/Hora da Captura:** 2026-08-19 16:07:39 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

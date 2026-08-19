@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 09_agencies_services
+- **Empresa:** made_by_many
+- **URL exata:** https://madebymany.com
+- **Data/Hora da Captura:** 2026-08-19 17:08:42 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

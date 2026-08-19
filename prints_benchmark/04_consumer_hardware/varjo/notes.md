@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 04_consumer_hardware
+- **Empresa:** varjo
+- **URL exata:** https://varjo.com
+- **Data/Hora da Captura:** 2026-08-19 16:00:22 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

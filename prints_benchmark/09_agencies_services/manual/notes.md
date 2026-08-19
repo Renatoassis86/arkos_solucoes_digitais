@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 09_agencies_services
+- **Empresa:** manual
+- **URL exata:** https://manualcreative.com
+- **Data/Hora da Captura:** 2026-08-19 17:08:40 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 06_healthcare_biotech
+- **Empresa:** lanzatech
+- **URL exata:** https://lanzatech.com
+- **Data/Hora da Captura:** 2026-08-19 16:27:16 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

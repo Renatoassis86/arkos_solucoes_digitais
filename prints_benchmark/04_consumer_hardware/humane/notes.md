@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 04_consumer_hardware
+- **Empresa:** humane
+- **URL exata:** https://hu.ma.ne
+- **Data/Hora da Captura:** 2026-08-19 14:17:47 (UTC)
+- **Status:** Desktop (FAIL), Mobile (FAIL)

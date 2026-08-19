@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 04_consumer_hardware
+- **Empresa:** samsung_tech
+- **URL exata:** https://www.samsung.com
+- **Data/Hora da Captura:** 2026-08-19 16:01:45 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

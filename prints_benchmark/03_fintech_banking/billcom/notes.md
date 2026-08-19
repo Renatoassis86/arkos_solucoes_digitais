@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 03_fintech_banking
+- **Empresa:** billcom
+- **URL exata:** https://www.bill.com
+- **Data/Hora da Captura:** 2026-08-19 15:44:56 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 09_agencies_services
+- **Empresa:** locomotive
+- **URL exata:** https://locomotive.ca/en
+- **Data/Hora da Captura:** 2026-08-19 16:57:12 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

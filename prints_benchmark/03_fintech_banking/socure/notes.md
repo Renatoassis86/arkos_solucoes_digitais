@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 03_fintech_banking
+- **Empresa:** socure
+- **URL exata:** https://www.socure.com
+- **Data/Hora da Captura:** 2026-08-19 15:46:23 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

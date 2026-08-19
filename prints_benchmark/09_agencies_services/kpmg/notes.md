@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 09_agencies_services
+- **Empresa:** kpmg
+- **URL exata:** https://kpmg.com
+- **Data/Hora da Captura:** 2026-08-19 17:09:44 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

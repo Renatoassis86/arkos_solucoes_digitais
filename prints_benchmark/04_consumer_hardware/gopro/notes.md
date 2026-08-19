@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 04_consumer_hardware
+- **Empresa:** gopro
+- **URL exata:** https://gopro.com
+- **Data/Hora da Captura:** 2026-08-19 15:57:28 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 09_agencies_services
+- **Empresa:** rga
+- **URL exata:** https://rga.com
+- **Data/Hora da Captura:** 2026-08-19 16:58:02 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

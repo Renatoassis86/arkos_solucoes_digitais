@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 06_healthcare_biotech
+- **Empresa:** forward_health
+- **URL exata:** https://goforward.com
+- **Data/Hora da Captura:** 2026-08-19 16:24:43 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

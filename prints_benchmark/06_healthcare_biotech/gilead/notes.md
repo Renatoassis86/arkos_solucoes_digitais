@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 06_healthcare_biotech
+- **Empresa:** gilead
+- **URL exata:** https://www.gilead.com
+- **Data/Hora da Captura:** 2026-08-19 16:30:32 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

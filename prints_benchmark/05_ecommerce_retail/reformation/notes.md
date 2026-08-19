@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 05_ecommerce_retail
+- **Empresa:** reformation
+- **URL exata:** https://www.thereformation.com
+- **Data/Hora da Captura:** 2026-08-19 16:08:57 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

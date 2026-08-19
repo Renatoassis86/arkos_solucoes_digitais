@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 08_luxury_highdesign
+- **Empresa:** ligne_roset
+- **URL exata:** https://www.ligne-roset.com
+- **Data/Hora da Captura:** 2026-08-19 16:49:48 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

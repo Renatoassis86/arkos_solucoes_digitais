@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 08_luxury_highdesign
+- **Empresa:** bentley
+- **URL exata:** https://www.bentleymotors.com
+- **Data/Hora da Captura:** 2026-08-19 16:54:08 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 06_healthcare_biotech
+- **Empresa:** abbvie
+- **URL exata:** https://www.abbvie.com
+- **Data/Hora da Captura:** 2026-08-19 16:29:19 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

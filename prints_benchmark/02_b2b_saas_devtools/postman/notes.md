@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 02_b2b_saas_devtools
+- **Empresa:** postman
+- **URL exata:** https://www.postman.com
+- **Data/Hora da Captura:** 2026-08-19 15:21:42 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

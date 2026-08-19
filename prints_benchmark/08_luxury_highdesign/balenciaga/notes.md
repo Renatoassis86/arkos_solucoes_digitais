@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 08_luxury_highdesign
+- **Empresa:** balenciaga
+- **URL exata:** https://www.balenciaga.com
+- **Data/Hora da Captura:** 2026-08-19 16:42:43 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

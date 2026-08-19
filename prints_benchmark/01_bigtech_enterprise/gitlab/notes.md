@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 01_bigtech_enterprise
+- **Empresa:** gitlab
+- **URL exata:** https://about.gitlab.com
+- **Data/Hora da Captura:** 2026-08-19 15:15:01 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 07_industrial_energy
+- **Empresa:** lucid_motors
+- **URL exata:** https://www.lucidmotors.com
+- **Data/Hora da Captura:** 2026-08-19 16:32:21 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

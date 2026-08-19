@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 09_agencies_services
+- **Empresa:** programatorio
+- **URL exata:** https://programatorio.com/en
+- **Data/Hora da Captura:** 2026-08-19 16:58:39 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 08_luxury_highdesign
+- **Empresa:** tom_dixon
+- **URL exata:** https://www.tomdixon.net
+- **Data/Hora da Captura:** 2026-08-19 16:47:15 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

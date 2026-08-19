@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 03_fintech_banking
+- **Empresa:** middesk
+- **URL exata:** https://www.middesk.com
+- **Data/Hora da Captura:** 2026-08-19 15:46:45 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

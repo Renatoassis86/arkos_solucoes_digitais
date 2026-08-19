@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 08_luxury_highdesign
+- **Empresa:** hermes
+- **URL exata:** https://www.hermes.com
+- **Data/Hora da Captura:** 2026-08-19 16:44:11 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

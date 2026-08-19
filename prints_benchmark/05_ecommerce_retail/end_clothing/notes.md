@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 05_ecommerce_retail
+- **Empresa:** end_clothing
+- **URL exata:** https://www.endclothing.com
+- **Data/Hora da Captura:** 2026-08-19 16:18:13 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

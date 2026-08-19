@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 03_fintech_banking
+- **Empresa:** wealthfront
+- **URL exata:** https://www.wealthfront.com
+- **Data/Hora da Captura:** 2026-08-19 15:48:44 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

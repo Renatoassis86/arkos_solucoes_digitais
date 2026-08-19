@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 03_fintech_banking
+- **Empresa:** monzo
+- **URL exata:** https://monzo.com
+- **Data/Hora da Captura:** 2026-08-19 15:40:00 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

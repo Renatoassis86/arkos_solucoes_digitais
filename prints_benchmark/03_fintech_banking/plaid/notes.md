@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 03_fintech_banking
+- **Empresa:** plaid
+- **URL exata:** https://plaid.com
+- **Data/Hora da Captura:** 2026-08-19 15:37:25 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

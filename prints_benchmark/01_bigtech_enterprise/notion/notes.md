@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 01_bigtech_enterprise
+- **Empresa:** notion
+- **URL exata:** https://www.notion.so
+- **Data/Hora da Captura:** 2026-08-19 15:15:24 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

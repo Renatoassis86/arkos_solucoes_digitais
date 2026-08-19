@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 02_b2b_saas_devtools
+- **Empresa:** segment
+- **URL exata:** https://segment.com
+- **Data/Hora da Captura:** 2026-08-19 15:23:56 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

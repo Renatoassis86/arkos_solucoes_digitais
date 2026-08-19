@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 08_luxury_highdesign
+- **Empresa:** bb_italia
+- **URL exata:** https://www.bebitalia.com
+- **Data/Hora da Captura:** 2026-08-19 16:44:59 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados

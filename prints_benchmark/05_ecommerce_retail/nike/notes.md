@@ -1,0 +1,5 @@
+- **Categoria / Vertical:** 05_ecommerce_retail
+- **Empresa:** nike
+- **URL exata:** https://www.nike.com
+- **Data/Hora da Captura:** 2026-08-19 16:05:27 (UTC)
+- **Status:** Conteúdo Real NLP Extraído & Prints Gerados
