@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Cards LinkedIn — ARKOS Soluções Digitais</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      padding: 40px;
+      font-family: 'Inter', sans-serif;
+      color: #F4F2ED;
+    }
+
+    .card {
+      width: 1080px;
+      height: 1350px;
+      background: #0A0C0F;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 80px 72px 72px;
+      border: 1px solid #1F242D;
+    }
+
+    /* Background Gradients & Glows */
+    .glow-top-right {
+      position: absolute;
+      top: -120px;
+      right: -120px;
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(200, 245, 66, 0.08) 0%, rgba(10, 12, 15, 0) 70%);
+      pointer-events: none;
+    }
+
+    .glow-bottom-left {
+      position: absolute;
+      bottom: -150px;
+      left: -150px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(200, 245, 66, 0.06) 0%, rgba(10, 12, 15, 0) 70%);
+      pointer-events: none;
+    }
+
+    /* Header */
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-svg {
+      width: 32px;
+      height: 34px;
+    }
+
+    .brand-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 26px;
+      letter-spacing: -0.02em;
+      color: #F4F2ED;
+    }
+
+    .brand-sub {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: #C8F542;
+      letter-spacing: 0.12em;
+      margin-left: 6px;
+      text-transform: uppercase;
+    }
+
+    .slide-number {
+      font-family: 'DM Mono', monospace;
+      font-size: 14px;
+      color: #C8F542;
+      background: #111318;
+      border: 1px solid #272D38;
+      padding: 6px 14px;
+      border-radius: 20px;
+      letter-spacing: 0.05em;
+    }
+
+    /* Content Area */
+    .card-content {
+      position: relative;
+      z-index: 10;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 40px 0;
+    }
+
+    .kicker {
+      font-family: 'DM Mono', monospace;
+      font-size: 14px;
+      color: #C8F542;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .kicker::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: #C8F542;
+      border-radius: 2px;
+    }
+
+    .title-large {
+      font-family: 'DM Serif Display', serif;
+      font-size: 60px;
+      line-height: 1.15;
+      color: #F4F2ED;
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
+    }
+
+    .title-large span {
+      color: #C8F542;
+      font-style: italic;
+    }
+
+    .subtitle {
+      font-size: 22px;
+      color: #8A8F99;
+      line-height: 1.6;
+      max-width: 860px;
+    }
+
+    /* Grid & Cards inside slide */
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .feature-box {
+      background: #111318;
+      border: 1px solid #272D38;
+      border-radius: 12px;
+      padding: 28px 24px;
+    }
+
+    .feature-box h4 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 24px;
+      color: #F4F2ED;
+      margin-bottom: 10px;
+    }
+
+    .feature-box p {
+      font-size: 15px;
+      color: #8A8F99;
+      line-height: 1.5;
+    }
+
+    .feature-box .tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: #C8F542;
+      margin-bottom: 12px;
+      display: block;
+      text-transform: uppercase;
+    }
+
+    /* Image Container in card */
+    .image-preview-card {
+      width: 100%;
+      height: 480px;
+      border-radius: 12px;
+      border: 1px solid #272D38;
+      overflow: hidden;
+      position: relative;
+      margin-top: 20px;
+    }
+
+    .image-preview-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .image-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(10, 12, 15, 0.85);
+      backdrop-filter: blur(8px);
+      padding: 16px 20px;
+      border-top: 1px solid #272D38;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      color: #F4F2ED;
+      font-family: 'DM Mono', monospace;
+    }
+
+    /* Footer */
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #1F242D;
+      padding-top: 24px;
+      position: relative;
+      z-index: 10;
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      color: #8A8F99;
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-dot {
+      width: 6px;
+      height: 6px;
+      background: #C8F542;
+      border-radius: 50%;
+    }
+
+    .swipe-hint {
+      color: #C8F542;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CARD 1: CAPA -->
+  <div class="card" id="card-1">
+    <div class="glow-top-right"></div>
+    <div class="glow-bottom-left"></div>
+
+    <div class="card-header">
+      <div class="logo-container">
+        <svg class="logo-svg" viewBox="0 0 200 220" fill="none">
+          <line x1="100" y1="20" x2="30" y2="190" stroke="#F4F2ED" stroke-width="16" stroke-linecap="round"/>
+          <line x1="100" y1="20" x2="170" y2="190" stroke="#F4F2ED" stroke-width="16" stroke-linecap="round"/>
+          <line x1="52" y1="130" x2="148" y2="130" stroke="#C8F542" stroke-width="12" stroke-linecap="round"/>
+          <circle cx="100" cy="20" r="10" fill="#C8F542"/>
+        </svg>
+        <span class="brand-name">ARKOS</span>
+        <span class="brand-sub">Soluções Digitais</span>
+      </div>
+      <div class="slide-number">01 / 08</div>
+    </div>
+
+    <div class="card-content">
+      <div class="kicker">Arquitetura Web de Alta Conversão</div>
+      <h1 class="title-large">
+        O seu site é um cartão esquecido ou uma <span>máquina de clientes</span>?
+      </h1>
+      <p class="subtitle">
+        Por que 87% dos sites corporativos e institucionais perdem negócios todos os dias e como construímos presenças digitais que geram autoridade e vendas reais.
+      </p>
+
+      <div class="image-preview-card" style="height: 380px;">
+        <img src="../../public/assets/hero_workspace.jpg" alt="ARKOS Engineering Workspace" />
+        <div class="image-caption">
+          <span>ENGENHARIA DE SOFTWARE & DESIGN</span>
+          <span style="color: #C8F542;">ARKOS STUDIO</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <div class="footer-left">
+        <div class="footer-dot"></div>
+        <span>studio.arkosintelligence.com</span>
+      </div>
+      <div class="swipe-hint">Deslize para o lado →</div>
+    </div>
+  </div>
+
+  <!-- CARD 2: O DIAGNÓSTICO DO PROBLEMA -->
+  <div class="card" id="card-2">
+    <div class="glow-top-right"></div>
+    <div class="card-header">
+      <div class="logo-container">
+        <span class="brand-name">ARKOS</span>
+        <span class="brand-sub">Diagnóstico</span>
+      </div>
+      <div class="slide-number">02 / 08</div>
+    </div>
+
+    <div class="card-content">
+      <div class="kicker">O Diagnóstico de Mercado</div>
+      <h2 class="title-large">
+        O que separa um <span>site amador</span> de um ativo que fatura?
+      </h2>
+      <p class="subtitle">
+        A maioria das empresas investe em anúncios e tráfego, mas envia o cliente para páginas lentas, genéricas e sem estratégia de decisão.
+      </p>
+
+      <div class="features-grid" style="margin-top: 36px;">
+        <div class="feature-box" style="border-left: 3px solid #ff5555;">
+          <span class="tag" style="color: #ff5555;">✗ O Site Convencional</span>
+          <h4>Lento e Confuso</h4>
+          <p>Feito em plataformas pesadas, demora mais de 4s para abrir no celular, tem textos cansativos e não quebra as objeções do cliente.</p>
+        </div>
+        <div class="feature-box" style="border-left: 3px solid #C8F542;">
+          <span class="tag">✓ O Padrão ARKOS</span>
+          <h4>Engenharia de Conversão</h4>
+          <p>Carregamento sub-segundo em Next.js, arquitetura de persuasão visual, copy orientada a valor e integração direta com WhatsApp e CRM.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <div class="footer-left">
+        <div class="footer-dot"></div>
+        <span>Performance · Autoridade · Escala</span>
+      </div>
+      <div class="swipe-hint">Deslize →</div>
+    </div>
+  </div>
+
+  <!-- CARD 3: PILAR 1 - SITES DE ALTA CONVERSÃO -->
+  <div class="card" id="card-3">
+    <div class="glow-bottom-left"></div>
+    <div class="card-header">
+      <div class="logo-container">
+        <span class="brand-name">ARKOS</span>
+        <span class="brand-sub">Soluções</span>
+      </div>
+      <div class="slide-number">03 / 08</div>
+    </div>
+
+    <div class="card-content">
+      <div class="kicker">Pilar 01 · Presença & Vendas</div>
+      <h2 class="title-large" style="font-size: 52px;">
+        Sites & Landing Pages de <span>Alta Conversão</span>
+      </h2>
+      <p class="subtitle" style="font-size: 20px;">
+        Criamos landing pages express e sites institucionais completos para clínicas, consultorias e empresas que precisam transmitir autoridade nos primeiros 3 segundos.
+      </p>
+
+      <div class="image-preview-card" style="height: 440px;">
+        <img src="../../public/assets/advisory_alignment.jpg" alt="Alinhamento e Design" />
+        <div class="image-caption">
+          <span>MOBILE FIRST REAL · ZERO BALANÇO LATERAL</span>
+          <span style="color: #C8F542;">100% RESPONSIVO</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <div class="footer-left">
+        <div class="footer-dot"></div>
+        <span>Sites Rápidos · Presença no Google</span>
+      </div>
+      <div class="swipe-hint">Deslize →</div>
+    </div>
+  </div>
+
+  <!-- CARD 4: PILAR 2 - SISTEMAS E DADOS -->
+  <div class="card" id="card-4">
+    <div class="glow-top-right"></div>
+    <div class="card-header">
+      <div class="logo-container">
+        <span class="brand-name">ARKOS</span>
+        <span class="brand-sub">Engenharia</span>
+      </div>
+      <div class="slide-number">04 / 08</div>
+    </div>
+
+    <div class="card-content">
+      <div class="kicker">Pilar 02 · Plataformas & Sistemas</div>
+      <h2 class="title-large" style="font-size: 52px;">
+        Sistemas Web, Portais e <span>Automação de Dados</span>
+      </h2>
+      <p class="subtitle" style="font-size: 20px;">
+        Quando planilhas não dão mais conta: desenvolvemos portais de clientes, áreas de membros e integrações de dados para otimizar sua operação.
+      </p>
+
+      <div class="image-preview-card" style="height: 440px;">
+        <img src="../../public/assets/software_architecture.jpg" alt="Software Architecture" />
+        <div class="image-caption">
+          <span>CLOUD NATIVE · SUPABASE & POSTGRESQL</span>
+          <span style="color: #C8F542;">SEGURANÇA TOTAL</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <div class="footer-left">
+        <div class="footer-dot"></div>
+        <span>Plataformas Sob Medida · APIs</span>
+      </div>
+      <div class="swipe-hint">Deslize →</div>
+    </div>
+  </div>
+
+  <!-- CARD 5: O MÉTODO EM 5 ESTÁGIOS -->
+  <div class="card" id="card-5">
+    <div class="glow-bottom-left"></div>
+    <div class="card-header">
+      <div class="logo-container">
+        <span class="brand-name">ARKOS</span>
+        <span class="brand-sub">Metodologia</span>
+      </div>
+      <div class="slide-number">05 / 08</div>
+    </div>
+
+    <div class="card-content">
+      <div class="kicker">Método de Engenharia</div>
+      <h2 class="title-large" style="font-size: 52px;">
+        Entrega transparente em <span>5 etapas claras</span>
+      </h2>
+      <p class="subtitle" style="font-size: 20px; margin-bottom: 24px;">
+        Sem surpresas de prazo ou custo extra. Você acompanha cada fase do projeto com previsibilidade absoluta.
+      </p>
+
+      <div class="features-grid">
+        <div class="feature-box">
+          <span class="tag">Etapa 01 e 02</span>
+          <h4>Diagnóstico & Wireframe</h4>
+          <p>Mapeamos seu modelo de negócio, persona e arquitetura antes de escrever uma linha de código.</p>
+        </div>
+        <div class="feature-box">
+          <span class="tag">Etapa 03 e 04</span>
+          <h4>Engenharia & Validação</h4>
+          <p>Desenvolvimento em código puro de ponta, testes em dezenas de celulares e otimização Core Web Vitals.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <div class="footer-left">
+        <div class="footer-dot"></div>
+        <span>Esteira Ágil de 15 a 30 dias</span>
+      </div>
+      <div class="swipe-hint">Deslize →</div>
+    </div>
+  </div>
+
+  <!-- CARD 6: DIFERENCIAIS TÉCNICOS -->
+  <div class="card" id="card-6">
+    <div class="glow-top-right"></div>
+    <div class="card-header">
+      <div class="logo-container">
+        <span class="brand-name">ARKOS</span>
+        <span class="brand-sub">Diferenciais</span>
+      </div>
+      <div class="slide-number">06 / 08</div>
+    </div>
+
+    <div class="card-content">
+      <div class="kicker">O Padrão de Qualidade</div>
+      <h2 class="title-large" style="font-size: 52px;">
+        O que está por trás da <span>infraestrutura ARKOS</span>?
+      </h2>
+
+      <div class="features-grid" style="grid-template-columns: 1fr 1fr 1fr; margin-top: 30px;">
+        <div class="feature-box">
+          <span class="tag">01 · Velocidade</span>
+          <h4 style="font-size: 20px;">Carregamento Instantâneo</h4>
+          <p style="font-size: 13px;">Nota máxima no Google PageSpeed para reduzir custo de anúncio.</p>
+        </div>
+        <div class="feature-box">
+          <span class="tag">02 · Conversão</span>
+          <h4 style="font-size: 20px;">Psicologia de Compra</h4>
+          <p style="font-size: 13px;">Quebra de objeções e posicionamento para aumentar ticket médio.</p>
+        </div>
+        <div class="feature-box">
+          <span class="tag">03 · Dados</span>
+          <h4 style="font-size: 20px;">Métricas Reais</h4>
+          <p style="font-size: 13px;">Rastreamento preciso de cliques e formulários no seu WhatsApp.</p>
+        </div>
+      </div>
+
+      <div class="image-preview-card" style="height: 260px; margin-top: 20px;">
+        <img src="../../public/assets/data_dashboard.jpg" alt="Data Intelligence" />
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <div class="footer-left">
+        <div class="footer-dot"></div>
+        <span>Engenharia Robusta · Sem Plugins Instáveis</span>
+      </div>
+      <div class="swipe-hint">Deslize →</div>
+    </div>
+  </div>
+
+  <!-- CARD 7: BRIEFING E DIAGNÓSTICO -->
+  <div class="card" id="card-7">
+    <div class="glow-bottom-left"></div>
+    <div class="card-header">
+      <div class="logo-container">
+        <span class="brand-name">ARKOS</span>
+        <span class="brand-sub">Diagnóstico</span>
+      </div>
+      <div class="slide-number">07 / 08</div>
+    </div>
+
+    <div class="card-content">
+      <div class="kicker">Primeiro Passo Estratégico</div>
+      <h2 class="title-large">
+        Comece pelo nosso <span>Briefing Inteligente</span>
+      </h2>
+      <p class="subtitle">
+        Desenvolvemos um formulário guiado em 5 etapas para entender seu cliente ideal, suas dores e o formato exato que trará o maior retorno sobre seu investimento.
+      </p>
+
+      <div class="image-preview-card" style="height: 440px;">
+        <img src="../../public/assets/method_wireframing.jpg" alt="Diagnóstico e Planejamento" />
+        <div class="image-caption">
+          <span>DIAGNÓSTICO EM 5 MINUTOS</span>
+          <span style="color: #C8F542;">PROPOSTA PERSONALIZADA</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <div class="footer-left">
+        <div class="footer-dot"></div>
+        <span>studio.arkosintelligence.com/briefing</span>
+      </div>
+      <div class="swipe-hint">Deslize para o final →</div>
+    </div>
+  </div>
+
+  <!-- CARD 8: FECHAMENTO & CTA EXECUTIVO -->
+  <div class="card" id="card-8">
+    <div class="glow-top-right"></div>
+    <div class="glow-bottom-left"></div>
+
+    <div class="card-header">
+      <div class="logo-container">
+        <svg class="logo-svg" viewBox="0 0 200 220" fill="none">
+          <line x1="100" y1="20" x2="30" y2="190" stroke="#F4F2ED" stroke-width="16" stroke-linecap="round"/>
+          <line x1="100" y1="20" x2="170" y2="190" stroke="#F4F2ED" stroke-width="16" stroke-linecap="round"/>
+          <line x1="52" y1="130" x2="148" y2="130" stroke="#C8F542" stroke-width="12" stroke-linecap="round"/>
+          <circle cx="100" cy="20" r="10" fill="#C8F542"/>
+        </svg>
+        <span class="brand-name">ARKOS</span>
+        <span class="brand-sub">Soluções Digitais</span>
+      </div>
+      <div class="slide-number">08 / 08</div>
+    </div>
+
+    <div class="card-content" style="text-align: center; align-items: center;">
+      <div class="kicker" style="justify-content: center;">Próximo Passo</div>
+      <h2 class="title-large" style="font-size: 56px; max-width: 800px;">
+        Vamos construir a sua <span>nova presença digital</span>?
+      </h2>
+      <p class="subtitle" style="max-width: 720px; margin-bottom: 40px;">
+        Fale diretamente com nossa equipe técnica ou preencha o briefing online para receber uma análise completa do seu projeto.
+      </p>
+
+      <div style="background: #111318; border: 1px solid #272D38; border-radius: 16px; padding: 36px 48px; width: 100%; max-width: 760px; text-align: left;">
+        <div style="font-family: 'DM Mono', monospace; font-size: 12px; color: #C8F542; text-transform: uppercase; margin-bottom: 12px;">Contato Direto com o Gestor:</div>
+        <div style="font-family: 'DM Serif Display', serif; font-size: 28px; color: #F4F2ED; margin-bottom: 6px;">Renato Silva de Assis</div>
+        <div style="font-size: 15px; color: #8A8F99; margin-bottom: 18px;">Diretor de Tecnologia & Soluções Digitais · ARKOS</div>
+        <div style="display: flex; flex-direction: column; gap: 8px; font-family: 'DM Mono', monospace; font-size: 14px; color: #F4F2ED;">
+          <div>💬 WhatsApp: <span style="color: #C8F542;">(83) 98195-7737</span></div>
+          <div>✉ E-mail: <span style="color: #C8F542;">contato@arkosintelligence.com</span></div>
+          <div>🌐 Site Oficial: <span style="color: #C8F542;">studio.arkosintelligence.com</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer" style="justify-content: center;">
+      <span>ARKOS Soluções Digitais · © 2026 Todos os direitos reservados</span>
+    </div>
+  </div>
+
+</body>
+</html>

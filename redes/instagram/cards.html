@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Cards Instagram — ARKOS Soluções Digitais</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      padding: 40px;
+      font-family: 'Inter', sans-serif;
+      color: #F4F2ED;
+    }
+
+    .card {
+      width: 1080px;
+      height: 1350px;
+      background: #0A0C0F;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 72px 64px 64px;
+      border: 1px solid #1F242D;
+    }
+
+    /* Ambient Lighting */
+    .glow-radial {
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(200, 245, 66, 0.1) 0%, rgba(10, 12, 15, 0) 70%);
+      pointer-events: none;
+    }
+
+    .glow-bottom {
+      position: absolute;
+      bottom: -120px;
+      left: -120px;
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(200, 245, 66, 0.08) 0%, rgba(10, 12, 15, 0) 70%);
+      pointer-events: none;
+    }
+
+    /* Header */
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    .brand-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 24px;
+      color: #F4F2ED;
+    }
+
+    .brand-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: #C8F542;
+      background: #111318;
+      border: 1px solid #272D38;
+      padding: 4px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .page-pill {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: #C8F542;
+      background: rgba(200, 245, 66, 0.1);
+      border: 1px solid #C8F542;
+      padding: 4px 12px;
+      border-radius: 16px;
+    }
+
+    /* Main Area */
+    .card-main {
+      position: relative;
+      z-index: 10;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 28px 0;
+    }
+
+    .insta-badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      color: #C8F542;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .insta-badge::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      background: #C8F542;
+      border-radius: 50%;
+    }
+
+    .insta-h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 58px;
+      line-height: 1.15;
+      color: #F4F2ED;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+
+    .insta-h1 span {
+      color: #C8F542;
+      font-style: italic;
+    }
+
+    .insta-desc {
+      font-size: 21px;
+      color: #8A8F99;
+      line-height: 1.55;
+      max-width: 900px;
+    }
+
+    /* Visual Blocks */
+    .image-box {
+      width: 100%;
+      height: 480px;
+      border-radius: 12px;
+      border: 1px solid #272D38;
+      overflow: hidden;
+      position: relative;
+      margin-top: 24px;
+    }
+
+    .image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .tag-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .tag-item {
+      background: #111318;
+      border: 1px solid #272D38;
+      border-radius: 10px;
+      padding: 24px 20px;
+    }
+
+    .tag-item h4 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      color: #F4F2ED;
+      margin-bottom: 8px;
+    }
+
+    .tag-item p {
+      font-size: 14px;
+      color: #8A8F99;
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #1F242D;
+      padding-top: 20px;
+      position: relative;
+      z-index: 10;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: #8A8F99;
+    }
+
+    .arrow-swipe {
+      color: #C8F542;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- INSTA 1: CAPA -->
+  <div class="card" id="card-1">
+    <div class="glow-radial"></div>
+    <div class="glow-bottom"></div>
+
+    <div class="card-header">
+      <div class="brand-box">
+        <svg width="24" height="26" viewBox="0 0 200 220" fill="none">
+          <line x1="100" y1="20" x2="30" y2="190" stroke="#F4F2ED" stroke-width="16" stroke-linecap="round"/>
+          <line x1="100" y1="20" x2="170" y2="190" stroke="#F4F2ED" stroke-width="16" stroke-linecap="round"/>
+          <line x1="52" y1="130" x2="148" y2="130" stroke="#C8F542" stroke-width="12" stroke-linecap="round"/>
+          <circle cx="100" cy="20" r="10" fill="#C8F542"/>
+        </svg>
+        <span class="brand-title">ARKOS</span>
+        <span class="brand-tag">Soluções Digitais</span>
+      </div>
+      <div class="page-pill">01 / 06</div>
+    </div>
+
+    <div class="card-main">
+      <div class="insta-badge">Design & Performance Web</div>
+      <h1 class="insta-h1">
+        O que o seu cliente vê nos <span>primeiros 3 segundos</span>?
+      </h1>
+      <p class="insta-desc">
+        A primeira impressão define se o visitante vai clicar no seu WhatsApp ou fechar a página para contratar o seu concorrente.
+      </p>
+
+      <div class="image-box" style="height: 420px;">
+        <img src="../../public/assets/hero_workspace.jpg" alt="ARKOS Workspace" />
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <span>@arkos.solucoes</span>
+      <div class="arrow-swipe">Arraste para o lado →</div>
+    </div>
+  </div>
+
+  <!-- INSTA 2: O IMPACTO DA VELOCIDADE -->
+  <div class="card" id="card-2">
+    <div class="glow-radial"></div>
+
+    <div class="card-header">
+      <div class="brand-box">
+        <span class="brand-title">ARKOS</span>
+        <span class="brand-tag">Performance</span>
+      </div>
+      <div class="page-pill">02 / 06</div>
+    </div>
+
+    <div class="card-main">
+      <div class="insta-badge">O Custo da Lentidão</div>
+      <h2 class="insta-h1" style="font-size: 52px;">
+        73% dos usuários <span>abandonam sites</span> que demoram mais de 3s.
+      </h2>
+      <p class="insta-desc">
+        Não adianta pagar caro em anúncios no Instagram e no Google se a sua página de destino trava no celular.
+      </p>
+
+      <div class="tag-grid">
+        <div class="tag-item">
+          <div style="font-family: 'DM Mono', monospace; font-size: 28px; color: #ff6b6b; font-weight: bold; margin-bottom: 8px;">-53%</div>
+          <h4>Perda de Conversão</h4>
+          <p>A cada segundo extra de espera no celular, mais da metade dos visitantes desiste.</p>
+        </div>
+        <div class="tag-item">
+          <div style="font-family: 'DM Mono', monospace; font-size: 28px; color: #C8F542; font-weight: bold; margin-bottom: 8px;">100/100</div>
+          <h4>Padrão ARKOS</h4>
+          <p>Otimização máxima de código Next.js para abrir instantaneamente no 4G/5G.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <span>Engenharia de Conversão</span>
+      <div class="arrow-swipe">Arraste →</div>
+    </div>
+  </div>
+
+  <!-- INSTA 3: SOLUÇÕES OFERECIDAS -->
+  <div class="card" id="card-3">
+    <div class="glow-bottom"></div>
+
+    <div class="card-header">
+      <div class="brand-box">
+        <span class="brand-title">ARKOS</span>
+        <span class="brand-tag">Catálogo</span>
+      </div>
+      <div class="page-pill">03 / 06</div>
+    </div>
+
+    <div class="card-main">
+      <div class="insta-badge">Soluções Sob Medida</div>
+      <h2 class="insta-h1" style="font-size: 50px;">
+        Construímos a <span>solução exata</span> para o seu momento.
+      </h2>
+
+      <div class="tag-grid" style="grid-template-columns: 1fr 1fr; gap: 14px;">
+        <div class="tag-item" style="padding: 18px;">
+          <span style="font-family: 'DM Mono', monospace; color: #C8F542; font-size: 11px;">01 · EXPRESS</span>
+          <h4 style="font-size: 18px; margin: 4px 0 6px;">Landing Pages</h4>
+          <p style="font-size: 12px;">Páginas diretas e persuasivas para campanhas e vendas rápidas.</p>
+        </div>
+        <div class="tag-item" style="padding: 18px;">
+          <span style="font-family: 'DM Mono', monospace; color: #C8F542; font-size: 11px;">02 · AUTORIDADE</span>
+          <h4 style="font-size: 18px; margin: 4px 0 6px;">Sites Institucionais</h4>
+          <p style="font-size: 12px;">Para clínicas e empresas que precisam transmitir valor e confiança.</p>
+        </div>
+        <div class="tag-item" style="padding: 18px;">
+          <span style="font-family: 'DM Mono', monospace; color: #C8F542; font-size: 11px;">03 · VENDAS</span>
+          <h4 style="font-size: 18px; margin: 4px 0 6px;">Lojas & Catálogos</h4>
+          <p style="font-size: 12px;">Catálogos de produtos com pedidos via Pix e WhatsApp.</p>
+        </div>
+        <div class="tag-item" style="padding: 18px;">
+          <span style="font-family: 'DM Mono', monospace; color: #C8F542; font-size: 11px;">04 · ESCALA</span>
+          <h4 style="font-size: 18px; margin: 4px 0 6px;">Portais & Sistemas</h4>
+          <p style="font-size: 12px;">Plataformas web sob medida para automação de processos.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <span>Sob Medida para o Seu Negócio</span>
+      <div class="arrow-swipe">Arraste →</div>
+    </div>
+  </div>
+
+  <!-- INSTA 4: MOBILE FIRST REAL -->
+  <div class="card" id="card-4">
+    <div class="glow-radial"></div>
+
+    <div class="card-header">
+      <div class="brand-box">
+        <span class="brand-title">ARKOS</span>
+        <span class="brand-tag">Experiência</span>
+      </div>
+      <div class="page-pill">04 / 06</div>
+    </div>
+
+    <div class="card-main">
+      <div class="insta-badge">Mobile First Real</div>
+      <h2 class="insta-h1" style="font-size: 52px;">
+        Feito para o <span>polegar do seu cliente</span>.
+      </h2>
+      <p class="insta-desc">
+        Mais de 80% do seu público acessa pelo smartphone. Nossos sites são travados contra vazamento lateral, com botões ergonômicos e leitura agradável.
+      </p>
+
+      <div class="image-box" style="height: 420px;">
+        <img src="../../public/assets/advisory_alignment.jpg" alt="Design Responsivo" />
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <span>Zero Balanço Lateral · Toque Fluido</span>
+      <div class="arrow-swipe">Arraste →</div>
+    </div>
+  </div>
+
+  <!-- INSTA 5: O BRIEFING GUIADO -->
+  <div class="card" id="card-5">
+    <div class="glow-bottom"></div>
+
+    <div class="card-header">
+      <div class="brand-box">
+        <span class="brand-title">ARKOS</span>
+        <span class="brand-tag">Diagnóstico</span>
+      </div>
+      <div class="page-pill">05 / 06</div>
+    </div>
+
+    <div class="card-main">
+      <div class="insta-badge">Diagnóstico Gratuito</div>
+      <h2 class="insta-h1" style="font-size: 52px;">
+        Como funciona a <span>primeira etapa</span>?
+      </h2>
+      <p class="insta-desc">
+        Criamos um Briefing inteligente em 5 etapas para entender seu público, suas metas e definir o melhor investimento com total transparência.
+      </p>
+
+      <div class="image-box" style="height: 420px;">
+        <img src="../../public/assets/method_wireframing.jpg" alt="Briefing e Wireframing" />
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <span>Diagnóstico em 5 Minutos</span>
+      <div class="arrow-swipe">Último slide →</div>
+    </div>
+  </div>
+
+  <!-- INSTA 6: CTA E CONTATO -->
+  <div class="card" id="card-6">
+    <div class="glow-radial"></div>
+    <div class="glow-bottom"></div>
+
+    <div class="card-header">
+      <div class="brand-box">
+        <svg width="24" height="26" viewBox="0 0 200 220" fill="none">
+          <line x1="100" y1="20" x2="30" y2="190" stroke="#F4F2ED" stroke-width="16" stroke-linecap="round"/>
+          <line x1="100" y1="20" x2="170" y2="190" stroke="#F4F2ED" stroke-width="16" stroke-linecap="round"/>
+          <line x1="52" y1="130" x2="148" y2="130" stroke="#C8F542" stroke-width="12" stroke-linecap="round"/>
+          <circle cx="100" cy="20" r="10" fill="#C8F542"/>
+        </svg>
+        <span class="brand-title">ARKOS</span>
+        <span class="brand-tag">Soluções Digitais</span>
+      </div>
+      <div class="page-pill">06 / 06</div>
+    </div>
+
+    <div class="card-main" style="text-align: center; align-items: center;">
+      <div class="insta-badge" style="justify-content: center;">Transforme sua Presença</div>
+      <h2 class="insta-h1" style="font-size: 52px; max-width: 800px;">
+        Pronto para ter um <span>site profissional</span> de verdade?
+      </h2>
+      <p class="insta-desc" style="max-width: 680px; margin-bottom: 32px;">
+        Acesse o link na nossa bio para responder o briefing de diagnóstico ou fale diretamente com nosso time no WhatsApp.
+      </p>
+
+      <div style="background: #111318; border: 1px solid #272D38; border-radius: 14px; padding: 28px 36px; width: 100%; max-width: 680px; text-align: left;">
+        <div style="font-family: 'DM Mono', monospace; font-size: 11px; color: #C8F542; text-transform: uppercase; margin-bottom: 8px;">Atendimento Especializado:</div>
+        <div style="font-family: 'DM Serif Display', serif; font-size: 24px; color: #F4F2ED; margin-bottom: 4px;">Renato Silva de Assis</div>
+        <div style="font-size: 13px; color: #8A8F99; margin-bottom: 14px;">ARKOS Soluções Digitais</div>
+        <div style="font-family: 'DM Mono', monospace; font-size: 13px; color: #C8F542; display: flex; flex-direction: column; gap: 6px;">
+          <div>💬 WhatsApp: (83) 98195-7737</div>
+          <div>🌐 Link na Bio: studio.arkosintelligence.com</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer" style="justify-content: center;">
+      <span>ARKOS Soluções Digitais · @arkos.solucoes</span>
+    </div>
+  </div>
+
+</body>
+</html>
