@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { supabase } from "@/lib/supabase";
 
 export default function BriefingPage() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -84,7 +84,7 @@ export default function BriefingPage() {
       if (!data.success) {
         console.warn("Falha no servidor, prosseguindo com sucesso no cliente");
       }
-    } catch (err) {
+    } catch {
       console.warn("Envio simulado com sucesso");
     } finally {
       setLoading(false);
@@ -183,7 +183,7 @@ export default function BriefingPage() {
             <p style={{ color: "var(--text-secondary)", fontSize: "14px", maxWidth: "480px", margin: "0 auto 24px", lineHeight: 1.6 }}>
               Muito obrigado pelas informações. Nossa equipe irá analisar suas respostas e entrará em contato pelo WhatsApp e e-mail com a proposta detalhada.
             </p>
-            <a href="/" style={{
+            <Link href="/" style={{
               display: "inline-block",
               background: "var(--sinal)",
               color: "var(--obsidiana)",
@@ -195,7 +195,7 @@ export default function BriefingPage() {
               textTransform: "uppercase"
             }}>
               Voltar ao Início
-            </a>
+            </Link>
           </div>
         ) : (
           <form onSubmit={handleSubmit} style={{

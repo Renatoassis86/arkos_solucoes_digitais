@@ -1,8 +1,38 @@
 import { NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
 
+interface BriefingItem {
+  id: string;
+  created_at: string;
+  nome_solicitante: string;
+  cargo_solicitante: string;
+  empresa_nome: string;
+  ramo_atuacao: string;
+  email_contato: string;
+  telefone_whatsapp: string;
+  cidade_estado: string;
+  website_atual?: string;
+  o_que_sua_empresa_faz: string;
+  como_sua_empresa_ganha_dinheiro: string;
+  quem_e_seu_cliente_ideal: string;
+  principal_dor_do_seu_cliente?: string;
+  formato_do_site: string;
+  numero_estimado_paginas: string;
+  acao_principal_desejada: string;
+  recursos_desejados: string[];
+  ja_possui_logomarca_ou_brandbook: string;
+  estilo_visual_preferido: string;
+  links_de_sites_que_voce_gosta?: string;
+  prazo_desejado: string;
+  faixa_investimento: string;
+  observacoes_finais?: string;
+  arquivos_anexos?: string[];
+  status: "novo" | "em_analise" | "proposta_enviada" | "aprovado" | "concluido";
+  segmento: string;
+}
+
 // Mock store em memória para persistência contínua durante a sessão
-let inMemoryBriefings: any[] = [
+let inMemoryBriefings: BriefingItem[] = [
   {
     id: "brf-001",
     created_at: new Date(Date.now() - 3600000 * 2).toISOString(),
@@ -103,7 +133,7 @@ export async function POST(req: Request) {
     const body = await req.json();
     const segmento = classifySegment(body.ramo_atuacao || "", body.o_que_sua_empresa_faz || "");
 
-    const newBriefing = {
+    const newBriefing: BriefingItem = {
       id: "brf-" + Date.now().toString().slice(-6),
       created_at: new Date().toISOString(),
       ...body,
@@ -122,7 +152,8 @@ export async function POST(req: Request) {
     }
 
     return NextResponse.json({ success: true, briefing: newBriefing });
-  } catch (err: any) {
-    return NextResponse.json({ success: false, error: err.message }, { status: 500 });
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : "Erro desconhecido";
+    return NextResponse.json({ success: false, error: message }, { status: 500 });
   }
 }

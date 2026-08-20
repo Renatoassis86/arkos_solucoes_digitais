@@ -44,7 +44,7 @@ export default function AdminDashboardPage() {
   const router = useRouter();
 
   useEffect(() => {
-    // Verificar autenticação
+    let isMounted = true;
     if (typeof window !== "undefined") {
       const auth = sessionStorage.getItem("arkos_admin_auth");
       if (!auth) {
@@ -52,7 +52,28 @@ export default function AdminDashboardPage() {
         return;
       }
     }
-    loadBriefings();
+
+    const fetchData = async () => {
+      try {
+        const res = await fetch("/api/briefing");
+        const data = await res.json();
+        if (isMounted && data.success) {
+          setBriefings(data.briefings);
+        }
+      } catch (e) {
+        console.error("Erro ao carregar briefings:", e);
+      } finally {
+        if (isMounted) {
+          setLoading(false);
+        }
+      }
+    };
+
+    fetchData();
+
+    return () => {
+      isMounted = false;
+    };
   }, [router]);
 
   const loadBriefings = async () => {
@@ -582,7 +603,7 @@ export default function AdminDashboardPage() {
               </span>
               <select
                 value={activeModalBriefing.status}
-                onChange={(e) => handleUpdateStatus(activeModalBriefing.id, e.target.value as any)}
+                onChange={(e) => handleUpdateStatus(activeModalBriefing.id, e.target.value as Briefing["status"])}
                 style={{
                   background: "var(--grafite)",
                   border: "1px solid var(--border)",
