@@ -1,5 +1,5 @@
 -- ==============================================================================
--- MODELO RELACIONAL DO BANCO DE DADOS SUPABASE / POSTGRESQL
+-- MODELO RELACIONAL DO BANCO DE DADOS SUPABASE / POSTGRESQL (VERSÃO ATUALIZADA)
 -- ARKOS SOLUÇÕES DIGITAIS — PLATAFORMA DE CAPTAÇÃO, BRIEFINGS E LEADS
 -- ==============================================================================
 
@@ -29,56 +29,85 @@ CREATE INDEX IF NOT EXISTS idx_contatos_status ON public.contatos (status);
 CREATE INDEX IF NOT EXISTS idx_contatos_created_at ON public.contatos (created_at DESC);
 
 -- ==============================================================================
--- TABELA 2: BRIEFINGS MODULARES (DIAGNÓSTICO COMPLETO /briefing)
+-- TABELA 2: BRIEFINGS MODULARES ESTRATÉGICOS (/briefing)
 -- ==============================================================================
 CREATE TABLE IF NOT EXISTS public.briefings (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
-    status VARCHAR(50) DEFAULT 'recebido' NOT NULL, -- 'recebido', 'em_analise', 'proposta_enviada', 'fechado', 'arquivado'
+    status VARCHAR(50) DEFAULT 'novo' NOT NULL, -- 'novo', 'em_analise', 'proposta_enviada', 'aprovado', 'concluido'
+    segmento VARCHAR(100) DEFAULT 'Serviços e Outros' NOT NULL, -- 'Saúde e Clínicas', 'B2B e Corporativo', 'E-commerce e Varejo', etc.
     
     -- ETAPA 1: SOBRE VOCÊ E SUA EMPRESA
     nome_solicitante VARCHAR(255) NOT NULL,
     cargo_solicitante VARCHAR(150),
     empresa_nome VARCHAR(255) NOT NULL,
     ramo_atuacao VARCHAR(150) NOT NULL,
+    estagio_empresa VARCHAR(100),
+    diferencial_competitivo TEXT,
     email_contato VARCHAR(255) NOT NULL,
     telefone_whatsapp VARCHAR(50) NOT NULL,
     cidade_estado VARCHAR(150),
     website_atual VARCHAR(255),
 
-    -- ETAPA 2: MODELO DE NEGÓCIO E PERSONA (CLIENTE IDEAL)
+    -- ETAPA 2: MODELO DE NEGÓCIO, PERSONA E DECISÃO DE COMPRA
     o_que_sua_empresa_faz TEXT NOT NULL,
-    como_sua_empresa_ganha_dinheiro VARCHAR(150), -- servico_sob_consulta, venda_produtos, mensalidade_assinatura, outro
+    como_sua_empresa_ganha_dinheiro VARCHAR(150),
+    ticket_medio VARCHAR(150),
     quem_e_seu_cliente_ideal TEXT NOT NULL,
     principal_dor_do_seu_cliente TEXT,
-    por_que_o_cliente_escolhe_voce TEXT,
+    maior_objecao_ou_duvida_cliente TEXT,
+    conquistas_e_provas_de_autoridade TEXT,
+    como_clientes_te_encontram_hoje VARCHAR(150),
 
-    -- ETAPA 3: O QUE O SITE PRECISA TER
-    formato_do_site VARCHAR(100) NOT NULL, -- landing_page_unica, site_institucional_completo, loja_virtual, portal_ou_sistema
-    numero_estimado_paginas VARCHAR(50), -- 1_pagina, 2_a_5_paginas, 6_a_10_paginas, mais_de_10_paginas
-    acao_principal_desejada VARCHAR(150) NOT NULL, -- chamar_no_whatsapp, preencher_formulario, comprar_direto, agendar_horario, ligar_telefone
-    recursos_desejados JSONB DEFAULT '[]'::jsonb, -- lista de checkboxes marcados
-    outros_sistemas_para_integrar TEXT,
+    -- ETAPA 3: O QUE O SITE PRECISA TER E ARQUITETURA DE CONVERSÃO
+    formato_do_site VARCHAR(100) NOT NULL,
+    numero_estimado_paginas VARCHAR(50),
+    acao_principal_desejada VARCHAR(150) NOT NULL,
+    acao_secundaria_desejada VARCHAR(150),
+    recursos_desejados JSONB DEFAULT '[]'::jsonb,
+    integracoes_sistemas_externos TEXT,
 
-    -- ETAPA 4: IDENTIDADE VISUAL E REFERÊNCIAS
-    ja_possui_logomarca_ou_brandbook VARCHAR(50), -- sim_tenho_tudo, tenho_apenas_logo, nao_preciso_criar
-    estilo_visual_preferido VARCHAR(100), -- escuro_moderno, claro_minimalista, corporativo_tradicional, colorido_vibrante
+    -- ETAPA 4: IDENTIDADE VISUAL, REFERÊNCIAS E ANEXOS
+    ja_possui_logomarca_ou_brandbook VARCHAR(50),
+    estilo_visual_preferido VARCHAR(100),
+    sensacao_desejada_marca VARCHAR(150),
     links_de_sites_que_voce_gosta TEXT,
-    arquivos_anexos JSONB DEFAULT '[]'::jsonb, -- nomes ou URLs dos arquivos
+    o_que_voce_nao_quer_no_site TEXT,
+    arquivos_anexos JSONB DEFAULT '[]'::jsonb,
 
-    -- ETAPA 5: PRAZO E FAIXA DE INVESTIMENTO
-    prazo_desejado VARCHAR(50), -- urgente_15_dias, normal_30_dias, 45_a_60_dias, flexivel
-    faixa_investimento VARCHAR(100) NOT NULL, -- a_partir_600, 1500_a_3000, 3000_a_6000, 6000_a_15000, acima_15000
+    -- ETAPA 5: PRAZO, INVESTIMENTO E CRITÉRIO DE SUCESSO
+    prazo_desejado VARCHAR(50),
+    faixa_investimento VARCHAR(100) NOT NULL,
+    quem_aprova_o_projeto VARCHAR(100),
+    criterio_de_sucesso_30_dias TEXT,
     observacoes_finais TEXT
 );
 
 CREATE INDEX IF NOT EXISTS idx_briefings_email ON public.briefings (email_contato);
 CREATE INDEX IF NOT EXISTS idx_briefings_status ON public.briefings (status);
+CREATE INDEX IF NOT EXISTS idx_briefings_segmento ON public.briefings (segmento);
 CREATE INDEX IF NOT EXISTS idx_briefings_created_at ON public.briefings (created_at DESC);
 
 -- ==============================================================================
--- TABELA 3: ANEXOS DO BRIEFING (RELAÇÃO 1:N PARA BRANDBOOK, PRINTS, LOGOS)
+-- MIGRATION SCRIPT (CASO A TABELA JÁ EXISTA NO SUPABASE)
+-- ==============================================================================
+ALTER TABLE public.briefings ADD COLUMN IF NOT EXISTS segmento VARCHAR(100) DEFAULT 'Serviços e Outros';
+ALTER TABLE public.briefings ADD COLUMN IF NOT EXISTS estagio_empresa VARCHAR(100);
+ALTER TABLE public.briefings ADD COLUMN IF NOT EXISTS diferencial_competitivo TEXT;
+ALTER TABLE public.briefings ADD COLUMN IF NOT EXISTS ticket_medio VARCHAR(150);
+ALTER TABLE public.briefings ADD COLUMN IF NOT EXISTS maior_objecao_ou_duvida_cliente TEXT;
+ALTER TABLE public.briefings ADD COLUMN IF NOT EXISTS conquistas_e_provas_de_autoridade TEXT;
+ALTER TABLE public.briefings ADD COLUMN IF NOT EXISTS como_clientes_te_encontram_hoje VARCHAR(150);
+ALTER TABLE public.briefings ADD COLUMN IF NOT EXISTS acao_secundaria_desejada VARCHAR(150);
+ALTER TABLE public.briefings ADD COLUMN IF NOT EXISTS integracoes_sistemas_externos TEXT;
+ALTER TABLE public.briefings ADD COLUMN IF NOT EXISTS sensacao_desejada_marca VARCHAR(150);
+ALTER TABLE public.briefings ADD COLUMN IF NOT EXISTS o_que_voce_nao_quer_no_site TEXT;
+ALTER TABLE public.briefings ADD COLUMN IF NOT EXISTS quem_aprova_o_projeto VARCHAR(100);
+ALTER TABLE public.briefings ADD COLUMN IF NOT EXISTS criterio_de_sucesso_30_dias TEXT;
+
+-- ==============================================================================
+-- TABELA 3: ANEXOS DO BRIEFING (RELAÇÃO 1:N)
 -- ==============================================================================
 CREATE TABLE IF NOT EXISTS public.briefing_anexos (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
@@ -99,7 +128,6 @@ ALTER TABLE public.contatos ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.briefings ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.briefing_anexos ENABLE ROW LEVEL SECURITY;
 
--- 1. Inserção pública permitida para qualquer visitante do site (anônimo ou autenticado)
 CREATE POLICY "Permitir envio publico de contatos"
 ON public.contatos
 FOR INSERT
@@ -118,7 +146,6 @@ FOR INSERT
 TO anon, authenticated
 WITH CHECK (true);
 
--- 2. Leitura restrita a administradores autenticados da ARKOS
 CREATE POLICY "Apenas administradores podem ler contatos"
 ON public.contatos
 FOR SELECT
@@ -136,24 +163,3 @@ ON public.briefing_anexos
 FOR SELECT
 TO authenticated
 USING (auth.role() = 'authenticated');
-
--- ==============================================================================
--- TRIGGERS DE ATUALIZAÇÃO AUTOMÁTICA DE DATA (updated_at)
--- ==============================================================================
-CREATE OR REPLACE FUNCTION update_updated_at_column()
-RETURNS TRIGGER AS $$
-BEGIN
-    NEW.updated_at = timezone('utc'::text, now());
-    RETURN NEW;
-END;
-$$ language 'plpgsql';
-
-CREATE TRIGGER update_contatos_updated_at
-BEFORE UPDATE ON public.contatos
-FOR EACH ROW
-EXECUTE FUNCTION update_updated_at_column();
-
-CREATE TRIGGER update_briefings_updated_at
-BEFORE UPDATE ON public.briefings
-FOR EACH ROW
-EXECUTE FUNCTION update_updated_at_column();
