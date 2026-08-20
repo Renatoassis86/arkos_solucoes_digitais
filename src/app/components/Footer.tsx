@@ -57,16 +57,29 @@ export default function Footer() {
             Fale Conosco
           </h4>
           <div style={{ display: "flex", flexDirection: "column", gap: "10px", fontSize: "13px", color: "var(--text-primary)" }}>
-            <a href="mailto:renato@arkosintelligence.com" style={{ color: "var(--text-primary)", textDecoration: "none", wordBreak: "break-all" }}>
-              renato@arkosintelligence.com
+            <a href="mailto:contato@arkosintelligence.com" style={{ color: "var(--text-primary)", textDecoration: "none", wordBreak: "break-all" }}>
+              contato@arkosintelligence.com
             </a>
             <div style={{ fontFamily: "var(--font-mono)", color: "var(--text-secondary)" }}>
               +55 (83) 98195-7737
             </div>
-            <div style={{ marginTop: "4px", display: "flex", alignItems: "center", gap: "8px" }}>
-              <span style={{ width: "3px", height: "16px", background: "var(--sinal)", display: "inline-block" }}></span>
-              <a href="https://wa.me/5583981957737" target="_blank" rel="noopener noreferrer" style={{ color: "var(--sinal)", fontWeight: 600, fontSize: "13px", textDecoration: "none" }}>
-                Falar com Consultor no WhatsApp →
+            <div style={{ marginTop: "4px" }}>
+              <a
+                href="https://wa.me/5583981957737"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  color: "var(--sinal)",
+                  fontWeight: 600,
+                  fontSize: "13px",
+                  textDecoration: "none"
+                }}
+              >
+                <span>Falar no WhatsApp</span>
+                <span style={{ fontSize: "14px" }}>→</span>
               </a>
             </div>
           </div>
