@@ -239,9 +239,18 @@ export default function Footer() {
         textAlign: "center",
         fontSize: "11px",
         fontFamily: "var(--font-mono)",
-        color: "var(--text-secondary)"
+        color: "var(--text-secondary)",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: "16px",
+        flexWrap: "wrap"
       }}>
-        © {new Date().getFullYear()} ARKOS Soluções Digitais. Todos os direitos reservados.
+        <span>© {new Date().getFullYear()} ARKOS Soluções Digitais. Todos os direitos reservados.</span>
+        <span>·</span>
+        <Link href="/admin/login" style={{ color: "var(--text-secondary)", textDecoration: "underline" }}>
+          Painel do Gestor
+        </Link>
       </div>
 
     </footer>

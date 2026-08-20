@@ -292,8 +292,16 @@ img, svg, video {
 /* ---------- Services Explorer ---------- */
 .filter-pill-container {
   display: flex;
-  flex-wrap: wrap;
+  overflow-x: auto;
   gap: 8px;
+  width: 100%;
+  padding-bottom: 6px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.filter-pill-container::-webkit-scrollbar {
+  display: none;
 }
 
 .services-responsive-grid {
@@ -321,14 +329,6 @@ img, svg, video {
   .services-responsive-grid {
     grid-template-columns: 1fr;
     gap: 12px;
-  }
-
-  .filter-pill-container {
-    width: 100%;
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    padding-bottom: 6px;
-    -webkit-overflow-scrolling: touch;
   }
 }
 
@@ -572,3 +572,19 @@ img, svg, video {
     gap: 16px;
   }
 }
+
+/* ---------- Admin Responsive ---------- */
+.admin-briefing-card {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr auto;
+  gap: 16px;
+  align-items: center;
+}
+
+@media (max-width: 860px) {
+  .admin-briefing-card {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+}
+

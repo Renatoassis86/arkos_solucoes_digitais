@@ -20,14 +20,11 @@ export default function ServicesExplorer() {
     <div style={{ width: "100%", overflowX: "hidden" }}>
       <div className={styles.explorerControls} style={{
         display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        gap: "14px",
-        flexWrap: "wrap",
+        flexDirection: "column",
+        gap: "12px",
         marginBottom: "24px"
       }}>
-        {/* Filtros em Pílulas */}
-        <div className="filter-pill-container" role="tablist" aria-label="Filtrar soluções por frente">
+        <div className="filter-pill-container" role="tablist" aria-label="Categorias de soluções" style={{ display: "flex", overflowX: "auto", gap: "8px", paddingBottom: "4px" }}>
           {FILTERS.map((f) => (
             <button
               key={f.id}
@@ -39,7 +36,9 @@ export default function ServicesExplorer() {
                 fontFamily: "var(--font-mono)",
                 fontSize: "11px",
                 padding: "8px 14px",
-                whiteSpace: "nowrap"
+                whiteSpace: "nowrap",
+                borderRadius: "20px",
+                flexShrink: 0
               }}
             >
               {f.label}
@@ -48,25 +47,27 @@ export default function ServicesExplorer() {
         </div>
 
         {/* Alternador de Visualização Grade / Lista */}
-        <div className={styles.viewToggle} role="tablist" aria-label="Alternar visualização">
-          <button
-            role="tab"
-            aria-selected={view === "grid"}
-            className={`${styles.viewButton} ${view === "grid" ? styles.viewButtonActive : ""}`}
-            onClick={() => setView("grid")}
-            style={{ padding: "6px 10px", fontSize: "11px" }}
-          >
-            Grade
-          </button>
-          <button
-            role="tab"
-            aria-selected={view === "list"}
-            className={`${styles.viewButton} ${view === "list" ? styles.viewButtonActive : ""}`}
-            onClick={() => setView("list")}
-            style={{ padding: "6px 10px", fontSize: "11px" }}
-          >
-            Lista
-          </button>
+        <div style={{ display: "flex", justifyContent: "flex-start", alignItems: "center" }}>
+          <div className={styles.viewToggle} role="tablist" aria-label="Alternar visualização">
+            <button
+              role="tab"
+              aria-selected={view === "grid"}
+              className={`${styles.viewButton} ${view === "grid" ? styles.viewButtonActive : ""}`}
+              onClick={() => setView("grid")}
+              style={{ padding: "6px 12px", fontSize: "11px" }}
+            >
+              Grade
+            </button>
+            <button
+              role="tab"
+              aria-selected={view === "list"}
+              className={`${styles.viewButton} ${view === "list" ? styles.viewButtonActive : ""}`}
+              onClick={() => setView("list")}
+              style={{ padding: "6px 12px", fontSize: "11px" }}
+            >
+              Lista
+            </button>
+          </div>
         </div>
       </div>
 

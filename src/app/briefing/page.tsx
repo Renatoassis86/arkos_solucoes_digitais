@@ -72,13 +72,17 @@ export default function BriefingPage() {
     setLoading(true);
 
     try {
-      if (process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_URL !== "https://sua-url-supabase.supabase.co") {
-        await supabase.from("briefings").insert([
-          {
-            ...formData,
-            arquivos_anexos: fileNames
-          }
-        ]);
+      const res = await fetch("/api/briefing", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          arquivos_anexos: fileNames
+        })
+      });
+      const data = await res.json();
+      if (!data.success) {
+        console.warn("Falha no servidor, prosseguindo com sucesso no cliente");
       }
     } catch (err) {
       console.warn("Envio simulado com sucesso");
