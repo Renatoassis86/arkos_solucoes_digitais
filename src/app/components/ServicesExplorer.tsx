@@ -18,32 +18,51 @@ export default function ServicesExplorer() {
 
   return (
     <div style={{ width: "100%", overflowX: "hidden" }}>
-      <div className={styles.explorerControls} style={{
+      {/* Controles de Filtros e Visualização */}
+      <div style={{
         display: "flex",
         flexDirection: "column",
-        gap: "12px",
+        gap: "14px",
         marginBottom: "24px"
       }}>
-        <div className="filter-pill-container" role="tablist" aria-label="Categorias de soluções" style={{ display: "flex", overflowX: "auto", gap: "8px", paddingBottom: "4px" }}>
-          {FILTERS.map((f) => (
-            <button
-              key={f.id}
-              role="tab"
-              aria-selected={active === f.id}
-              className={`${styles.filterTab} ${active === f.id ? styles.filterTabActive : ""}`}
-              onClick={() => setActive(f.id)}
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "11px",
-                padding: "8px 14px",
-                whiteSpace: "nowrap",
-                borderRadius: "20px",
-                flexShrink: 0
-              }}
-            >
-              {f.label}
-            </button>
-          ))}
+        {/* Pílulas de Categoria com Quebra Fluida e Sem Cortes */}
+        <div
+          role="tablist"
+          aria-label="Categorias de soluções"
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "8px",
+            width: "100%"
+          }}
+        >
+          {FILTERS.map((f) => {
+            const isSelected = active === f.id;
+            return (
+              <button
+                key={f.id}
+                role="tab"
+                aria-selected={isSelected}
+                onClick={() => setActive(f.id)}
+                style={{
+                  background: isSelected ? "var(--sinal)" : "var(--ardosia)",
+                  color: isSelected ? "var(--obsidiana)" : "var(--text-primary)",
+                  border: isSelected ? "1px solid var(--sinal)" : "1px solid var(--border)",
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "11px",
+                  fontWeight: isSelected ? 700 : 500,
+                  padding: "8px 14px",
+                  borderRadius: "20px",
+                  cursor: "pointer",
+                  transition: "all 0.2s ease",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.03em"
+                }}
+              >
+                {f.label}
+              </button>
+            );
+          })}
         </div>
 
         {/* Alternador de Visualização Grade / Lista */}
