@@ -32,17 +32,17 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 80px 72px 72px;
+      padding: 76px 68px 64px;
       border: 1px solid #1F242D;
     }
 
-    /* Background Gradients & Glows */
+    /* Ambient Lighting */
     .glow-top-right {
       position: absolute;
       top: -120px;
       right: -120px;
-      width: 480px;
-      height: 480px;
+      width: 500px;
+      height: 500px;
       background: radial-gradient(circle, rgba(200, 245, 66, 0.08) 0%, rgba(10, 12, 15, 0) 70%);
       pointer-events: none;
     }
@@ -95,7 +95,7 @@
 
     .slide-number {
       font-family: 'DM Mono', monospace;
-      font-size: 14px;
+      font-size: 13px;
       color: #C8F542;
       background: #111318;
       border: 1px solid #272D38;
@@ -112,16 +112,16 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      margin: 40px 0;
+      margin: 28px 0;
     }
 
     .kicker {
       font-family: 'DM Mono', monospace;
-      font-size: 14px;
+      font-size: 13px;
       color: #C8F542;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -137,11 +137,11 @@
 
     .title-large {
       font-family: 'DM Serif Display', serif;
-      font-size: 60px;
+      font-size: 56px;
       line-height: 1.15;
       color: #F4F2ED;
       letter-spacing: -0.02em;
-      margin-bottom: 28px;
+      margin-bottom: 20px;
     }
 
     .title-large span {
@@ -150,17 +150,65 @@
     }
 
     .subtitle {
-      font-size: 22px;
+      font-size: 20px;
       color: #8A8F99;
-      line-height: 1.6;
-      max-width: 860px;
+      line-height: 1.55;
+      max-width: 900px;
     }
 
-    /* Grid & Cards inside slide */
+    /* Steps and Stages Component */
+    .steps-vertical-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .step-card-row {
+      background: #111318;
+      border: 1px solid #272D38;
+      border-radius: 10px;
+      padding: 16px 20px;
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 20px;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+
+    .step-badge-col {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .step-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: #C8F542;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .step-title-bold {
+      font-family: 'DM Serif Display', serif;
+      font-size: 19px;
+      color: #F4F2ED;
+      line-height: 1.2;
+    }
+
+    .step-desc-text {
+      font-size: 14px;
+      color: #8A8F99;
+      line-height: 1.5;
+    }
+
+    /* Grid & Cards */
     .features-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      gap: 18px;
       margin-top: 24px;
     }
 
@@ -168,18 +216,18 @@
       background: #111318;
       border: 1px solid #272D38;
       border-radius: 12px;
-      padding: 28px 24px;
+      padding: 24px 22px;
     }
 
     .feature-box h4 {
       font-family: 'DM Serif Display', serif;
-      font-size: 24px;
+      font-size: 22px;
       color: #F4F2ED;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .feature-box p {
-      font-size: 15px;
+      font-size: 14px;
       color: #8A8F99;
       line-height: 1.5;
     }
@@ -188,15 +236,15 @@
       font-family: 'DM Mono', monospace;
       font-size: 11px;
       color: #C8F542;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
       display: block;
       text-transform: uppercase;
     }
 
-    /* Image Container in card */
+    /* Image Preview Container */
     .image-preview-card {
       width: 100%;
-      height: 480px;
+      height: 420px;
       border-radius: 12px;
       border: 1px solid #272D38;
       overflow: hidden;
@@ -216,14 +264,14 @@
       bottom: 0;
       left: 0;
       right: 0;
-      background: rgba(10, 12, 15, 0.85);
+      background: rgba(10, 12, 15, 0.88);
       backdrop-filter: blur(8px);
-      padding: 16px 20px;
+      padding: 14px 20px;
       border-top: 1px solid #272D38;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 14px;
+      font-size: 13px;
       color: #F4F2ED;
       font-family: 'DM Mono', monospace;
     }
@@ -234,11 +282,11 @@
       justify-content: space-between;
       align-items: center;
       border-top: 1px solid #1F242D;
-      padding-top: 24px;
+      padding-top: 20px;
       position: relative;
       z-index: 10;
       font-family: 'DM Mono', monospace;
-      font-size: 13px;
+      font-size: 12px;
       color: #8A8F99;
     }
 
@@ -332,7 +380,7 @@
         A maioria das empresas investe em anúncios e tráfego, mas envia o cliente para páginas lentas, genéricas e sem estratégia de decisão.
       </p>
 
-      <div class="features-grid" style="margin-top: 36px;">
+      <div class="features-grid" style="margin-top: 32px;">
         <div class="feature-box" style="border-left: 3px solid #ff5555;">
           <span class="tag" style="color: #ff5555;">✗ O Site Convencional</span>
           <h4>Lento e Confuso</h4>
@@ -355,31 +403,43 @@
     </div>
   </div>
 
-  <!-- CARD 3: PILAR 1 - SITES DE ALTA CONVERSÃO -->
+  <!-- CARD 3: AS 4 FRENTES DE SOLUÇÃO -->
   <div class="card" id="card-3">
     <div class="glow-bottom-left"></div>
     <div class="card-header">
       <div class="logo-container">
         <span class="brand-name">ARKOS</span>
-        <span class="brand-sub">Soluções</span>
+        <span class="brand-sub">Catálogo</span>
       </div>
       <div class="slide-number">03 / 08</div>
     </div>
 
     <div class="card-content">
-      <div class="kicker">Pilar 01 · Presença & Vendas</div>
-      <h2 class="title-large" style="font-size: 52px;">
-        Sites & Landing Pages de <span>Alta Conversão</span>
+      <div class="kicker">Soluções Sob Medida</div>
+      <h2 class="title-large" style="font-size: 50px;">
+        As 4 Frentes de <span>Soluções Digitais</span>
       </h2>
-      <p class="subtitle" style="font-size: 20px;">
-        Criamos landing pages express e sites institucionais completos para clínicas, consultorias e empresas que precisam transmitir autoridade nos primeiros 3 segundos.
-      </p>
 
-      <div class="image-preview-card" style="height: 440px;">
-        <img src="../../public/assets/advisory_alignment.jpg" alt="Alinhamento e Design" />
-        <div class="image-caption">
-          <span>MOBILE FIRST REAL · ZERO BALANÇO LATERAL</span>
-          <span style="color: #C8F542;">100% RESPONSIVO</span>
+      <div class="features-grid" style="grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 18px;">
+        <div class="feature-box">
+          <span class="tag">01 · Sites & Páginas</span>
+          <h4>Alta Conversão</h4>
+          <p>Landing pages express e sites institucionais com carregamento instantâneo e design de autoridade.</p>
+        </div>
+        <div class="feature-box">
+          <span class="tag">02 · Vendas & Captação</span>
+          <h4>Tecnologia Comercial</h4>
+          <p>Formulários inteligentes com triagem, botão WhatsApp rastreado e catálogos de produtos.</p>
+        </div>
+        <div class="feature-box">
+          <span class="tag">03 · Sistemas Web</span>
+          <h4>Plataformas Sob Medida</h4>
+          <p>Portais de clientes, áreas de membros e sistemas web conectados a bancos de dados seguros.</p>
+        </div>
+        <div class="feature-box">
+          <span class="tag">04 · Inteligência</span>
+          <h4>Organização de Dados</h4>
+          <p>Dashboards operacionais, automação de processos e consultoria técnica contínua.</p>
         </div>
       </div>
     </div>
@@ -387,37 +447,37 @@
     <div class="card-footer">
       <div class="footer-left">
         <div class="footer-dot"></div>
-        <span>Sites Rápidos · Presença no Google</span>
+        <span>Catálogo Oficial de Soluções</span>
       </div>
       <div class="swipe-hint">Deslize →</div>
     </div>
   </div>
 
-  <!-- CARD 4: PILAR 2 - SISTEMAS E DADOS -->
+  <!-- CARD 4: PILAR 2 - ENGENHARIA MOBILE FIRST -->
   <div class="card" id="card-4">
     <div class="glow-top-right"></div>
     <div class="card-header">
       <div class="logo-container">
         <span class="brand-name">ARKOS</span>
-        <span class="brand-sub">Engenharia</span>
+        <span class="brand-sub">Mobile First</span>
       </div>
       <div class="slide-number">04 / 08</div>
     </div>
 
     <div class="card-content">
-      <div class="kicker">Pilar 02 · Plataformas & Sistemas</div>
+      <div class="kicker">Experiência de Usuário</div>
       <h2 class="title-large" style="font-size: 52px;">
-        Sistemas Web, Portais e <span>Automação de Dados</span>
+        Mobile First Real: <span>Zero Balanço Lateral</span>
       </h2>
-      <p class="subtitle" style="font-size: 20px;">
-        Quando planilhas não dão mais conta: desenvolvemos portais de clientes, áreas de membros e integrações de dados para otimizar sua operação.
+      <p class="subtitle" style="font-size: 19px;">
+        Mais de 80% do tráfego chega pelo smartphone. Travamos o viewport em 100%, eliminamos qualquer deslocamento horizontal e desenhamos para o alcance natural do polegar.
       </p>
 
-      <div class="image-preview-card" style="height: 440px;">
-        <img src="../../public/assets/software_architecture.jpg" alt="Software Architecture" />
+      <div class="image-preview-card" style="height: 400px;">
+        <img src="../../public/assets/advisory_alignment.jpg" alt="Alinhamento e Responsividade Mobile" />
         <div class="image-caption">
-          <span>CLOUD NATIVE · SUPABASE & POSTGRESQL</span>
-          <span style="color: #C8F542;">SEGURANÇA TOTAL</span>
+          <span>TOUCH ACTION: PAN-Y · 100% CONTAINER LOCK</span>
+          <span style="color: #C8F542;">FLUIDEZ TOTAL</span>
         </div>
       </div>
     </div>
@@ -425,13 +485,13 @@
     <div class="card-footer">
       <div class="footer-left">
         <div class="footer-dot"></div>
-        <span>Plataformas Sob Medida · APIs</span>
+        <span>Mobile Experience Padrão Apple / Vercel</span>
       </div>
       <div class="swipe-hint">Deslize →</div>
     </div>
   </div>
 
-  <!-- CARD 5: O MÉTODO EM 5 ESTÁGIOS -->
+  <!-- CARD 5: O MÉTODO OFICIAL EM 5 ESTÁGIOS ESTRATÉGICOS (CORRIGIDO E COMPLETO) -->
   <div class="card" id="card-5">
     <div class="glow-bottom-left"></div>
     <div class="card-header">
@@ -443,24 +503,53 @@
     </div>
 
     <div class="card-content">
-      <div class="kicker">Método de Engenharia</div>
-      <h2 class="title-large" style="font-size: 52px;">
-        Entrega transparente em <span>5 etapas claras</span>
+      <div class="kicker">Método de Engenharia ARKOS</div>
+      <h2 class="title-large" style="font-size: 46px; margin-bottom: 12px;">
+        O Método de Entrega em <span>5 Etapas Claras</span>
       </h2>
-      <p class="subtitle" style="font-size: 20px; margin-bottom: 24px;">
-        Sem surpresas de prazo ou custo extra. Você acompanha cada fase do projeto com previsibilidade absoluta.
+      <p class="subtitle" style="font-size: 17px; margin-bottom: 8px;">
+        Do entendimento profundo ao acompanhamento em produção, com previsibilidade de prazos e escopo.
       </p>
 
-      <div class="features-grid">
-        <div class="feature-box">
-          <span class="tag">Etapa 01 e 02</span>
-          <h4>Diagnóstico & Wireframe</h4>
-          <p>Mapeamos seu modelo de negócio, persona e arquitetura antes de escrever uma linha de código.</p>
+      <div class="steps-vertical-list">
+        <div class="step-card-row">
+          <div class="step-badge-col">
+            <span class="step-num">Etapa 01</span>
+            <div class="step-title-bold">Entendimento</div>
+          </div>
+          <div class="step-desc-text">Diagnóstico do seu modelo de negócio, persona, ticket médio e diferencial competitivo.</div>
         </div>
-        <div class="feature-box">
-          <span class="tag">Etapa 03 e 04</span>
-          <h4>Engenharia & Validação</h4>
-          <p>Desenvolvimento em código puro de ponta, testes em dezenas de celulares e otimização Core Web Vitals.</p>
+
+        <div class="step-card-row">
+          <div class="step-badge-col">
+            <span class="step-num">Etapa 02</span>
+            <div class="step-title-bold">Pesquisa & Estratégia</div>
+          </div>
+          <div class="step-desc-text">Benchmarking de mercado, definição da mensagem central e quebra das objeções do cliente.</div>
+        </div>
+
+        <div class="step-card-row">
+          <div class="step-badge-col">
+            <span class="step-num">Etapa 03</span>
+            <div class="step-title-bold">Desenho & Visual</div>
+          </div>
+          <div class="step-desc-text">Estruturação dos wireframes, hierarquia visual, paleta de cores e tipografia de autoridade.</div>
+        </div>
+
+        <div class="step-card-row">
+          <div class="step-badge-col">
+            <span class="step-num">Etapa 04</span>
+            <div class="step-title-bold">Engenharia & Código</div>
+          </div>
+          <div class="step-desc-text">Desenvolvimento puro em Next.js/React, integrações de WhatsApp/CRM e banco de dados.</div>
+        </div>
+
+        <div class="step-card-row" style="border-color: rgba(200, 245, 66, 0.4);">
+          <div class="step-badge-col">
+            <span class="step-num" style="color: #C8F542;">Etapa 05</span>
+            <div class="step-title-bold" style="color: #C8F542;">Testes & Lançamento</div>
+          </div>
+          <div class="step-desc-text">Validação em múltiplos aparelhos, deploy em nuvem com SSL e acompanhamento dos primeiros leads.</div>
         </div>
       </div>
     </div>
@@ -468,86 +557,109 @@
     <div class="card-footer">
       <div class="footer-left">
         <div class="footer-dot"></div>
-        <span>Esteira Ágil de 15 a 30 dias</span>
+        <span>Ciclo de Vida Transparente · Sem Surpresas</span>
       </div>
       <div class="swipe-hint">Deslize →</div>
     </div>
   </div>
 
-  <!-- CARD 6: DIFERENCIAIS TÉCNICOS -->
+  <!-- CARD 6: DIFERENCIAIS DE TECNOLOGIA -->
   <div class="card" id="card-6">
     <div class="glow-top-right"></div>
     <div class="card-header">
       <div class="logo-container">
         <span class="brand-name">ARKOS</span>
-        <span class="brand-sub">Diferenciais</span>
+        <span class="brand-sub">Tecnologia</span>
       </div>
       <div class="slide-number">06 / 08</div>
     </div>
 
     <div class="card-content">
-      <div class="kicker">O Padrão de Qualidade</div>
-      <h2 class="title-large" style="font-size: 52px;">
-        O que está por trás da <span>infraestrutura ARKOS</span>?
+      <div class="kicker">Rigor Técnico</div>
+      <h2 class="title-large" style="font-size: 50px;">
+        Por que não usamos <span>templates prontos</span>?
       </h2>
+      <p class="subtitle" style="font-size: 19px; margin-bottom: 20px;">
+        Plataformas genéricas acumulam dezenas de plugins que deixam o site pesado e vulnerável. Construímos software sob medida.
+      </p>
 
-      <div class="features-grid" style="grid-template-columns: 1fr 1fr 1fr; margin-top: 30px;">
-        <div class="feature-box">
-          <span class="tag">01 · Velocidade</span>
-          <h4 style="font-size: 20px;">Carregamento Instantâneo</h4>
-          <p style="font-size: 13px;">Nota máxima no Google PageSpeed para reduzir custo de anúncio.</p>
+      <div class="image-preview-card" style="height: 380px;">
+        <img src="../../public/assets/software_architecture.jpg" alt="Software Architecture" />
+        <div class="image-caption">
+          <span>STACK: NEXT.JS 16 · TURBOPACK · SUPABASE · VERCEL</span>
+          <span style="color: #C8F542;">100% AUDITÁVEL</span>
         </div>
-        <div class="feature-box">
-          <span class="tag">02 · Conversão</span>
-          <h4 style="font-size: 20px;">Psicologia de Compra</h4>
-          <p style="font-size: 13px;">Quebra de objeções e posicionamento para aumentar ticket médio.</p>
-        </div>
-        <div class="feature-box">
-          <span class="tag">03 · Dados</span>
-          <h4 style="font-size: 20px;">Métricas Reais</h4>
-          <p style="font-size: 13px;">Rastreamento preciso de cliques e formulários no seu WhatsApp.</p>
-        </div>
-      </div>
-
-      <div class="image-preview-card" style="height: 260px; margin-top: 20px;">
-        <img src="../../public/assets/data_dashboard.jpg" alt="Data Intelligence" />
       </div>
     </div>
 
     <div class="card-footer">
       <div class="footer-left">
         <div class="footer-dot"></div>
-        <span>Engenharia Robusta · Sem Plugins Instáveis</span>
+        <span>Infraestrutura Moderna e Escalável</span>
       </div>
       <div class="swipe-hint">Deslize →</div>
     </div>
   </div>
 
-  <!-- CARD 7: BRIEFING E DIAGNÓSTICO -->
+  <!-- CARD 7: O BRIEFING GUIADO EM 5 ETAPAS (CORRIGIDO E ALINHADO COM A FERRAMENTA) -->
   <div class="card" id="card-7">
     <div class="glow-bottom-left"></div>
     <div class="card-header">
       <div class="logo-container">
         <span class="brand-name">ARKOS</span>
-        <span class="brand-sub">Diagnóstico</span>
+        <span class="brand-sub">Briefing</span>
       </div>
       <div class="slide-number">07 / 08</div>
     </div>
 
     <div class="card-content">
-      <div class="kicker">Primeiro Passo Estratégico</div>
-      <h2 class="title-large">
-        Comece pelo nosso <span>Briefing Inteligente</span>
+      <div class="kicker">Diagnóstico Guiado na Ferramenta</div>
+      <h2 class="title-large" style="font-size: 46px; margin-bottom: 12px;">
+        Nosso Briefing em <span>5 Etapas Rápidas</span>
       </h2>
-      <p class="subtitle">
-        Desenvolvemos um formulário guiado em 5 etapas para entender seu cliente ideal, suas dores e o formato exato que trará o maior retorno sobre seu investimento.
+      <p class="subtitle" style="font-size: 17px; margin-bottom: 8px;">
+        Acesse a ferramenta online e responda o questionário em 5 minutos para receber o diagnóstico técnico:
       </p>
 
-      <div class="image-preview-card" style="height: 440px;">
-        <img src="../../public/assets/method_wireframing.jpg" alt="Diagnóstico e Planejamento" />
-        <div class="image-caption">
-          <span>DIAGNÓSTICO EM 5 MINUTOS</span>
-          <span style="color: #C8F542;">PROPOSTA PERSONALIZADA</span>
+      <div class="steps-vertical-list">
+        <div class="step-card-row">
+          <div class="step-badge-col">
+            <span class="step-num">Fase 1</span>
+            <div class="step-title-bold">Sua Empresa</div>
+          </div>
+          <div class="step-desc-text">Posicionamento, estágio do negócio e proposta única de valor (UVP).</div>
+        </div>
+
+        <div class="step-card-row">
+          <div class="step-badge-col">
+            <span class="step-num">Fase 2</span>
+            <div class="step-title-bold">Persona & Negócio</div>
+          </div>
+          <div class="step-desc-text">Quem é seu cliente ideal, ticket médio e a maior objeção antes de fechar.</div>
+        </div>
+
+        <div class="step-card-row">
+          <div class="step-badge-col">
+            <span class="step-num">Fase 3</span>
+            <div class="step-title-bold">Estrutura & Conversão</div>
+          </div>
+          <div class="step-desc-text">Formato desejado, ação primária (WhatsApp/Formulário) e recursos técnicos.</div>
+        </div>
+
+        <div class="step-card-row">
+          <div class="step-badge-col">
+            <span class="step-num">Fase 4</span>
+            <div class="step-title-bold">Visual & Anexos</div>
+          </div>
+          <div class="step-desc-text">Sensação da marca, referências visuais e upload de brandbook/logomarca.</div>
+        </div>
+
+        <div class="step-card-row" style="border-color: rgba(200, 245, 66, 0.4);">
+          <div class="step-badge-col">
+            <span class="step-num" style="color: #C8F542;">Fase 5</span>
+            <div class="step-title-bold" style="color: #C8F542;">Prazo & Sucesso</div>
+          </div>
+          <div class="step-desc-text">Faixa de investimento, tomadores de decisão e a meta dos primeiros 30 dias.</div>
         </div>
       </div>
     </div>
@@ -582,11 +694,11 @@
 
     <div class="card-content" style="text-align: center; align-items: center;">
       <div class="kicker" style="justify-content: center;">Próximo Passo</div>
-      <h2 class="title-large" style="font-size: 56px; max-width: 800px;">
+      <h2 class="title-large" style="font-size: 54px; max-width: 820px;">
         Vamos construir a sua <span>nova presença digital</span>?
       </h2>
-      <p class="subtitle" style="max-width: 720px; margin-bottom: 40px;">
-        Fale diretamente com nossa equipe técnica ou preencha o briefing online para receber uma análise completa do seu projeto.
+      <p class="subtitle" style="max-width: 720px; margin-bottom: 36px;">
+        Fale diretamente com nosso diretor técnico ou preencha o briefing online para receber o plano de entrega do seu projeto.
       </p>
 
       <div style="background: #111318; border: 1px solid #272D38; border-radius: 16px; padding: 36px 48px; width: 100%; max-width: 760px; text-align: left;">

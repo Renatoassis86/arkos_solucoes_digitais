@@ -32,7 +32,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 72px 64px 64px;
+      padding: 72px 64px 60px;
       border: 1px solid #1F242D;
     }
 
@@ -108,7 +108,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      margin: 28px 0;
+      margin: 24px 0;
     }
 
     .insta-badge {
@@ -117,7 +117,7 @@
       color: #C8F542;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -133,11 +133,11 @@
 
     .insta-h1 {
       font-family: 'DM Serif Display', serif;
-      font-size: 58px;
+      font-size: 54px;
       line-height: 1.15;
       color: #F4F2ED;
       letter-spacing: -0.02em;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
     .insta-h1 span {
@@ -146,21 +146,60 @@
     }
 
     .insta-desc {
-      font-size: 21px;
+      font-size: 19px;
       color: #8A8F99;
       line-height: 1.55;
       max-width: 900px;
     }
 
+    /* Steps List Component */
+    .insta-steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .insta-step-item {
+      background: #111318;
+      border: 1px solid #272D38;
+      border-radius: 8px;
+      padding: 14px 18px;
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .insta-step-badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: #C8F542;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .insta-step-h4 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      color: #F4F2ED;
+    }
+
+    .insta-step-p {
+      font-size: 13px;
+      color: #8A8F99;
+      line-height: 1.45;
+    }
+
     /* Visual Blocks */
     .image-box {
       width: 100%;
-      height: 480px;
+      height: 420px;
       border-radius: 12px;
       border: 1px solid #272D38;
       overflow: hidden;
       position: relative;
-      margin-top: 24px;
+      margin-top: 20px;
     }
 
     .image-box img {
@@ -173,26 +212,26 @@
     .tag-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-top: 28px;
+      gap: 14px;
+      margin-top: 20px;
     }
 
     .tag-item {
       background: #111318;
       border: 1px solid #272D38;
       border-radius: 10px;
-      padding: 24px 20px;
+      padding: 22px 18px;
     }
 
     .tag-item h4 {
       font-family: 'DM Serif Display', serif;
-      font-size: 22px;
+      font-size: 20px;
       color: #F4F2ED;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .tag-item p {
-      font-size: 14px;
+      font-size: 13px;
       color: #8A8F99;
       line-height: 1.5;
     }
@@ -203,7 +242,7 @@
       justify-content: space-between;
       align-items: center;
       border-top: 1px solid #1F242D;
-      padding-top: 20px;
+      padding-top: 18px;
       position: relative;
       z-index: 10;
       font-family: 'DM Mono', monospace;
@@ -275,7 +314,7 @@
 
     <div class="card-main">
       <div class="insta-badge">O Custo da Lentidão</div>
-      <h2 class="insta-h1" style="font-size: 52px;">
+      <h2 class="insta-h1" style="font-size: 50px;">
         73% dos usuários <span>abandonam sites</span> que demoram mais de 3s.
       </h2>
       <p class="insta-desc">
@@ -284,12 +323,12 @@
 
       <div class="tag-grid">
         <div class="tag-item">
-          <div style="font-family: 'DM Mono', monospace; font-size: 28px; color: #ff6b6b; font-weight: bold; margin-bottom: 8px;">-53%</div>
+          <div style="font-family: 'DM Mono', monospace; font-size: 26px; color: #ff6b6b; font-weight: bold; margin-bottom: 6px;">-53%</div>
           <h4>Perda de Conversão</h4>
           <p>A cada segundo extra de espera no celular, mais da metade dos visitantes desiste.</p>
         </div>
         <div class="tag-item">
-          <div style="font-family: 'DM Mono', monospace; font-size: 28px; color: #C8F542; font-weight: bold; margin-bottom: 8px;">100/100</div>
+          <div style="font-family: 'DM Mono', monospace; font-size: 26px; color: #C8F542; font-weight: bold; margin-bottom: 6px;">100/100</div>
           <h4>Padrão ARKOS</h4>
           <p>Otimização máxima de código Next.js para abrir instantaneamente no 4G/5G.</p>
         </div>
@@ -302,7 +341,7 @@
     </div>
   </div>
 
-  <!-- INSTA 3: SOLUÇÕES OFERECIDAS -->
+  <!-- INSTA 3: AS 4 FRENTES OFICIAIS -->
   <div class="card" id="card-3">
     <div class="glow-bottom"></div>
 
@@ -316,36 +355,36 @@
 
     <div class="card-main">
       <div class="insta-badge">Soluções Sob Medida</div>
-      <h2 class="insta-h1" style="font-size: 50px;">
-        Construímos a <span>solução exata</span> para o seu momento.
+      <h2 class="insta-h1" style="font-size: 48px;">
+        As 4 Frentes de <span>Soluções Digitais</span>
       </h2>
 
       <div class="tag-grid" style="grid-template-columns: 1fr 1fr; gap: 14px;">
         <div class="tag-item" style="padding: 18px;">
-          <span style="font-family: 'DM Mono', monospace; color: #C8F542; font-size: 11px;">01 · EXPRESS</span>
-          <h4 style="font-size: 18px; margin: 4px 0 6px;">Landing Pages</h4>
-          <p style="font-size: 12px;">Páginas diretas e persuasivas para campanhas e vendas rápidas.</p>
+          <span style="font-family: 'DM Mono', monospace; color: #C8F542; font-size: 11px;">01 · SITES & PÁGINAS</span>
+          <h4 style="font-size: 18px; margin: 4px 0 6px;">Alta Conversão</h4>
+          <p style="font-size: 12px;">Landing pages e institucionais com carregamento instantâneo.</p>
         </div>
         <div class="tag-item" style="padding: 18px;">
-          <span style="font-family: 'DM Mono', monospace; color: #C8F542; font-size: 11px;">02 · AUTORIDADE</span>
-          <h4 style="font-size: 18px; margin: 4px 0 6px;">Sites Institucionais</h4>
-          <p style="font-size: 12px;">Para clínicas e empresas que precisam transmitir valor e confiança.</p>
+          <span style="font-family: 'DM Mono', monospace; color: #C8F542; font-size: 11px;">02 · VENDAS & CAPTAÇÃO</span>
+          <h4 style="font-size: 18px; margin: 4px 0 6px;">Tecnologia Comercial</h4>
+          <p style="font-size: 12px;">Formulários de triagem e botão de WhatsApp integrado.</p>
         </div>
         <div class="tag-item" style="padding: 18px;">
-          <span style="font-family: 'DM Mono', monospace; color: #C8F542; font-size: 11px;">03 · VENDAS</span>
-          <h4 style="font-size: 18px; margin: 4px 0 6px;">Lojas & Catálogos</h4>
-          <p style="font-size: 12px;">Catálogos de produtos com pedidos via Pix e WhatsApp.</p>
+          <span style="font-family: 'DM Mono', monospace; color: #C8F542; font-size: 11px;">03 · SISTEMAS WEB</span>
+          <h4 style="font-size: 18px; margin: 4px 0 6px;">Portais & Plataformas</h4>
+          <p style="font-size: 12px;">Áreas restritas e sistemas sob medida para operações.</p>
         </div>
         <div class="tag-item" style="padding: 18px;">
-          <span style="font-family: 'DM Mono', monospace; color: #C8F542; font-size: 11px;">04 · ESCALA</span>
-          <h4 style="font-size: 18px; margin: 4px 0 6px;">Portais & Sistemas</h4>
-          <p style="font-size: 12px;">Plataformas web sob medida para automação de processos.</p>
+          <span style="font-family: 'DM Mono', monospace; color: #C8F542; font-size: 11px;">04 · DADOS & APOIO</span>
+          <h4 style="font-size: 18px; margin: 4px 0 6px;">Consultoria Técnica</h4>
+          <p style="font-size: 12px;">Automação de processos e suporte técnico contínuo.</p>
         </div>
       </div>
     </div>
 
     <div class="card-footer">
-      <span>Sob Medida para o Seu Negócio</span>
+      <span>Catálogo Oficial de Soluções</span>
       <div class="arrow-swipe">Arraste →</div>
     </div>
   </div>
@@ -364,7 +403,7 @@
 
     <div class="card-main">
       <div class="insta-badge">Mobile First Real</div>
-      <h2 class="insta-h1" style="font-size: 52px;">
+      <h2 class="insta-h1" style="font-size: 50px;">
         Feito para o <span>polegar do seu cliente</span>.
       </h2>
       <p class="insta-desc">
@@ -382,7 +421,7 @@
     </div>
   </div>
 
-  <!-- INSTA 5: O BRIEFING GUIADO -->
+  <!-- INSTA 5: O BRIEFING GUIADO EM 5 ETAPAS (CORRIGIDO) -->
   <div class="card" id="card-5">
     <div class="glow-bottom"></div>
 
@@ -395,21 +434,40 @@
     </div>
 
     <div class="card-main">
-      <div class="insta-badge">Diagnóstico Gratuito</div>
-      <h2 class="insta-h1" style="font-size: 52px;">
-        Como funciona a <span>primeira etapa</span>?
+      <div class="insta-badge">Diagnóstico em 5 Etapas</div>
+      <h2 class="insta-h1" style="font-size: 44px; margin-bottom: 12px;">
+        Como funciona o <span>nosso Briefing</span>?
       </h2>
-      <p class="insta-desc">
-        Criamos um Briefing inteligente em 5 etapas para entender seu público, suas metas e definir o melhor investimento com total transparência.
+      <p class="insta-desc" style="font-size: 16px; margin-bottom: 8px;">
+        Em 5 minutos na ferramenta online, você mapeia a estratégia completa:
       </p>
 
-      <div class="image-box" style="height: 420px;">
-        <img src="../../public/assets/method_wireframing.jpg" alt="Briefing e Wireframing" />
+      <div class="insta-steps-list">
+        <div class="insta-step-item">
+          <span class="insta-step-badge">1. Empresa</span>
+          <div class="insta-step-p">Posicionamento, estágio e diferencial competitivo.</div>
+        </div>
+        <div class="insta-step-item">
+          <span class="insta-step-badge">2. Persona</span>
+          <div class="insta-step-p">Cliente ideal, ticket médio e maior objeção de compra.</div>
+        </div>
+        <div class="insta-step-item">
+          <span class="insta-step-badge">3. Conversão</span>
+          <div class="insta-step-p">Formato do site, ação principal (CTA) e recursos.</div>
+        </div>
+        <div class="insta-step-item">
+          <span class="insta-step-badge">4. Visual</span>
+          <div class="insta-step-p">Sensação da marca, referências e upload de arquivos.</div>
+        </div>
+        <div class="insta-step-item" style="border-color: rgba(200, 245, 66, 0.4);">
+          <span class="insta-step-badge" style="color: #C8F542;">5. Sucesso</span>
+          <div class="insta-step-p">Prazo, faixa de investimento e meta dos 30 dias.</div>
+        </div>
       </div>
     </div>
 
     <div class="card-footer">
-      <span>Diagnóstico em 5 Minutos</span>
+      <span>studio.arkosintelligence.com/briefing</span>
       <div class="arrow-swipe">Último slide →</div>
     </div>
   </div>
@@ -435,17 +493,17 @@
 
     <div class="card-main" style="text-align: center; align-items: center;">
       <div class="insta-badge" style="justify-content: center;">Transforme sua Presença</div>
-      <h2 class="insta-h1" style="font-size: 52px; max-width: 800px;">
+      <h2 class="insta-h1" style="font-size: 50px; max-width: 800px;">
         Pronto para ter um <span>site profissional</span> de verdade?
       </h2>
-      <p class="insta-desc" style="max-width: 680px; margin-bottom: 32px;">
+      <p class="insta-desc" style="max-width: 680px; margin-bottom: 28px;">
         Acesse o link na nossa bio para responder o briefing de diagnóstico ou fale diretamente com nosso time no WhatsApp.
       </p>
 
       <div style="background: #111318; border: 1px solid #272D38; border-radius: 14px; padding: 28px 36px; width: 100%; max-width: 680px; text-align: left;">
         <div style="font-family: 'DM Mono', monospace; font-size: 11px; color: #C8F542; text-transform: uppercase; margin-bottom: 8px;">Atendimento Especializado:</div>
         <div style="font-family: 'DM Serif Display', serif; font-size: 24px; color: #F4F2ED; margin-bottom: 4px;">Renato Silva de Assis</div>
-        <div style="font-size: 13px; color: #8A8F99; margin-bottom: 14px;">ARKOS Soluções Digitais</div>
+        <div style="font-size: 13px; color: #8A8F99; margin-bottom: 14px;">Diretor de Tecnologia & Soluções Digitais · ARKOS</div>
         <div style="font-family: 'DM Mono', monospace; font-size: 13px; color: #C8F542; display: flex; flex-direction: column; gap: 6px;">
           <div>💬 WhatsApp: (83) 98195-7737</div>
           <div>🌐 Link na Bio: studio.arkosintelligence.com</div>

@@ -21,7 +21,7 @@ Na ARKOS Soluções Digitais, tratamos o desenvolvimento web como engenharia de 
 3. Rastreamento e Captação Direta — formulários inteligentes com triagem automática e botão de WhatsApp integrado ao seu CRM ou equipe comercial.
 4. Plataformas e Sistemas Sob Medida — quando planilhas não dão conta, desenvolvemos portais de clientes, esteiras operacionais e bancos de dados seguros na nuvem.
 
-Estruturamos nosso processo em 5 etapas claras (Diagnóstico, Wireframing, Engenharia, Validação Mobile e Lançamento) com prazos transparentes e garantia total de funcionamento.
+Estruturamos nosso processo em 5 etapas claras de engenharia (Entendimento, Pesquisa & Estratégia, Desenho & Visual, Engenharia & Código, Testes & Lançamento) com prazos transparentes e garantia total de funcionamento.
 
 Se a sua empresa precisa modernizar a presença digital ou lançar uma nova solução no mercado, conheça nosso diagnóstico de projeto:
 
@@ -38,13 +38,18 @@ studio.arkosintelligence.com
 
 ---
 
-## Conteúdo de cada lâmina do Carrossel
+## Conteúdo de cada lâmina do Carrossel (Revisado & Coerente com a Ferramenta)
 
 * **Lâmina 1 · Capa**: *"O seu site é um cartão esquecido ou uma máquina de clientes?"* — Logo oficial da ARKOS, fotografia de engenharia de software e posicionamento de estúdio.
 * **Lâmina 2 · O Diagnóstico**: *"O que separa um site amador de um ativo que fatura?"* — Comparativo lado a lado entre o site convencional lento e o padrão ARKOS de alta performance.
-* **Lâmina 3 · Pilar 1 (Sites & Páginas)**: *"Sites & Landing Pages de Alta Conversão"* — Foco em clínicas, consultorias e empresas B2B que precisam transmitir autoridade nos primeiros 3 segundos.
-* **Lâmina 4 · Pilar 2 (Sistemas & Dados)**: *"Sistemas Web, Portais e Automação de Dados"* — Infraestrutura em nuvem, bancos de dados PostgreSQL e portais sob medida.
-* **Lâmina 5 · O Método dos 5 Estágios**: *"Entrega transparente em 5 etapas claras"* — Previsibilidade de cronograma, sprints de 15 a 30 dias e transparência de escopo.
-* **Lâmina 6 · Padrão de Qualidade**: *"O que está por trás da infraestrutura ARKOS?"* — Velocidade extrema, psicologia de compra e métricas reais de conversão.
-* **Lâmina 7 · Diagnóstico Estratégico**: *"Comece pelo nosso Briefing Inteligente"* — Questionário modular de diagnóstico técnico para modelagem da proposta personalizada.
+* **Lâmina 3 · As 4 Frentes de Solução**: *"As 4 Frentes de Soluções Digitais"* — Sites & Páginas, Tecnologia de Vendas & Captação, Sistemas e Plataformas Sob Medida, Organização de Dados & Apoio.
+* **Lâmina 4 · Mobile First Real**: *"Mobile First Real: Zero Balanço Lateral"* — Viewport 100% travado, toques confortáveis no polegar e sem folgas horizontais.
+* **Lâmina 5 · O Método em 5 Etapas Claras**: *"O Método de Entrega em 5 Etapas Claras"* — Todas as 5 etapas listadas individualmente:
+  1. *Etapa 01: Entendimento* (Diagnóstico, persona e UVP)
+  2. *Etapa 02: Pesquisa & Estratégia* (Benchmarking e mensagem central)
+  3. *Etapa 03: Desenho & Visual* (Wireframes e tipografia)
+  4. *Etapa 04: Engenharia & Código* (Next.js puro e integrações)
+  5. *Etapa 05: Testes & Lançamento* (Deploy seguro e acompanhamento)
+* **Lâmina 6 · Rigor Técnico**: *"Por que não usamos templates prontos?"* — Stack Next.js 16, Turbopack, Supabase e Vercel sem plugins lentos.
+* **Lâmina 7 · O Briefing Guiado em 5 Etapas**: *"Nosso Briefing em 5 Etapas Rápidas"* — Mapeamento idêntico à ferramenta online (Sua Empresa, Persona & Negócio, Estrutura & Conversão, Visual & Anexos, Prazo & Sucesso).
 * **Lâmina 8 · Fechamento & CTA**: *"Vamos construir a sua nova presença digital?"* — Assinatura executiva de Renato Silva de Assis, dados diretos de WhatsApp, e-mail e site oficial.
