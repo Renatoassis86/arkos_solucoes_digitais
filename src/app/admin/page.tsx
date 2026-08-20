@@ -11,23 +11,35 @@ interface Briefing {
   cargo_solicitante: string;
   empresa_nome: string;
   ramo_atuacao: string;
+  estagio_empresa?: string;
+  diferencial_competitivo?: string;
   email_contato: string;
   telefone_whatsapp: string;
   cidade_estado: string;
   website_atual?: string;
   o_que_sua_empresa_faz: string;
   como_sua_empresa_ganha_dinheiro: string;
+  ticket_medio?: string;
   quem_e_seu_cliente_ideal: string;
   principal_dor_do_seu_cliente?: string;
+  maior_objecao_ou_duvida_cliente?: string;
+  conquistas_e_provas_de_autoridade?: string;
+  como_clientes_te_encontram_hoje?: string;
   formato_do_site: string;
   numero_estimado_paginas: string;
   acao_principal_desejada: string;
+  acao_secundaria_desejada?: string;
   recursos_desejados: string[];
+  integracoes_sistemas_externos?: string;
   ja_possui_logomarca_ou_brandbook: string;
   estilo_visual_preferido: string;
+  sensacao_desejada_marca?: string;
   links_de_sites_que_voce_gosta?: string;
+  o_que_voce_nao_quer_no_site?: string;
   prazo_desejado: string;
   faixa_investimento: string;
+  quem_aprova_o_projeto?: string;
+  criterio_de_sucesso_30_dias?: string;
   observacoes_finais?: string;
   arquivos_anexos?: string[];
   status: "novo" | "em_analise" | "proposta_enviada" | "aprovado" | "concluido";
@@ -107,27 +119,18 @@ export default function AdminDashboardPage() {
     }
   };
 
-  // Segmentos disponíveis
-  const segments = [
-    { id: "todos", label: "Todos os Segmentos" },
-    { id: "Saúde e Clínicas", label: "Saúde e Clínicas" },
-    { id: "B2B e Corporativo", label: "B2B e Corporativo" },
-    { id: "E-commerce e Varejo", label: "E-commerce e Varejo" },
-    { id: "Direito e Advocacia", label: "Direito e Advocacia" },
-    { id: "Imobiliário e Construção", label: "Imobiliário e Construção" },
-    { id: "Serviços e Outros", label: "Serviços e Outros" }
-  ];
-
-  // Filtros aplicados
+  // Filtragem Inteligente
   const filteredBriefings = briefings.filter((b) => {
     const matchSegment = selectedSegment === "todos" || b.segmento === selectedSegment;
     const matchBudget = selectedBudget === "todos" || b.faixa_investimento === selectedBudget;
+    const searchLower = searchTerm.toLowerCase();
     const matchSearch =
       searchTerm === "" ||
-      b.empresa_nome?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      b.nome_solicitante?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      b.email_contato?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      b.ramo_atuacao?.toLowerCase().includes(searchTerm.toLowerCase());
+      b.empresa_nome.toLowerCase().includes(searchLower) ||
+      b.nome_solicitante.toLowerCase().includes(searchLower) ||
+      b.email_contato.toLowerCase().includes(searchLower) ||
+      b.ramo_atuacao.toLowerCase().includes(searchLower);
+
     return matchSegment && matchBudget && matchSearch;
   });
 
@@ -135,36 +138,21 @@ export default function AdminDashboardPage() {
   const totalBriefings = briefings.length;
   const novosCount = briefings.filter((b) => b.status === "novo").length;
   const emAnaliseCount = briefings.filter((b) => b.status === "em_analise").length;
+  const propostasCount = briefings.filter((b) => b.status === "proposta_enviada" || b.status === "aprovado").length;
 
-  const budgetLabel = (faixa: string) => {
-    switch (faixa) {
-      case "600_a_1500": return "R$ 600 - R$ 1.500 (Express)";
-      case "1500_a_3000": return "R$ 1.500 - R$ 3.000 (Institucional)";
-      case "3000_a_6000": return "R$ 3.000 - R$ 6.000 (Avançado)";
-      case "6000_a_15000": return "R$ 6.000 - R$ 15.000 (Plataforma)";
-      case "acima_15000": return "R$ 15.000+ (Ecossistema)";
-      default: return faixa;
-    }
-  };
-
-  const statusBadge = (st: string) => {
-    switch (st) {
-      case "novo":
-        return <span style={{ background: "rgba(200, 245, 66, 0.15)", color: "var(--sinal)", border: "1px solid var(--sinal)", padding: "3px 8px", borderRadius: "12px", fontSize: "10px", fontFamily: "var(--font-mono)", textTransform: "uppercase" }}>Novo Briefing</span>;
-      case "em_analise":
-        return <span style={{ background: "rgba(255, 193, 7, 0.15)", color: "#ffc107", border: "1px solid #ffc107", padding: "3px 8px", borderRadius: "12px", fontSize: "10px", fontFamily: "var(--font-mono)", textTransform: "uppercase" }}>Em Análise</span>;
-      case "proposta_enviada":
-        return <span style={{ background: "rgba(66, 153, 225, 0.15)", color: "#63b3ed", border: "1px solid #63b3ed", padding: "3px 8px", borderRadius: "12px", fontSize: "10px", fontFamily: "var(--font-mono)", textTransform: "uppercase" }}>Proposta Enviada</span>;
-      case "aprovado":
-        return <span style={{ background: "rgba(72, 187, 120, 0.15)", color: "#48bb78", border: "1px solid #48bb78", padding: "3px 8px", borderRadius: "12px", fontSize: "10px", fontFamily: "var(--font-mono)", textTransform: "uppercase" }}>Aprovado</span>;
-      default:
-        return <span style={{ background: "var(--ardosia)", color: "var(--text-secondary)", padding: "3px 8px", borderRadius: "12px", fontSize: "10px", fontFamily: "var(--font-mono)" }}>{st}</span>;
-    }
+  const segmentCounts: Record<string, number> = {
+    todos: briefings.length,
+    "Saúde e Clínicas": briefings.filter((b) => b.segmento === "Saúde e Clínicas").length,
+    "B2B e Corporativo": briefings.filter((b) => b.segmento === "B2B e Corporativo").length,
+    "E-commerce e Varejo": briefings.filter((b) => b.segmento === "E-commerce e Varejo").length,
+    "Direito e Advocacia": briefings.filter((b) => b.segmento === "Direito e Advocacia").length,
+    "Imobiliário e Construção": briefings.filter((b) => b.segmento === "Imobiliário e Construção").length,
+    "Serviços e Outros": briefings.filter((b) => b.segmento === "Serviços e Outros").length,
   };
 
   return (
-    <div style={{ minHeight: "100vh", background: "var(--obsidiana)", color: "var(--text-primary)", display: "flex", flexDirection: "column" }}>
-      {/* Topo do Gestor */}
+    <div style={{ minHeight: "100vh", background: "var(--obsidiana)", color: "var(--text-primary)", paddingBottom: "60px" }}>
+      {/* Header do Painel do Gestor */}
       <header style={{
         background: "var(--grafite)",
         borderBottom: "1px solid var(--border)",
@@ -175,43 +163,42 @@ export default function AdminDashboardPage() {
         flexWrap: "wrap",
         gap: "16px"
       }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
           <Link href="/" style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-            <svg width="24" height="24" viewBox="0 0 200 200" fill="none">
-              <line x1="30" y1="190" x2="100" y2="20" stroke="#F4F2ED" strokeWidth="16" strokeLinecap="round"/>
-              <line x1="100" y1="20" x2="170" y2="190" stroke="#F4F2ED" strokeWidth="16" strokeLinecap="round"/>
-              <line x1="52" y1="130" x2="148" y2="130" stroke="#C8F542" strokeWidth="12" strokeLinecap="round"/>
-              <circle cx="100" cy="20" r="10" fill="#C8F542"/>
-            </svg>
-            <span style={{ fontFamily: "var(--font-display)", fontSize: "18px", fontWeight: "bold" }}>
+            <span style={{
+              width: "12px",
+              height: "12px",
+              background: "var(--sinal)",
+              borderRadius: "2px",
+              display: "inline-block"
+            }} />
+            <span style={{ fontFamily: "var(--font-display)", fontSize: "20px", fontWeight: 700, letterSpacing: "-0.02em" }}>
               ARKOS
             </span>
           </Link>
-          <div style={{ height: "18px", width: "1px", background: "var(--border)" }} />
-          <span style={{ fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--sinal)", letterSpacing: "0.06em", textTransform: "uppercase" }}>
-            Painel do Gestor
-          </span>
+          <div style={{
+            background: "var(--ardosia)",
+            padding: "4px 10px",
+            borderRadius: "4px",
+            fontSize: "11px",
+            fontFamily: "var(--font-mono)",
+            color: "var(--sinal)"
+          }}>
+            GESTOR HUB • renato086@gmail.com
+          </div>
         </div>
 
-        <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-          <div style={{ textAlign: "right" }}>
-            <div style={{ fontSize: "13px", fontWeight: 600, color: "var(--text-primary)" }}>
-              Renato Assis
-            </div>
-            <div style={{ fontSize: "11px", color: "var(--text-secondary)", fontFamily: "var(--font-mono)" }}>
-              renato086@gmail.com
-            </div>
-          </div>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           <button
             onClick={loadBriefings}
             style={{
               background: "var(--ardosia)",
               border: "1px solid var(--border)",
               color: "var(--text-primary)",
-              padding: "8px 12px",
+              padding: "8px 14px",
               borderRadius: "4px",
+              fontSize: "12px",
               fontFamily: "var(--font-mono)",
-              fontSize: "11px",
               cursor: "pointer"
             }}
           >
@@ -221,12 +208,12 @@ export default function AdminDashboardPage() {
             onClick={handleLogout}
             style={{
               background: "transparent",
-              border: "1px solid #ff6b6b",
-              color: "#ff6b6b",
-              padding: "8px 12px",
+              border: "1px solid var(--border)",
+              color: "var(--text-secondary)",
+              padding: "8px 14px",
               borderRadius: "4px",
+              fontSize: "12px",
               fontFamily: "var(--font-mono)",
-              fontSize: "11px",
               cursor: "pointer"
             }}
           >
@@ -235,196 +222,196 @@ export default function AdminDashboardPage() {
         </div>
       </header>
 
-      {/* Conteúdo Principal do Dashboard */}
-      <main style={{ flex: 1, maxWidth: "1300px", margin: "0 auto", padding: "28px 20px", width: "100%" }}>
-        {/* Bloco de Métricas do Gestor */}
+      {/* Conteúdo Principal */}
+      <main style={{ maxWidth: "1240px", margin: "0 auto", padding: "32px 20px" }}>
+        
+        {/* Bloco de Métricas Rápidas */}
         <div style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
           gap: "16px",
           marginBottom: "28px"
         }}>
-          <div style={{ background: "var(--grafite)", border: "1px solid var(--border)", borderRadius: "8px", padding: "20px" }}>
-            <div style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-secondary)", textTransform: "uppercase" }}>
-              Total de Briefings
-            </div>
-            <div style={{ fontSize: "32px", fontFamily: "var(--font-display)", fontWeight: "bold", color: "var(--text-primary)", marginTop: "4px" }}>
-              {totalBriefings}
-            </div>
-            <div style={{ fontSize: "12px", color: "var(--text-secondary)", marginTop: "4px" }}>
-              Respostas acumuladas
-            </div>
+          <div style={{ background: "var(--grafite)", border: "1px solid var(--border)", padding: "20px", borderRadius: "8px" }}>
+            <div style={{ fontSize: "11px", fontFamily: "var(--font-mono)", color: "var(--text-secondary)", textTransform: "uppercase" }}>Total de Briefings</div>
+            <div style={{ fontSize: "32px", fontFamily: "var(--font-display)", color: "var(--text-primary)", marginTop: "4px" }}>{totalBriefings}</div>
           </div>
-
-          <div style={{ background: "var(--grafite)", border: "1px solid rgba(200, 245, 66, 0.4)", borderRadius: "8px", padding: "20px" }}>
-            <div style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--sinal)", textTransform: "uppercase" }}>
-              Novos / Aguardando Contato
-            </div>
-            <div style={{ fontSize: "32px", fontFamily: "var(--font-display)", fontWeight: "bold", color: "var(--sinal)", marginTop: "4px" }}>
-              {novosCount}
-            </div>
-            <div style={{ fontSize: "12px", color: "var(--text-secondary)", marginTop: "4px" }}>
-              Prioridade de resposta imediata
-            </div>
+          <div style={{ background: "var(--grafite)", border: "1px solid var(--border)", padding: "20px", borderRadius: "8px" }}>
+            <div style={{ fontSize: "11px", fontFamily: "var(--font-mono)", color: "var(--sinal)", textTransform: "uppercase" }}>● Novos / Não Lidos</div>
+            <div style={{ fontSize: "32px", fontFamily: "var(--font-display)", color: "var(--sinal)", marginTop: "4px" }}>{novosCount}</div>
           </div>
-
-          <div style={{ background: "var(--grafite)", border: "1px solid var(--border)", borderRadius: "8px", padding: "20px" }}>
-            <div style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "#ffc107", textTransform: "uppercase" }}>
-              Em Análise / Proposta
-            </div>
-            <div style={{ fontSize: "32px", fontFamily: "var(--font-display)", fontWeight: "bold", color: "#ffc107", marginTop: "4px" }}>
-              {emAnaliseCount}
-            </div>
-            <div style={{ fontSize: "12px", color: "var(--text-secondary)", marginTop: "4px" }}>
-              Propostas em elaboração
-            </div>
+          <div style={{ background: "var(--grafite)", border: "1px solid var(--border)", padding: "20px", borderRadius: "8px" }}>
+            <div style={{ fontSize: "11px", fontFamily: "var(--font-mono)", color: "#eab308", textTransform: "uppercase" }}>● Em Análise Técnica</div>
+            <div style={{ fontSize: "32px", fontFamily: "var(--font-display)", color: "#eab308", marginTop: "4px" }}>{emAnaliseCount}</div>
           </div>
-
-          <div style={{ background: "var(--grafite)", border: "1px solid var(--border)", borderRadius: "8px", padding: "20px" }}>
-            <div style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-secondary)", textTransform: "uppercase" }}>
-              Canal de Contato Rápido
-            </div>
-            <div style={{ fontSize: "14px", fontWeight: 600, color: "var(--text-primary)", marginTop: "8px" }}>
-              WhatsApp Direto Ativo
-            </div>
-            <div style={{ fontSize: "12px", color: "var(--text-secondary)", marginTop: "4px" }}>
-              Disparo de proposta com 1 clique
-            </div>
+          <div style={{ background: "var(--grafite)", border: "1px solid var(--border)", padding: "20px", borderRadius: "8px" }}>
+            <div style={{ fontSize: "11px", fontFamily: "var(--font-mono)", color: "#38bdf8", textTransform: "uppercase" }}>● Propostas Enviadas</div>
+            <div style={{ fontSize: "32px", fontFamily: "var(--font-display)", color: "#38bdf8", marginTop: "4px" }}>{propostasCount}</div>
           </div>
         </div>
 
-        {/* Barra de Segmentação e Filtros de Clientes */}
+        {/* Abas de Segmentação de Clientes */}
+        <div style={{ marginBottom: "20px" }}>
+          <div style={{ fontSize: "12px", fontFamily: "var(--font-mono)", color: "var(--text-secondary)", textTransform: "uppercase", marginBottom: "8px" }}>
+            Segmentação por Nicho de Cliente:
+          </div>
+          <div style={{ display: "flex", gap: "8px", overflowX: "auto", paddingBottom: "6px" }}>
+            {[
+              "todos",
+              "Saúde e Clínicas",
+              "B2B e Corporativo",
+              "E-commerce e Varejo",
+              "Direito e Advocacia",
+              "Imobiliário e Construção",
+              "Serviços e Outros"
+            ].map((seg) => {
+              const isSelected = selectedSegment === seg;
+              const count = segmentCounts[seg] || 0;
+              return (
+                <button
+                  key={seg}
+                  onClick={() => setSelectedSegment(seg)}
+                  style={{
+                    background: isSelected ? "var(--sinal)" : "var(--grafite)",
+                    color: isSelected ? "var(--obsidiana)" : "var(--text-primary)",
+                    border: isSelected ? "1px solid var(--sinal)" : "1px solid var(--border)",
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "12px",
+                    fontWeight: isSelected ? 700 : 500,
+                    padding: "8px 16px",
+                    borderRadius: "20px",
+                    cursor: "pointer",
+                    whiteSpace: "nowrap",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "6px"
+                  }}
+                >
+                  <span>{seg === "todos" ? "Todos os Segmentos" : seg}</span>
+                  <span style={{
+                    background: isSelected ? "var(--obsidiana)" : "var(--ardosia)",
+                    color: isSelected ? "var(--sinal)" : "var(--text-secondary)",
+                    padding: "1px 6px",
+                    borderRadius: "10px",
+                    fontSize: "10px"
+                  }}>
+                    {count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Barra de Filtros e Busca */}
         <div style={{
           background: "var(--grafite)",
           border: "1px solid var(--border)",
+          padding: "16px",
           borderRadius: "8px",
-          padding: "20px",
-          marginBottom: "24px",
           display: "flex",
-          flexDirection: "column",
-          gap: "16px"
+          gap: "16px",
+          flexWrap: "wrap",
+          alignItems: "center",
+          justifyContent: "space-between",
+          marginBottom: "20px"
         }}>
-          {/* Pílulas de Segmentos por Tipo de Negócio */}
-          <div>
-            <div style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--sinal)", textTransform: "uppercase", marginBottom: "8px" }}>
-              Segmentação por Tipo de Cliente e Mercado
-            </div>
-            <div style={{ display: "flex", gap: "8px", overflowX: "auto", paddingBottom: "4px", scrollbarWidth: "none" }}>
-              {segments.map((seg) => {
-                const count = seg.id === "todos" ? briefings.length : briefings.filter((b) => b.segmento === seg.id).length;
-                return (
-                  <button
-                    key={seg.id}
-                    onClick={() => setSelectedSegment(seg.id)}
-                    style={{
-                      background: selectedSegment === seg.id ? "var(--sinal)" : "var(--ardosia)",
-                      color: selectedSegment === seg.id ? "var(--obsidiana)" : "var(--text-primary)",
-                      border: "1px solid var(--border)",
-                      padding: "8px 14px",
-                      borderRadius: "20px",
-                      fontFamily: "var(--font-mono)",
-                      fontSize: "11px",
-                      fontWeight: selectedSegment === seg.id ? 700 : 400,
-                      cursor: "pointer",
-                      whiteSpace: "nowrap",
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "6px"
-                    }}
-                  >
-                    <span>{seg.label}</span>
-                    <span style={{
-                      background: selectedSegment === seg.id ? "rgba(0,0,0,0.2)" : "rgba(255,255,255,0.1)",
-                      padding: "1px 6px",
-                      borderRadius: "10px",
-                      fontSize: "10px"
-                    }}>
-                      {count}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
+          <div style={{ flex: 1, minWidth: "260px" }}>
+            <input
+              type="text"
+              placeholder="Buscar por empresa, solicitante, ramo ou e-mail..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              style={{
+                width: "100%",
+                padding: "10px 14px",
+                background: "var(--obsidiana)",
+                border: "1px solid var(--border)",
+                borderRadius: "4px",
+                color: "var(--text-primary)",
+                fontSize: "13px"
+              }}
+            />
           </div>
 
-          {/* Filtro por Faixa de Orçamento e Busca */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "12px" }}>
-            <div>
-              <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "10px", color: "var(--text-secondary)", textTransform: "uppercase", marginBottom: "4px" }}>
-                Filtrar por Faixa de Investimento
-              </label>
-              <select
-                value={selectedBudget}
-                onChange={(e) => setSelectedBudget(e.target.value)}
-                style={{
-                  width: "100%",
-                  padding: "10px 12px",
-                  background: "var(--obsidiana)",
-                  border: "1px solid var(--border)",
-                  borderRadius: "4px",
-                  color: "var(--text-primary)",
-                  fontSize: "13px"
-                }}
-              >
-                <option value="todos">Todos os Orçamentos</option>
-                <option value="600_a_1500">R$ 600 - R$ 1.500 (Express)</option>
-                <option value="1500_a_3000">R$ 1.500 - R$ 3.000 (Institucional)</option>
-                <option value="3000_a_6000">R$ 3.000 - R$ 6.000 (Avançado)</option>
-                <option value="6000_a_15000">R$ 6.000 - R$ 15.000 (Plataforma)</option>
-                <option value="acima_15000">Acima de R$ 15.000 (Ecossistema)</option>
-              </select>
-            </div>
-
-            <div>
-              <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "10px", color: "var(--text-secondary)", textTransform: "uppercase", marginBottom: "4px" }}>
-                Buscar Empresa, Contato ou Termo
-              </label>
-              <input
-                type="text"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Ex: Dra. Camila, Clínica, B2B..."
-                style={{
-                  width: "100%",
-                  padding: "10px 12px",
-                  background: "var(--obsidiana)",
-                  border: "1px solid var(--border)",
-                  borderRadius: "4px",
-                  color: "var(--text-primary)",
-                  fontSize: "13px"
-                }}
-              />
-            </div>
+          <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
+            <span style={{ fontSize: "12px", fontFamily: "var(--font-mono)", color: "var(--text-secondary)" }}>
+              Investimento:
+            </span>
+            <select
+              value={selectedBudget}
+              onChange={(e) => setSelectedBudget(e.target.value)}
+              style={{
+                padding: "10px 14px",
+                background: "var(--obsidiana)",
+                border: "1px solid var(--border)",
+                borderRadius: "4px",
+                color: "var(--text-primary)",
+                fontSize: "13px"
+              }}
+            >
+              <option value="todos">Todos os Valores</option>
+              <option value="600_a_1500">R$ 600 a R$ 1.500</option>
+              <option value="1500_a_3000">R$ 1.500 a R$ 3.000</option>
+              <option value="3000_a_6000">R$ 3.000 a R$ 6.000</option>
+              <option value="6000_a_15000">R$ 6.000 a R$ 15.000</option>
+              <option value="acima_15000">Acima de R$ 15.000</option>
+            </select>
           </div>
         </div>
 
         {/* Lista de Briefings */}
         {loading ? (
-          <div style={{ textAlign: "center", padding: "40px", color: "var(--text-secondary)" }}>
-            Carregando briefings...
+          <div style={{ textAlign: "center", padding: "60px 20px", color: "var(--text-secondary)", fontFamily: "var(--font-mono)" }}>
+            Carregando diagnósticos de clientes...
           </div>
         ) : filteredBriefings.length === 0 ? (
           <div style={{
             background: "var(--grafite)",
-            border: "1px solid var(--border)",
+            border: "1px dashed var(--border)",
             borderRadius: "8px",
             padding: "48px 20px",
             textAlign: "center"
           }}>
-            <div style={{ fontSize: "20px", color: "var(--text-primary)", fontWeight: 600, marginBottom: "6px" }}>
-              Nenhum briefing encontrado com os filtros selecionados.
-            </div>
-            <p style={{ color: "var(--text-secondary)", fontSize: "13px" }}>
-              Tente selecionar outro segmento ou limpar a busca.
+            <div style={{ fontSize: "28px", marginBottom: "8px" }}>📋</div>
+            <h3 style={{ fontSize: "16px", color: "var(--text-primary)" }}>Nenhum briefing encontrado para este filtro</h3>
+            <p style={{ fontSize: "13px", color: "var(--text-secondary)", marginTop: "4px" }}>
+              Tente selecionar &quot;Todos os Segmentos&quot; ou limpar o campo de busca.
             </p>
           </div>
         ) : (
           <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
             {filteredBriefings.map((b) => {
-              const cleanPhone = b.telefone_whatsapp?.replace(/\D/g, "") || "";
-              const whatsappLink = `https://wa.me/55${cleanPhone}?text=${encodeURIComponent(
-                `Olá ${b.nome_solicitante}, tudo bem? Aqui é o Renato da ARKOS Soluções Digitais. Recebi o briefing da ${b.empresa_nome} e já estruturei a análise técnica do seu novo site. Podemos conversar?`
-              )}`;
+              const dateStr = new Date(b.created_at).toLocaleDateString("pt-BR", {
+                day: "2-digit",
+                month: "2-digit",
+                hour: "2-digit",
+                minute: "2-digit"
+              });
+
+              const statusColor =
+                b.status === "novo"
+                  ? "var(--sinal)"
+                  : b.status === "em_analise"
+                  ? "#eab308"
+                  : b.status === "proposta_enviada"
+                  ? "#38bdf8"
+                  : b.status === "aprovado"
+                  ? "#4ade80"
+                  : "var(--text-secondary)";
+
+              const statusLabel =
+                b.status === "novo"
+                  ? "Novo Briefing"
+                  : b.status === "em_analise"
+                  ? "Em Análise"
+                  : b.status === "proposta_enviada"
+                  ? "Proposta Enviada"
+                  : b.status === "aprovado"
+                  ? "Aprovado"
+                  : "Concluído";
+
+              const whatsappDigits = b.telefone_whatsapp.replace(/\D/g, "");
 
               return (
                 <div
@@ -434,106 +421,121 @@ export default function AdminDashboardPage() {
                     border: "1px solid var(--border)",
                     borderRadius: "8px",
                     padding: "20px",
-                    display: "grid",
-                    gridTemplateColumns: "1.2fr 1fr 1fr auto",
-                    gap: "16px",
-                    alignItems: "center"
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "14px"
                   }}
-                  className="admin-briefing-card"
                 >
-                  {/* Coluna 1: Empresa & Solicitante */}
-                  <div>
-                    <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px" }}>
-                      <span style={{ fontSize: "16px", fontWeight: 700, color: "var(--text-primary)" }}>
+                  <div style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "flex-start",
+                    flexWrap: "wrap",
+                    gap: "12px"
+                  }}>
+                    <div>
+                      <div style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap", marginBottom: "4px" }}>
+                        <span style={{
+                          background: "var(--ardosia)",
+                          color: "var(--sinal)",
+                          fontFamily: "var(--font-mono)",
+                          fontSize: "10px",
+                          padding: "2px 8px",
+                          borderRadius: "4px",
+                          fontWeight: 600
+                        }}>
+                          {b.segmento}
+                        </span>
+                        <span style={{ fontSize: "11px", color: "var(--text-secondary)", fontFamily: "var(--font-mono)" }}>
+                          {dateStr}
+                        </span>
+                        <span style={{
+                          fontSize: "11px",
+                          fontFamily: "var(--font-mono)",
+                          color: statusColor,
+                          fontWeight: 600,
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: "4px"
+                        }}>
+                          ● {statusLabel}
+                        </span>
+                      </div>
+
+                      <h3 style={{ fontFamily: "var(--font-display)", fontSize: "19px", color: "var(--text-primary)" }}>
                         {b.empresa_nome}
-                      </span>
-                      {statusBadge(b.status)}
+                      </h3>
+                      <div style={{ fontSize: "13px", color: "var(--text-secondary)", marginTop: "2px" }}>
+                        Solicitante: <strong style={{ color: "var(--text-primary)" }}>{b.nome_solicitante}</strong> ({b.cargo_solicitante}) • {b.cidade_estado}
+                      </div>
                     </div>
-                    <div style={{ fontSize: "13px", color: "var(--text-secondary)" }}>
-                      {b.nome_solicitante} ({b.cargo_solicitante}) · {b.cidade_estado}
-                    </div>
-                    <div style={{
-                      display: "inline-block",
-                      background: "rgba(200, 245, 66, 0.08)",
-                      color: "var(--sinal)",
-                      fontFamily: "var(--font-mono)",
-                      fontSize: "10px",
-                      padding: "2px 6px",
-                      borderRadius: "4px",
-                      marginTop: "6px"
-                    }}>
-                      📁 {b.segmento}
+
+                    {/* Ações Rápidas */}
+                    <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", alignItems: "center" }}>
+                      <a
+                        href={`https://wa.me/55${whatsappDigits}?text=Ol%C3%A1%20${encodeURIComponent(b.nome_solicitante)}%2C%20aqui%20%C3%A9%20o%20Renato%20da%20ARKOS%20Solu%C3%A7%C3%B5es%20Digitais.%20Recebemos%20o%20seu%20briefing%20da%20${encodeURIComponent(b.empresa_nome)}%20e%20gostaria%20de%20conversar%20sobre%20a%20sua%20proposta.`}
+                        target="_blank"
+                        rel="noreferrer"
+                        style={{
+                          background: "#25D366",
+                          color: "#0a0c0f",
+                          fontFamily: "var(--font-mono)",
+                          fontSize: "11px",
+                          fontWeight: 700,
+                          padding: "8px 14px",
+                          borderRadius: "4px",
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: "6px",
+                          textDecoration: "none"
+                        }}
+                      >
+                        💬 WhatsApp ({b.telefone_whatsapp})
+                      </a>
+
+                      <button
+                        onClick={() => setActiveModalBriefing(b)}
+                        style={{
+                          background: "var(--sinal)",
+                          color: "var(--obsidiana)",
+                          border: "none",
+                          fontFamily: "var(--font-mono)",
+                          fontSize: "11px",
+                          fontWeight: 700,
+                          padding: "8px 16px",
+                          borderRadius: "4px",
+                          cursor: "pointer",
+                          textTransform: "uppercase"
+                        }}
+                      >
+                        🔍 Ver Raio-X Completo
+                      </button>
                     </div>
                   </div>
 
-                  {/* Coluna 2: Demanda & Orçamento */}
-                  <div>
-                    <div style={{ fontSize: "11px", color: "var(--text-secondary)", fontFamily: "var(--font-mono)", textTransform: "uppercase" }}>
-                      Investimento Previsto
+                  {/* Resumo Rápido */}
+                  <div style={{
+                    background: "var(--obsidiana)",
+                    padding: "12px 16px",
+                    borderRadius: "6px",
+                    fontSize: "13px",
+                    color: "var(--text-secondary)",
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+                    gap: "12px"
+                  }}>
+                    <div>
+                      <strong style={{ color: "var(--text-primary)" }}>Formato:</strong> {b.formato_do_site.replace(/_/g, " ")}
                     </div>
-                    <div style={{ fontSize: "13px", color: "var(--text-primary)", fontWeight: 600, marginTop: "2px" }}>
-                      {budgetLabel(b.faixa_investimento)}
+                    <div>
+                      <strong style={{ color: "var(--text-primary)" }}>Investimento:</strong> {b.faixa_investimento.replace(/_/g, " ")}
                     </div>
-                    <div style={{ fontSize: "12px", color: "var(--text-secondary)", marginTop: "2px" }}>
-                      Prazo: {b.prazo_desejado}
+                    <div>
+                      <strong style={{ color: "var(--text-primary)" }}>Prazo:</strong> {b.prazo_desejado.replace(/_/g, " ")}
                     </div>
-                  </div>
-
-                  {/* Coluna 3: Anexos e Data */}
-                  <div>
-                    <div style={{ fontSize: "11px", color: "var(--text-secondary)", fontFamily: "var(--font-mono)", textTransform: "uppercase" }}>
-                      Anexos Recebidos
+                    <div>
+                      <strong style={{ color: "var(--text-primary)" }}>Anexos:</strong> {b.arquivos_anexos?.length || 0} arquivo(s)
                     </div>
-                    <div style={{ fontSize: "13px", color: "var(--text-primary)", marginTop: "2px" }}>
-                      {b.arquivos_anexos && b.arquivos_anexos.length > 0 ? (
-                        <span style={{ color: "var(--sinal)" }}>📎 {b.arquivos_anexos.length} arquivos</span>
-                      ) : (
-                        <span style={{ color: "var(--text-secondary)" }}>Nenhum anexo</span>
-                      )}
-                    </div>
-                    <div style={{ fontSize: "11px", color: "var(--text-secondary)", marginTop: "2px" }}>
-                      {new Date(b.created_at).toLocaleDateString("pt-BR")} às {new Date(b.created_at).toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })}
-                    </div>
-                  </div>
-
-                  {/* Coluna 4: Ações Rápidas */}
-                  <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-                    <button
-                      onClick={() => setActiveModalBriefing(b)}
-                      style={{
-                        background: "var(--ardosia)",
-                        border: "1px solid var(--border)",
-                        color: "var(--text-primary)",
-                        padding: "8px 14px",
-                        borderRadius: "4px",
-                        fontSize: "12px",
-                        fontFamily: "var(--font-mono)",
-                        cursor: "pointer"
-                      }}
-                    >
-                      Ver Detalhes
-                    </button>
-
-                    <a
-                      href={whatsappLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        background: "var(--sinal)",
-                        color: "var(--obsidiana)",
-                        fontWeight: 700,
-                        padding: "8px 14px",
-                        borderRadius: "4px",
-                        fontSize: "12px",
-                        fontFamily: "var(--font-mono)",
-                        textTransform: "uppercase",
-                        display: "inline-flex",
-                        alignItems: "center",
-                        gap: "6px"
-                      }}
-                    >
-                      <span>WhatsApp →</span>
-                    </a>
                   </div>
                 </div>
               );
@@ -542,25 +544,25 @@ export default function AdminDashboardPage() {
         )}
       </main>
 
-      {/* Modal / Drawer com Detalhes Completos do Briefing */}
+      {/* Modal de Raio-X do Briefing */}
       {activeModalBriefing && (
         <div style={{
           position: "fixed",
           inset: 0,
-          background: "rgba(0,0,0,0.8)",
-          backdropFilter: "blur(4px)",
+          background: "rgba(0, 0, 0, 0.85)",
+          backdropFilter: "blur(6px)",
+          zIndex: 9999,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          padding: "20px",
-          zIndex: 9999
+          padding: "20px"
         }}>
           <div style={{
             background: "var(--grafite)",
             border: "1px solid var(--border)",
             borderRadius: "8px",
+            maxWidth: "800px",
             width: "100%",
-            maxWidth: "760px",
             maxHeight: "90vh",
             overflowY: "auto",
             padding: "28px",
@@ -569,25 +571,25 @@ export default function AdminDashboardPage() {
             gap: "20px"
           }}>
             {/* Topo do Modal */}
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", borderBottom: "1px solid var(--border)", paddingBottom: "16px" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", borderBottom: "1px solid var(--border)", paddingBottom: "14px" }}>
               <div>
-                <div style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--sinal)", textTransform: "uppercase" }}>
-                  Briefing #{activeModalBriefing.id} · {activeModalBriefing.segmento}
-                </div>
-                <h2 style={{ fontFamily: "var(--font-display)", fontSize: "24px", color: "var(--text-primary)", margin: "4px 0" }}>
+                <span style={{ background: "var(--ardosia)", color: "var(--sinal)", fontSize: "11px", fontFamily: "var(--font-mono)", padding: "2px 8px", borderRadius: "4px" }}>
+                  {activeModalBriefing.segmento} • ID: {activeModalBriefing.id}
+                </span>
+                <h3 style={{ fontFamily: "var(--font-display)", fontSize: "22px", marginTop: "6px" }}>
                   {activeModalBriefing.empresa_nome}
-                </h2>
+                </h3>
                 <div style={{ fontSize: "13px", color: "var(--text-secondary)" }}>
-                  Solicitante: {activeModalBriefing.nome_solicitante} ({activeModalBriefing.cargo_solicitante}) · {activeModalBriefing.cidade_estado}
+                  {activeModalBriefing.nome_solicitante} ({activeModalBriefing.cargo_solicitante}) • {activeModalBriefing.email_contato} • {activeModalBriefing.telefone_whatsapp}
                 </div>
               </div>
               <button
                 onClick={() => setActiveModalBriefing(null)}
                 style={{
                   background: "transparent",
-                  border: "none",
-                  color: "var(--text-secondary)",
-                  fontSize: "20px",
+                  border: "1px solid var(--border)",
+                  color: "var(--text-primary)",
+                  borderRadius: "4px",
                   cursor: "pointer",
                   padding: "4px 8px"
                 }}
@@ -622,43 +624,62 @@ export default function AdminDashboardPage() {
               </select>
             </div>
 
-            {/* Seções Detalhadas */}
+            {/* Seções Detalhadas Estratégicas */}
             <div style={{ display: "flex", flexDirection: "column", gap: "16px", fontSize: "13px" }}>
               <div>
                 <h4 style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--sinal)", textTransform: "uppercase", marginBottom: "6px" }}>
-                  1. Sobre o Negócio & Como Ganha Dinheiro
+                  1. Sobre o Negócio & Proposta Única de Valor (UVP)
                 </h4>
                 <p style={{ color: "var(--text-primary)", lineHeight: 1.6, background: "var(--obsidiana)", padding: "12px", borderRadius: "4px" }}>
                   {activeModalBriefing.o_que_sua_empresa_faz}
                 </p>
-                <div style={{ marginTop: "6px", color: "var(--text-secondary)", fontSize: "12px" }}>
-                  <strong>Modelo de Receita:</strong> {activeModalBriefing.como_sua_empresa_ganha_dinheiro}
+                {activeModalBriefing.diferencial_competitivo && (
+                  <div style={{ marginTop: "6px", color: "var(--text-primary)", background: "rgba(200, 245, 66, 0.05)", border: "1px solid var(--border)", padding: "8px 12px", borderRadius: "4px", fontSize: "12px" }}>
+                    <strong style={{ color: "var(--sinal)" }}>Diferencial Competitivo:</strong> {activeModalBriefing.diferencial_competitivo}
+                  </div>
+                )}
+                <div style={{ marginTop: "6px", color: "var(--text-secondary)", fontSize: "12px", display: "flex", gap: "16px", flexWrap: "wrap" }}>
+                  <div><strong>Modelo:</strong> {activeModalBriefing.como_sua_empresa_ganha_dinheiro}</div>
+                  {activeModalBriefing.ticket_medio && <div><strong>Ticket Médio:</strong> {activeModalBriefing.ticket_medio}</div>}
+                  {activeModalBriefing.estagio_empresa && <div><strong>Estágio:</strong> {activeModalBriefing.estagio_empresa}</div>}
                 </div>
               </div>
 
               <div>
                 <h4 style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--sinal)", textTransform: "uppercase", marginBottom: "6px" }}>
-                  2. Cliente Ideal (Persona) e Principal Dor
+                  2. Cliente Ideal (Persona), Dores e Objeções
                 </h4>
                 <p style={{ color: "var(--text-primary)", lineHeight: 1.6, background: "var(--obsidiana)", padding: "12px", borderRadius: "4px" }}>
                   {activeModalBriefing.quem_e_seu_cliente_ideal}
                 </p>
                 {activeModalBriefing.principal_dor_do_seu_cliente && (
                   <p style={{ color: "var(--text-secondary)", marginTop: "6px", fontSize: "12px" }}>
-                    <strong>Dor a resolver:</strong> {activeModalBriefing.principal_dor_do_seu_cliente}
+                    <strong>Principal Dor do Cliente:</strong> {activeModalBriefing.principal_dor_do_seu_cliente}
+                  </p>
+                )}
+                {activeModalBriefing.maior_objecao_ou_duvida_cliente && (
+                  <p style={{ color: "var(--text-secondary)", marginTop: "4px", fontSize: "12px" }}>
+                    <strong>Maior Objeção / Dúvida antes de fechar:</strong> {activeModalBriefing.maior_objecao_ou_duvida_cliente}
+                  </p>
+                )}
+                {activeModalBriefing.conquistas_e_provas_de_autoridade && (
+                  <p style={{ color: "var(--text-secondary)", marginTop: "4px", fontSize: "12px" }}>
+                    <strong>Provas de Autoridade:</strong> {activeModalBriefing.conquistas_e_provas_de_autoridade}
                   </p>
                 )}
               </div>
 
               <div>
                 <h4 style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--sinal)", textTransform: "uppercase", marginBottom: "6px" }}>
-                  3. Especificações do Site & Recursos
+                  3. Especificações do Site, Gatilhos e Conversão
                 </h4>
                 <div style={{ background: "var(--obsidiana)", padding: "12px", borderRadius: "4px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px" }}>
                   <div><strong>Formato:</strong> {activeModalBriefing.formato_do_site}</div>
                   <div><strong>Páginas:</strong> {activeModalBriefing.numero_estimado_paginas}</div>
-                  <div><strong>Ação Principal:</strong> {activeModalBriefing.acao_principal_desejada}</div>
+                  <div><strong>Ação Primária:</strong> {activeModalBriefing.acao_principal_desejada}</div>
+                  <div><strong>Ação Secundária:</strong> {activeModalBriefing.acao_secundaria_desejada || "Nenhuma"}</div>
                   <div><strong>Estilo Visual:</strong> {activeModalBriefing.estilo_visual_preferido}</div>
+                  <div><strong>Sensação:</strong> {activeModalBriefing.sensacao_desejada_marca || "Padrão"}</div>
                 </div>
                 {activeModalBriefing.recursos_desejados && activeModalBriefing.recursos_desejados.length > 0 && (
                   <div style={{ marginTop: "8px" }}>
@@ -672,12 +693,28 @@ export default function AdminDashboardPage() {
                     </div>
                   </div>
                 )}
+                {activeModalBriefing.integracoes_sistemas_externos && (
+                  <p style={{ color: "var(--text-secondary)", marginTop: "6px", fontSize: "12px" }}>
+                    <strong>Integrações:</strong> {activeModalBriefing.integracoes_sistemas_externos}
+                  </p>
+                )}
               </div>
+
+              {activeModalBriefing.criterio_de_sucesso_30_dias && (
+                <div>
+                  <h4 style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--sinal)", textTransform: "uppercase", marginBottom: "6px" }}>
+                    4. Expectativa de Sucesso (Primeiros 30 dias)
+                  </h4>
+                  <p style={{ color: "var(--text-primary)", background: "var(--obsidiana)", padding: "10px 12px", borderRadius: "4px", fontSize: "12px" }}>
+                    {activeModalBriefing.criterio_de_sucesso_30_dias}
+                  </p>
+                </div>
+              )}
 
               {activeModalBriefing.arquivos_anexos && activeModalBriefing.arquivos_anexos.length > 0 && (
                 <div>
                   <h4 style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--sinal)", textTransform: "uppercase", marginBottom: "6px" }}>
-                    4. Arquivos e Documentos Anexados
+                    5. Arquivos e Documentos Anexados
                   </h4>
                   <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
                     {activeModalBriefing.arquivos_anexos.map((arq, i) => (
@@ -720,15 +757,6 @@ export default function AdminDashboardPage() {
           </div>
         </div>
       )}
-
-      <style jsx>{`
-        @media (max-width: 860px) {
-          :global(.admin-briefing-card) {
-            grid-template-columns: 1fr !important;
-            gap: 12px !important;
-          }
-        }
-      `}</style>
     </div>
   );
 }
