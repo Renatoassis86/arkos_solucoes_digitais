@@ -48,20 +48,54 @@ export default function MetodoPage() {
         </div>
 
         {/* As 10 Fases do Método em Linha do Tempo */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
           {METHOD.map((m, idx) => (
-            <div key={idx} id={m.step.toLowerCase()} className="metodo-phase-card">
-              <div>
-                <div style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--sinal)", marginBottom: "4px" }}>
+            <div key={idx} id={m.step.toLowerCase()} className="metodo-phase-card" style={{
+              display: "grid",
+              gridTemplateColumns: "180px 1fr",
+              gap: "24px",
+              alignItems: "center"
+            }}>
+              <div style={{
+                position: "relative",
+                width: "100%",
+                height: "120px",
+                borderRadius: "6px",
+                overflow: "hidden",
+                border: "1px solid var(--border)"
+              }}>
+                <Image
+                  src={m.image}
+                  alt={m.step}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 200px"
+                  style={{ objectFit: "cover" }}
+                />
+                <div style={{
+                  position: "absolute",
+                  top: "6px",
+                  left: "6px",
+                  background: "rgba(10, 12, 15, 0.85)",
+                  backdropFilter: "blur(4px)",
+                  padding: "2px 6px",
+                  borderRadius: "3px",
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "10px",
+                  color: "var(--sinal)",
+                  fontWeight: 600
+                }}>
                   {idx < 9 ? `0${idx + 1}` : idx + 1}. FASE
                 </div>
-                <h3 style={{ fontSize: "18px", fontWeight: 600, color: "var(--text-primary)", lineHeight: 1.3 }}>
-                  {m.step}
-                </h3>
               </div>
 
               <div>
-                <p style={{ fontSize: "14px", color: "var(--text-secondary)", lineHeight: 1.6 }}>
+                <span style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--sinal)", textTransform: "uppercase" }}>
+                  {m.tag}
+                </span>
+                <h3 style={{ fontSize: "20px", fontWeight: 600, color: "var(--text-primary)", margin: "4px 0 8px", lineHeight: 1.3 }}>
+                  {m.step}
+                </h3>
+                <p style={{ fontSize: "14px", color: "var(--text-secondary)", lineHeight: 1.6, margin: 0 }}>
                   {m.desc}
                 </p>
               </div>

@@ -156,45 +156,65 @@ export const PRINCIPLES = [
   },
 ];
 
-export const METHOD: { step: string; desc: string }[] = [
+export const METHOD: { step: string; desc: string; image: string; tag: string }[] = [
   {
     step: "1. Entendimento",
     desc: "Conversamos para entender sua empresa, seus clientes, seus desafios e o que você precisa alcançar.",
+    image: "/assets/method/01_entendimento.jpg",
+    tag: "Clínicas & Consultórios Médicos"
   },
   {
     step: "2. Pesquisa",
     desc: "Analisamos seu mercado, seus concorrentes e as melhores referências visuais do seu setor.",
+    image: "/assets/method/02_pesquisa.jpg",
+    tag: "E-commerce & Varejo de Luxo"
   },
   {
     step: "3. Estratégia",
     desc: "Definimos o objetivo principal da página, a mensagem central e a melhor forma de apresentar sua oferta.",
+    image: "/assets/method/03_estrategia.jpg",
+    tag: "Consultorias & B2B Corporativo"
   },
   {
     step: "4. Desenho e Visual",
     desc: "Criamos a estrutura das telas, organizamos os textos e definimos as cores e imagens ideais.",
+    image: "/assets/method/04_desenho_visual.jpg",
+    tag: "Imóveis de Alto Padrão & Marcas"
   },
   {
     step: "5. Estrutura Técnica",
     desc: "Definimos os botões, integrações de WhatsApp, formulários e banco de dados necessários.",
+    image: "/assets/method/05_estrutura_tecnica.jpg",
+    tag: "Portais & Sistemas de Agendamento"
   },
   {
     step: "6. Construção",
     desc: "Desenvolvemos o site com código limpo, rápido e totalmente adaptado para celulares e computadores.",
+    image: "/assets/method/06_construcao.jpg",
+    tag: "Fintechs & Landing Pages Modernas"
   },
   {
     step: "7. Testes e Validação",
     desc: "Testamos todos os botões, formulários, velocidade e visual junto com você antes da publicação.",
+    image: "/assets/method/07_testes_validacao.jpg",
+    tag: "Validação Mobile em Vários Aparelhos"
   },
   {
     step: "8. Publicação",
     desc: "Colocamos o site no ar no seu domínio próprio com conexão segura e e-mails configurados.",
+    image: "/assets/method/08_publicacao.jpg",
+    tag: "Lançamento em Nuvem & SSL"
   },
   {
     step: "9. Acompanhamento",
     desc: "Monitoramos o funcionamento, os acessos recebidos e a chegada dos primeiros contatos.",
+    image: "/assets/method/09_acompanhamento.jpg",
+    tag: "Métricas Reais & Conversão de Leads"
   },
   {
     step: "10. Evolução",
     desc: "Apoiamos você em melhorias contínuas, novos recursos e expansão conforme sua empresa cresce.",
+    image: "/assets/method/10_evolucao.jpg",
+    tag: "Escala & Expansão de Plataforma"
   },
 ];

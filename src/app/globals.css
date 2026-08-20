@@ -272,12 +272,12 @@ img, svg, video {
 .method-active-card {
   background: var(--grafite);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 24px;
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 28px;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
   width: 100%;
 }
 
@@ -292,18 +292,23 @@ img, svg, video {
     grid-template-columns: repeat(3, 1fr);
     gap: 8px;
   }
+
+  .method-active-card {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+  }
 }
 
 @media (max-width: 600px) {
   .method-stepper-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 6px;
+    gap: 8px;
   }
 
   .method-active-card {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 18px;
+    grid-template-columns: 1fr;
+    padding: 16px;
     gap: 16px;
   }
 
