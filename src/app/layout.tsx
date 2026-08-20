@@ -23,17 +23,50 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#0A0C0F"
+  themeColor: "#0A0C0F",
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://studio.arkosintelligence.com"),
   title: "ARKOS — Soluções Digitais, Sites e Plataformas",
   description:
     "A ARKOS desenvolve sites rápidos, plataformas sob medida e inteligência de dados orientadas a conversão real.",
+  keywords: [
+    "criação de sites",
+    "landing pages",
+    "desenvolvimento web",
+    "sistemas web",
+    "plataformas sob medida",
+    "ARKOS",
+  ],
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
     apple: "/favicon.svg",
+  },
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    url: "https://studio.arkosintelligence.com",
+    siteName: "ARKOS Soluções Digitais",
+    title: "ARKOS — Soluções Digitais, Sites de Alta Conversão e Plataformas",
+    description:
+      "Desenvolvemos sites de alta conversão, portais corporativos e plataformas sob medida para empresas que buscam autoridade e vendas.",
+    images: [
+      {
+        url: "/assets/hero_workspace.jpg",
+        width: 1200,
+        height: 630,
+        alt: "ARKOS Soluções Digitais — Arquitetura de Software e Design",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ARKOS — Soluções Digitais e Sites de Alta Conversão",
+    description:
+      "Sites rápidos, plataformas sob medida e engenharia de software para o seu negócio.",
+    images: ["/assets/hero_workspace.jpg"],
   },
 };
 
