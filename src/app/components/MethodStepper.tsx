@@ -10,7 +10,7 @@ export default function MethodStepper() {
 
   return (
     <div style={{ width: "100%", overflowX: "hidden" }}>
-      {/* Grade de 10 Fases com Fotos Reais em cada Caixa */}
+      {/* Grade de 10 Botões Limpos com Nomes e Numeração */}
       <div className="method-stepper-grid">
         {METHOD.map((m, i) => {
           const isActive = active === i;
@@ -25,68 +25,36 @@ export default function MethodStepper() {
               onClick={() => setActive(i)}
               style={{
                 background: isActive ? "var(--ardosia)" : "var(--grafite)",
-                border: isActive ? "2px solid var(--sinal)" : "1px solid var(--border)",
-                borderRadius: "8px",
-                padding: "8px",
+                border: isActive ? "1px solid var(--sinal)" : "1px solid var(--border)",
+                borderRadius: "6px",
+                padding: "16px 14px",
                 textAlign: "left",
                 cursor: "pointer",
                 transition: "all 0.2s ease",
                 position: "relative",
-                minHeight: "120px",
+                minHeight: "78px",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
                 width: "100%",
-                overflow: "hidden",
-                boxShadow: isActive ? "0 8px 24px rgba(200, 245, 66, 0.15)" : "none"
+                boxShadow: isActive ? "0 4px 20px rgba(200, 245, 66, 0.12)" : "none"
               }}
             >
-              {/* Miniatura da Foto Real do Negócio / Tipo de Site */}
               <div style={{
-                position: "relative",
-                width: "100%",
-                height: "56px",
-                borderRadius: "4px",
-                overflow: "hidden",
-                marginBottom: "8px"
+                fontFamily: "var(--font-mono)",
+                fontSize: "11px",
+                fontWeight: 600,
+                color: isActive ? "var(--sinal)" : "var(--text-secondary)",
+                letterSpacing: "0.04em"
               }}>
-                <Image
-                  src={m.image}
-                  alt={m.step}
-                  fill
-                  sizes="(max-width: 768px) 50vw, 20vw"
-                  style={{
-                    objectFit: "cover",
-                    filter: isActive ? "brightness(1.05)" : "brightness(0.75) contrast(1.05)",
-                    transition: "filter 0.2s ease"
-                  }}
-                />
-                <div style={{
-                  position: "absolute",
-                  top: "4px",
-                  left: "4px",
-                  background: "rgba(10, 12, 15, 0.85)",
-                  backdropFilter: "blur(4px)",
-                  padding: "2px 6px",
-                  borderRadius: "3px",
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "10px",
-                  fontWeight: 600,
-                  color: isActive ? "var(--sinal)" : "#F4F2ED"
-                }}>
-                  {num}
-                </div>
+                {num}.
               </div>
 
               <div style={{
-                fontSize: "11px",
+                fontSize: "13px",
                 fontWeight: 600,
                 color: isActive ? "var(--text-primary)" : "var(--text-secondary)",
-                lineHeight: 1.25,
-                display: "-webkit-box",
-                WebkitLineClamp: 2,
-                WebkitBoxOrient: "vertical",
-                overflow: "hidden"
+                lineHeight: 1.3
               }}>
                 {title}
               </div>
@@ -97,7 +65,7 @@ export default function MethodStepper() {
                   bottom: 0,
                   left: "8px",
                   right: "8px",
-                  height: "3px",
+                  height: "2px",
                   background: "var(--sinal)",
                   borderRadius: "2px"
                 }} />
@@ -107,7 +75,7 @@ export default function MethodStepper() {
         })}
       </div>
 
-      {/* Painel de Destaque da Fase Ativa com Foto Real Ampliada & Descrição */}
+      {/* Painel de Destaque da Fase Ativa com a Foto Real em Tamanho Grande */}
       <div className="method-active-card" style={{
         marginTop: "24px",
         background: "var(--grafite)",
@@ -115,7 +83,7 @@ export default function MethodStepper() {
         borderRadius: "12px",
         padding: "24px",
         display: "grid",
-        gridTemplateColumns: "minmax(0, 1.2fr) minmax(0, 1fr)",
+        gridTemplateColumns: "minmax(0, 1.25fr) minmax(0, 1fr)",
         gap: "28px",
         alignItems: "center"
       }}>
@@ -123,11 +91,11 @@ export default function MethodStepper() {
         <div style={{
           position: "relative",
           width: "100%",
-          height: "280px",
+          height: "300px",
           borderRadius: "8px",
           overflow: "hidden",
           border: "1px solid var(--border)",
-          boxShadow: "0 12px 36px rgba(0,0,0,0.5)"
+          boxShadow: "0 16px 40px rgba(0,0,0,0.5)"
         }}>
           <Image
             src={currentStage.image}
@@ -175,7 +143,7 @@ export default function MethodStepper() {
             </div>
             <h3 style={{
               fontFamily: "var(--font-display)",
-              fontSize: "24px",
+              fontSize: "26px",
               color: "var(--text-primary)",
               marginBottom: "12px",
               lineHeight: 1.2
@@ -193,7 +161,7 @@ export default function MethodStepper() {
           </div>
 
           {/* Navegação entre passos */}
-          <div className="method-nav-buttons" style={{ display: "flex", gap: "10px", marginTop: "24px" }}>
+          <div className="method-nav-buttons" style={{ display: "flex", gap: "10px", marginTop: "28px" }}>
             <button
               type="button"
               disabled={active === 0}
