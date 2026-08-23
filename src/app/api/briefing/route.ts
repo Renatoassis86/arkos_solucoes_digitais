@@ -70,6 +70,12 @@ export interface BriefingItem {
   criterio_de_sucesso_30_dias?: string;
   observacoes_finais?: string;
   arquivos_anexos?: AnexoRef[];
+  conteudo_pronto_ou_precisa_criar?: string;
+  concorrente_direto_que_resolve_melhor?: string;
+  sistema_atual_que_precisa_continuar_funcionando?: string;
+  restricao_regulatoria_do_setor?: string;
+  anti_requisitos?: string;
+  motivo_real_do_prazo?: string;
 }
 
 export function classifySegment(ramo: string = "", oQueFaz: string = ""): string {
@@ -145,33 +151,54 @@ export function classifySegment(ramo: string = "", oQueFaz: string = ""): string
 
 // Higieniza dados para inserção compatível com a tabela Supabase
 function sanitizeForSupabase(body: Record<string, unknown>) {
+  const ramo_atuacao = String(body.ramo_atuacao || "").trim();
+  const o_que_sua_empresa_faz = String(body.o_que_sua_empresa_faz || "").trim();
+
   return {
     status: (body.status as string) || "novo",
+    segmento: classifySegment(ramo_atuacao, o_que_sua_empresa_faz),
     nome_solicitante: String(body.nome_solicitante || "").trim(),
     cargo_solicitante: String(body.cargo_solicitante || "").trim(),
     empresa_nome: String(body.empresa_nome || "").trim(),
-    ramo_atuacao: String(body.ramo_atuacao || "").trim(),
+    ramo_atuacao,
+    estagio_empresa: String(body.estagio_empresa || "").trim(),
     email_contato: String(body.email_contato || "").trim(),
     telefone_whatsapp: String(body.telefone_whatsapp || "").trim(),
     cidade_estado: String(body.cidade_estado || "").trim(),
     website_atual: String(body.website_atual || "").trim(),
-    o_que_sua_empresa_faz: String(body.o_que_sua_empresa_faz || "").trim(),
+    o_que_sua_empresa_faz,
     como_sua_empresa_ganha_dinheiro: String(body.como_sua_empresa_ganha_dinheiro || "").trim(),
+    ticket_medio: String(body.ticket_medio || "").trim(),
     quem_e_seu_cliente_ideal: String(body.quem_e_seu_cliente_ideal || "").trim(),
     principal_dor_do_seu_cliente: String(body.principal_dor_do_seu_cliente || "").trim(),
+    maior_objecao_ou_duvida_cliente: String(body.maior_objecao_ou_duvida_cliente || "").trim(),
+    diferencial_competitivo: String(body.diferencial_competitivo || "").trim(),
     por_que_o_cliente_escolhe_voce: String(body.por_que_o_cliente_escolhe_voce || body.diferencial_competitivo || "").trim(),
+    conquistas_e_provas_de_autoridade: String(body.conquistas_e_provas_de_autoridade || "").trim(),
+    como_clientes_te_encontram_hoje: String(body.como_clientes_te_encontram_hoje || "").trim(),
     formato_do_site: String(body.formato_do_site || "landing_page_unica").trim(),
     numero_estimado_paginas: String(body.numero_estimado_paginas || "1_pagina").trim(),
     acao_principal_desejada: String(body.acao_principal_desejada || "chamar_no_whatsapp").trim(),
+    acao_secundaria_desejada: String(body.acao_secundaria_desejada || "").trim(),
     recursos_desejados: Array.isArray(body.recursos_desejados) ? body.recursos_desejados : [],
     outros_sistemas_para_integrar: String(body.outros_sistemas_para_integrar || body.integracoes_sistemas_externos || "").trim(),
     ja_possui_logomarca_ou_brandbook: String(body.ja_possui_logomarca_ou_brandbook || "tenho_apenas_logo").trim(),
     estilo_visual_preferido: String(body.estilo_visual_preferido || "escuro_moderno").trim(),
+    sensacao_desejada_marca: String(body.sensacao_desejada_marca || "").trim(),
     links_de_sites_que_voce_gosta: String(body.links_de_sites_que_voce_gosta || "").trim(),
+    o_que_voce_nao_quer_no_site: String(body.o_que_voce_nao_quer_no_site || "").trim(),
     arquivos_anexos: Array.isArray(body.arquivos_anexos) ? body.arquivos_anexos : [],
     prazo_desejado: String(body.prazo_desejado || "normal_30_dias").trim(),
     faixa_investimento: String(body.faixa_investimento || "1500_a_3000").trim(),
-    observacoes_finais: String(body.observacoes_finais || "").trim()
+    quem_aprova_o_projeto: String(body.quem_aprova_o_projeto || "").trim(),
+    criterio_de_sucesso_30_dias: String(body.criterio_de_sucesso_30_dias || "").trim(),
+    observacoes_finais: String(body.observacoes_finais || "").trim(),
+    conteudo_pronto_ou_precisa_criar: String(body.conteudo_pronto_ou_precisa_criar || "").trim(),
+    concorrente_direto_que_resolve_melhor: String(body.concorrente_direto_que_resolve_melhor || "").trim(),
+    sistema_atual_que_precisa_continuar_funcionando: String(body.sistema_atual_que_precisa_continuar_funcionando || "").trim(),
+    restricao_regulatoria_do_setor: String(body.restricao_regulatoria_do_setor || "").trim(),
+    anti_requisitos: String(body.anti_requisitos || "").trim(),
+    motivo_real_do_prazo: String(body.motivo_real_do_prazo || "").trim()
   };
 }
 

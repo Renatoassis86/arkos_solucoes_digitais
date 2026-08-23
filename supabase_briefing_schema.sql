@@ -91,6 +91,9 @@ CREATE INDEX IF NOT EXISTS idx_briefings_created_at ON public.briefings (created
 
 -- ==============================================================================
 -- MIGRATION SCRIPT (CASO A TABELA JÁ EXISTA NO SUPABASE)
+-- Nota: "integracoes_sistemas_externos" foi removida desta lista — o código da
+-- aplicação sempre usou "outros_sistemas_para_integrar" (já existente na tabela);
+-- a outra era um nome de coluna nunca lido/escrito por nenhum caminho de código.
 -- ==============================================================================
 ALTER TABLE public.briefings ADD COLUMN IF NOT EXISTS segmento VARCHAR(100) DEFAULT 'Serviços e Outros';
 ALTER TABLE public.briefings ADD COLUMN IF NOT EXISTS estagio_empresa VARCHAR(100);
@@ -100,11 +103,21 @@ ALTER TABLE public.briefings ADD COLUMN IF NOT EXISTS maior_objecao_ou_duvida_cl
 ALTER TABLE public.briefings ADD COLUMN IF NOT EXISTS conquistas_e_provas_de_autoridade TEXT;
 ALTER TABLE public.briefings ADD COLUMN IF NOT EXISTS como_clientes_te_encontram_hoje VARCHAR(150);
 ALTER TABLE public.briefings ADD COLUMN IF NOT EXISTS acao_secundaria_desejada VARCHAR(150);
-ALTER TABLE public.briefings ADD COLUMN IF NOT EXISTS integracoes_sistemas_externos TEXT;
 ALTER TABLE public.briefings ADD COLUMN IF NOT EXISTS sensacao_desejada_marca VARCHAR(150);
 ALTER TABLE public.briefings ADD COLUMN IF NOT EXISTS o_que_voce_nao_quer_no_site TEXT;
 ALTER TABLE public.briefings ADD COLUMN IF NOT EXISTS quem_aprova_o_projeto VARCHAR(100);
 ALTER TABLE public.briefings ADD COLUMN IF NOT EXISTS criterio_de_sucesso_30_dias TEXT;
+
+-- ==============================================================================
+-- MIGRATION 2026-08-23: novas perguntas de Discovery (gap analysis vs.
+-- templates/arkos-discovery-briefing-v0.1.md) — ver decisão registrada na sessão.
+-- ==============================================================================
+ALTER TABLE public.briefings ADD COLUMN IF NOT EXISTS conteudo_pronto_ou_precisa_criar VARCHAR(50);
+ALTER TABLE public.briefings ADD COLUMN IF NOT EXISTS concorrente_direto_que_resolve_melhor TEXT;
+ALTER TABLE public.briefings ADD COLUMN IF NOT EXISTS sistema_atual_que_precisa_continuar_funcionando TEXT;
+ALTER TABLE public.briefings ADD COLUMN IF NOT EXISTS restricao_regulatoria_do_setor TEXT;
+ALTER TABLE public.briefings ADD COLUMN IF NOT EXISTS anti_requisitos TEXT;
+ALTER TABLE public.briefings ADD COLUMN IF NOT EXISTS motivo_real_do_prazo TEXT;
 
 -- ==============================================================================
 -- TABELA 3: ANEXOS DO BRIEFING (RELAÇÃO 1:N)

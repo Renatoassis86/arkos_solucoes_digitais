@@ -48,6 +48,12 @@ interface Briefing {
   criterio_de_sucesso_30_dias?: string;
   observacoes_finais?: string;
   arquivos_anexos?: AnexoRef[];
+  conteudo_pronto_ou_precisa_criar?: string;
+  concorrente_direto_que_resolve_melhor?: string;
+  sistema_atual_que_precisa_continuar_funcionando?: string;
+  restricao_regulatoria_do_setor?: string;
+  anti_requisitos?: string;
+  motivo_real_do_prazo?: string;
 }
 
 export default function AdminDashboardPage() {
@@ -1214,6 +1220,8 @@ ${b.principal_dor_do_seu_cliente || "Não informada"}
 
                   <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", marginTop: "10px", color: "var(--text-secondary)", fontSize: "12px" }}>
                     <div><strong>Modelo de Receita:</strong> {activeModalBriefing.como_sua_empresa_ganha_dinheiro}</div>
+                    {activeModalBriefing.estagio_empresa && <div><strong>Estágio do Negócio:</strong> {activeModalBriefing.estagio_empresa.replace(/_/g, " ")}</div>}
+                    {activeModalBriefing.ticket_medio && <div><strong>Ticket Médio:</strong> {activeModalBriefing.ticket_medio}</div>}
                     {activeModalBriefing.website_atual && <div><strong>Site Atual:</strong> {activeModalBriefing.website_atual}</div>}
                   </div>
                 </div>
@@ -1241,6 +1249,27 @@ ${b.principal_dor_do_seu_cliente || "Não informada"}
                     <div>
                       <strong style={{ color: "#38bdf8" }}>Maior Objeção do Cliente: </strong>
                       <span style={{ color: "var(--text-secondary)" }}>{activeModalBriefing.maior_objecao_ou_duvida_cliente}</span>
+                    </div>
+                  )}
+
+                  {activeModalBriefing.concorrente_direto_que_resolve_melhor && (
+                    <div>
+                      <strong style={{ color: "#f472b6" }}>Concorrente que Resolve Melhor Hoje: </strong>
+                      <span style={{ color: "var(--text-secondary)" }}>{activeModalBriefing.concorrente_direto_que_resolve_melhor}</span>
+                    </div>
+                  )}
+
+                  {activeModalBriefing.conquistas_e_provas_de_autoridade && (
+                    <div>
+                      <strong style={{ color: "var(--sinal)" }}>Provas de Autoridade: </strong>
+                      <span style={{ color: "var(--text-secondary)" }}>{activeModalBriefing.conquistas_e_provas_de_autoridade}</span>
+                    </div>
+                  )}
+
+                  {activeModalBriefing.como_clientes_te_encontram_hoje && (
+                    <div>
+                      <strong style={{ color: "var(--text-primary)" }}>Canal de Aquisição Atual: </strong>
+                      <span style={{ color: "var(--text-secondary)" }}>{activeModalBriefing.como_clientes_te_encontram_hoje.replace(/_/g, " ")}</span>
                     </div>
                   )}
                 </div>
@@ -1274,9 +1303,33 @@ ${b.principal_dor_do_seu_cliente || "Não informada"}
                     </div>
                   )}
 
+                  {activeModalBriefing.acao_secundaria_desejada && (
+                    <div style={{ marginTop: "10px", color: "var(--text-secondary)", fontSize: "12px" }}>
+                      <strong>Ação Secundária:</strong> {activeModalBriefing.acao_secundaria_desejada.replace(/_/g, " ")}
+                    </div>
+                  )}
+
                   {activeModalBriefing.outros_sistemas_para_integrar && (
                     <div style={{ marginTop: "10px", color: "var(--text-secondary)", fontSize: "12px" }}>
                       <strong>Integrações Desejadas:</strong> {activeModalBriefing.outros_sistemas_para_integrar}
+                    </div>
+                  )}
+
+                  {activeModalBriefing.sistema_atual_que_precisa_continuar_funcionando && (
+                    <div style={{ marginTop: "10px", color: "var(--text-secondary)", fontSize: "12px" }}>
+                      <strong>Sistema que Precisa Continuar Funcionando:</strong> {activeModalBriefing.sistema_atual_que_precisa_continuar_funcionando}
+                    </div>
+                  )}
+
+                  {activeModalBriefing.sensacao_desejada_marca && (
+                    <div style={{ marginTop: "10px", color: "var(--text-secondary)", fontSize: "12px" }}>
+                      <strong>Sensação Desejada da Marca:</strong> {activeModalBriefing.sensacao_desejada_marca.replace(/_/g, " ")}
+                    </div>
+                  )}
+
+                  {activeModalBriefing.o_que_voce_nao_quer_no_site && (
+                    <div style={{ marginTop: "10px", color: "#ff6b6b", fontSize: "12px" }}>
+                      <strong>O que NÃO quer no site:</strong> {activeModalBriefing.o_que_voce_nao_quer_no_site}
                     </div>
                   )}
                 </div>
@@ -1359,14 +1412,49 @@ ${b.principal_dor_do_seu_cliente || "Não informada"}
                 </div>
               )}
 
-              {/* Bloco 5: Viabilidade & Observações */}
+              {/* Bloco 5: Viabilidade, Prontidão & Governança */}
               <div>
                 <h3 style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--sinal)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "8px" }}>
-                  5. Investimento, Prazo & Critério de Sucesso
+                  5. Investimento, Prazo, Governança & Prontidão
                 </h3>
                 <div style={{ background: "var(--obsidiana)", padding: "14px", borderRadius: "6px", fontSize: "13px", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "10px" }}>
                   <div><span style={{ color: "var(--text-secondary)" }}>Investimento Estimado:</span> <strong style={{ color: "var(--sinal)" }}>{activeModalBriefing.faixa_investimento.replace(/_/g, " ")}</strong></div>
                   <div><span style={{ color: "var(--text-secondary)" }}>Prazo Desejado:</span> <strong style={{ color: "var(--text-primary)" }}>{activeModalBriefing.prazo_desejado.replace(/_/g, " ")}</strong></div>
+                  {activeModalBriefing.quem_aprova_o_projeto && (
+                    <div><span style={{ color: "var(--text-secondary)" }}>Quem Aprova:</span> <strong style={{ color: "var(--text-primary)" }}>{activeModalBriefing.quem_aprova_o_projeto.replace(/_/g, " ")}</strong></div>
+                  )}
+                  {activeModalBriefing.conteudo_pronto_ou_precisa_criar && (
+                    <div><span style={{ color: "var(--text-secondary)" }}>Conteúdo:</span> <strong style={{ color: "var(--text-primary)" }}>{activeModalBriefing.conteudo_pronto_ou_precisa_criar.replace(/_/g, " ")}</strong></div>
+                  )}
+
+                  {activeModalBriefing.motivo_real_do_prazo && (
+                    <div style={{ gridColumn: "1 / -1", color: "var(--text-secondary)" }}>
+                      <strong style={{ color: "var(--text-primary)" }}>Motivo Real do Prazo: </strong>
+                      {activeModalBriefing.motivo_real_do_prazo}
+                    </div>
+                  )}
+
+                  {activeModalBriefing.criterio_de_sucesso_30_dias && (
+                    <div style={{ gridColumn: "1 / -1", color: "var(--text-secondary)" }}>
+                      <strong style={{ color: "var(--sinal)" }}>Critério de Sucesso (30 dias): </strong>
+                      {activeModalBriefing.criterio_de_sucesso_30_dias}
+                    </div>
+                  )}
+
+                  {activeModalBriefing.restricao_regulatoria_do_setor && (
+                    <div style={{ gridColumn: "1 / -1", marginTop: "6px", color: "#eab308", background: "var(--grafite)", padding: "10px", borderRadius: "4px", fontSize: "12px" }}>
+                      <strong>⚠ Restrição Regulatória do Setor: </strong>
+                      {activeModalBriefing.restricao_regulatoria_do_setor}
+                    </div>
+                  )}
+
+                  {activeModalBriefing.anti_requisitos && (
+                    <div style={{ gridColumn: "1 / -1", marginTop: "6px", color: "#ff6b6b", background: "var(--grafite)", padding: "10px", borderRadius: "4px", fontSize: "12px" }}>
+                      <strong>Anti-Requisitos (NÃO fazer): </strong>
+                      {activeModalBriefing.anti_requisitos}
+                    </div>
+                  )}
+
                   {activeModalBriefing.observacoes_finais && (
                     <div style={{ gridColumn: "1 / -1", marginTop: "6px", color: "var(--text-primary)", background: "var(--grafite)", padding: "10px", borderRadius: "4px", fontSize: "12px" }}>
                       <strong style={{ color: "var(--sinal)" }}>Observações do Solicitante: </strong>

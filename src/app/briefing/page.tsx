@@ -44,6 +44,7 @@ export default function BriefingPage() {
     maior_objecao_ou_duvida_cliente: "",
     conquistas_e_provas_de_autoridade: "",
     como_clientes_te_encontram_hoje: "indicacao_boca_a_boca",
+    concorrente_direto_que_resolve_melhor: "",
 
     // ETAPA 3: O QUE O SITE PRECISA TER E ARQUITETURA DE CONVERSÃO
     formato_do_site: "landing_page_unica",
@@ -52,6 +53,7 @@ export default function BriefingPage() {
     acao_secundaria_desejada: "baixar_material_ou_catalogo",
     recursos_desejados: [] as string[],
     integracoes_sistemas_externos: "",
+    sistema_atual_que_precisa_continuar_funcionando: "",
 
     // ETAPA 4: IDENTIDADE VISUAL, REFERÊNCIAS E ANEXOS
     ja_possui_logomarca_ou_brandbook: "tenho_apenas_logo",
@@ -62,9 +64,13 @@ export default function BriefingPage() {
 
     // ETAPA 5: PRAZO, INVESTIMENTO E CRITÉRIO DE SUCESSO
     prazo_desejado: "normal_30_dias",
+    motivo_real_do_prazo: "",
     faixa_investimento: "1500_a_3000",
     quem_aprova_o_projeto: "apenas_eu",
     criterio_de_sucesso_30_dias: "",
+    conteudo_pronto_ou_precisa_criar: "tenho_parcial",
+    restricao_regulatoria_do_setor: "",
+    anti_requisitos: "",
     observacoes_finais: ""
   });
 
@@ -581,6 +587,22 @@ export default function BriefingPage() {
                   />
                 </div>
 
+                <div>
+                  <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "4px" }}>
+                    Existe um concorrente direto que já resolve esse problema melhor que você hoje?
+                  </label>
+                  <span style={{ fontSize: "11px", color: "var(--text-secondary)", display: "block", marginBottom: "6px" }}>
+                    Diferente da próxima etapa (sites que você admira só visualmente) — aqui é inteligência competitiva real: quem no seu mercado já resolveu parte disso melhor?
+                  </span>
+                  <input
+                    type="text"
+                    value={formData.concorrente_direto_que_resolve_melhor}
+                    onChange={(e) => setFormData({ ...formData, concorrente_direto_que_resolve_melhor: e.target.value })}
+                    placeholder="Ex: A Clínica X tem um sistema de agendamento online que é bem mais rápido que o nosso hoje..."
+                    style={{ width: "100%", padding: "12px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                  />
+                </div>
+
                 <div className="briefing-grid-2">
                   <div>
                     <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "4px" }}>
@@ -790,6 +812,22 @@ export default function BriefingPage() {
                     value={formData.integracoes_sistemas_externos}
                     onChange={(e) => setFormData({ ...formData, integracoes_sistemas_externos: e.target.value })}
                     placeholder="Ex: Queremos que os leads caiam direto no RD Station e planilha Google Sheets..."
+                    style={{ width: "100%", padding: "12px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                  />
+                </div>
+
+                <div>
+                  <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "4px" }}>
+                    Existe algum site ou sistema atual que precisa continuar funcionando durante a transição?
+                  </label>
+                  <span style={{ fontSize: "11px", color: "var(--text-secondary)", display: "block", marginBottom: "6px" }}>
+                    Ex: um sistema de agendamento, um catálogo, um domínio de e-mail — qualquer coisa que não pode simplesmente sair do ar no meio do projeto.
+                  </span>
+                  <input
+                    type="text"
+                    value={formData.sistema_atual_que_precisa_continuar_funcionando}
+                    onChange={(e) => setFormData({ ...formData, sistema_atual_que_precisa_continuar_funcionando: e.target.value })}
+                    placeholder="Ex: Nosso e-mail comercial roda no mesmo domínio, precisa continuar funcionando..."
                     style={{ width: "100%", padding: "12px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                   />
                 </div>
@@ -1139,6 +1177,74 @@ export default function BriefingPage() {
                       style={{ width: "100%", padding: "12px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                     />
                   </div>
+                </div>
+
+                <div className="briefing-grid-2">
+                  <div>
+                    <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "4px" }}>
+                      O conteúdo (textos, fotos, dados) já existe ou precisa ser criado?
+                    </label>
+                    <span style={{ fontSize: "11px", color: "var(--text-secondary)", display: "block", marginBottom: "6px" }}>
+                      Maior causa de atraso em projeto de site — define se entra produção de conteúdo no escopo.
+                    </span>
+                    <select
+                      value={formData.conteudo_pronto_ou_precisa_criar}
+                      onChange={(e) => setFormData({ ...formData, conteudo_pronto_ou_precisa_criar: e.target.value })}
+                      style={{ width: "100%", padding: "12px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                    >
+                      <option value="ja_tenho_tudo_pronto">Já tenho tudo pronto (textos, fotos, dados)</option>
+                      <option value="tenho_parcial">Tenho parte, falta produzir o resto</option>
+                      <option value="preciso_criar_do_zero">Preciso que a ARKOS produza tudo do zero</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "4px" }}>
+                      Qual é o motivo real desse prazo?
+                    </label>
+                    <span style={{ fontSize: "11px", color: "var(--text-secondary)", display: "block", marginBottom: "6px" }}>
+                      Existe uma data real por trás (evento, campanha, fim de contrato) ou é só ansiedade de começar logo?
+                    </span>
+                    <input
+                      type="text"
+                      value={formData.motivo_real_do_prazo}
+                      onChange={(e) => setFormData({ ...formData, motivo_real_do_prazo: e.target.value })}
+                      placeholder="Ex: Precisa estar no ar antes da feira do setor em outubro..."
+                      style={{ width: "100%", padding: "12px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "4px" }}>
+                    Existe alguma restrição regulatória do seu setor que limita o que pode ser dito ou mostrado no site?
+                  </label>
+                  <span style={{ fontSize: "11px", color: "var(--text-secondary)", display: "block", marginBottom: "6px" }}>
+                    Ex: normas do Conselho de Medicina (CFM), regras de publicidade jurídica (OAB), regulação financeira, confessionalidade religiosa. Se não se aplica, pode deixar em branco.
+                  </span>
+                  <input
+                    type="text"
+                    value={formData.restricao_regulatoria_do_setor}
+                    onChange={(e) => setFormData({ ...formData, restricao_regulatoria_do_setor: e.target.value })}
+                    placeholder="Ex: Como clínica médica, não podemos prometer resultado nem usar fotos de antes/depois sem autorização..."
+                    style={{ width: "100%", padding: "12px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                  />
+                </div>
+
+                <div>
+                  <label style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--text-primary)", textTransform: "uppercase", marginBottom: "4px" }}>
+                    O que definitivamente NÃO deve entrar neste projeto, mesmo que pareça uma boa ideia?
+                  </label>
+                  <span style={{ fontSize: "11px", color: "var(--text-secondary)", display: "block", marginBottom: "6px" }}>
+                    A pergunta mais rara em briefing de agência — e uma das mais úteis. Evita retrabalho por escopo que parecia bom no meio do projeto.
+                  </span>
+                  <input
+                    type="text"
+                    value={formData.anti_requisitos}
+                    onChange={(e) => setFormData({ ...formData, anti_requisitos: e.target.value })}
+                    placeholder="Ex: Não queremos chat de IA no site agora, mesmo que sugiram — não é prioridade nesta fase..."
+                    style={{ width: "100%", padding: "12px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
+                  />
                 </div>
 
                 <div>
