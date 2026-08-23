@@ -1,16 +1,26 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+
+interface AnexoUploaded {
+  clientId: string;
+  name: string;
+  path: string;
+  status: "enviando" | "ok" | "erro";
+}
 
 export default function BriefingPage() {
   const [currentStep, setCurrentStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [submitError, setSubmitError] = useState("");
-  const [fileNames, setFileNames] = useState<string[]>([]);
+  const [anexos, setAnexos] = useState<AnexoUploaded[]>([]);
+  const sessionIdRef = useRef<string>(
+    typeof crypto !== "undefined" && crypto.randomUUID ? crypto.randomUUID() : `sess-${Date.now()}-${Math.random().toString(36).slice(2)}`
+  );
 
   const [formData, setFormData] = useState({
     // ETAPA 1: SOBRE VOCÊ E SUA EMPRESA
@@ -59,14 +69,35 @@ export default function BriefingPage() {
   });
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) {
-      const filesArray = Array.from(e.target.files).map((f) => f.name);
-      setFileNames((prev) => [...prev, ...filesArray]);
-    }
+    if (!e.target.files) return;
+    const files = Array.from(e.target.files);
+    e.target.value = "";
+
+    files.forEach((file) => {
+      const clientId = `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+      setAnexos((prev) => [...prev, { clientId, name: file.name, path: "", status: "enviando" }]);
+
+      const body = new FormData();
+      body.append("file", file);
+      body.append("sessionId", sessionIdRef.current);
+
+      fetch("/api/briefing/upload", { method: "POST", body })
+        .then((res) => res.json())
+        .then((data) => {
+          setAnexos((prev) =>
+            prev.map((a) =>
+              a.clientId === clientId ? { ...a, path: data.path || "", status: data.success ? "ok" : "erro" } : a
+            )
+          );
+        })
+        .catch(() => {
+          setAnexos((prev) => prev.map((a) => (a.clientId === clientId ? { ...a, status: "erro" } : a)));
+        });
+    });
   };
 
-  const removeFile = (index: number) => {
-    setFileNames((prev) => prev.filter((_, i) => i !== index));
+  const removeFile = (clientId: string) => {
+    setAnexos((prev) => prev.filter((a) => a.clientId !== clientId));
   };
 
   const toggleRecurso = (id: string) => {
@@ -80,8 +111,20 @@ export default function BriefingPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
     setSubmitError("");
+
+    if (anexos.some((a) => a.status === "enviando")) {
+      setSubmitError("Aguarde o envio dos anexos terminar antes de finalizar o briefing.");
+      return;
+    }
+
+    const anexosComErro = anexos.filter((a) => a.status === "erro");
+    if (anexosComErro.length > 0) {
+      setSubmitError(`Falha ao enviar ${anexosComErro.length} anexo(s): ${anexosComErro.map((a) => a.name).join(", ")}. Remova-os ou tente anexar novamente antes de finalizar.`);
+      return;
+    }
+
+    setLoading(true);
 
     try {
       const res = await fetch("/api/briefing", {
@@ -89,7 +132,7 @@ export default function BriefingPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...formData,
-          arquivos_anexos: fileNames
+          arquivos_anexos: anexos.map((a) => ({ name: a.name, path: a.path }))
         })
       });
       const data = await res.json();
@@ -875,7 +918,7 @@ export default function BriefingPage() {
                     </p>
                   </div>
 
-                  {fileNames.length === 0 ? (
+                  {anexos.length === 0 ? (
                     <div style={{ display: "flex", justifyContent: "center" }}>
                       <label style={{
                         display: "inline-flex",
@@ -912,7 +955,7 @@ export default function BriefingPage() {
                     }}>
                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                         <span style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--sinal)", fontWeight: 600 }}>
-                          Arquivos Anexados ({fileNames.length}):
+                          Arquivos Anexados ({anexos.length}):
                         </span>
                         <span style={{ fontSize: "11px", color: "var(--text-secondary)" }}>
                           Clique no ✕ para remover
@@ -920,24 +963,27 @@ export default function BriefingPage() {
                       </div>
 
                       <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-                        {fileNames.map((fn, idx) => (
-                          <div key={idx} style={{
+                        {anexos.map((a) => (
+                          <div key={a.clientId} style={{
                             display: "flex",
                             justifyContent: "space-between",
                             alignItems: "center",
                             fontSize: "13px",
-                            color: "var(--text-primary)",
+                            color: a.status === "erro" ? "#ff6b6b" : "var(--text-primary)",
                             background: "var(--obsidiana)",
                             padding: "8px 12px",
                             borderRadius: "4px",
                             border: "1px solid var(--border)"
                           }}>
-                            <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", maxWidth: "85%" }}>
-                              📄 {fn}
+                            <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", maxWidth: "75%" }}>
+                              📄 {a.name}
+                              {a.status === "enviando" && <span style={{ color: "var(--sinal)", marginLeft: "8px" }}>enviando...</span>}
+                              {a.status === "erro" && <span style={{ marginLeft: "8px" }}>falhou</span>}
+                              {a.status === "ok" && <span style={{ color: "var(--sinal)", marginLeft: "8px" }}>✓</span>}
                             </span>
                             <button
                               type="button"
-                              onClick={() => removeFile(idx)}
+                              onClick={() => removeFile(a.clientId)}
                               title="Remover arquivo"
                               style={{
                                 background: "transparent",
@@ -1135,7 +1181,7 @@ export default function BriefingPage() {
                   </button>
                   <button
                     type="submit"
-                    disabled={loading}
+                    disabled={loading || anexos.some((a) => a.status === "enviando")}
                     className="briefing-btn-submit"
                   >
                     {loading ? "Enviando Briefing Estratégico..." : "Finalizar e Enviar Briefing Completo →"}

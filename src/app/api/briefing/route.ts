@@ -1,6 +1,32 @@
 import { NextResponse } from "next/server";
 import { supabaseServer } from "@/lib/supabaseServer";
 
+const ANEXOS_BUCKET = "briefing-anexos";
+const SIGNED_URL_TTL_SECONDS = 60 * 60 * 24; // 24h
+
+export interface AnexoRef {
+  name: string;
+  path: string;
+  url?: string;
+}
+
+async function withSignedUrls(anexos: unknown): Promise<AnexoRef[]> {
+  if (!Array.isArray(anexos)) return [];
+  const normalized: AnexoRef[] = anexos
+    .map((a) => (typeof a === "string" ? { name: a, path: "" } : a))
+    .filter((a): a is AnexoRef => !!a && typeof a === "object" && typeof a.name === "string");
+
+  return Promise.all(
+    normalized.map(async (a) => {
+      if (!a.path) return a;
+      const { data } = await supabaseServer.storage
+        .from(ANEXOS_BUCKET)
+        .createSignedUrl(a.path, SIGNED_URL_TTL_SECONDS);
+      return { ...a, url: data?.signedUrl };
+    })
+  );
+}
+
 export interface BriefingItem {
   id: string;
   created_at: string;
@@ -43,7 +69,7 @@ export interface BriefingItem {
   quem_aprova_o_projeto?: string;
   criterio_de_sucesso_30_dias?: string;
   observacoes_finais?: string;
-  arquivos_anexos?: string[];
+  arquivos_anexos?: AnexoRef[];
 }
 
 export function classifySegment(ramo: string = "", oQueFaz: string = ""): string {
@@ -162,14 +188,16 @@ export async function GET() {
     }
 
     // Normalizar e enriquecer os dados para o dashboard
-    const enrichedBriefings: BriefingItem[] = (data || []).map((row) => ({
-      ...row,
-      segmento: row.segmento || classifySegment(row.ramo_atuacao, row.o_que_sua_empresa_faz),
-      diferencial_competitivo: row.diferencial_competitivo || row.por_que_o_cliente_escolhe_voce || "",
-      integracoes_sistemas_externos: row.integracoes_sistemas_externos || row.outros_sistemas_para_integrar || "",
-      recursos_desejados: Array.isArray(row.recursos_desejados) ? row.recursos_desejados : [],
-      arquivos_anexos: Array.isArray(row.arquivos_anexos) ? row.arquivos_anexos : []
-    }));
+    const enrichedBriefings: BriefingItem[] = await Promise.all(
+      (data || []).map(async (row) => ({
+        ...row,
+        segmento: row.segmento || classifySegment(row.ramo_atuacao, row.o_que_sua_empresa_faz),
+        diferencial_competitivo: row.diferencial_competitivo || row.por_que_o_cliente_escolhe_voce || "",
+        integracoes_sistemas_externos: row.integracoes_sistemas_externos || row.outros_sistemas_para_integrar || "",
+        recursos_desejados: Array.isArray(row.recursos_desejados) ? row.recursos_desejados : [],
+        arquivos_anexos: await withSignedUrls(row.arquivos_anexos)
+      }))
+    );
 
     return NextResponse.json({
       success: true,

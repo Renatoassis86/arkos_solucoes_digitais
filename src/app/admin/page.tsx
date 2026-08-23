@@ -3,6 +3,7 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import type { AnexoRef } from "../api/briefing/route";
 
 interface Briefing {
   id: string;
@@ -46,7 +47,7 @@ interface Briefing {
   quem_aprova_o_projeto?: string;
   criterio_de_sucesso_30_dias?: string;
   observacoes_finais?: string;
-  arquivos_anexos?: string[];
+  arquivos_anexos?: AnexoRef[];
 }
 
 export default function AdminDashboardPage() {
@@ -1305,6 +1306,55 @@ ${b.principal_dor_do_seu_cliente || "Não informada"}
                         );
                       })}
                     </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Bloco 4b: Anexos Enviados pelo Cliente */}
+              {activeModalBriefing.arquivos_anexos && activeModalBriefing.arquivos_anexos.length > 0 && (
+                <div>
+                  <h3 style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "var(--sinal)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "8px" }}>
+                    Anexos do Cliente ({activeModalBriefing.arquivos_anexos.length})
+                  </h3>
+                  <div style={{ background: "var(--obsidiana)", padding: "14px", borderRadius: "6px", fontSize: "13px", display: "flex", flexDirection: "column", gap: "8px" }}>
+                    {activeModalBriefing.arquivos_anexos.map((anexo, idx) => (
+                      <div key={idx} style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        background: "var(--grafite)",
+                        border: "1px solid var(--border)",
+                        borderRadius: "4px",
+                        padding: "8px 12px",
+                        gap: "10px"
+                      }}>
+                        <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", color: "var(--text-primary)" }}>
+                          📎 {anexo.name}
+                        </span>
+                        {anexo.url ? (
+                          <a
+                            href={anexo.url}
+                            target="_blank"
+                            rel="noreferrer"
+                            style={{
+                              background: "var(--sinal)",
+                              color: "var(--obsidiana)",
+                              fontFamily: "var(--font-mono)",
+                              fontSize: "11px",
+                              fontWeight: 700,
+                              padding: "5px 12px",
+                              borderRadius: "4px",
+                              textDecoration: "none",
+                              whiteSpace: "nowrap"
+                            }}
+                          >
+                            ⬇ Baixar
+                          </a>
+                        ) : (
+                          <span style={{ fontSize: "11px", color: "var(--text-secondary)", whiteSpace: "nowrap" }}>indisponível</span>
+                        )}
+                      </div>
+                    ))}
                   </div>
                 </div>
               )}
