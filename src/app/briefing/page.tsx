@@ -9,6 +9,7 @@ export default function BriefingPage() {
   const [currentStep, setCurrentStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const [fileNames, setFileNames] = useState<string[]>([]);
 
   const [formData, setFormData] = useState({
@@ -80,6 +81,7 @@ export default function BriefingPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    setSubmitError("");
 
     try {
       const res = await fetch("/api/briefing", {
@@ -92,13 +94,14 @@ export default function BriefingPage() {
       });
       const data = await res.json();
       if (!data.success) {
-        console.warn("Falha no servidor, prosseguindo com sucesso no cliente");
+        setSubmitError(data.error || "Não foi possível salvar seu briefing agora. Tente novamente em instantes ou nos chame no WhatsApp.");
+        return;
       }
+      setSubmitted(true);
     } catch {
-      console.warn("Envio simulado com sucesso");
+      setSubmitError("Falha de conexão ao enviar o briefing. Verifique sua internet e tente novamente, ou nos chame no WhatsApp.");
     } finally {
       setLoading(false);
-      setSubmitted(true);
     }
   };
 
@@ -1107,6 +1110,20 @@ export default function BriefingPage() {
                     style={{ width: "100%", padding: "12px 14px", background: "var(--obsidiana)", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-primary)", fontSize: "14px" }}
                   />
                 </div>
+
+                {submitError && (
+                  <div style={{
+                    background: "rgba(255, 107, 107, 0.1)",
+                    border: "1px solid rgba(255, 107, 107, 0.4)",
+                    borderRadius: "4px",
+                    padding: "12px 16px",
+                    fontSize: "13px",
+                    color: "#ff6b6b",
+                    lineHeight: 1.5
+                  }}>
+                    ⚠ {submitError}
+                  </div>
+                )}
 
                 <div className="briefing-actions">
                   <button
