@@ -16,13 +16,16 @@ export default function AdminLoginPage() {
     setError("");
     setLoading(true);
 
-    // Validação das credenciais oficiais do gestor
-    if (email.trim().toLowerCase() === "renato086@gmail.com" && password === "admin123") {
+    // Validação das credenciais oficiais da equipe com acesso ao painel
+    const contaValida =
+      (email.trim().toLowerCase() === "renato086@gmail.com" && password === "admin123") ? { email: "renato086@gmail.com", name: "Renato Assis", role: "Gestor Principal" } :
+      (email.trim().toLowerCase() === "hugo@kairos.com.br" && password === "admin123") ? { email: "hugo@kairos.com.br", name: "Hugo", role: "Consultor" } :
+      null;
+
+    if (contaValida) {
       if (typeof window !== "undefined") {
         sessionStorage.setItem("arkos_admin_auth", JSON.stringify({
-          email: "renato086@gmail.com",
-          name: "Renato Assis",
-          role: "Gestor Principal",
+          ...contaValida,
           loggedInAt: new Date().toISOString()
         }));
       }

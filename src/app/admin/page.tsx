@@ -387,6 +387,24 @@ ${b.principal_dor_do_seu_cliente || "Não informada"}
               📥 Exportar
             </button>
 
+            <Link
+              href="/admin/kairos"
+              style={{
+                background: "var(--ardosia)",
+                border: "1px solid var(--sinal)",
+                color: "var(--sinal)",
+                padding: "7px 12px",
+                borderRadius: "6px",
+                fontSize: "12px",
+                fontFamily: "var(--font-mono)",
+                textDecoration: "none",
+                display: "inline-flex",
+                alignItems: "center"
+              }}
+            >
+              Briefing Kairós
+            </Link>
+
             <button
               onClick={handleLogout}
               style={{

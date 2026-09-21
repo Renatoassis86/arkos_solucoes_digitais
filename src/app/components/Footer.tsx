@@ -124,6 +124,20 @@ export default function Footer() {
             }}>
               Briefing de Plataforma Comercial →
             </Link>
+            <Link href="/briefing-kairos" style={{
+              display: "inline-block",
+              fontSize: "11px",
+              fontFamily: "var(--font-mono)",
+              fontWeight: 600,
+              color: "var(--text-secondary)",
+              background: "transparent",
+              border: "1px solid var(--border)",
+              padding: "9px 16px",
+              borderRadius: "4px",
+              textTransform: "uppercase"
+            }}>
+              Briefing Kairós →
+            </Link>
           </div>
         </div>
       </div>

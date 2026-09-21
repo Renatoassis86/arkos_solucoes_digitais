@@ -257,3 +257,119 @@ ON public.briefings_plataforma_comercial
 FOR SELECT
 TO authenticated
 USING (auth.role() = 'authenticated');
+
+-- ==============================================================================
+-- TABELA 5 e 6: BRIEFING PRIVADO POR PIN — CLIENTE ESPECÍFICO (/briefing-kairos)
+-- Diferente da Tabela 4 (genérica, qualquer visitante pode preencher), este
+-- briefing é fechado: só quem tem um dos códigos de acesso gerados consegue
+-- ver e responder as perguntas. Cada código é de uso único (uma resposta por
+-- PIN), permitindo que várias pessoas da mesma empresa respondam de forma
+-- independente, cada uma se identificando (nome, cargo, área de
+-- responsabilidade). Sem policy de INSERT/SELECT pública — toda validação de
+-- PIN e gravação de resposta passa pelas rotas de API, com a service role key
+-- (nunca é a chave anon que decide se um PIN é válido).
+-- ==============================================================================
+CREATE TABLE IF NOT EXISTS public.kairos_briefing_pins (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
+    rotulo VARCHAR(50) NOT NULL, -- referência interna só pra você (ex: "Usuário 1"), nunca exibido a quem responde
+    pin VARCHAR(10) UNIQUE NOT NULL DEFAULT LPAD(FLOOR(RANDOM() * 1000000)::TEXT, 6, '0'),
+    respondido BOOLEAN DEFAULT false NOT NULL,
+    respondido_em TIMESTAMP WITH TIME ZONE
+);
+
+-- Questionário completo: as mesmas 6 etapas do briefing genérico de
+-- plataforma comercial (Tabela 4), MAIS a área de responsabilidade de quem
+-- responde e as perguntas específicas do canal de varejo/família. Cada uma
+-- das pessoas que recebeu um PIN preenche o questionário inteiro de forma
+-- independente — não é uma pessoa por seção.
+CREATE TABLE IF NOT EXISTS public.kairos_briefing_respostas (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    pin_id UUID NOT NULL UNIQUE REFERENCES public.kairos_briefing_pins(id) ON DELETE CASCADE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
+
+    -- ETAPA 1: SOBRE VOCÊ E A EMPRESA
+    nome_solicitante VARCHAR(255) NOT NULL,
+    cargo_solicitante VARCHAR(150) NOT NULL,
+    area_responsabilidade TEXT NOT NULL,
+    empresa_nome VARCHAR(255),
+    ramo_atuacao VARCHAR(150),
+    email_contato VARCHAR(255) NOT NULL,
+    telefone_whatsapp VARCHAR(50),
+    cidade_estado VARCHAR(150),
+    site_atual VARCHAR(255),
+
+    -- ETAPA 2: O QUE VENDEM E PARA QUEM
+    o_que_a_empresa_vende TEXT,
+    unidade_de_venda VARCHAR(100),
+    quem_e_o_cliente_comprador TEXT,
+    ticket_medio_atual VARCHAR(150),
+    quantos_clientes_ativos_hoje VARCHAR(100),
+
+    -- ETAPA 3: COMO FUNCIONA O PREÇO
+    modelo_de_precificacao VARCHAR(100),
+    existe_tabela_de_precos_hoje VARCHAR(100),
+    margem_de_negociacao VARCHAR(100),
+    quem_aprova_descontos_especiais VARCHAR(255),
+    formas_de_pagamento_aceitas JSONB DEFAULT '[]'::jsonb,
+    variaveis_que_definem_o_preco TEXT,
+
+    -- ETAPA 4: FLUXO COMERCIAL, DA PRÉ-VENDA AO PÓS-VENDA
+    como_surge_um_lead_hoje TEXT,
+    etapas_do_processo_comercial TEXT,
+    tempo_medio_de_fechamento VARCHAR(100),
+    documentos_usados_no_processo VARCHAR(255),
+    o_que_acontece_apos_o_fechamento TEXT,
+    tipo_de_relacionamento_com_cliente VARCHAR(100),
+    como_e_feita_a_renovacao TEXT,
+
+    -- ETAPA 5: CLIENTES ATUAIS (CADASTRO) — mesmo formato da Tabela 4
+    clientes_atuais JSONB DEFAULT '[]'::jsonb,
+
+    -- ETAPA 6: METAS E PLANEJAMENTO COMERCIAL
+    periodo_de_planejamento VARCHAR(100),
+    meta_novos_clientes_periodo VARCHAR(150),
+    meta_escolas_novas_2027 VARCHAR(150),
+    meta_reunioes_ate_dez_2026 VARCHAR(150),
+    meta_alunos VARCHAR(150),
+    meta_livros_vendidos VARCHAR(150),
+    meta_faturamento_periodo VARCHAR(150),
+    meta_percentual_renovacao VARCHAR(100),
+    indicadores_que_ja_acompanham_hoje TEXT,
+    outras_metas_com_prazo TEXT,
+    observacoes_finais TEXT,
+
+    -- ETAPA 7: CANAL DE VAREJO — MODELO DE VENDA PARA A FAMÍLIA
+    venda_familia_site_proprio TEXT,
+    preco_familia_vs_escola TEXT,
+    compra_parcelada_ou_avulsa TEXT,
+    familia_multiplos_filhos TEXT,
+    desconto_irmaos TEXT,
+    compra_tem_atendimento_humano TEXT,
+    suporte_pos_venda_familia TEXT,
+
+    -- ETAPA 8: LOGÍSTICA FÍSICA, CRUZAMENTO ENTRE CANAIS E PERGUNTA ABERTA
+    rastreamento_envio_individual TEXT,
+    controle_estoque_livros TEXT,
+    familia_de_escola_parceira_compra_avulso TEXT,
+    metas_separadas_por_canal TEXT,
+    outras_funcionalidades_importantes TEXT
+);
+
+CREATE INDEX IF NOT EXISTS idx_kairos_pins_pin ON public.kairos_briefing_pins (pin);
+CREATE INDEX IF NOT EXISTS idx_kairos_respostas_pin_id ON public.kairos_briefing_respostas (pin_id);
+
+ALTER TABLE public.kairos_briefing_pins ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.kairos_briefing_respostas ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Apenas administradores podem ler pins"
+ON public.kairos_briefing_pins
+FOR SELECT
+TO authenticated
+USING (auth.role() = 'authenticated');
+
+CREATE POLICY "Apenas administradores podem ler respostas do briefing kairos"
+ON public.kairos_briefing_respostas
+FOR SELECT
+TO authenticated
+USING (auth.role() = 'authenticated');
