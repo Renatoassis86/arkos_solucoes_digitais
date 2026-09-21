@@ -118,9 +118,50 @@ export default function BriefingPlataformaComercialPage() {
     });
   };
 
+  // Campos obrigatórios por etapa — como cada etapa só renderiza seus próprios
+  // campos no DOM, o `required` do HTML só protege a etapa visível no momento
+  // do envio. Sem essa checagem, quem pula direto pra Etapa 6 pela barra de
+  // navegação consegue enviar um briefing vazio (aconteceu no primeiro teste
+  // em produção). Valida tudo de 1 a 4 antes de aceitar o envio, de qualquer etapa.
+  function encontrarEtapaComCampoFaltando(): { etapa: number; mensagem: string } | null {
+    const etapa1: [string, string][] = [
+      [formData.nome_solicitante, "Seu Nome Completo"],
+      [formData.cargo_solicitante, "Seu Cargo ou Papel na Empresa"],
+      [formData.empresa_nome, "Nome da Empresa"],
+      [formData.ramo_atuacao, "Ramo de Atuação"],
+      [formData.telefone_whatsapp, "WhatsApp Comercial"],
+      [formData.email_contato, "E-mail de Contato"],
+    ];
+    for (const [valor, nome] of etapa1) {
+      if (!valor.trim()) return { etapa: 1, mensagem: `Falta preencher "${nome}" na Etapa 1.` };
+    }
+
+    const etapa2: [string, string][] = [
+      [formData.o_que_a_empresa_vende, "O que a sua empresa vende"],
+      [formData.quem_e_o_cliente_comprador, "Quem é o cliente que decide a compra"],
+    ];
+    for (const [valor, nome] of etapa2) {
+      if (!valor.trim()) return { etapa: 2, mensagem: `Falta preencher "${nome}" na Etapa 2.` };
+    }
+
+    if (!formData.etapas_do_processo_comercial.trim()) {
+      return { etapa: 4, mensagem: 'Falta descrever "as etapas do processo comercial" na Etapa 4.' };
+    }
+
+    return null;
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitError("");
+
+    const faltando = encontrarEtapaComCampoFaltando();
+    if (faltando) {
+      setCurrentStep(faltando.etapa);
+      setSubmitError(faltando.mensagem);
+      return;
+    }
+
     setLoading(true);
 
     try {
@@ -230,6 +271,15 @@ export default function BriefingPlataformaComercialPage() {
           </div>
         ) : (
           <form onSubmit={handleSubmit} style={{ background: "var(--grafite)", border: "1px solid var(--border)", borderRadius: "8px", padding: "clamp(20px, 4vw, 36px)" }}>
+
+            {submitError && (
+              <div style={{
+                background: "rgba(255, 107, 107, 0.1)", border: "1px solid rgba(255, 107, 107, 0.4)", borderRadius: "4px",
+                padding: "12px 16px", fontSize: "13px", color: "#ff6b6b", lineHeight: 1.5, marginBottom: "20px",
+              }}>
+                ⚠ {submitError}
+              </div>
+            )}
 
             {/* ETAPA 1 — SOBRE VOCÊ E SUA EMPRESA */}
             {currentStep === 1 && (
@@ -742,15 +792,6 @@ export default function BriefingPlataformaComercialPage() {
                     placeholder="Sinta-se à vontade para compartilhar qualquer detalhe extra..."
                     style={inputStyle} />
                 </div>
-
-                {submitError && (
-                  <div style={{
-                    background: "rgba(255, 107, 107, 0.1)", border: "1px solid rgba(255, 107, 107, 0.4)", borderRadius: "4px",
-                    padding: "12px 16px", fontSize: "13px", color: "#ff6b6b", lineHeight: 1.5,
-                  }}>
-                    ⚠ {submitError}
-                  </div>
-                )}
 
                 <div className="briefing-actions">
                   <button type="button" onClick={() => setCurrentStep(5)} className="briefing-btn-back">← Voltar</button>
