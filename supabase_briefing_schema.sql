@@ -176,3 +176,84 @@ ON public.briefing_anexos
 FOR SELECT
 TO authenticated
 USING (auth.role() = 'authenticated');
+
+-- ==============================================================================
+-- TABELA 4: BRIEFING PARA CONSTRUÇÃO DE PLATAFORMA COMERCIAL (/briefing-plataforma-comercial)
+-- Coleta a realidade comercial de um cliente (fluxo de venda, precificação,
+-- carteira de clientes atuais, jornada pré-venda a pós-venda e metas) para
+-- servir de base ao desenho de um CRM/plataforma comercial sob medida —
+-- o mesmo tipo de levantamento feito manualmente para os projetos já
+-- entregues pela ARKOS, agora como um formulário reutilizável para
+-- qualquer novo cliente.
+-- ==============================================================================
+CREATE TABLE IF NOT EXISTS public.briefings_plataforma_comercial (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
+    status VARCHAR(50) DEFAULT 'novo' NOT NULL, -- 'novo', 'em_analise', 'proposta_enviada', 'aprovado', 'concluido'
+
+    -- ETAPA 1: SOBRE VOCÊ E SUA EMPRESA
+    nome_solicitante VARCHAR(255) NOT NULL,
+    cargo_solicitante VARCHAR(150),
+    empresa_nome VARCHAR(255) NOT NULL,
+    ramo_atuacao VARCHAR(150) NOT NULL,
+    email_contato VARCHAR(255) NOT NULL,
+    telefone_whatsapp VARCHAR(50) NOT NULL,
+    cidade_estado VARCHAR(150),
+    site_atual VARCHAR(255),
+
+    -- ETAPA 2: O QUE VENDEM E PARA QUEM
+    o_que_a_empresa_vende TEXT NOT NULL,
+    unidade_de_venda VARCHAR(100) NOT NULL,
+    quem_e_o_cliente_comprador TEXT NOT NULL,
+    ticket_medio_atual VARCHAR(150),
+    quantos_clientes_ativos_hoje VARCHAR(100),
+
+    -- ETAPA 3: COMO FUNCIONA O PREÇO
+    modelo_de_precificacao VARCHAR(100) NOT NULL,
+    existe_tabela_de_precos_hoje VARCHAR(100) NOT NULL,
+    margem_de_negociacao VARCHAR(100) NOT NULL,
+    quem_aprova_descontos_especiais VARCHAR(255),
+    formas_de_pagamento_aceitas JSONB DEFAULT '[]'::jsonb,
+    variaveis_que_definem_o_preco TEXT,
+
+    -- ETAPA 4: FLUXO COMERCIAL, DA PRÉ-VENDA AO PÓS-VENDA
+    como_surge_um_lead_hoje TEXT,
+    etapas_do_processo_comercial TEXT NOT NULL,
+    tempo_medio_de_fechamento VARCHAR(100),
+    documentos_usados_no_processo VARCHAR(255),
+    o_que_acontece_apos_o_fechamento TEXT,
+    tipo_de_relacionamento_com_cliente VARCHAR(100) NOT NULL,
+    como_e_feita_a_renovacao TEXT,
+
+    -- ETAPA 5: CLIENTES ATUAIS (CADASTRO) — array de objetos:
+    -- { nome_cliente, quantidade, unidade_quantidade, item_ou_produto_principal,
+    --   valor_unitario, forma_pagamento, data_inicio, observacoes }
+    clientes_atuais JSONB DEFAULT '[]'::jsonb,
+
+    -- ETAPA 6: METAS E PLANEJAMENTO COMERCIAL
+    periodo_de_planejamento VARCHAR(100),
+    meta_novos_clientes_periodo VARCHAR(150),
+    meta_faturamento_periodo VARCHAR(150),
+    meta_percentual_renovacao VARCHAR(100),
+    indicadores_que_ja_acompanham_hoje TEXT,
+    observacoes_finais TEXT
+);
+
+CREATE INDEX IF NOT EXISTS idx_briefings_pc_email ON public.briefings_plataforma_comercial (email_contato);
+CREATE INDEX IF NOT EXISTS idx_briefings_pc_status ON public.briefings_plataforma_comercial (status);
+CREATE INDEX IF NOT EXISTS idx_briefings_pc_created_at ON public.briefings_plataforma_comercial (created_at DESC);
+
+ALTER TABLE public.briefings_plataforma_comercial ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Permitir envio publico de briefings de plataforma comercial"
+ON public.briefings_plataforma_comercial
+FOR INSERT
+TO anon, authenticated
+WITH CHECK (true);
+
+CREATE POLICY "Apenas administradores podem ler briefings de plataforma comercial"
+ON public.briefings_plataforma_comercial
+FOR SELECT
+TO authenticated
+USING (auth.role() = 'authenticated');

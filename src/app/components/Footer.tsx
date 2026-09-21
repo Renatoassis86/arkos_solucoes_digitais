@@ -96,7 +96,7 @@ export default function Footer() {
             <div style={{ fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--text-primary)", marginTop: "4px" }}>CEP: 58013-522</div>
           </div>
 
-          <div style={{ marginTop: "16px" }}>
+          <div style={{ marginTop: "16px", display: "flex", flexDirection: "column", gap: "8px", alignItems: "flex-start" }}>
             <Link href="/briefing" style={{
               display: "inline-block",
               fontSize: "11px",
@@ -109,6 +109,20 @@ export default function Footer() {
               textTransform: "uppercase"
             }}>
               Preencher Briefing →
+            </Link>
+            <Link href="/briefing-plataforma-comercial" style={{
+              display: "inline-block",
+              fontSize: "11px",
+              fontFamily: "var(--font-mono)",
+              fontWeight: 600,
+              color: "var(--sinal)",
+              background: "transparent",
+              border: "1px solid var(--sinal)",
+              padding: "9px 16px",
+              borderRadius: "4px",
+              textTransform: "uppercase"
+            }}>
+              Briefing de Plataforma Comercial →
             </Link>
           </div>
         </div>
