@@ -174,7 +174,7 @@ export default function AdminKairosPage() {
                   background: l.respondido ? "rgba(200,245,66,0.15)" : "rgba(255,255,255,0.06)",
                   color: l.respondido ? "var(--sinal)" : "var(--text-secondary)",
                 }}>
-                  {l.respondido ? "Respondido" : "Pendente"}
+                  {l.respondido ? "Tem resposta salva" : "Ainda não iniciado"}
                 </span>
               </div>
 

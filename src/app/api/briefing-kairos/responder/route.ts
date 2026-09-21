@@ -103,7 +103,7 @@ export async function POST(req: Request) {
 
     const { data: pinRow, error: pinErr } = await supabaseServer
       .from("kairos_briefing_pins")
-      .select("id, respondido")
+      .select("id")
       .eq("pin", pin)
       .maybeSingle();
 
@@ -114,19 +114,19 @@ export async function POST(req: Request) {
     if (!pinRow) {
       return NextResponse.json({ success: false, error: "Código de acesso inválido." }, { status: 400 });
     }
-    if (pinRow.respondido) {
-      return NextResponse.json({ success: false, error: "Este código já foi usado para enviar uma resposta." }, { status: 400 });
-    }
 
     const payload = sanitizeForSupabase(body);
 
-    const { error: insertErr } = await supabaseServer
+    // Upsert por pin_id (UNIQUE): primeira vez cria a linha, as próximas
+    // atualizam — o mesmo PIN pode ser reaberto e editado quantas vezes for
+    // preciso, tanto por um autosave de progresso quanto pelo envio final.
+    const { error: upsertErr } = await supabaseServer
       .from("kairos_briefing_respostas")
-      .insert([{ pin_id: pinRow.id, ...payload }]);
+      .upsert([{ pin_id: pinRow.id, ...payload }], { onConflict: "pin_id" });
 
-    if (insertErr) {
-      console.error("Supabase POST error:", insertErr);
-      return NextResponse.json({ success: false, error: insertErr.message }, { status: 500 });
+    if (upsertErr) {
+      console.error("Supabase upsert error:", upsertErr);
+      return NextResponse.json({ success: false, error: upsertErr.message }, { status: 500 });
     }
 
     const { error: updateErr } = await supabaseServer

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 
 interface ClienteAtual {
@@ -58,80 +58,112 @@ const TOTAL_ETAPAS = 8;
 // Kairós; um futuro cliente customizado ganharia seu próprio componente
 // aqui do lado, selecionado pelo campo `empresa` que a validação de PIN
 // retornar).
-export function FormularioKairos({ pin }: { pin: string }) {
+const DEFAULT_FORM_DATA = {
+  // ETAPA 1: SOBRE VOCÊ
+  nome_solicitante: "",
+  cargo_solicitante: "",
+  area_responsabilidade: "",
+  empresa_nome: "Kairós",
+  ramo_atuacao: "",
+  email_contato: "",
+  telefone_whatsapp: "",
+  cidade_estado: "",
+  site_atual: "",
+
+  // ETAPA 2: O QUE VENDEM E PARA QUEM
+  o_que_a_empresa_vende: "",
+  unidade_de_venda: "pacote_fechado_por_cliente",
+  quem_e_o_cliente_comprador: "",
+  ticket_medio_atual: "",
+  quantos_clientes_ativos_hoje: "",
+
+  // ETAPA 3: COMO FUNCIONA O PREÇO
+  modelo_de_precificacao: "preco_unico_fixo",
+  existe_tabela_de_precos_hoje: "nao_decido_na_hora",
+  margem_de_negociacao: "sem_margem_preco_fechado",
+  quem_aprova_descontos_especiais: "",
+  formas_de_pagamento_aceitas: [] as string[],
+  variaveis_que_definem_o_preco: "",
+
+  // ETAPA 4: FLUXO COMERCIAL, DA PRÉ-VENDA AO PÓS-VENDA
+  como_surge_um_lead_hoje: "",
+  etapas_do_processo_comercial: "",
+  tempo_medio_de_fechamento: "",
+  documentos_usados_no_processo: "",
+  o_que_acontece_apos_o_fechamento: "",
+  tipo_de_relacionamento_com_cliente: "recorrente_com_renovacao",
+  como_e_feita_a_renovacao: "",
+
+  // ETAPA 6: METAS E PLANEJAMENTO COMERCIAL
+  periodo_de_planejamento: "mensal",
+  meta_novos_clientes_periodo: "",
+  meta_escolas_novas_2027: "",
+  meta_reunioes_ate_dez_2026: "",
+  meta_alunos: "",
+  meta_livros_vendidos: "",
+  meta_faturamento_periodo: "",
+  meta_percentual_renovacao: "",
+  indicadores_que_ja_acompanham_hoje: "",
+  outras_metas_com_prazo: "",
+  observacoes_finais: "",
+
+  // ETAPA 7: CANAL DE VAREJO — VENDA PARA A FAMÍLIA
+  venda_familia_site_proprio: "",
+  preco_familia_vs_escola: "",
+  compra_parcelada_ou_avulsa: "",
+  familia_multiplos_filhos: "",
+  desconto_irmaos: "",
+  compra_tem_atendimento_humano: "",
+  suporte_pos_venda_familia: "",
+
+  // ETAPA 8: LOGÍSTICA, CRUZAMENTO ENTRE CANAIS E PERGUNTA ABERTA
+  rastreamento_envio_individual: "",
+  controle_estoque_livros: "",
+  familia_de_escola_parceira_compra_avulso: "",
+  metas_separadas_por_canal: "",
+  outras_funcionalidades_importantes: "",
+};
+
+type FormDataShape = typeof DEFAULT_FORM_DATA;
+
+function valorOuPadrao(salvo: unknown, padrao: string): string {
+  return typeof salvo === "string" && salvo !== "" ? salvo : padrao;
+}
+
+// Reconstrói o formData a partir do que já está salvo pra esse PIN (se
+// houver) — quem volta com o mesmo código continua exatamente de onde
+// parou, em vez de começar um formulário em branco de novo.
+function construirFormDataInicial(dadosSalvos: Record<string, unknown> | null | undefined): FormDataShape {
+  if (!dadosSalvos) return { ...DEFAULT_FORM_DATA };
+  const resultado = { ...DEFAULT_FORM_DATA };
+  for (const chave of Object.keys(DEFAULT_FORM_DATA) as (keyof FormDataShape)[]) {
+    if (chave === "formas_de_pagamento_aceitas") continue;
+    const valorSalvo = dadosSalvos[chave];
+    (resultado[chave] as string) = valorOuPadrao(valorSalvo, DEFAULT_FORM_DATA[chave] as string);
+  }
+  resultado.formas_de_pagamento_aceitas = Array.isArray(dadosSalvos.formas_de_pagamento_aceitas)
+    ? (dadosSalvos.formas_de_pagamento_aceitas as string[])
+    : [];
+  return resultado;
+}
+
+function construirClientesInicial(dadosSalvos: Record<string, unknown> | null | undefined): ClienteAtual[] {
+  const salvos = dadosSalvos?.clientes_atuais;
+  if (Array.isArray(salvos) && salvos.length > 0) return salvos as ClienteAtual[];
+  return [{ ...CLIENTE_VAZIO }];
+}
+
+export function FormularioKairos({ pin, dadosIniciais }: { pin: string; dadosIniciais?: Record<string, unknown> | null }) {
   const [currentStep, setCurrentStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [submitError, setSubmitError] = useState("");
+  const [statusAutosave, setStatusAutosave] = useState<"" | "salvando" | "salvo" | "erro">("");
 
-  const [formData, setFormData] = useState({
-    // ETAPA 1: SOBRE VOCÊ
-    nome_solicitante: "",
-    cargo_solicitante: "",
-    area_responsabilidade: "",
-    empresa_nome: "Kairós",
-    ramo_atuacao: "",
-    email_contato: "",
-    telefone_whatsapp: "",
-    cidade_estado: "",
-    site_atual: "",
-
-    // ETAPA 2: O QUE VENDEM E PARA QUEM
-    o_que_a_empresa_vende: "",
-    unidade_de_venda: "pacote_fechado_por_cliente",
-    quem_e_o_cliente_comprador: "",
-    ticket_medio_atual: "",
-    quantos_clientes_ativos_hoje: "",
-
-    // ETAPA 3: COMO FUNCIONA O PREÇO
-    modelo_de_precificacao: "preco_unico_fixo",
-    existe_tabela_de_precos_hoje: "nao_decido_na_hora",
-    margem_de_negociacao: "sem_margem_preco_fechado",
-    quem_aprova_descontos_especiais: "",
-    formas_de_pagamento_aceitas: [] as string[],
-    variaveis_que_definem_o_preco: "",
-
-    // ETAPA 4: FLUXO COMERCIAL, DA PRÉ-VENDA AO PÓS-VENDA
-    como_surge_um_lead_hoje: "",
-    etapas_do_processo_comercial: "",
-    tempo_medio_de_fechamento: "",
-    documentos_usados_no_processo: "",
-    o_que_acontece_apos_o_fechamento: "",
-    tipo_de_relacionamento_com_cliente: "recorrente_com_renovacao",
-    como_e_feita_a_renovacao: "",
-
-    // ETAPA 6: METAS E PLANEJAMENTO COMERCIAL
-    periodo_de_planejamento: "mensal",
-    meta_novos_clientes_periodo: "",
-    meta_escolas_novas_2027: "",
-    meta_reunioes_ate_dez_2026: "",
-    meta_alunos: "",
-    meta_livros_vendidos: "",
-    meta_faturamento_periodo: "",
-    meta_percentual_renovacao: "",
-    indicadores_que_ja_acompanham_hoje: "",
-    outras_metas_com_prazo: "",
-    observacoes_finais: "",
-
-    // ETAPA 7: CANAL DE VAREJO — VENDA PARA A FAMÍLIA
-    venda_familia_site_proprio: "",
-    preco_familia_vs_escola: "",
-    compra_parcelada_ou_avulsa: "",
-    familia_multiplos_filhos: "",
-    desconto_irmaos: "",
-    compra_tem_atendimento_humano: "",
-    suporte_pos_venda_familia: "",
-
-    // ETAPA 8: LOGÍSTICA, CRUZAMENTO ENTRE CANAIS E PERGUNTA ABERTA
-    rastreamento_envio_individual: "",
-    controle_estoque_livros: "",
-    familia_de_escola_parceira_compra_avulso: "",
-    metas_separadas_por_canal: "",
-    outras_funcionalidades_importantes: "",
-  });
+  const [formData, setFormData] = useState<FormDataShape>(() => construirFormDataInicial(dadosIniciais));
 
   // ETAPA 5: CLIENTES/ESCOLAS ATUAIS — lista dinâmica
-  const [clientesAtuais, setClientesAtuais] = useState<ClienteAtual[]>([{ ...CLIENTE_VAZIO }]);
+  const [clientesAtuais, setClientesAtuais] = useState<ClienteAtual[]>(() => construirClientesInicial(dadosIniciais));
 
   const atualizarCliente = (index: number, campo: keyof ClienteAtual, valor: string) => {
     setClientesAtuais((prev) => prev.map((c, i) => (i === index ? { ...c, [campo]: valor } : c)));
@@ -173,18 +205,16 @@ export function FormularioKairos({ pin }: { pin: string }) {
     return null;
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitError("");
-
-    const faltando = encontrarEtapaComCampoFaltando();
-    if (faltando) {
-      setCurrentStep(faltando.etapa);
-      setSubmitError(faltando.mensagem);
-      return;
+  // Salva o estado atual no banco — usada tanto pelo autosave silencioso
+  // (troca de etapa) quanto pelo botão final. `silencioso: true` não mexe em
+  // loading/mensagens de erro visíveis, só no indicador discreto do topo.
+  const salvar = async (opts: { silencioso: boolean }) => {
+    if (opts.silencioso) {
+      setStatusAutosave("salvando");
+    } else {
+      setLoading(true);
+      setSubmitError("");
     }
-
-    setLoading(true);
 
     try {
       const res = await fetch("/api/briefing-kairos/responder", {
@@ -198,15 +228,54 @@ export function FormularioKairos({ pin }: { pin: string }) {
       });
       const data = await res.json();
       if (!data.success) {
-        setSubmitError(data.error || "Não foi possível salvar suas respostas agora. Tente novamente em instantes.");
-        return;
+        if (opts.silencioso) {
+          setStatusAutosave("erro");
+        } else {
+          setSubmitError(data.error || "Não foi possível salvar suas respostas agora. Tente novamente em instantes.");
+        }
+        return false;
       }
-      setSubmitted(true);
+      if (opts.silencioso) {
+        setStatusAutosave("salvo");
+      }
+      return true;
     } catch {
-      setSubmitError("Falha de conexão ao enviar. Verifique sua internet e tente novamente.");
+      if (opts.silencioso) {
+        setStatusAutosave("erro");
+      } else {
+        setSubmitError("Falha de conexão ao enviar. Verifique sua internet e tente novamente.");
+      }
+      return false;
     } finally {
-      setLoading(false);
+      if (!opts.silencioso) setLoading(false);
     }
+  };
+
+  // Autosave: qualquer troca de etapa (Avançar, Voltar, clique direto na
+  // barra) salva o progresso em segundo plano — pula a primeira renderização
+  // pra não salvar antes de a pessoa digitar qualquer coisa.
+  const primeiraRenderizacao = useRef(true);
+  useEffect(() => {
+    if (primeiraRenderizacao.current) {
+      primeiraRenderizacao.current = false;
+      return;
+    }
+    salvar({ silencioso: true });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentStep]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const faltando = encontrarEtapaComCampoFaltando();
+    if (faltando) {
+      setCurrentStep(faltando.etapa);
+      setSubmitError(faltando.mensagem);
+      return;
+    }
+
+    const ok = await salvar({ silencioso: false });
+    if (ok) setSubmitted(true);
   };
 
   const stepsList = [
@@ -235,6 +304,11 @@ export function FormularioKairos({ pin }: { pin: string }) {
         <p style={{ fontSize: "14px", color: "var(--text-secondary)", maxWidth: "660px", margin: "10px auto 0", lineHeight: 1.6 }}>
           Este briefing mapeia como a Kairós vende hoje — para as escolas parceiras e direto para as famílias — para desenharmos a plataforma comercial de vocês fiel à realidade do negócio. Mais de uma pessoa da equipe pode responder; cada resposta é independente.
         </p>
+        {dadosIniciais && (
+          <p style={{ fontSize: "12px", color: "var(--sinal)", marginTop: "10px" }}>
+            ✓ Encontramos respostas salvas com este código — já estão carregadas abaixo. Pode continuar de onde parou ou editar qualquer coisa.
+          </p>
+        )}
       </div>
 
       <div className="briefing-step-container">
@@ -259,6 +333,12 @@ export function FormularioKairos({ pin }: { pin: string }) {
         </div>
       </div>
 
+      <div style={{ textAlign: "right", fontSize: "11px", color: "var(--text-secondary)", marginBottom: "10px", minHeight: "16px", fontFamily: "var(--font-mono)" }}>
+        {statusAutosave === "salvando" && "Salvando..."}
+        {statusAutosave === "salvo" && "✓ Progresso salvo automaticamente"}
+        {statusAutosave === "erro" && <span style={{ color: "#ff6b6b" }}>⚠ Não foi possível salvar o progresso agora</span>}
+      </div>
+
       {submitted ? (
         <div style={{ background: "var(--grafite)", border: "1px solid var(--border)", borderRadius: "8px", padding: "48px 24px", textAlign: "center" }}>
           <div style={{
@@ -268,17 +348,22 @@ export function FormularioKairos({ pin }: { pin: string }) {
             ✓
           </div>
           <h2 style={{ fontFamily: "var(--font-display)", fontSize: "26px", color: "var(--text-primary)", marginBottom: "10px" }}>
-            Respostas Recebidas com Sucesso!
+            Respostas Salvas com Sucesso!
           </h2>
           <p style={{ color: "var(--text-secondary)", fontSize: "14px", maxWidth: "520px", margin: "0 auto 24px", lineHeight: 1.6 }}>
-            Obrigado pelas respostas. Elas já foram registradas para a construção da plataforma comercial da Kairós.
+            Obrigado pelas respostas. Elas já foram registradas para a construção da plataforma comercial da Kairós. Você pode voltar com o mesmo código a qualquer momento pra revisar ou atualizar o que respondeu.
           </p>
-          <Link href="/" style={{
-            display: "inline-block", background: "var(--sinal)", color: "var(--obsidiana)", fontFamily: "var(--font-mono)",
-            fontSize: "12px", fontWeight: 700, padding: "14px 28px", borderRadius: "4px", textTransform: "uppercase", letterSpacing: "0.05em",
-          }}>
-            Voltar ao Início
-          </Link>
+          <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
+            <button type="button" onClick={() => setSubmitted(false)} className="briefing-btn-back">
+              ← Continuar Editando
+            </button>
+            <Link href="/" style={{
+              display: "inline-block", background: "var(--sinal)", color: "var(--obsidiana)", fontFamily: "var(--font-mono)",
+              fontSize: "12px", fontWeight: 700, padding: "14px 28px", borderRadius: "4px", textTransform: "uppercase", letterSpacing: "0.05em",
+            }}>
+              Voltar ao Início
+            </Link>
+          </div>
         </div>
       ) : (
         <form onSubmit={handleSubmit} style={{ background: "var(--grafite)", border: "1px solid var(--border)", borderRadius: "8px", padding: "clamp(20px, 4vw, 36px)" }}>
@@ -927,7 +1012,7 @@ export function FormularioKairos({ pin }: { pin: string }) {
               <div className="briefing-actions">
                 <button type="button" onClick={() => setCurrentStep(7)} className="briefing-btn-back">← Voltar</button>
                 <button type="submit" disabled={loading} className="briefing-btn-submit">
-                  {loading ? "Enviando Respostas..." : "Finalizar e Enviar Respostas →"}
+                  {loading ? "Salvando..." : "Salvar Respostas →"}
                 </button>
               </div>
             </div>

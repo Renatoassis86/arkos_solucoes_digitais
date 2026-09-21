@@ -18,8 +18,11 @@ export default function BriefingPlataformaComercialPage() {
   const [modoPrivado, setModoPrivado] = useState(false);
   const [validandoPin, setValidandoPin] = useState(false);
   const [pinError, setPinError] = useState("");
-  const [jaRespondido, setJaRespondido] = useState(false);
+  const [dadosSalvos, setDadosSalvos] = useState<Record<string, unknown> | null>(null);
 
+  // Um PIN nunca "trava" depois de usado: pode ser reaberto e atualizado
+  // quantas vezes for preciso. Se já existir uma resposta salva pra esse
+  // código, ela vem aqui e o formulário carrega já preenchido.
   const handleValidarPin = async (e: React.FormEvent) => {
     e.preventDefault();
     setPinError("");
@@ -40,7 +43,7 @@ export default function BriefingPlataformaComercialPage() {
         setPinError("Código inválido. Confira o código recebido e tente novamente.");
         return;
       }
-      setJaRespondido(!!data.jaRespondido);
+      setDadosSalvos(data.dadosSalvos ?? null);
       setModoPrivado(true);
     } catch {
       setPinError("Falha de conexão. Verifique sua internet e tente novamente.");
@@ -92,24 +95,7 @@ export default function BriefingPlataformaComercialPage() {
         )}
 
         {modoPrivado ? (
-          jaRespondido ? (
-            <div style={{ background: "var(--grafite)", border: "1px solid var(--border)", borderRadius: "8px", padding: "40px 28px", textAlign: "center" }}>
-              <div style={{
-                width: "56px", height: "56px", borderRadius: "50%", background: "var(--sinal)", color: "var(--obsidiana)",
-                display: "flex", alignItems: "center", justifyContent: "center", fontSize: "26px", fontWeight: "bold", margin: "0 auto 16px",
-              }}>
-                ✓
-              </div>
-              <h2 style={{ fontFamily: "var(--font-display)", fontSize: "22px", color: "var(--text-primary)", marginBottom: "10px" }}>
-                Este código já foi usado
-              </h2>
-              <p style={{ color: "var(--text-secondary)", fontSize: "14px", lineHeight: 1.6 }}>
-                As respostas ligadas a este código já foram enviadas. Cada código é de uso único. Se você ainda não respondeu, confirme com quem te passou o código.
-              </p>
-            </div>
-          ) : (
-            <FormularioKairos pin={pin} />
-          )
+          <FormularioKairos pin={pin} dadosIniciais={dadosSalvos} />
         ) : (
           <FormularioGenerico />
         )}
